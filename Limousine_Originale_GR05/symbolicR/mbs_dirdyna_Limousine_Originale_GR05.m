@@ -1,0 +1,5621 @@
+%
+%-------------------------------------------------------------
+%
+%	ROBOTRAN - Version 6.6 (build : february 22, 2008)
+%
+%	Copyright 
+%	Universite catholique de Louvain 
+%	Departement de Mecanique 
+%	Unite de Production Mecanique et Machines 
+%	2, Place du Levant 
+%	1348 Louvain-la-Neuve 
+%	http://www.robotran.be// 
+%
+%	==> Generation Date : Sat Apr 25 21:13:52 2015
+%
+%	==> Project name : Limousine_Originale_GR05
+%	==> using XML input file 
+%
+%	==> Number of joints : 63
+%
+%	==> Function : F 1 : Direct Dynamics (Semi-Explicit formulation) : RNEA
+%	==> Flops complexity : 21193
+%
+%	==> Generation Time :  0.270 seconds
+%	==> Post-Processing :  0.400 seconds
+%
+%-------------------------------------------------------------
+%
+function [M,c] = dirdyna(s,tsim,usrfun)
+
+ M = zeros(63,63);
+ c = zeros(63,1);
+
+q = s.q; 
+qd = s.qd; 
+qdd = s.qdd; 
+frc = s.frc; 
+trq = s.trq; 
+
+% === begin imp_aux === 
+
+% === end imp_aux === 
+
+% ===== BEGIN task 0 ===== 
+
+% = = Block_0_0_0_0_0_1 = = 
+ 
+% Trigonometric Variables  
+
+  C4 = cos(q(4));
+  S4 = sin(q(4));
+  C5 = cos(q(5));
+  S5 = sin(q(5));
+  C6 = cos(q(6));
+  S6 = sin(q(6));
+
+% = = Block_0_0_0_0_0_2 = = 
+ 
+% Trigonometric Variables  
+
+  C7 = cos(q(7));
+  S7 = sin(q(7));
+  C8 = cos(q(8));
+  S8 = sin(q(8));
+  C9 = cos(q(9));
+  S9 = sin(q(9));
+  C10 = cos(q(10));
+  S10 = sin(q(10));
+  C11 = cos(q(11));
+  S11 = sin(q(11));
+  C12 = cos(q(12));
+  S12 = sin(q(12));
+  C13 = cos(q(13));
+  S13 = sin(q(13));
+  C14 = cos(q(14));
+  S14 = sin(q(14));
+  C15 = cos(q(15));
+  S15 = sin(q(15));
+
+% = = Block_0_0_0_0_0_3 = = 
+ 
+% Trigonometric Variables  
+
+  C16 = cos(q(16));
+  S16 = sin(q(16));
+  C17 = cos(q(17));
+  S17 = sin(q(17));
+
+% = = Block_0_0_0_0_0_4 = = 
+ 
+% Trigonometric Variables  
+
+  C18 = cos(q(18));
+  S18 = sin(q(18));
+  C19 = cos(q(19));
+  S19 = sin(q(19));
+
+% = = Block_0_0_0_0_0_5 = = 
+ 
+% Trigonometric Variables  
+
+  C20 = cos(q(20));
+  S20 = sin(q(20));
+  C21 = cos(q(21));
+  S21 = sin(q(21));
+
+% = = Block_0_0_0_0_0_6 = = 
+ 
+% Trigonometric Variables  
+
+  C22 = cos(q(22));
+  S22 = sin(q(22));
+  C23 = cos(q(23));
+  S23 = sin(q(23));
+
+% = = Block_0_0_0_0_0_7 = = 
+ 
+% Trigonometric Variables  
+
+  C24 = cos(q(24));
+  S24 = sin(q(24));
+  C25 = cos(q(25));
+  S25 = sin(q(25));
+  C26 = cos(q(26));
+  S26 = sin(q(26));
+  C27 = cos(q(27));
+  S27 = sin(q(27));
+  C28 = cos(q(28));
+  S28 = sin(q(28));
+  C29 = cos(q(29));
+  S29 = sin(q(29));
+  C30 = cos(q(30));
+  S30 = sin(q(30));
+  C31 = cos(q(31));
+  S31 = sin(q(31));
+  C32 = cos(q(32));
+  S32 = sin(q(32));
+
+% = = Block_0_0_0_0_0_9 = = 
+ 
+% Trigonometric Variables  
+
+  C34 = cos(q(34));
+  S34 = sin(q(34));
+  C35 = cos(q(35));
+  S35 = sin(q(35));
+  C36 = cos(q(36));
+  S36 = sin(q(36));
+  C37 = cos(q(37));
+  S37 = sin(q(37));
+  C38 = cos(q(38));
+  S38 = sin(q(38));
+  C39 = cos(q(39));
+  S39 = sin(q(39));
+  C40 = cos(q(40));
+  S40 = sin(q(40));
+  C41 = cos(q(41));
+  S41 = sin(q(41));
+  C42 = cos(q(42));
+  S42 = sin(q(42));
+
+% = = Block_0_0_0_0_0_10 = = 
+ 
+% Trigonometric Variables  
+
+  C43 = cos(q(43));
+  S43 = sin(q(43));
+  C44 = cos(q(44));
+  S44 = sin(q(44));
+
+% = = Block_0_0_0_0_0_11 = = 
+ 
+% Trigonometric Variables  
+
+  C45 = cos(q(45));
+  S45 = sin(q(45));
+  C46 = cos(q(46));
+  S46 = sin(q(46));
+
+% = = Block_0_0_0_0_0_12 = = 
+ 
+% Trigonometric Variables  
+
+  C47 = cos(q(47));
+  S47 = sin(q(47));
+  C48 = cos(q(48));
+  S48 = sin(q(48));
+  C49 = cos(q(49));
+  S49 = sin(q(49));
+  C50 = cos(q(50));
+  S50 = sin(q(50));
+  C51 = cos(q(51));
+  S51 = sin(q(51));
+  C52 = cos(q(52));
+  S52 = sin(q(52));
+  C53 = cos(q(53));
+  S53 = sin(q(53));
+  C54 = cos(q(54));
+  S54 = sin(q(54));
+  C55 = cos(q(55));
+  S55 = sin(q(55));
+
+% = = Block_0_0_0_0_0_13 = = 
+ 
+% Trigonometric Variables  
+
+  C56 = cos(q(56));
+  S56 = sin(q(56));
+  C57 = cos(q(57));
+  S57 = sin(q(57));
+
+% = = Block_0_0_0_0_0_14 = = 
+ 
+% Trigonometric Variables  
+
+  C58 = cos(q(58));
+  S58 = sin(q(58));
+  C59 = cos(q(59));
+  S59 = sin(q(59));
+
+% = = Block_0_0_0_0_0_15 = = 
+ 
+% Trigonometric Variables  
+
+  C60 = cos(q(60));
+  S60 = sin(q(60));
+  C61 = cos(q(61));
+  S61 = sin(q(61));
+
+% = = Block_0_0_0_0_0_16 = = 
+ 
+% Trigonometric Variables  
+
+  C62 = cos(q(62));
+  S62 = sin(q(62));
+  C63 = cos(q(63));
+  S63 = sin(q(63));
+
+% = = Block_0_1_0_0_0_1 = = 
+ 
+% Forward Kinematics 
+
+  OM35 = qd(4)*C5;
+  OpF25 = qd(4)*qd(5)*C5;
+  OpF35 = -qd(4)*qd(5)*S5;
+  AlF25 = -s.g(3)*S5;
+  AlF35 = -s.g(3)*C5;
+  AlM25_1 = -S4*C5;
+  AlM35_1 = S4*S5;
+  AlM25_2 = C4*C5;
+  AlM35_2 = -C4*S5;
+  OM16 = qd(5)*C6-OM35*S6;
+  OM26 = qd(6)+qd(4)*S5;
+  OM36 = qd(5)*S6+OM35*C6;
+  OpF16 = -(qd(6)*OM35*C6+S6*(OpF35+qd(5)*qd(6)));
+  OpF36 = -(qd(6)*OM35*S6-C6*(OpF35+qd(5)*qd(6)));
+  BS16 = -(OM26*OM26+OM36*OM36);
+  BS26 = OM16*OM26;
+  BS36 = OM16*OM36;
+  BS56 = -(OM16*OM16+OM36*OM36);
+  BS66 = OM26*OM36;
+  BS96 = -(OM16*OM16+OM26*OM26);
+  BeF26 = BS26-OpF36;
+  BeF36 = BS36+OpF25;
+  BeF46 = BS26+OpF36;
+  BeF66 = BS66-OpF16;
+  BeF76 = BS36-OpF25;
+  BeF86 = BS66+OpF16;
+  AlF16 = -AlF35*S6;
+  AlF36 = AlF35*C6;
+  AlM16_1 = -(AlM35_1*S6-C4*C6);
+  AlM36_1 = AlM35_1*C6+C4*S6;
+  AlM16_2 = -(AlM35_2*S6-S4*C6);
+  AlM36_2 = AlM35_2*C6+S4*S6;
+  AlM16_3 = -C5*S6;
+  AlM36_3 = C5*C6;
+  OpM16_4 = -C5*S6;
+  OpM36_4 = C5*C6;
+
+% = = Block_0_1_0_1_0_2 = = 
+ 
+% Trigonometric Variables  
+
+  S10p9 = C10*S9+S10*C9;
+  C10p9 = C10*C9-S10*S9;
+  C12p13 = C12*C13-S12*S13;
+  S12p13 = C12*S13+S12*C13;
+ 
+% Forward Kinematics 
+
+  OM17 = OM16*C7+OM26*S7;
+  OM37 = qd(7)+OM36;
+  OpF17 = C7*(OpF16+qd(7)*OM26)+S7*(OpF25-qd(7)*OM16);
+  OpF27 = C7*(OpF25-qd(7)*OM16)-S7*(OpF16+qd(7)*OM26);
+  AlF17 = C7*(AlF16+BS16*s.dpt(1,1)+BeF26*s.dpt(2,1)+BeF36*s.dpt(3,1))+S7*(AlF25+BS56*s.dpt(2,1)+BeF46*s.dpt(1,1)+BeF66*s.dpt(3,1));
+  AlF27 = C7*(AlF25+BS56*s.dpt(2,1)+BeF46*s.dpt(1,1)+BeF66*s.dpt(3,1))-S7*(AlF16+BS16*s.dpt(1,1)+BeF26*s.dpt(2,1)+BeF36*s.dpt(3,1));
+  AlF37 = AlF36+BS96*s.dpt(3,1)+BeF76*s.dpt(1,1)+BeF86*s.dpt(2,1);
+  AlM17_1 = AlM16_1*C7+AlM25_1*S7;
+  AlM27_1 = -(AlM16_1*S7-AlM25_1*C7);
+  AlM17_2 = AlM16_2*C7+AlM25_2*S7;
+  AlM27_2 = -(AlM16_2*S7-AlM25_2*C7);
+  AlM17_3 = AlM16_3*C7+S5*S7;
+  AlM27_3 = -(AlM16_3*S7-S5*C7);
+  OpM17_4 = OpM16_4*C7+S5*S7;
+  OpM27_4 = -(OpM16_4*S7-S5*C7);
+  AlM17_4 = -(C7*(OpM36_4*s.dpt(2,1)-s.dpt(3,1)*S5)+S7*(OpM16_4*s.dpt(3,1)-OpM36_4*s.dpt(1,1)));
+  AlM27_4 = -(C7*(OpM16_4*s.dpt(3,1)-OpM36_4*s.dpt(1,1))-S7*(OpM36_4*s.dpt(2,1)-s.dpt(3,1)*S5));
+  AlM37_4 = OpM16_4*s.dpt(2,1)-s.dpt(1,1)*S5;
+  OpM17_5 = C6*C7;
+  OpM27_5 = -C6*S7;
+  AlM17_5 = -(s.dpt(2,1)*S6*C7-S7*(s.dpt(1,1)*S6-s.dpt(3,1)*C6));
+  AlM27_5 = s.dpt(2,1)*S6*S7+C7*(s.dpt(1,1)*S6-s.dpt(3,1)*C6);
+  AlM37_5 = s.dpt(2,1)*C6;
+  AlM17_6 = s.dpt(3,1)*C7;
+  AlM27_6 = -s.dpt(3,1)*S7;
+  OM28 = qd(8)-OM16*S7+OM26*C7;
+  OM38 = OM17*S8+OM37*C8;
+  OpF18 = C8*(OpF17-qd(8)*OM37)-S8*(OpF36+qd(8)*OM17);
+  OpF38 = C8*(OpF36+qd(8)*OM17)+S8*(OpF17-qd(8)*OM37);
+  AlF18 = AlF17*C8-AlF37*S8;
+  AlF38 = AlF17*S8+AlF37*C8;
+  AlM18_1 = AlM17_1*C8-AlM36_1*S8;
+  AlM38_1 = AlM17_1*S8+AlM36_1*C8;
+  AlM18_2 = AlM17_2*C8-AlM36_2*S8;
+  AlM38_2 = AlM17_2*S8+AlM36_2*C8;
+  AlM18_3 = AlM17_3*C8-AlM36_3*S8;
+  AlM38_3 = AlM17_3*S8+AlM36_3*C8;
+  OpM18_4 = OpM17_4*C8-OpM36_4*S8;
+  OpM38_4 = OpM17_4*S8+OpM36_4*C8;
+  AlM18_4 = AlM17_4*C8-AlM37_4*S8;
+  AlM38_4 = AlM17_4*S8+AlM37_4*C8;
+  OpM18_5 = OpM17_5*C8-S6*S8;
+  OpM38_5 = OpM17_5*S8+S6*C8;
+  AlM18_5 = AlM17_5*C8-AlM37_5*S8;
+  AlM38_5 = AlM17_5*S8+AlM37_5*C8;
+  OpM18_6 = S7*C8;
+  OpM38_6 = S7*S8;
+  AlM18_6 = AlM17_6*C8+s.dpt(1,1)*S8;
+  AlM38_6 = AlM17_6*S8-s.dpt(1,1)*C8;
+  OM19 = qd(9)+OM17*C8-OM37*S8;
+  OM29 = OM28*C9+OM38*S9;
+  OM39 = -(OM28*S9-OM38*C9);
+  OpF29 = C9*(OpF27+qd(9)*OM38)+S9*(OpF38-qd(9)*OM28);
+  OpF39 = C9*(OpF38-qd(9)*OM28)-S9*(OpF27+qd(9)*OM38);
+  BS59 = -(OM19*OM19+OM39*OM39);
+  BeF29 = OM19*OM29-OpF39;
+  BeF89 = OpF18+OM29*OM39;
+  AlF29 = AlF27*C9+AlF38*S9;
+  AlF39 = -(AlF27*S9-AlF38*C9);
+  AlM29_1 = AlM27_1*C9+AlM38_1*S9;
+  AlM39_1 = -(AlM27_1*S9-AlM38_1*C9);
+  AlM29_2 = AlM27_2*C9+AlM38_2*S9;
+  AlM39_2 = -(AlM27_2*S9-AlM38_2*C9);
+  AlM29_3 = AlM27_3*C9+AlM38_3*S9;
+  AlM39_3 = -(AlM27_3*S9-AlM38_3*C9);
+  OpM29_4 = OpM27_4*C9+OpM38_4*S9;
+  OpM39_4 = -(OpM27_4*S9-OpM38_4*C9);
+  AlM29_4 = AlM27_4*C9+AlM38_4*S9;
+  AlM39_4 = -(AlM27_4*S9-AlM38_4*C9);
+  OpM29_5 = OpM27_5*C9+OpM38_5*S9;
+  OpM39_5 = -(OpM27_5*S9-OpM38_5*C9);
+  AlM29_5 = AlM27_5*C9+AlM38_5*S9;
+  AlM39_5 = -(AlM27_5*S9-AlM38_5*C9);
+  OpM29_6 = OpM38_6*S9+C7*C9;
+  OpM39_6 = OpM38_6*C9-C7*S9;
+  AlM29_6 = AlM27_6*C9+AlM38_6*S9;
+  AlM39_6 = -(AlM27_6*S9-AlM38_6*C9);
+  OpM39_7 = C8*C9;
+  OM110 = qd(10)+OM19;
+  OM310 = -(OM29*S10-OM39*C10);
+  OpF210 = C10*(OpF29+qd(10)*OM39)+S10*(OpF39-qd(10)*OM29);
+  OpF310 = C10*(OpF39-qd(10)*OM29)-S10*(OpF29+qd(10)*OM39);
+  AlF110 = AlF18+BeF29*s.dpt(2,24);
+  AlF210 = C10*(AlF29+BS59*s.dpt(2,24))+S10*(AlF39+BeF89*s.dpt(2,24));
+  AlF310 = C10*(AlF39+BeF89*s.dpt(2,24))-S10*(AlF29+BS59*s.dpt(2,24));
+  AlM210_1 = AlM29_1*C10+AlM39_1*S10;
+  AlM310_1 = -(AlM29_1*S10-AlM39_1*C10);
+  AlM210_2 = AlM29_2*C10+AlM39_2*S10;
+  AlM310_2 = -(AlM29_2*S10-AlM39_2*C10);
+  AlM210_3 = AlM29_3*C10+AlM39_3*S10;
+  AlM310_3 = -(AlM29_3*S10-AlM39_3*C10);
+  OpM210_4 = OpM29_4*C10+OpM39_4*S10;
+  OpM310_4 = -(OpM29_4*S10-OpM39_4*C10);
+  AlM110_4 = AlM18_4-OpM39_4*s.dpt(2,24);
+  AlM210_4 = AlM29_4*C10+S10*(AlM39_4+OpM18_4*s.dpt(2,24));
+  AlM310_4 = -(AlM29_4*S10-C10*(AlM39_4+OpM18_4*s.dpt(2,24)));
+  OpM210_5 = OpM29_5*C10+OpM39_5*S10;
+  OpM310_5 = -(OpM29_5*S10-OpM39_5*C10);
+  AlM110_5 = AlM18_5-OpM39_5*s.dpt(2,24);
+  AlM210_5 = AlM29_5*C10+S10*(AlM39_5+OpM18_5*s.dpt(2,24));
+  AlM310_5 = -(AlM29_5*S10-C10*(AlM39_5+OpM18_5*s.dpt(2,24)));
+  OpM210_6 = OpM29_6*C10+OpM39_6*S10;
+  OpM310_6 = -(OpM29_6*S10-OpM39_6*C10);
+  AlM110_6 = AlM18_6-OpM39_6*s.dpt(2,24);
+  AlM210_6 = AlM29_6*C10+S10*(AlM39_6+OpM18_6*s.dpt(2,24));
+  AlM310_6 = -(AlM29_6*S10-C10*(AlM39_6+OpM18_6*s.dpt(2,24)));
+  OpM210_7 = C8*S10p9;
+  OpM310_7 = C8*C10p9;
+  AlM110_7 = -OpM39_7*s.dpt(2,24);
+  AlM210_7 = -s.dpt(2,24)*S10*S8;
+  AlM310_7 = -s.dpt(2,24)*C10*S8;
+  AlM110_8 = s.dpt(2,24)*S9;
+  AlM210_9 = s.dpt(2,24)*S10;
+  AlM310_9 = s.dpt(2,24)*C10;
+  OM111 = OM110*C11-OM310*S11;
+  OM211 = qd(11)+OM29*C10+OM39*S10;
+  OpF111 = C11*(OpF18-qd(11)*OM310)-S11*(OpF310+qd(11)*OM110);
+  OpF311 = C11*(OpF310+qd(11)*OM110)+S11*(OpF18-qd(11)*OM310);
+  AlF111 = AlF110*C11-AlF310*S11;
+  AlF311 = AlF110*S11+AlF310*C11;
+  AlM111_1 = AlM18_1*C11-AlM310_1*S11;
+  AlM311_1 = AlM18_1*S11+AlM310_1*C11;
+  AlM111_2 = AlM18_2*C11-AlM310_2*S11;
+  AlM311_2 = AlM18_2*S11+AlM310_2*C11;
+  AlM111_3 = AlM18_3*C11-AlM310_3*S11;
+  AlM311_3 = AlM18_3*S11+AlM310_3*C11;
+  OpM111_4 = OpM18_4*C11-OpM310_4*S11;
+  OpM311_4 = OpM18_4*S11+OpM310_4*C11;
+  AlM111_4 = AlM110_4*C11-AlM310_4*S11;
+  AlM311_4 = AlM110_4*S11+AlM310_4*C11;
+  OpM111_5 = OpM18_5*C11-OpM310_5*S11;
+  OpM311_5 = OpM18_5*S11+OpM310_5*C11;
+  AlM111_5 = AlM110_5*C11-AlM310_5*S11;
+  AlM311_5 = AlM110_5*S11+AlM310_5*C11;
+  OpM111_6 = OpM18_6*C11-OpM310_6*S11;
+  OpM311_6 = OpM18_6*S11+OpM310_6*C11;
+  AlM111_6 = AlM110_6*C11-AlM310_6*S11;
+  AlM311_6 = AlM110_6*S11+AlM310_6*C11;
+  OpM111_7 = -(OpM310_7*S11+C11*S8);
+  OpM311_7 = OpM310_7*C11-S11*S8;
+  AlM111_7 = AlM110_7*C11-AlM310_7*S11;
+  AlM311_7 = AlM110_7*S11+AlM310_7*C11;
+  OpM111_8 = S11*S10p9;
+  OpM311_8 = -C11*S10p9;
+  AlM111_8 = AlM110_8*C11;
+  AlM311_8 = AlM110_8*S11;
+  AlM111_9 = -AlM310_9*S11;
+  AlM311_9 = AlM310_9*C11;
+  OM112 = OM111*C12+OM211*S12;
+  OM212 = -(OM111*S12-OM211*C12);
+  OM312 = qd(12)+OM110*S11+OM310*C11;
+  OpF112 = C12*(OpF111+qd(12)*OM211)+S12*(OpF210-qd(12)*OM111);
+  OpF212 = C12*(OpF210-qd(12)*OM111)-S12*(OpF111+qd(12)*OM211);
+  BS112 = -(OM212*OM212+OM312*OM312);
+  BS212 = OM112*OM212;
+  BS312 = OM112*OM312;
+  BS512 = -(OM112*OM112+OM312*OM312);
+  BS612 = OM212*OM312;
+  BS912 = -(OM112*OM112+OM212*OM212);
+  BeF212 = BS212-OpF311;
+  BeF312 = BS312+OpF212;
+  BeF412 = BS212+OpF311;
+  BeF612 = BS612-OpF112;
+  BeF712 = BS312-OpF212;
+  BeF812 = BS612+OpF112;
+  AlF112 = AlF111*C12+AlF210*S12;
+  AlF212 = -(AlF111*S12-AlF210*C12);
+  AlM112_1 = AlM111_1*C12+AlM210_1*S12;
+  AlM212_1 = -(AlM111_1*S12-AlM210_1*C12);
+  AlM112_2 = AlM111_2*C12+AlM210_2*S12;
+  AlM212_2 = -(AlM111_2*S12-AlM210_2*C12);
+  AlM112_3 = AlM111_3*C12+AlM210_3*S12;
+  AlM212_3 = -(AlM111_3*S12-AlM210_3*C12);
+  OpM112_4 = OpM111_4*C12+OpM210_4*S12;
+  OpM212_4 = -(OpM111_4*S12-OpM210_4*C12);
+  AlM112_4 = AlM111_4*C12+AlM210_4*S12;
+  AlM212_4 = -(AlM111_4*S12-AlM210_4*C12);
+  OpM112_5 = OpM111_5*C12+OpM210_5*S12;
+  OpM212_5 = -(OpM111_5*S12-OpM210_5*C12);
+  AlM112_5 = AlM111_5*C12+AlM210_5*S12;
+  AlM212_5 = -(AlM111_5*S12-AlM210_5*C12);
+  OpM112_6 = OpM111_6*C12+OpM210_6*S12;
+  OpM212_6 = -(OpM111_6*S12-OpM210_6*C12);
+  AlM112_6 = AlM111_6*C12+AlM210_6*S12;
+  AlM212_6 = -(AlM111_6*S12-AlM210_6*C12);
+  OpM112_7 = OpM111_7*C12+OpM210_7*S12;
+  OpM212_7 = -(OpM111_7*S12-OpM210_7*C12);
+  AlM112_7 = AlM111_7*C12+AlM210_7*S12;
+  AlM212_7 = -(AlM111_7*S12-AlM210_7*C12);
+  OpM112_8 = OpM111_8*C12+S12*C10p9;
+  OpM212_8 = -(OpM111_8*S12-C12*C10p9);
+  AlM112_8 = AlM111_8*C12;
+  AlM212_8 = -AlM111_8*S12;
+  OpM112_9 = C11*C12;
+  OpM212_9 = -C11*S12;
+  AlM112_9 = AlM111_9*C12+AlM210_9*S12;
+  AlM212_9 = -(AlM111_9*S12-AlM210_9*C12);
+  OpM112_10 = C11*C12;
+  OpM212_10 = -C11*S12;
+  OM213 = -(OM112*S13-OM212*C13);
+  OM313 = qd(13)+OM312;
+  OpF113 = C13*(OpF112+qd(13)*OM212)+S13*(OpF212-qd(13)*OM112);
+  OpF213 = C13*(OpF212-qd(13)*OM112)-S13*(OpF112+qd(13)*OM212);
+  AlF113 = C13*(AlF112+BS112*s.dpt(1,27)+BeF212*s.dpt(2,27)+BeF312*s.dpt(3,27))+S13*(AlF212+BS512*s.dpt(2,27)+BeF412*s.dpt(1,27)+BeF612*...
+ s.dpt(3,27));
+  AlF213 = C13*(AlF212+BS512*s.dpt(2,27)+BeF412*s.dpt(1,27)+BeF612*s.dpt(3,27))-S13*(AlF112+BS112*s.dpt(1,27)+BeF212*s.dpt(2,27)+BeF312*...
+ s.dpt(3,27));
+  AlF313 = AlF311+BS912*s.dpt(3,27)+BeF712*s.dpt(1,27)+BeF812*s.dpt(2,27);
+  AlM113_1 = AlM112_1*C13+AlM212_1*S13;
+  AlM213_1 = -(AlM112_1*S13-AlM212_1*C13);
+  AlM113_2 = AlM112_2*C13+AlM212_2*S13;
+  AlM213_2 = -(AlM112_2*S13-AlM212_2*C13);
+  AlM113_3 = AlM112_3*C13+AlM212_3*S13;
+  AlM213_3 = -(AlM112_3*S13-AlM212_3*C13);
+  OpM113_4 = OpM112_4*C13+OpM212_4*S13;
+  OpM213_4 = -(OpM112_4*S13-OpM212_4*C13);
+  AlM113_4 = C13*(AlM112_4+OpM212_4*s.dpt(3,27)-OpM311_4*s.dpt(2,27))+S13*(AlM212_4-OpM112_4*s.dpt(3,27)+OpM311_4*s.dpt(1,27));
+  AlM213_4 = C13*(AlM212_4-OpM112_4*s.dpt(3,27)+OpM311_4*s.dpt(1,27))-S13*(AlM112_4+OpM212_4*s.dpt(3,27)-OpM311_4*s.dpt(2,27));
+  AlM313_4 = AlM311_4+OpM112_4*s.dpt(2,27)-OpM212_4*s.dpt(1,27);
+  OpM113_5 = OpM112_5*C13+OpM212_5*S13;
+  OpM213_5 = -(OpM112_5*S13-OpM212_5*C13);
+  AlM113_5 = C13*(AlM112_5+OpM212_5*s.dpt(3,27)-OpM311_5*s.dpt(2,27))+S13*(AlM212_5-OpM112_5*s.dpt(3,27)+OpM311_5*s.dpt(1,27));
+  AlM213_5 = C13*(AlM212_5-OpM112_5*s.dpt(3,27)+OpM311_5*s.dpt(1,27))-S13*(AlM112_5+OpM212_5*s.dpt(3,27)-OpM311_5*s.dpt(2,27));
+  AlM313_5 = AlM311_5+OpM112_5*s.dpt(2,27)-OpM212_5*s.dpt(1,27);
+  OpM113_6 = OpM112_6*C13+OpM212_6*S13;
+  OpM213_6 = -(OpM112_6*S13-OpM212_6*C13);
+  AlM113_6 = C13*(AlM112_6+OpM212_6*s.dpt(3,27)-OpM311_6*s.dpt(2,27))+S13*(AlM212_6-OpM112_6*s.dpt(3,27)+OpM311_6*s.dpt(1,27));
+  AlM213_6 = C13*(AlM212_6-OpM112_6*s.dpt(3,27)+OpM311_6*s.dpt(1,27))-S13*(AlM112_6+OpM212_6*s.dpt(3,27)-OpM311_6*s.dpt(2,27));
+  AlM313_6 = AlM311_6+OpM112_6*s.dpt(2,27)-OpM212_6*s.dpt(1,27);
+  OpM113_7 = OpM112_7*C13+OpM212_7*S13;
+  OpM213_7 = -(OpM112_7*S13-OpM212_7*C13);
+  AlM113_7 = C13*(AlM112_7+OpM212_7*s.dpt(3,27)-OpM311_7*s.dpt(2,27))+S13*(AlM212_7-OpM112_7*s.dpt(3,27)+OpM311_7*s.dpt(1,27));
+  AlM213_7 = C13*(AlM212_7-OpM112_7*s.dpt(3,27)+OpM311_7*s.dpt(1,27))-S13*(AlM112_7+OpM212_7*s.dpt(3,27)-OpM311_7*s.dpt(2,27));
+  AlM313_7 = AlM311_7+OpM112_7*s.dpt(2,27)-OpM212_7*s.dpt(1,27);
+  OpM113_8 = OpM112_8*C13+OpM212_8*S13;
+  OpM213_8 = -(OpM112_8*S13-OpM212_8*C13);
+  AlM113_8 = C13*(AlM112_8+OpM212_8*s.dpt(3,27)-OpM311_8*s.dpt(2,27))+S13*(AlM212_8-OpM112_8*s.dpt(3,27)+OpM311_8*s.dpt(1,27));
+  AlM213_8 = C13*(AlM212_8-OpM112_8*s.dpt(3,27)+OpM311_8*s.dpt(1,27))-S13*(AlM112_8+OpM212_8*s.dpt(3,27)-OpM311_8*s.dpt(2,27));
+  AlM313_8 = AlM311_8+OpM112_8*s.dpt(2,27)-OpM212_8*s.dpt(1,27);
+  OpM113_9 = C11*C12p13;
+  OpM213_9 = -C11*S12p13;
+  AlM113_9 = C13*(AlM112_9+OpM212_9*s.dpt(3,27)-s.dpt(2,27)*S11)+S13*(AlM212_9-OpM112_9*s.dpt(3,27)+s.dpt(1,27)*S11);
+  AlM213_9 = C13*(AlM212_9-OpM112_9*s.dpt(3,27)+s.dpt(1,27)*S11)-S13*(AlM112_9+OpM212_9*s.dpt(3,27)-s.dpt(2,27)*S11);
+  AlM313_9 = AlM311_9+OpM112_9*s.dpt(2,27)-OpM212_9*s.dpt(1,27);
+  OpM113_10 = C11*C12p13;
+  OpM213_10 = -C11*S12p13;
+  AlM113_10 = C13*(OpM212_10*s.dpt(3,27)-s.dpt(2,27)*S11)-S13*(OpM112_10*s.dpt(3,27)-s.dpt(1,27)*S11);
+  AlM213_10 = -(C13*(OpM112_10*s.dpt(3,27)-s.dpt(1,27)*S11)+S13*(OpM212_10*s.dpt(3,27)-s.dpt(2,27)*S11));
+  AlM313_10 = OpM112_10*s.dpt(2,27)-OpM212_10*s.dpt(1,27);
+  AlM113_11 = s.dpt(3,27)*C12p13;
+  AlM213_11 = -s.dpt(3,27)*S12p13;
+  AlM313_11 = -(s.dpt(1,27)*C12-s.dpt(2,27)*S12);
+  AlM113_12 = s.dpt(1,27)*S13-s.dpt(2,27)*C13;
+  AlM213_12 = s.dpt(1,27)*C13+s.dpt(2,27)*S13;
+  OM114 = qd(14)+OM112*C13+OM212*S13;
+  OM314 = -(OM213*S14-OM313*C14);
+  OpF314 = C14*(OpF311-qd(14)*OM213)-S14*(OpF213+qd(14)*OM313);
+  AlF314 = -(AlF213*S14-AlF313*C14);
+  AlM314_1 = -(AlM213_1*S14-AlM311_1*C14);
+  AlM314_2 = -(AlM213_2*S14-AlM311_2*C14);
+  AlM314_3 = -(AlM213_3*S14-AlM311_3*C14);
+  OpM314_4 = -(OpM213_4*S14-OpM311_4*C14);
+  AlM314_4 = -(AlM213_4*S14-AlM313_4*C14);
+  OpM314_5 = -(OpM213_5*S14-OpM311_5*C14);
+  AlM314_5 = -(AlM213_5*S14-AlM313_5*C14);
+  OpM314_6 = -(OpM213_6*S14-OpM311_6*C14);
+  AlM314_6 = -(AlM213_6*S14-AlM313_6*C14);
+  OpM314_7 = -(OpM213_7*S14-OpM311_7*C14);
+  AlM314_7 = -(AlM213_7*S14-AlM313_7*C14);
+  OpM314_8 = -(OpM213_8*S14-OpM311_8*C14);
+  AlM314_8 = -(AlM213_8*S14-AlM313_8*C14);
+  OpM314_9 = -(OpM213_9*S14-S11*C14);
+  AlM314_9 = -(AlM213_9*S14-AlM313_9*C14);
+  OpM314_10 = -(OpM213_10*S14-S11*C14);
+  AlM314_10 = -(AlM213_10*S14-AlM313_10*C14);
+  OpM314_11 = -S14*C12p13;
+  AlM314_11 = -(AlM213_11*S14-AlM313_11*C14);
+  AlM314_12 = -AlM213_12*S14;
+  OM115 = OM114*C15-OM314*S15;
+  OM215 = qd(15)+OM213*C14+OM313*S14;
+  OM315 = OM114*S15+OM314*C15;
+
+% = = Block_0_1_0_1_0_3 = = 
+ 
+% Forward Kinematics 
+
+  OM216 = -(OM16*S16-OM26*C16);
+  OM316 = qd(16)+OM36;
+  OpF116 = C16*(OpF16+qd(16)*OM26)+S16*(OpF25-qd(16)*OM16);
+  OpF216 = C16*(OpF25-qd(16)*OM16)-S16*(OpF16+qd(16)*OM26);
+  AlF216 = C16*(AlF25+BS56*s.dpt(2,2)+BeF46*s.dpt(1,2)+BeF66*s.dpt(3,2))-S16*(AlF16+BS16*s.dpt(1,2)+BeF26*s.dpt(2,2)+BeF36*s.dpt(3,2));
+  AlF316 = AlF36+BS96*s.dpt(3,2)+BeF76*s.dpt(1,2)+BeF86*s.dpt(2,2);
+  AlM216_1 = -(AlM16_1*S16-AlM25_1*C16);
+  AlM216_2 = -(AlM16_2*S16-AlM25_2*C16);
+  AlM216_3 = -(AlM16_3*S16-C16*S5);
+  OpM116_4 = OpM16_4*C16+S16*S5;
+  OpM216_4 = -(OpM16_4*S16-C16*S5);
+  AlM216_4 = -(C16*(OpM16_4*s.dpt(3,2)-OpM36_4*s.dpt(1,2))-S16*(OpM36_4*s.dpt(2,2)-s.dpt(3,2)*S5));
+  AlM316_4 = OpM16_4*s.dpt(2,2)-s.dpt(1,2)*S5;
+  OpM116_5 = C16*C6;
+  OpM216_5 = -S16*C6;
+  AlM216_5 = s.dpt(2,2)*S16*S6+C16*(s.dpt(1,2)*S6-s.dpt(3,2)*C6);
+  AlM316_5 = s.dpt(2,2)*C6;
+  AlM216_6 = -s.dpt(3,2)*S16;
+  OM117 = qd(17)+OM16*C16+OM26*S16;
+  OM217 = OM216*C17+OM316*S17;
+  OM317 = -(OM216*S17-OM316*C17);
+  OpF217 = C17*(OpF216+qd(17)*OM316)+S17*(OpF36-qd(17)*OM216);
+  OpF317 = C17*(OpF36-qd(17)*OM216)-S17*(OpF216+qd(17)*OM316);
+  BS217 = OM117*OM217;
+  BS317 = OM117*OM317;
+  BS617 = OM217*OM317;
+  OpM217_4 = OpM216_4*C17+OpM36_4*S17;
+  OpM317_4 = -(OpM216_4*S17-OpM36_4*C17);
+  OpM217_5 = OpM216_5*C17+S17*S6;
+  OpM317_5 = -(OpM216_5*S17-C17*S6);
+  OpM217_6 = C16*C17;
+  OpM317_6 = -C16*S17;
+
+% = = Block_0_1_0_1_0_4 = = 
+ 
+% Forward Kinematics 
+
+  OM218 = -(OM16*S18-OM26*C18);
+  OM318 = qd(18)+OM36;
+  OpF118 = C18*(OpF16+qd(18)*OM26)+S18*(OpF25-qd(18)*OM16);
+  OpF218 = C18*(OpF25-qd(18)*OM16)-S18*(OpF16+qd(18)*OM26);
+  AlF218 = C18*(AlF25+BS56*s.dpt(2,3)+BeF46*s.dpt(1,3)+BeF66*s.dpt(3,3))-S18*(AlF16+BS16*s.dpt(1,3)+BeF26*s.dpt(2,3)+BeF36*s.dpt(3,3));
+  AlF318 = AlF36+BS96*s.dpt(3,3)+BeF76*s.dpt(1,3)+BeF86*s.dpt(2,3);
+  AlM218_1 = -(AlM16_1*S18-AlM25_1*C18);
+  AlM218_2 = -(AlM16_2*S18-AlM25_2*C18);
+  AlM218_3 = -(AlM16_3*S18-C18*S5);
+  OpM118_4 = OpM16_4*C18+S18*S5;
+  OpM218_4 = -(OpM16_4*S18-C18*S5);
+  AlM218_4 = -(C18*(OpM16_4*s.dpt(3,3)-OpM36_4*s.dpt(1,3))-S18*(OpM36_4*s.dpt(2,3)-s.dpt(3,3)*S5));
+  AlM318_4 = OpM16_4*s.dpt(2,3)-s.dpt(1,3)*S5;
+  OpM118_5 = C18*C6;
+  OpM218_5 = -S18*C6;
+  AlM218_5 = s.dpt(2,3)*S18*S6+C18*(s.dpt(1,3)*S6-s.dpt(3,3)*C6);
+  AlM318_5 = s.dpt(2,3)*C6;
+  AlM218_6 = -s.dpt(3,3)*S18;
+  OM119 = qd(19)+OM16*C18+OM26*S18;
+  OM219 = OM218*C19+OM318*S19;
+  OM319 = -(OM218*S19-OM318*C19);
+  OpF219 = C19*(OpF218+qd(19)*OM318)+S19*(OpF36-qd(19)*OM218);
+  OpF319 = C19*(OpF36-qd(19)*OM218)-S19*(OpF218+qd(19)*OM318);
+  BS219 = OM119*OM219;
+  BS319 = OM119*OM319;
+  BS619 = OM219*OM319;
+  OpM219_4 = OpM218_4*C19+OpM36_4*S19;
+  OpM319_4 = -(OpM218_4*S19-OpM36_4*C19);
+  OpM219_5 = OpM218_5*C19+S19*S6;
+  OpM319_5 = -(OpM218_5*S19-C19*S6);
+  OpM219_6 = C18*C19;
+  OpM319_6 = -C18*S19;
+
+% = = Block_0_1_0_1_0_5 = = 
+ 
+% Forward Kinematics 
+
+  OM220 = -(OM16*S20-OM26*C20);
+  OM320 = qd(20)+OM36;
+  OpF120 = C20*(OpF16+qd(20)*OM26)+S20*(OpF25-qd(20)*OM16);
+  OpF220 = C20*(OpF25-qd(20)*OM16)-S20*(OpF16+qd(20)*OM26);
+  AlF220 = C20*(AlF25+BS56*s.dpt(2,4)+BeF46*s.dpt(1,4)+BeF66*s.dpt(3,4))-S20*(AlF16+BS16*s.dpt(1,4)+BeF26*s.dpt(2,4)+BeF36*s.dpt(3,4));
+  AlF320 = AlF36+BS96*s.dpt(3,4)+BeF76*s.dpt(1,4)+BeF86*s.dpt(2,4);
+  AlM220_1 = -(AlM16_1*S20-AlM25_1*C20);
+  AlM220_2 = -(AlM16_2*S20-AlM25_2*C20);
+  AlM220_3 = -(AlM16_3*S20-C20*S5);
+  OpM120_4 = OpM16_4*C20+S20*S5;
+  OpM220_4 = -(OpM16_4*S20-C20*S5);
+  AlM220_4 = -(C20*(OpM16_4*s.dpt(3,4)-OpM36_4*s.dpt(1,4))-S20*(OpM36_4*s.dpt(2,4)-s.dpt(3,4)*S5));
+  AlM320_4 = OpM16_4*s.dpt(2,4)-s.dpt(1,4)*S5;
+  OpM120_5 = C20*C6;
+  OpM220_5 = -S20*C6;
+  AlM220_5 = s.dpt(2,4)*S20*S6+C20*(s.dpt(1,4)*S6-s.dpt(3,4)*C6);
+  AlM320_5 = s.dpt(2,4)*C6;
+  AlM220_6 = -s.dpt(3,4)*S20;
+  OM121 = qd(21)+OM16*C20+OM26*S20;
+  OM221 = OM220*C21+OM320*S21;
+  OM321 = -(OM220*S21-OM320*C21);
+  OpF221 = C21*(OpF220+qd(21)*OM320)+S21*(OpF36-qd(21)*OM220);
+  OpF321 = C21*(OpF36-qd(21)*OM220)-S21*(OpF220+qd(21)*OM320);
+  BS221 = OM121*OM221;
+  BS321 = OM121*OM321;
+  BS621 = OM221*OM321;
+  OpM221_4 = OpM220_4*C21+OpM36_4*S21;
+  OpM321_4 = -(OpM220_4*S21-OpM36_4*C21);
+  OpM221_5 = OpM220_5*C21+S21*S6;
+  OpM321_5 = -(OpM220_5*S21-C21*S6);
+  OpM221_6 = C20*C21;
+  OpM321_6 = -C20*S21;
+
+% = = Block_0_1_0_1_0_6 = = 
+ 
+% Forward Kinematics 
+
+  OM222 = -(OM16*S22-OM26*C22);
+  OM322 = qd(22)+OM36;
+  OpF122 = C22*(OpF16+qd(22)*OM26)+S22*(OpF25-qd(22)*OM16);
+  OpF222 = C22*(OpF25-qd(22)*OM16)-S22*(OpF16+qd(22)*OM26);
+  AlF222 = C22*(AlF25+BS56*s.dpt(2,5)+BeF46*s.dpt(1,5)+BeF66*s.dpt(3,5))-S22*(AlF16+BS16*s.dpt(1,5)+BeF26*s.dpt(2,5)+BeF36*s.dpt(3,5));
+  AlF322 = AlF36+BS96*s.dpt(3,5)+BeF76*s.dpt(1,5)+BeF86*s.dpt(2,5);
+  AlM222_1 = -(AlM16_1*S22-AlM25_1*C22);
+  AlM222_2 = -(AlM16_2*S22-AlM25_2*C22);
+  AlM222_3 = -(AlM16_3*S22-C22*S5);
+  OpM122_4 = OpM16_4*C22+S22*S5;
+  OpM222_4 = -(OpM16_4*S22-C22*S5);
+  AlM222_4 = -(C22*(OpM16_4*s.dpt(3,5)-OpM36_4*s.dpt(1,5))-S22*(OpM36_4*s.dpt(2,5)-s.dpt(3,5)*S5));
+  AlM322_4 = OpM16_4*s.dpt(2,5)-s.dpt(1,5)*S5;
+  OpM122_5 = C22*C6;
+  OpM222_5 = -S22*C6;
+  AlM222_5 = s.dpt(2,5)*S22*S6+C22*(s.dpt(1,5)*S6-s.dpt(3,5)*C6);
+  AlM322_5 = s.dpt(2,5)*C6;
+  AlM222_6 = -s.dpt(3,5)*S22;
+  OM123 = qd(23)+OM16*C22+OM26*S22;
+  OM223 = OM222*C23+OM322*S23;
+  OM323 = -(OM222*S23-OM322*C23);
+  OpF223 = C23*(OpF222+qd(23)*OM322)+S23*(OpF36-qd(23)*OM222);
+  OpF323 = C23*(OpF36-qd(23)*OM222)-S23*(OpF222+qd(23)*OM322);
+  BS223 = OM123*OM223;
+  BS323 = OM123*OM323;
+  BS623 = OM223*OM323;
+  OpM223_4 = OpM222_4*C23+OpM36_4*S23;
+  OpM323_4 = -(OpM222_4*S23-OpM36_4*C23);
+  OpM223_5 = OpM222_5*C23+S23*S6;
+  OpM323_5 = -(OpM222_5*S23-C23*S6);
+  OpM223_6 = C22*C23;
+  OpM323_6 = -C22*S23;
+
+% = = Block_0_1_0_1_0_7 = = 
+ 
+% Trigonometric Variables  
+
+  S26p27 = C26*S27+S26*C27;
+  C26p27 = C26*C27-S26*S27;
+  C29p30 = C29*C30-S29*S30;
+  S29p30 = C29*S30+S29*C30;
+ 
+% Forward Kinematics 
+
+  OM124 = OM16*C24+OM26*S24;
+  OM324 = qd(24)+OM36;
+  OpF124 = C24*(OpF16+qd(24)*OM26)+S24*(OpF25-qd(24)*OM16);
+  OpF224 = C24*(OpF25-qd(24)*OM16)-S24*(OpF16+qd(24)*OM26);
+  AlF124 = C24*(AlF16+BS16*s.dpt(1,6)+BeF26*s.dpt(2,6)+BeF36*s.dpt(3,6))+S24*(AlF25+BS56*s.dpt(2,6)+BeF46*s.dpt(1,6)+BeF66*s.dpt(3,6));
+  AlF224 = C24*(AlF25+BS56*s.dpt(2,6)+BeF46*s.dpt(1,6)+BeF66*s.dpt(3,6))-S24*(AlF16+BS16*s.dpt(1,6)+BeF26*s.dpt(2,6)+BeF36*s.dpt(3,6));
+  AlF324 = AlF36+BS96*s.dpt(3,6)+BeF76*s.dpt(1,6)+BeF86*s.dpt(2,6);
+  AlM124_1 = AlM16_1*C24+AlM25_1*S24;
+  AlM224_1 = -(AlM16_1*S24-AlM25_1*C24);
+  AlM124_2 = AlM16_2*C24+AlM25_2*S24;
+  AlM224_2 = -(AlM16_2*S24-AlM25_2*C24);
+  AlM124_3 = AlM16_3*C24+S24*S5;
+  AlM224_3 = -(AlM16_3*S24-C24*S5);
+  OpM124_4 = OpM16_4*C24+S24*S5;
+  OpM224_4 = -(OpM16_4*S24-C24*S5);
+  AlM124_4 = -(C24*(OpM36_4*s.dpt(2,6)-s.dpt(3,6)*S5)+S24*(OpM16_4*s.dpt(3,6)-OpM36_4*s.dpt(1,6)));
+  AlM224_4 = -(C24*(OpM16_4*s.dpt(3,6)-OpM36_4*s.dpt(1,6))-S24*(OpM36_4*s.dpt(2,6)-s.dpt(3,6)*S5));
+  AlM324_4 = OpM16_4*s.dpt(2,6)-s.dpt(1,6)*S5;
+  OpM124_5 = C24*C6;
+  OpM224_5 = -S24*C6;
+  AlM124_5 = -(s.dpt(2,6)*C24*S6-S24*(s.dpt(1,6)*S6-s.dpt(3,6)*C6));
+  AlM224_5 = s.dpt(2,6)*S24*S6+C24*(s.dpt(1,6)*S6-s.dpt(3,6)*C6);
+  AlM324_5 = s.dpt(2,6)*C6;
+  AlM124_6 = s.dpt(3,6)*C24;
+  AlM224_6 = -s.dpt(3,6)*S24;
+  OM225 = qd(25)-OM16*S24+OM26*C24;
+  OM325 = OM124*S25+OM324*C25;
+  OpF125 = C25*(OpF124-qd(25)*OM324)-S25*(OpF36+qd(25)*OM124);
+  OpF325 = C25*(OpF36+qd(25)*OM124)+S25*(OpF124-qd(25)*OM324);
+  AlF125 = AlF124*C25-AlF324*S25;
+  AlF325 = AlF124*S25+AlF324*C25;
+  AlM125_1 = AlM124_1*C25-AlM36_1*S25;
+  AlM325_1 = AlM124_1*S25+AlM36_1*C25;
+  AlM125_2 = AlM124_2*C25-AlM36_2*S25;
+  AlM325_2 = AlM124_2*S25+AlM36_2*C25;
+  AlM125_3 = AlM124_3*C25-AlM36_3*S25;
+  AlM325_3 = AlM124_3*S25+AlM36_3*C25;
+  OpM125_4 = OpM124_4*C25-OpM36_4*S25;
+  OpM325_4 = OpM124_4*S25+OpM36_4*C25;
+  AlM125_4 = AlM124_4*C25-AlM324_4*S25;
+  AlM325_4 = AlM124_4*S25+AlM324_4*C25;
+  OpM125_5 = OpM124_5*C25-S25*S6;
+  OpM325_5 = OpM124_5*S25+C25*S6;
+  AlM125_5 = AlM124_5*C25-AlM324_5*S25;
+  AlM325_5 = AlM124_5*S25+AlM324_5*C25;
+  OpM125_6 = S24*C25;
+  OpM325_6 = S24*S25;
+  AlM125_6 = AlM124_6*C25+s.dpt(1,6)*S25;
+  AlM325_6 = AlM124_6*S25-s.dpt(1,6)*C25;
+  OM126 = qd(26)+OM124*C25-OM324*S25;
+  OM226 = OM225*C26+OM325*S26;
+  OM326 = -(OM225*S26-OM325*C26);
+  OpF226 = C26*(OpF224+qd(26)*OM325)+S26*(OpF325-qd(26)*OM225);
+  OpF326 = C26*(OpF325-qd(26)*OM225)-S26*(OpF224+qd(26)*OM325);
+  BS526 = -(OM126*OM126+OM326*OM326);
+  BeF226 = OM126*OM226-OpF326;
+  BeF826 = OpF125+OM226*OM326;
+  AlF226 = AlF224*C26+AlF325*S26;
+  AlF326 = -(AlF224*S26-AlF325*C26);
+  AlM226_1 = AlM224_1*C26+AlM325_1*S26;
+  AlM326_1 = -(AlM224_1*S26-AlM325_1*C26);
+  AlM226_2 = AlM224_2*C26+AlM325_2*S26;
+  AlM326_2 = -(AlM224_2*S26-AlM325_2*C26);
+  AlM226_3 = AlM224_3*C26+AlM325_3*S26;
+  AlM326_3 = -(AlM224_3*S26-AlM325_3*C26);
+  OpM226_4 = OpM224_4*C26+OpM325_4*S26;
+  OpM326_4 = -(OpM224_4*S26-OpM325_4*C26);
+  AlM226_4 = AlM224_4*C26+AlM325_4*S26;
+  AlM326_4 = -(AlM224_4*S26-AlM325_4*C26);
+  OpM226_5 = OpM224_5*C26+OpM325_5*S26;
+  OpM326_5 = -(OpM224_5*S26-OpM325_5*C26);
+  AlM226_5 = AlM224_5*C26+AlM325_5*S26;
+  AlM326_5 = -(AlM224_5*S26-AlM325_5*C26);
+  OpM226_6 = OpM325_6*S26+C24*C26;
+  OpM326_6 = OpM325_6*C26-C24*S26;
+  AlM226_6 = AlM224_6*C26+AlM325_6*S26;
+  AlM326_6 = -(AlM224_6*S26-AlM325_6*C26);
+  OpM326_24 = C25*C26;
+  OM127 = qd(27)+OM126;
+  OM327 = -(OM226*S27-OM326*C27);
+  OpF227 = C27*(OpF226+qd(27)*OM326)+S27*(OpF326-qd(27)*OM226);
+  OpF327 = C27*(OpF326-qd(27)*OM226)-S27*(OpF226+qd(27)*OM326);
+  AlF127 = AlF125+BeF226*s.dpt(2,37);
+  AlF227 = C27*(AlF226+BS526*s.dpt(2,37))+S27*(AlF326+BeF826*s.dpt(2,37));
+  AlF327 = C27*(AlF326+BeF826*s.dpt(2,37))-S27*(AlF226+BS526*s.dpt(2,37));
+  AlM227_1 = AlM226_1*C27+AlM326_1*S27;
+  AlM327_1 = -(AlM226_1*S27-AlM326_1*C27);
+  AlM227_2 = AlM226_2*C27+AlM326_2*S27;
+  AlM327_2 = -(AlM226_2*S27-AlM326_2*C27);
+  AlM227_3 = AlM226_3*C27+AlM326_3*S27;
+  AlM327_3 = -(AlM226_3*S27-AlM326_3*C27);
+  OpM227_4 = OpM226_4*C27+OpM326_4*S27;
+  OpM327_4 = -(OpM226_4*S27-OpM326_4*C27);
+  AlM127_4 = AlM125_4-OpM326_4*s.dpt(2,37);
+  AlM227_4 = AlM226_4*C27+S27*(AlM326_4+OpM125_4*s.dpt(2,37));
+  AlM327_4 = -(AlM226_4*S27-C27*(AlM326_4+OpM125_4*s.dpt(2,37)));
+  OpM227_5 = OpM226_5*C27+OpM326_5*S27;
+  OpM327_5 = -(OpM226_5*S27-OpM326_5*C27);
+  AlM127_5 = AlM125_5-OpM326_5*s.dpt(2,37);
+  AlM227_5 = AlM226_5*C27+S27*(AlM326_5+OpM125_5*s.dpt(2,37));
+  AlM327_5 = -(AlM226_5*S27-C27*(AlM326_5+OpM125_5*s.dpt(2,37)));
+  OpM227_6 = OpM226_6*C27+OpM326_6*S27;
+  OpM327_6 = -(OpM226_6*S27-OpM326_6*C27);
+  AlM127_6 = AlM125_6-OpM326_6*s.dpt(2,37);
+  AlM227_6 = AlM226_6*C27+S27*(AlM326_6+OpM125_6*s.dpt(2,37));
+  AlM327_6 = -(AlM226_6*S27-C27*(AlM326_6+OpM125_6*s.dpt(2,37)));
+  OpM227_24 = C25*S26p27;
+  OpM327_24 = C25*C26p27;
+  AlM127_24 = -OpM326_24*s.dpt(2,37);
+  AlM227_24 = -s.dpt(2,37)*S25*S27;
+  AlM327_24 = -s.dpt(2,37)*S25*C27;
+  AlM127_25 = s.dpt(2,37)*S26;
+  AlM227_26 = s.dpt(2,37)*S27;
+  AlM327_26 = s.dpt(2,37)*C27;
+  OM128 = OM127*C28-OM327*S28;
+  OM228 = qd(28)+OM226*C27+OM326*S27;
+  OpF128 = C28*(OpF125-qd(28)*OM327)-S28*(OpF327+qd(28)*OM127);
+  OpF328 = C28*(OpF327+qd(28)*OM127)+S28*(OpF125-qd(28)*OM327);
+  AlF128 = AlF127*C28-AlF327*S28;
+  AlF328 = AlF127*S28+AlF327*C28;
+  AlM128_1 = AlM125_1*C28-AlM327_1*S28;
+  AlM328_1 = AlM125_1*S28+AlM327_1*C28;
+  AlM128_2 = AlM125_2*C28-AlM327_2*S28;
+  AlM328_2 = AlM125_2*S28+AlM327_2*C28;
+  AlM128_3 = AlM125_3*C28-AlM327_3*S28;
+  AlM328_3 = AlM125_3*S28+AlM327_3*C28;
+  OpM128_4 = OpM125_4*C28-OpM327_4*S28;
+  OpM328_4 = OpM125_4*S28+OpM327_4*C28;
+  AlM128_4 = AlM127_4*C28-AlM327_4*S28;
+  AlM328_4 = AlM127_4*S28+AlM327_4*C28;
+  OpM128_5 = OpM125_5*C28-OpM327_5*S28;
+  OpM328_5 = OpM125_5*S28+OpM327_5*C28;
+  AlM128_5 = AlM127_5*C28-AlM327_5*S28;
+  AlM328_5 = AlM127_5*S28+AlM327_5*C28;
+  OpM128_6 = OpM125_6*C28-OpM327_6*S28;
+  OpM328_6 = OpM125_6*S28+OpM327_6*C28;
+  AlM128_6 = AlM127_6*C28-AlM327_6*S28;
+  AlM328_6 = AlM127_6*S28+AlM327_6*C28;
+  OpM128_24 = -(OpM327_24*S28+S25*C28);
+  OpM328_24 = OpM327_24*C28-S25*S28;
+  AlM128_24 = AlM127_24*C28-AlM327_24*S28;
+  AlM328_24 = AlM127_24*S28+AlM327_24*C28;
+  OpM128_25 = S28*S26p27;
+  OpM328_25 = -C28*S26p27;
+  AlM128_25 = AlM127_25*C28;
+  AlM328_25 = AlM127_25*S28;
+  AlM128_26 = -AlM327_26*S28;
+  AlM328_26 = AlM327_26*C28;
+  OM129 = OM128*C29+OM228*S29;
+  OM229 = -(OM128*S29-OM228*C29);
+  OM329 = qd(29)+OM127*S28+OM327*C28;
+  OpF129 = C29*(OpF128+qd(29)*OM228)+S29*(OpF227-qd(29)*OM128);
+  OpF229 = C29*(OpF227-qd(29)*OM128)-S29*(OpF128+qd(29)*OM228);
+  BS129 = -(OM229*OM229+OM329*OM329);
+  BS229 = OM129*OM229;
+  BS329 = OM129*OM329;
+  BS529 = -(OM129*OM129+OM329*OM329);
+  BS629 = OM229*OM329;
+  BS929 = -(OM129*OM129+OM229*OM229);
+  BeF229 = BS229-OpF328;
+  BeF329 = BS329+OpF229;
+  BeF429 = BS229+OpF328;
+  BeF629 = BS629-OpF129;
+  BeF729 = BS329-OpF229;
+  BeF829 = BS629+OpF129;
+  AlF129 = AlF128*C29+AlF227*S29;
+  AlF229 = -(AlF128*S29-AlF227*C29);
+  AlM129_1 = AlM128_1*C29+AlM227_1*S29;
+  AlM229_1 = -(AlM128_1*S29-AlM227_1*C29);
+  AlM129_2 = AlM128_2*C29+AlM227_2*S29;
+  AlM229_2 = -(AlM128_2*S29-AlM227_2*C29);
+  AlM129_3 = AlM128_3*C29+AlM227_3*S29;
+  AlM229_3 = -(AlM128_3*S29-AlM227_3*C29);
+  OpM129_4 = OpM128_4*C29+OpM227_4*S29;
+  OpM229_4 = -(OpM128_4*S29-OpM227_4*C29);
+  AlM129_4 = AlM128_4*C29+AlM227_4*S29;
+  AlM229_4 = -(AlM128_4*S29-AlM227_4*C29);
+  OpM129_5 = OpM128_5*C29+OpM227_5*S29;
+  OpM229_5 = -(OpM128_5*S29-OpM227_5*C29);
+  AlM129_5 = AlM128_5*C29+AlM227_5*S29;
+  AlM229_5 = -(AlM128_5*S29-AlM227_5*C29);
+  OpM129_6 = OpM128_6*C29+OpM227_6*S29;
+  OpM229_6 = -(OpM128_6*S29-OpM227_6*C29);
+  AlM129_6 = AlM128_6*C29+AlM227_6*S29;
+  AlM229_6 = -(AlM128_6*S29-AlM227_6*C29);
+  OpM129_24 = OpM128_24*C29+OpM227_24*S29;
+  OpM229_24 = -(OpM128_24*S29-OpM227_24*C29);
+  AlM129_24 = AlM128_24*C29+AlM227_24*S29;
+  AlM229_24 = -(AlM128_24*S29-AlM227_24*C29);
+  OpM129_25 = OpM128_25*C29+S29*C26p27;
+  OpM229_25 = -(OpM128_25*S29-C29*C26p27);
+  AlM129_25 = AlM128_25*C29;
+  AlM229_25 = -AlM128_25*S29;
+  OpM129_26 = C28*C29;
+  OpM229_26 = -C28*S29;
+  AlM129_26 = AlM128_26*C29+AlM227_26*S29;
+  AlM229_26 = -(AlM128_26*S29-AlM227_26*C29);
+  OpM129_27 = C28*C29;
+  OpM229_27 = -C28*S29;
+  OM230 = -(OM129*S30-OM229*C30);
+  OM330 = qd(30)+OM329;
+  OpF130 = C30*(OpF129+qd(30)*OM229)+S30*(OpF229-qd(30)*OM129);
+  OpF230 = C30*(OpF229-qd(30)*OM129)-S30*(OpF129+qd(30)*OM229);
+  AlF130 = C30*(AlF129+BS129*s.dpt(1,40)+BeF229*s.dpt(2,40)+BeF329*s.dpt(3,40))+S30*(AlF229+BS529*s.dpt(2,40)+BeF429*s.dpt(1,40)+BeF629*...
+ s.dpt(3,40));
+  AlF230 = C30*(AlF229+BS529*s.dpt(2,40)+BeF429*s.dpt(1,40)+BeF629*s.dpt(3,40))-S30*(AlF129+BS129*s.dpt(1,40)+BeF229*s.dpt(2,40)+BeF329*...
+ s.dpt(3,40));
+  AlF330 = AlF328+BS929*s.dpt(3,40)+BeF729*s.dpt(1,40)+BeF829*s.dpt(2,40);
+  AlM130_1 = AlM129_1*C30+AlM229_1*S30;
+  AlM230_1 = -(AlM129_1*S30-AlM229_1*C30);
+  AlM130_2 = AlM129_2*C30+AlM229_2*S30;
+  AlM230_2 = -(AlM129_2*S30-AlM229_2*C30);
+  AlM130_3 = AlM129_3*C30+AlM229_3*S30;
+  AlM230_3 = -(AlM129_3*S30-AlM229_3*C30);
+  OpM130_4 = OpM129_4*C30+OpM229_4*S30;
+  OpM230_4 = -(OpM129_4*S30-OpM229_4*C30);
+  AlM130_4 = C30*(AlM129_4+OpM229_4*s.dpt(3,40)-OpM328_4*s.dpt(2,40))+S30*(AlM229_4-OpM129_4*s.dpt(3,40)+OpM328_4*s.dpt(1,40));
+  AlM230_4 = C30*(AlM229_4-OpM129_4*s.dpt(3,40)+OpM328_4*s.dpt(1,40))-S30*(AlM129_4+OpM229_4*s.dpt(3,40)-OpM328_4*s.dpt(2,40));
+  AlM330_4 = AlM328_4+OpM129_4*s.dpt(2,40)-OpM229_4*s.dpt(1,40);
+  OpM130_5 = OpM129_5*C30+OpM229_5*S30;
+  OpM230_5 = -(OpM129_5*S30-OpM229_5*C30);
+  AlM130_5 = C30*(AlM129_5+OpM229_5*s.dpt(3,40)-OpM328_5*s.dpt(2,40))+S30*(AlM229_5-OpM129_5*s.dpt(3,40)+OpM328_5*s.dpt(1,40));
+  AlM230_5 = C30*(AlM229_5-OpM129_5*s.dpt(3,40)+OpM328_5*s.dpt(1,40))-S30*(AlM129_5+OpM229_5*s.dpt(3,40)-OpM328_5*s.dpt(2,40));
+  AlM330_5 = AlM328_5+OpM129_5*s.dpt(2,40)-OpM229_5*s.dpt(1,40);
+  OpM130_6 = OpM129_6*C30+OpM229_6*S30;
+  OpM230_6 = -(OpM129_6*S30-OpM229_6*C30);
+  AlM130_6 = C30*(AlM129_6+OpM229_6*s.dpt(3,40)-OpM328_6*s.dpt(2,40))+S30*(AlM229_6-OpM129_6*s.dpt(3,40)+OpM328_6*s.dpt(1,40));
+  AlM230_6 = C30*(AlM229_6-OpM129_6*s.dpt(3,40)+OpM328_6*s.dpt(1,40))-S30*(AlM129_6+OpM229_6*s.dpt(3,40)-OpM328_6*s.dpt(2,40));
+  AlM330_6 = AlM328_6+OpM129_6*s.dpt(2,40)-OpM229_6*s.dpt(1,40);
+  OpM130_24 = OpM129_24*C30+OpM229_24*S30;
+  OpM230_24 = -(OpM129_24*S30-OpM229_24*C30);
+  AlM130_24 = C30*(AlM129_24+OpM229_24*s.dpt(3,40)-OpM328_24*s.dpt(2,40))+S30*(AlM229_24-OpM129_24*s.dpt(3,40)+OpM328_24*s.dpt(1,40));
+  AlM230_24 = C30*(AlM229_24-OpM129_24*s.dpt(3,40)+OpM328_24*s.dpt(1,40))-S30*(AlM129_24+OpM229_24*s.dpt(3,40)-OpM328_24*s.dpt(2,40));
+  AlM330_24 = AlM328_24+OpM129_24*s.dpt(2,40)-OpM229_24*s.dpt(1,40);
+  OpM130_25 = OpM129_25*C30+OpM229_25*S30;
+  OpM230_25 = -(OpM129_25*S30-OpM229_25*C30);
+  AlM130_25 = C30*(AlM129_25+OpM229_25*s.dpt(3,40)-OpM328_25*s.dpt(2,40))+S30*(AlM229_25-OpM129_25*s.dpt(3,40)+OpM328_25*s.dpt(1,40));
+  AlM230_25 = C30*(AlM229_25-OpM129_25*s.dpt(3,40)+OpM328_25*s.dpt(1,40))-S30*(AlM129_25+OpM229_25*s.dpt(3,40)-OpM328_25*s.dpt(2,40));
+  AlM330_25 = AlM328_25+OpM129_25*s.dpt(2,40)-OpM229_25*s.dpt(1,40);
+  OpM130_26 = C28*C29p30;
+  OpM230_26 = -C28*S29p30;
+  AlM130_26 = C30*(AlM129_26+OpM229_26*s.dpt(3,40)-s.dpt(2,40)*S28)+S30*(AlM229_26-OpM129_26*s.dpt(3,40)+s.dpt(1,40)*S28);
+  AlM230_26 = C30*(AlM229_26-OpM129_26*s.dpt(3,40)+s.dpt(1,40)*S28)-S30*(AlM129_26+OpM229_26*s.dpt(3,40)-s.dpt(2,40)*S28);
+  AlM330_26 = AlM328_26+OpM129_26*s.dpt(2,40)-OpM229_26*s.dpt(1,40);
+  OpM130_27 = C28*C29p30;
+  OpM230_27 = -C28*S29p30;
+  AlM130_27 = C30*(OpM229_27*s.dpt(3,40)-s.dpt(2,40)*S28)-S30*(OpM129_27*s.dpt(3,40)-s.dpt(1,40)*S28);
+  AlM230_27 = -(C30*(OpM129_27*s.dpt(3,40)-s.dpt(1,40)*S28)+S30*(OpM229_27*s.dpt(3,40)-s.dpt(2,40)*S28));
+  AlM330_27 = OpM129_27*s.dpt(2,40)-OpM229_27*s.dpt(1,40);
+  AlM130_28 = s.dpt(3,40)*C29p30;
+  AlM230_28 = -s.dpt(3,40)*S29p30;
+  AlM330_28 = -(s.dpt(1,40)*C29-s.dpt(2,40)*S29);
+  AlM130_29 = s.dpt(1,40)*S30-s.dpt(2,40)*C30;
+  AlM230_29 = s.dpt(1,40)*C30+s.dpt(2,40)*S30;
+  OM131 = qd(31)+OM129*C30+OM229*S30;
+  OM331 = -(OM230*S31-OM330*C31);
+  OpF331 = C31*(OpF328-qd(31)*OM230)-S31*(OpF230+qd(31)*OM330);
+  AlF331 = -(AlF230*S31-AlF330*C31);
+  AlM331_1 = -(AlM230_1*S31-AlM328_1*C31);
+  AlM331_2 = -(AlM230_2*S31-AlM328_2*C31);
+  AlM331_3 = -(AlM230_3*S31-AlM328_3*C31);
+  OpM331_4 = -(OpM230_4*S31-OpM328_4*C31);
+  AlM331_4 = -(AlM230_4*S31-AlM330_4*C31);
+  OpM331_5 = -(OpM230_5*S31-OpM328_5*C31);
+  AlM331_5 = -(AlM230_5*S31-AlM330_5*C31);
+  OpM331_6 = -(OpM230_6*S31-OpM328_6*C31);
+  AlM331_6 = -(AlM230_6*S31-AlM330_6*C31);
+  OpM331_24 = -(OpM230_24*S31-OpM328_24*C31);
+  AlM331_24 = -(AlM230_24*S31-AlM330_24*C31);
+  OpM331_25 = -(OpM230_25*S31-OpM328_25*C31);
+  AlM331_25 = -(AlM230_25*S31-AlM330_25*C31);
+  OpM331_26 = -(OpM230_26*S31-S28*C31);
+  AlM331_26 = -(AlM230_26*S31-AlM330_26*C31);
+  OpM331_27 = -(OpM230_27*S31-S28*C31);
+  AlM331_27 = -(AlM230_27*S31-AlM330_27*C31);
+  OpM331_28 = -S31*C29p30;
+  AlM331_28 = -(AlM230_28*S31-AlM330_28*C31);
+  AlM331_29 = -AlM230_29*S31;
+  OM132 = OM131*C32-OM331*S32;
+  OM232 = qd(32)+OM230*C31+OM330*S31;
+  OM332 = OM131*S32+OM331*C32;
+
+% = = Block_0_1_0_1_0_9 = = 
+ 
+% Trigonometric Variables  
+
+  S36p37 = C36*S37+S36*C37;
+  C36p37 = C36*C37-S36*S37;
+  C39p40 = C39*C40-S39*S40;
+  S39p40 = C39*S40+S39*C40;
+ 
+% Forward Kinematics 
+
+  OM134 = OM16*C34+OM26*S34;
+  OM334 = qd(34)+OM36;
+  OpF134 = C34*(OpF16+qd(34)*OM26)+S34*(OpF25-qd(34)*OM16);
+  OpF234 = C34*(OpF25-qd(34)*OM16)-S34*(OpF16+qd(34)*OM26);
+  AlF134 = C34*(AlF16+BS16*s.dpt(1,10)+BeF26*s.dpt(2,10)+BeF36*s.dpt(3,10))+S34*(AlF25+BS56*s.dpt(2,10)+BeF46*s.dpt(1,10)+BeF66*s.dpt(3,10));
+  AlF234 = C34*(AlF25+BS56*s.dpt(2,10)+BeF46*s.dpt(1,10)+BeF66*s.dpt(3,10))-S34*(AlF16+BS16*s.dpt(1,10)+BeF26*s.dpt(2,10)+BeF36*s.dpt(3,10));
+  AlF334 = AlF36+BS96*s.dpt(3,10)+BeF76*s.dpt(1,10)+BeF86*s.dpt(2,10);
+  AlM134_1 = AlM16_1*C34+AlM25_1*S34;
+  AlM234_1 = -(AlM16_1*S34-AlM25_1*C34);
+  AlM134_2 = AlM16_2*C34+AlM25_2*S34;
+  AlM234_2 = -(AlM16_2*S34-AlM25_2*C34);
+  AlM134_3 = AlM16_3*C34+S34*S5;
+  AlM234_3 = -(AlM16_3*S34-C34*S5);
+  OpM134_4 = OpM16_4*C34+S34*S5;
+  OpM234_4 = -(OpM16_4*S34-C34*S5);
+  AlM134_4 = -(C34*(OpM36_4*s.dpt(2,10)-s.dpt(3,10)*S5)+S34*(OpM16_4*s.dpt(3,10)-OpM36_4*s.dpt(1,10)));
+  AlM234_4 = -(C34*(OpM16_4*s.dpt(3,10)-OpM36_4*s.dpt(1,10))-S34*(OpM36_4*s.dpt(2,10)-s.dpt(3,10)*S5));
+  AlM334_4 = OpM16_4*s.dpt(2,10)-s.dpt(1,10)*S5;
+  OpM134_5 = C34*C6;
+  OpM234_5 = -S34*C6;
+  AlM134_5 = -(s.dpt(2,10)*C34*S6-S34*(s.dpt(1,10)*S6-s.dpt(3,10)*C6));
+  AlM234_5 = s.dpt(2,10)*S34*S6+C34*(s.dpt(1,10)*S6-s.dpt(3,10)*C6);
+  AlM334_5 = s.dpt(2,10)*C6;
+  AlM134_6 = s.dpt(3,10)*C34;
+  AlM234_6 = -s.dpt(3,10)*S34;
+  OM235 = qd(35)-OM16*S34+OM26*C34;
+  OM335 = OM134*S35+OM334*C35;
+  OpF135 = C35*(OpF134-qd(35)*OM334)-S35*(OpF36+qd(35)*OM134);
+  OpF335 = C35*(OpF36+qd(35)*OM134)+S35*(OpF134-qd(35)*OM334);
+  AlF135 = AlF134*C35-AlF334*S35;
+  AlF335 = AlF134*S35+AlF334*C35;
+  AlM135_1 = AlM134_1*C35-AlM36_1*S35;
+  AlM335_1 = AlM134_1*S35+AlM36_1*C35;
+  AlM135_2 = AlM134_2*C35-AlM36_2*S35;
+  AlM335_2 = AlM134_2*S35+AlM36_2*C35;
+  AlM135_3 = AlM134_3*C35-AlM36_3*S35;
+  AlM335_3 = AlM134_3*S35+AlM36_3*C35;
+  OpM135_4 = OpM134_4*C35-OpM36_4*S35;
+  OpM335_4 = OpM134_4*S35+OpM36_4*C35;
+  AlM135_4 = AlM134_4*C35-AlM334_4*S35;
+  AlM335_4 = AlM134_4*S35+AlM334_4*C35;
+  OpM135_5 = OpM134_5*C35-S35*S6;
+  OpM335_5 = OpM134_5*S35+C35*S6;
+  AlM135_5 = AlM134_5*C35-AlM334_5*S35;
+  AlM335_5 = AlM134_5*S35+AlM334_5*C35;
+  OpM135_6 = S34*C35;
+  OpM335_6 = S34*S35;
+  AlM135_6 = AlM134_6*C35+s.dpt(1,10)*S35;
+  AlM335_6 = AlM134_6*S35-s.dpt(1,10)*C35;
+  OM136 = qd(36)+OM134*C35-OM334*S35;
+  OM236 = OM235*C36+OM335*S36;
+  OM336 = -(OM235*S36-OM335*C36);
+  OpF236 = C36*(OpF234+qd(36)*OM335)+S36*(OpF335-qd(36)*OM235);
+  OpF336 = C36*(OpF335-qd(36)*OM235)-S36*(OpF234+qd(36)*OM335);
+  BS536 = -(OM136*OM136+OM336*OM336);
+  BeF236 = OM136*OM236-OpF336;
+  BeF836 = OpF135+OM236*OM336;
+  AlF236 = AlF234*C36+AlF335*S36;
+  AlF336 = -(AlF234*S36-AlF335*C36);
+  AlM236_1 = AlM234_1*C36+AlM335_1*S36;
+  AlM336_1 = -(AlM234_1*S36-AlM335_1*C36);
+  AlM236_2 = AlM234_2*C36+AlM335_2*S36;
+  AlM336_2 = -(AlM234_2*S36-AlM335_2*C36);
+  AlM236_3 = AlM234_3*C36+AlM335_3*S36;
+  AlM336_3 = -(AlM234_3*S36-AlM335_3*C36);
+  OpM236_4 = OpM234_4*C36+OpM335_4*S36;
+  OpM336_4 = -(OpM234_4*S36-OpM335_4*C36);
+  AlM236_4 = AlM234_4*C36+AlM335_4*S36;
+  AlM336_4 = -(AlM234_4*S36-AlM335_4*C36);
+  OpM236_5 = OpM234_5*C36+OpM335_5*S36;
+  OpM336_5 = -(OpM234_5*S36-OpM335_5*C36);
+  AlM236_5 = AlM234_5*C36+AlM335_5*S36;
+  AlM336_5 = -(AlM234_5*S36-AlM335_5*C36);
+  OpM236_6 = OpM335_6*S36+C34*C36;
+  OpM336_6 = OpM335_6*C36-C34*S36;
+  AlM236_6 = AlM234_6*C36+AlM335_6*S36;
+  AlM336_6 = -(AlM234_6*S36-AlM335_6*C36);
+  OpM336_34 = C35*C36;
+  OM137 = qd(37)+OM136;
+  OM337 = -(OM236*S37-OM336*C37);
+  OpF237 = C37*(OpF236+qd(37)*OM336)+S37*(OpF336-qd(37)*OM236);
+  OpF337 = C37*(OpF336-qd(37)*OM236)-S37*(OpF236+qd(37)*OM336);
+  AlF137 = AlF135+BeF236*s.dpt(2,46);
+  AlF237 = C37*(AlF236+BS536*s.dpt(2,46))+S37*(AlF336+BeF836*s.dpt(2,46));
+  AlF337 = C37*(AlF336+BeF836*s.dpt(2,46))-S37*(AlF236+BS536*s.dpt(2,46));
+  AlM237_1 = AlM236_1*C37+AlM336_1*S37;
+  AlM337_1 = -(AlM236_1*S37-AlM336_1*C37);
+  AlM237_2 = AlM236_2*C37+AlM336_2*S37;
+  AlM337_2 = -(AlM236_2*S37-AlM336_2*C37);
+  AlM237_3 = AlM236_3*C37+AlM336_3*S37;
+  AlM337_3 = -(AlM236_3*S37-AlM336_3*C37);
+  OpM237_4 = OpM236_4*C37+OpM336_4*S37;
+  OpM337_4 = -(OpM236_4*S37-OpM336_4*C37);
+  AlM137_4 = AlM135_4-OpM336_4*s.dpt(2,46);
+  AlM237_4 = AlM236_4*C37+S37*(AlM336_4+OpM135_4*s.dpt(2,46));
+  AlM337_4 = -(AlM236_4*S37-C37*(AlM336_4+OpM135_4*s.dpt(2,46)));
+  OpM237_5 = OpM236_5*C37+OpM336_5*S37;
+  OpM337_5 = -(OpM236_5*S37-OpM336_5*C37);
+  AlM137_5 = AlM135_5-OpM336_5*s.dpt(2,46);
+  AlM237_5 = AlM236_5*C37+S37*(AlM336_5+OpM135_5*s.dpt(2,46));
+  AlM337_5 = -(AlM236_5*S37-C37*(AlM336_5+OpM135_5*s.dpt(2,46)));
+  OpM237_6 = OpM236_6*C37+OpM336_6*S37;
+  OpM337_6 = -(OpM236_6*S37-OpM336_6*C37);
+  AlM137_6 = AlM135_6-OpM336_6*s.dpt(2,46);
+  AlM237_6 = AlM236_6*C37+S37*(AlM336_6+OpM135_6*s.dpt(2,46));
+  AlM337_6 = -(AlM236_6*S37-C37*(AlM336_6+OpM135_6*s.dpt(2,46)));
+  OpM237_34 = C35*S36p37;
+  OpM337_34 = C35*C36p37;
+  AlM137_34 = -OpM336_34*s.dpt(2,46);
+  AlM237_34 = -s.dpt(2,46)*S35*S37;
+  AlM337_34 = -s.dpt(2,46)*S35*C37;
+  AlM137_35 = s.dpt(2,46)*S36;
+  AlM237_36 = s.dpt(2,46)*S37;
+  AlM337_36 = s.dpt(2,46)*C37;
+  OM138 = OM137*C38-OM337*S38;
+  OM238 = qd(38)+OM236*C37+OM336*S37;
+  OpF138 = C38*(OpF135-qd(38)*OM337)-S38*(OpF337+qd(38)*OM137);
+  OpF338 = C38*(OpF337+qd(38)*OM137)+S38*(OpF135-qd(38)*OM337);
+  AlF138 = AlF137*C38-AlF337*S38;
+  AlF338 = AlF137*S38+AlF337*C38;
+  AlM138_1 = AlM135_1*C38-AlM337_1*S38;
+  AlM338_1 = AlM135_1*S38+AlM337_1*C38;
+  AlM138_2 = AlM135_2*C38-AlM337_2*S38;
+  AlM338_2 = AlM135_2*S38+AlM337_2*C38;
+  AlM138_3 = AlM135_3*C38-AlM337_3*S38;
+  AlM338_3 = AlM135_3*S38+AlM337_3*C38;
+  OpM138_4 = OpM135_4*C38-OpM337_4*S38;
+  OpM338_4 = OpM135_4*S38+OpM337_4*C38;
+  AlM138_4 = AlM137_4*C38-AlM337_4*S38;
+  AlM338_4 = AlM137_4*S38+AlM337_4*C38;
+  OpM138_5 = OpM135_5*C38-OpM337_5*S38;
+  OpM338_5 = OpM135_5*S38+OpM337_5*C38;
+  AlM138_5 = AlM137_5*C38-AlM337_5*S38;
+  AlM338_5 = AlM137_5*S38+AlM337_5*C38;
+  OpM138_6 = OpM135_6*C38-OpM337_6*S38;
+  OpM338_6 = OpM135_6*S38+OpM337_6*C38;
+  AlM138_6 = AlM137_6*C38-AlM337_6*S38;
+  AlM338_6 = AlM137_6*S38+AlM337_6*C38;
+  OpM138_34 = -(OpM337_34*S38+S35*C38);
+  OpM338_34 = OpM337_34*C38-S35*S38;
+  AlM138_34 = AlM137_34*C38-AlM337_34*S38;
+  AlM338_34 = AlM137_34*S38+AlM337_34*C38;
+  OpM138_35 = S38*S36p37;
+  OpM338_35 = -C38*S36p37;
+  AlM138_35 = AlM137_35*C38;
+  AlM338_35 = AlM137_35*S38;
+  AlM138_36 = -AlM337_36*S38;
+  AlM338_36 = AlM337_36*C38;
+  OM139 = OM138*C39+OM238*S39;
+  OM239 = -(OM138*S39-OM238*C39);
+  OM339 = qd(39)+OM137*S38+OM337*C38;
+  OpF139 = C39*(OpF138+qd(39)*OM238)+S39*(OpF237-qd(39)*OM138);
+  OpF239 = C39*(OpF237-qd(39)*OM138)-S39*(OpF138+qd(39)*OM238);
+  BS139 = -(OM239*OM239+OM339*OM339);
+  BS239 = OM139*OM239;
+  BS339 = OM139*OM339;
+  BS539 = -(OM139*OM139+OM339*OM339);
+  BS639 = OM239*OM339;
+  BS939 = -(OM139*OM139+OM239*OM239);
+  BeF239 = BS239-OpF338;
+  BeF339 = BS339+OpF239;
+  BeF439 = BS239+OpF338;
+  BeF639 = BS639-OpF139;
+  BeF739 = BS339-OpF239;
+  BeF839 = BS639+OpF139;
+  AlF139 = AlF138*C39+AlF237*S39;
+  AlF239 = -(AlF138*S39-AlF237*C39);
+  AlM139_1 = AlM138_1*C39+AlM237_1*S39;
+  AlM239_1 = -(AlM138_1*S39-AlM237_1*C39);
+  AlM139_2 = AlM138_2*C39+AlM237_2*S39;
+  AlM239_2 = -(AlM138_2*S39-AlM237_2*C39);
+  AlM139_3 = AlM138_3*C39+AlM237_3*S39;
+  AlM239_3 = -(AlM138_3*S39-AlM237_3*C39);
+  OpM139_4 = OpM138_4*C39+OpM237_4*S39;
+  OpM239_4 = -(OpM138_4*S39-OpM237_4*C39);
+  AlM139_4 = AlM138_4*C39+AlM237_4*S39;
+  AlM239_4 = -(AlM138_4*S39-AlM237_4*C39);
+  OpM139_5 = OpM138_5*C39+OpM237_5*S39;
+  OpM239_5 = -(OpM138_5*S39-OpM237_5*C39);
+  AlM139_5 = AlM138_5*C39+AlM237_5*S39;
+  AlM239_5 = -(AlM138_5*S39-AlM237_5*C39);
+  OpM139_6 = OpM138_6*C39+OpM237_6*S39;
+  OpM239_6 = -(OpM138_6*S39-OpM237_6*C39);
+  AlM139_6 = AlM138_6*C39+AlM237_6*S39;
+  AlM239_6 = -(AlM138_6*S39-AlM237_6*C39);
+  OpM139_34 = OpM138_34*C39+OpM237_34*S39;
+  OpM239_34 = -(OpM138_34*S39-OpM237_34*C39);
+  AlM139_34 = AlM138_34*C39+AlM237_34*S39;
+  AlM239_34 = -(AlM138_34*S39-AlM237_34*C39);
+  OpM139_35 = OpM138_35*C39+S39*C36p37;
+  OpM239_35 = -(OpM138_35*S39-C39*C36p37);
+  AlM139_35 = AlM138_35*C39;
+  AlM239_35 = -AlM138_35*S39;
+  OpM139_36 = C38*C39;
+  OpM239_36 = -C38*S39;
+  AlM139_36 = AlM138_36*C39+AlM237_36*S39;
+  AlM239_36 = -(AlM138_36*S39-AlM237_36*C39);
+  OpM139_37 = C38*C39;
+  OpM239_37 = -C38*S39;
+  OM240 = -(OM139*S40-OM239*C40);
+  OM340 = qd(40)+OM339;
+  OpF140 = C40*(OpF139+qd(40)*OM239)+S40*(OpF239-qd(40)*OM139);
+  OpF240 = C40*(OpF239-qd(40)*OM139)-S40*(OpF139+qd(40)*OM239);
+  AlF140 = C40*(AlF139+BS139*s.dpt(1,47)+BeF239*s.dpt(2,47)+BeF339*s.dpt(3,47))+S40*(AlF239+BS539*s.dpt(2,47)+BeF439*s.dpt(1,47)+BeF639*...
+ s.dpt(3,47));
+  AlF240 = C40*(AlF239+BS539*s.dpt(2,47)+BeF439*s.dpt(1,47)+BeF639*s.dpt(3,47))-S40*(AlF139+BS139*s.dpt(1,47)+BeF239*s.dpt(2,47)+BeF339*...
+ s.dpt(3,47));
+  AlF340 = AlF338+BS939*s.dpt(3,47)+BeF739*s.dpt(1,47)+BeF839*s.dpt(2,47);
+  AlM140_1 = AlM139_1*C40+AlM239_1*S40;
+  AlM240_1 = -(AlM139_1*S40-AlM239_1*C40);
+  AlM140_2 = AlM139_2*C40+AlM239_2*S40;
+  AlM240_2 = -(AlM139_2*S40-AlM239_2*C40);
+  AlM140_3 = AlM139_3*C40+AlM239_3*S40;
+  AlM240_3 = -(AlM139_3*S40-AlM239_3*C40);
+  OpM140_4 = OpM139_4*C40+OpM239_4*S40;
+  OpM240_4 = -(OpM139_4*S40-OpM239_4*C40);
+  AlM140_4 = C40*(AlM139_4+OpM239_4*s.dpt(3,47)-OpM338_4*s.dpt(2,47))+S40*(AlM239_4-OpM139_4*s.dpt(3,47)+OpM338_4*s.dpt(1,47));
+  AlM240_4 = C40*(AlM239_4-OpM139_4*s.dpt(3,47)+OpM338_4*s.dpt(1,47))-S40*(AlM139_4+OpM239_4*s.dpt(3,47)-OpM338_4*s.dpt(2,47));
+  AlM340_4 = AlM338_4+OpM139_4*s.dpt(2,47)-OpM239_4*s.dpt(1,47);
+  OpM140_5 = OpM139_5*C40+OpM239_5*S40;
+  OpM240_5 = -(OpM139_5*S40-OpM239_5*C40);
+  AlM140_5 = C40*(AlM139_5+OpM239_5*s.dpt(3,47)-OpM338_5*s.dpt(2,47))+S40*(AlM239_5-OpM139_5*s.dpt(3,47)+OpM338_5*s.dpt(1,47));
+  AlM240_5 = C40*(AlM239_5-OpM139_5*s.dpt(3,47)+OpM338_5*s.dpt(1,47))-S40*(AlM139_5+OpM239_5*s.dpt(3,47)-OpM338_5*s.dpt(2,47));
+  AlM340_5 = AlM338_5+OpM139_5*s.dpt(2,47)-OpM239_5*s.dpt(1,47);
+  OpM140_6 = OpM139_6*C40+OpM239_6*S40;
+  OpM240_6 = -(OpM139_6*S40-OpM239_6*C40);
+  AlM140_6 = C40*(AlM139_6+OpM239_6*s.dpt(3,47)-OpM338_6*s.dpt(2,47))+S40*(AlM239_6-OpM139_6*s.dpt(3,47)+OpM338_6*s.dpt(1,47));
+  AlM240_6 = C40*(AlM239_6-OpM139_6*s.dpt(3,47)+OpM338_6*s.dpt(1,47))-S40*(AlM139_6+OpM239_6*s.dpt(3,47)-OpM338_6*s.dpt(2,47));
+  AlM340_6 = AlM338_6+OpM139_6*s.dpt(2,47)-OpM239_6*s.dpt(1,47);
+  OpM140_34 = OpM139_34*C40+OpM239_34*S40;
+  OpM240_34 = -(OpM139_34*S40-OpM239_34*C40);
+  AlM140_34 = C40*(AlM139_34+OpM239_34*s.dpt(3,47)-OpM338_34*s.dpt(2,47))+S40*(AlM239_34-OpM139_34*s.dpt(3,47)+OpM338_34*s.dpt(1,47));
+  AlM240_34 = C40*(AlM239_34-OpM139_34*s.dpt(3,47)+OpM338_34*s.dpt(1,47))-S40*(AlM139_34+OpM239_34*s.dpt(3,47)-OpM338_34*s.dpt(2,47));
+  AlM340_34 = AlM338_34+OpM139_34*s.dpt(2,47)-OpM239_34*s.dpt(1,47);
+  OpM140_35 = OpM139_35*C40+OpM239_35*S40;
+  OpM240_35 = -(OpM139_35*S40-OpM239_35*C40);
+  AlM140_35 = C40*(AlM139_35+OpM239_35*s.dpt(3,47)-OpM338_35*s.dpt(2,47))+S40*(AlM239_35-OpM139_35*s.dpt(3,47)+OpM338_35*s.dpt(1,47));
+  AlM240_35 = C40*(AlM239_35-OpM139_35*s.dpt(3,47)+OpM338_35*s.dpt(1,47))-S40*(AlM139_35+OpM239_35*s.dpt(3,47)-OpM338_35*s.dpt(2,47));
+  AlM340_35 = AlM338_35+OpM139_35*s.dpt(2,47)-OpM239_35*s.dpt(1,47);
+  OpM140_36 = C38*C39p40;
+  OpM240_36 = -C38*S39p40;
+  AlM140_36 = C40*(AlM139_36+OpM239_36*s.dpt(3,47)-s.dpt(2,47)*S38)+S40*(AlM239_36-OpM139_36*s.dpt(3,47)+s.dpt(1,47)*S38);
+  AlM240_36 = C40*(AlM239_36-OpM139_36*s.dpt(3,47)+s.dpt(1,47)*S38)-S40*(AlM139_36+OpM239_36*s.dpt(3,47)-s.dpt(2,47)*S38);
+  AlM340_36 = AlM338_36+OpM139_36*s.dpt(2,47)-OpM239_36*s.dpt(1,47);
+  OpM140_37 = C38*C39p40;
+  OpM240_37 = -C38*S39p40;
+  AlM140_37 = C40*(OpM239_37*s.dpt(3,47)-s.dpt(2,47)*S38)-S40*(OpM139_37*s.dpt(3,47)-s.dpt(1,47)*S38);
+  AlM240_37 = -(C40*(OpM139_37*s.dpt(3,47)-s.dpt(1,47)*S38)+S40*(OpM239_37*s.dpt(3,47)-s.dpt(2,47)*S38));
+  AlM340_37 = OpM139_37*s.dpt(2,47)-OpM239_37*s.dpt(1,47);
+  AlM140_38 = s.dpt(3,47)*C39p40;
+  AlM240_38 = -s.dpt(3,47)*S39p40;
+  AlM340_38 = -(s.dpt(1,47)*C39-s.dpt(2,47)*S39);
+  AlM140_39 = s.dpt(1,47)*S40-s.dpt(2,47)*C40;
+  AlM240_39 = s.dpt(1,47)*C40+s.dpt(2,47)*S40;
+  OM141 = qd(41)+OM139*C40+OM239*S40;
+  OM341 = -(OM240*S41-OM340*C41);
+  OpF341 = C41*(OpF338-qd(41)*OM240)-S41*(OpF240+qd(41)*OM340);
+  AlF341 = -(AlF240*S41-AlF340*C41);
+  AlM341_1 = -(AlM240_1*S41-AlM338_1*C41);
+  AlM341_2 = -(AlM240_2*S41-AlM338_2*C41);
+  AlM341_3 = -(AlM240_3*S41-AlM338_3*C41);
+  OpM341_4 = -(OpM240_4*S41-OpM338_4*C41);
+  AlM341_4 = -(AlM240_4*S41-AlM340_4*C41);
+  OpM341_5 = -(OpM240_5*S41-OpM338_5*C41);
+  AlM341_5 = -(AlM240_5*S41-AlM340_5*C41);
+  OpM341_6 = -(OpM240_6*S41-OpM338_6*C41);
+  AlM341_6 = -(AlM240_6*S41-AlM340_6*C41);
+  OpM341_34 = -(OpM240_34*S41-OpM338_34*C41);
+  AlM341_34 = -(AlM240_34*S41-AlM340_34*C41);
+  OpM341_35 = -(OpM240_35*S41-OpM338_35*C41);
+  AlM341_35 = -(AlM240_35*S41-AlM340_35*C41);
+  OpM341_36 = -(OpM240_36*S41-S38*C41);
+  AlM341_36 = -(AlM240_36*S41-AlM340_36*C41);
+  OpM341_37 = -(OpM240_37*S41-S38*C41);
+  AlM341_37 = -(AlM240_37*S41-AlM340_37*C41);
+  OpM341_38 = -S41*C39p40;
+  AlM341_38 = -(AlM240_38*S41-AlM340_38*C41);
+  AlM341_39 = -AlM240_39*S41;
+  OM142 = OM141*C42-OM341*S42;
+  OM242 = qd(42)+OM240*C41+OM340*S41;
+  OM342 = OM141*S42+OM341*C42;
+
+% = = Block_0_1_0_1_0_10 = = 
+ 
+% Forward Kinematics 
+
+  OM243 = -(OM16*S43-OM26*C43);
+  OM343 = qd(43)+OM36;
+  OpF143 = C43*(OpF16+qd(43)*OM26)+S43*(OpF25-qd(43)*OM16);
+  OpF243 = C43*(OpF25-qd(43)*OM16)-S43*(OpF16+qd(43)*OM26);
+  AlF243 = C43*(AlF25+BS56*s.dpt(2,11)+BeF46*s.dpt(1,11)+BeF66*s.dpt(3,11))-S43*(AlF16+BS16*s.dpt(1,11)+BeF26*s.dpt(2,11)+BeF36*s.dpt(3,11));
+  AlF343 = AlF36+BS96*s.dpt(3,11)+BeF76*s.dpt(1,11)+BeF86*s.dpt(2,11);
+  AlM243_1 = -(AlM16_1*S43-AlM25_1*C43);
+  AlM243_2 = -(AlM16_2*S43-AlM25_2*C43);
+  AlM243_3 = -(AlM16_3*S43-C43*S5);
+  OpM143_4 = OpM16_4*C43+S43*S5;
+  OpM243_4 = -(OpM16_4*S43-C43*S5);
+  AlM243_4 = -(C43*(OpM16_4*s.dpt(3,11)-OpM36_4*s.dpt(1,11))-S43*(OpM36_4*s.dpt(2,11)-s.dpt(3,11)*S5));
+  AlM343_4 = OpM16_4*s.dpt(2,11)-s.dpt(1,11)*S5;
+  OpM143_5 = C43*C6;
+  OpM243_5 = -S43*C6;
+  AlM243_5 = s.dpt(2,11)*S43*S6+C43*(s.dpt(1,11)*S6-s.dpt(3,11)*C6);
+  AlM343_5 = s.dpt(2,11)*C6;
+  AlM243_6 = -s.dpt(3,11)*S43;
+  OM144 = qd(44)+OM16*C43+OM26*S43;
+  OM244 = OM243*C44+OM343*S44;
+  OM344 = -(OM243*S44-OM343*C44);
+  OpF244 = C44*(OpF243+qd(44)*OM343)+S44*(OpF36-qd(44)*OM243);
+  OpF344 = C44*(OpF36-qd(44)*OM243)-S44*(OpF243+qd(44)*OM343);
+  BS244 = OM144*OM244;
+  BS344 = OM144*OM344;
+  BS644 = OM244*OM344;
+  OpM244_4 = OpM243_4*C44+OpM36_4*S44;
+  OpM344_4 = -(OpM243_4*S44-OpM36_4*C44);
+  OpM244_5 = OpM243_5*C44+S44*S6;
+  OpM344_5 = -(OpM243_5*S44-C44*S6);
+  OpM244_6 = C43*C44;
+  OpM344_6 = -C43*S44;
+
+% = = Block_0_1_0_1_0_11 = = 
+ 
+% Forward Kinematics 
+
+  OM245 = -(OM16*S45-OM26*C45);
+  OM345 = qd(45)+OM36;
+  OpF145 = C45*(OpF16+qd(45)*OM26)+S45*(OpF25-qd(45)*OM16);
+  OpF245 = C45*(OpF25-qd(45)*OM16)-S45*(OpF16+qd(45)*OM26);
+  AlF245 = C45*(AlF25+BS56*s.dpt(2,12)+BeF46*s.dpt(1,12)+BeF66*s.dpt(3,12))-S45*(AlF16+BS16*s.dpt(1,12)+BeF26*s.dpt(2,12)+BeF36*s.dpt(3,12));
+  AlF345 = AlF36+BS96*s.dpt(3,12)+BeF76*s.dpt(1,12)+BeF86*s.dpt(2,12);
+  AlM245_1 = -(AlM16_1*S45-AlM25_1*C45);
+  AlM245_2 = -(AlM16_2*S45-AlM25_2*C45);
+  AlM245_3 = -(AlM16_3*S45-C45*S5);
+  OpM145_4 = OpM16_4*C45+S45*S5;
+  OpM245_4 = -(OpM16_4*S45-C45*S5);
+  AlM245_4 = -(C45*(OpM16_4*s.dpt(3,12)-OpM36_4*s.dpt(1,12))-S45*(OpM36_4*s.dpt(2,12)-s.dpt(3,12)*S5));
+  AlM345_4 = OpM16_4*s.dpt(2,12)-s.dpt(1,12)*S5;
+  OpM145_5 = C45*C6;
+  OpM245_5 = -S45*C6;
+  AlM245_5 = s.dpt(2,12)*S45*S6+C45*(s.dpt(1,12)*S6-s.dpt(3,12)*C6);
+  AlM345_5 = s.dpt(2,12)*C6;
+  AlM245_6 = -s.dpt(3,12)*S45;
+  OM146 = qd(46)+OM16*C45+OM26*S45;
+  OM246 = OM245*C46+OM345*S46;
+  OM346 = -(OM245*S46-OM345*C46);
+  OpF246 = C46*(OpF245+qd(46)*OM345)+S46*(OpF36-qd(46)*OM245);
+  OpF346 = C46*(OpF36-qd(46)*OM245)-S46*(OpF245+qd(46)*OM345);
+  BS246 = OM146*OM246;
+  BS346 = OM146*OM346;
+  BS646 = OM246*OM346;
+  OpM246_4 = OpM245_4*C46+OpM36_4*S46;
+  OpM346_4 = -(OpM245_4*S46-OpM36_4*C46);
+  OpM246_5 = OpM245_5*C46+S46*S6;
+  OpM346_5 = -(OpM245_5*S46-C46*S6);
+  OpM246_6 = C45*C46;
+  OpM346_6 = -C45*S46;
+
+% = = Block_0_1_0_1_0_12 = = 
+ 
+% Trigonometric Variables  
+
+  S49p50 = C49*S50+S49*C50;
+  C49p50 = C49*C50-S49*S50;
+  C52p53 = C52*C53-S52*S53;
+  S52p53 = C52*S53+S52*C53;
+ 
+% Forward Kinematics 
+
+  OM147 = OM16*C47+OM26*S47;
+  OM347 = qd(47)+OM36;
+  OpF147 = C47*(OpF16+qd(47)*OM26)+S47*(OpF25-qd(47)*OM16);
+  OpF247 = C47*(OpF25-qd(47)*OM16)-S47*(OpF16+qd(47)*OM26);
+  AlF147 = C47*(AlF16+BS16*s.dpt(1,15)+BeF26*s.dpt(2,15)+BeF36*s.dpt(3,15))+S47*(AlF25+BS56*s.dpt(2,15)+BeF46*s.dpt(1,15)+BeF66*s.dpt(3,15));
+  AlF247 = C47*(AlF25+BS56*s.dpt(2,15)+BeF46*s.dpt(1,15)+BeF66*s.dpt(3,15))-S47*(AlF16+BS16*s.dpt(1,15)+BeF26*s.dpt(2,15)+BeF36*s.dpt(3,15));
+  AlF347 = AlF36+BS96*s.dpt(3,15)+BeF76*s.dpt(1,15)+BeF86*s.dpt(2,15);
+  AlM147_1 = AlM16_1*C47+AlM25_1*S47;
+  AlM247_1 = -(AlM16_1*S47-AlM25_1*C47);
+  AlM147_2 = AlM16_2*C47+AlM25_2*S47;
+  AlM247_2 = -(AlM16_2*S47-AlM25_2*C47);
+  AlM147_3 = AlM16_3*C47+S47*S5;
+  AlM247_3 = -(AlM16_3*S47-C47*S5);
+  OpM147_4 = OpM16_4*C47+S47*S5;
+  OpM247_4 = -(OpM16_4*S47-C47*S5);
+  AlM147_4 = -(C47*(OpM36_4*s.dpt(2,15)-s.dpt(3,15)*S5)+S47*(OpM16_4*s.dpt(3,15)-OpM36_4*s.dpt(1,15)));
+  AlM247_4 = -(C47*(OpM16_4*s.dpt(3,15)-OpM36_4*s.dpt(1,15))-S47*(OpM36_4*s.dpt(2,15)-s.dpt(3,15)*S5));
+  AlM347_4 = OpM16_4*s.dpt(2,15)-s.dpt(1,15)*S5;
+  OpM147_5 = C47*C6;
+  OpM247_5 = -S47*C6;
+  AlM147_5 = -(s.dpt(2,15)*C47*S6-S47*(s.dpt(1,15)*S6-s.dpt(3,15)*C6));
+  AlM247_5 = s.dpt(2,15)*S47*S6+C47*(s.dpt(1,15)*S6-s.dpt(3,15)*C6);
+  AlM347_5 = s.dpt(2,15)*C6;
+  AlM147_6 = s.dpt(3,15)*C47;
+  AlM247_6 = -s.dpt(3,15)*S47;
+  OM248 = qd(48)-OM16*S47+OM26*C47;
+  OM348 = OM147*S48+OM347*C48;
+  OpF148 = C48*(OpF147-qd(48)*OM347)-S48*(OpF36+qd(48)*OM147);
+  OpF348 = C48*(OpF36+qd(48)*OM147)+S48*(OpF147-qd(48)*OM347);
+  AlF148 = AlF147*C48-AlF347*S48;
+  AlF348 = AlF147*S48+AlF347*C48;
+  AlM148_1 = AlM147_1*C48-AlM36_1*S48;
+  AlM348_1 = AlM147_1*S48+AlM36_1*C48;
+  AlM148_2 = AlM147_2*C48-AlM36_2*S48;
+  AlM348_2 = AlM147_2*S48+AlM36_2*C48;
+  AlM148_3 = AlM147_3*C48-AlM36_3*S48;
+  AlM348_3 = AlM147_3*S48+AlM36_3*C48;
+  OpM148_4 = OpM147_4*C48-OpM36_4*S48;
+  OpM348_4 = OpM147_4*S48+OpM36_4*C48;
+  AlM148_4 = AlM147_4*C48-AlM347_4*S48;
+  AlM348_4 = AlM147_4*S48+AlM347_4*C48;
+  OpM148_5 = OpM147_5*C48-S48*S6;
+  OpM348_5 = OpM147_5*S48+C48*S6;
+  AlM148_5 = AlM147_5*C48-AlM347_5*S48;
+  AlM348_5 = AlM147_5*S48+AlM347_5*C48;
+  OpM148_6 = S47*C48;
+  OpM348_6 = S47*S48;
+  AlM148_6 = AlM147_6*C48+s.dpt(1,15)*S48;
+  AlM348_6 = AlM147_6*S48-s.dpt(1,15)*C48;
+  OM149 = qd(49)+OM147*C48-OM347*S48;
+  OM249 = OM248*C49+OM348*S49;
+  OM349 = -(OM248*S49-OM348*C49);
+  OpF249 = C49*(OpF247+qd(49)*OM348)+S49*(OpF348-qd(49)*OM248);
+  OpF349 = C49*(OpF348-qd(49)*OM248)-S49*(OpF247+qd(49)*OM348);
+  BS549 = -(OM149*OM149+OM349*OM349);
+  BeF249 = OM149*OM249-OpF349;
+  BeF849 = OpF148+OM249*OM349;
+  AlF249 = AlF247*C49+AlF348*S49;
+  AlF349 = -(AlF247*S49-AlF348*C49);
+  AlM249_1 = AlM247_1*C49+AlM348_1*S49;
+  AlM349_1 = -(AlM247_1*S49-AlM348_1*C49);
+  AlM249_2 = AlM247_2*C49+AlM348_2*S49;
+  AlM349_2 = -(AlM247_2*S49-AlM348_2*C49);
+  AlM249_3 = AlM247_3*C49+AlM348_3*S49;
+  AlM349_3 = -(AlM247_3*S49-AlM348_3*C49);
+  OpM249_4 = OpM247_4*C49+OpM348_4*S49;
+  OpM349_4 = -(OpM247_4*S49-OpM348_4*C49);
+  AlM249_4 = AlM247_4*C49+AlM348_4*S49;
+  AlM349_4 = -(AlM247_4*S49-AlM348_4*C49);
+  OpM249_5 = OpM247_5*C49+OpM348_5*S49;
+  OpM349_5 = -(OpM247_5*S49-OpM348_5*C49);
+  AlM249_5 = AlM247_5*C49+AlM348_5*S49;
+  AlM349_5 = -(AlM247_5*S49-AlM348_5*C49);
+  OpM249_6 = OpM348_6*S49+C47*C49;
+  OpM349_6 = OpM348_6*C49-C47*S49;
+  AlM249_6 = AlM247_6*C49+AlM348_6*S49;
+  AlM349_6 = -(AlM247_6*S49-AlM348_6*C49);
+  OpM349_47 = C48*C49;
+  OM150 = qd(50)+OM149;
+  OM350 = -(OM249*S50-OM349*C50);
+  OpF250 = C50*(OpF249+qd(50)*OM349)+S50*(OpF349-qd(50)*OM249);
+  OpF350 = C50*(OpF349-qd(50)*OM249)-S50*(OpF249+qd(50)*OM349);
+  AlF150 = AlF148+BeF249*s.dpt(2,56);
+  AlF250 = C50*(AlF249+BS549*s.dpt(2,56))+S50*(AlF349+BeF849*s.dpt(2,56));
+  AlF350 = C50*(AlF349+BeF849*s.dpt(2,56))-S50*(AlF249+BS549*s.dpt(2,56));
+  AlM250_1 = AlM249_1*C50+AlM349_1*S50;
+  AlM350_1 = -(AlM249_1*S50-AlM349_1*C50);
+  AlM250_2 = AlM249_2*C50+AlM349_2*S50;
+  AlM350_2 = -(AlM249_2*S50-AlM349_2*C50);
+  AlM250_3 = AlM249_3*C50+AlM349_3*S50;
+  AlM350_3 = -(AlM249_3*S50-AlM349_3*C50);
+  OpM250_4 = OpM249_4*C50+OpM349_4*S50;
+  OpM350_4 = -(OpM249_4*S50-OpM349_4*C50);
+  AlM150_4 = AlM148_4-OpM349_4*s.dpt(2,56);
+  AlM250_4 = AlM249_4*C50+S50*(AlM349_4+OpM148_4*s.dpt(2,56));
+  AlM350_4 = -(AlM249_4*S50-C50*(AlM349_4+OpM148_4*s.dpt(2,56)));
+  OpM250_5 = OpM249_5*C50+OpM349_5*S50;
+  OpM350_5 = -(OpM249_5*S50-OpM349_5*C50);
+  AlM150_5 = AlM148_5-OpM349_5*s.dpt(2,56);
+  AlM250_5 = AlM249_5*C50+S50*(AlM349_5+OpM148_5*s.dpt(2,56));
+  AlM350_5 = -(AlM249_5*S50-C50*(AlM349_5+OpM148_5*s.dpt(2,56)));
+  OpM250_6 = OpM249_6*C50+OpM349_6*S50;
+  OpM350_6 = -(OpM249_6*S50-OpM349_6*C50);
+  AlM150_6 = AlM148_6-OpM349_6*s.dpt(2,56);
+  AlM250_6 = AlM249_6*C50+S50*(AlM349_6+OpM148_6*s.dpt(2,56));
+  AlM350_6 = -(AlM249_6*S50-C50*(AlM349_6+OpM148_6*s.dpt(2,56)));
+  OpM250_47 = C48*S49p50;
+  OpM350_47 = C48*C49p50;
+  AlM150_47 = -OpM349_47*s.dpt(2,56);
+  AlM250_47 = -s.dpt(2,56)*S48*S50;
+  AlM350_47 = -s.dpt(2,56)*S48*C50;
+  AlM150_48 = s.dpt(2,56)*S49;
+  AlM250_49 = s.dpt(2,56)*S50;
+  AlM350_49 = s.dpt(2,56)*C50;
+  OM151 = OM150*C51-OM350*S51;
+  OM251 = qd(51)+OM249*C50+OM349*S50;
+  OpF151 = C51*(OpF148-qd(51)*OM350)-S51*(OpF350+qd(51)*OM150);
+  OpF351 = C51*(OpF350+qd(51)*OM150)+S51*(OpF148-qd(51)*OM350);
+  AlF151 = AlF150*C51-AlF350*S51;
+  AlF351 = AlF150*S51+AlF350*C51;
+  AlM151_1 = AlM148_1*C51-AlM350_1*S51;
+  AlM351_1 = AlM148_1*S51+AlM350_1*C51;
+  AlM151_2 = AlM148_2*C51-AlM350_2*S51;
+  AlM351_2 = AlM148_2*S51+AlM350_2*C51;
+  AlM151_3 = AlM148_3*C51-AlM350_3*S51;
+  AlM351_3 = AlM148_3*S51+AlM350_3*C51;
+  OpM151_4 = OpM148_4*C51-OpM350_4*S51;
+  OpM351_4 = OpM148_4*S51+OpM350_4*C51;
+  AlM151_4 = AlM150_4*C51-AlM350_4*S51;
+  AlM351_4 = AlM150_4*S51+AlM350_4*C51;
+  OpM151_5 = OpM148_5*C51-OpM350_5*S51;
+  OpM351_5 = OpM148_5*S51+OpM350_5*C51;
+  AlM151_5 = AlM150_5*C51-AlM350_5*S51;
+  AlM351_5 = AlM150_5*S51+AlM350_5*C51;
+  OpM151_6 = OpM148_6*C51-OpM350_6*S51;
+  OpM351_6 = OpM148_6*S51+OpM350_6*C51;
+  AlM151_6 = AlM150_6*C51-AlM350_6*S51;
+  AlM351_6 = AlM150_6*S51+AlM350_6*C51;
+  OpM151_47 = -(OpM350_47*S51+S48*C51);
+  OpM351_47 = OpM350_47*C51-S48*S51;
+  AlM151_47 = AlM150_47*C51-AlM350_47*S51;
+  AlM351_47 = AlM150_47*S51+AlM350_47*C51;
+  OpM151_48 = S51*S49p50;
+  OpM351_48 = -C51*S49p50;
+  AlM151_48 = AlM150_48*C51;
+  AlM351_48 = AlM150_48*S51;
+  AlM151_49 = -AlM350_49*S51;
+  AlM351_49 = AlM350_49*C51;
+  OM152 = OM151*C52+OM251*S52;
+  OM252 = -(OM151*S52-OM251*C52);
+  OM352 = qd(52)+OM150*S51+OM350*C51;
+  OpF152 = C52*(OpF151+qd(52)*OM251)+S52*(OpF250-qd(52)*OM151);
+  OpF252 = C52*(OpF250-qd(52)*OM151)-S52*(OpF151+qd(52)*OM251);
+  BS152 = -(OM252*OM252+OM352*OM352);
+  BS252 = OM152*OM252;
+  BS352 = OM152*OM352;
+  BS552 = -(OM152*OM152+OM352*OM352);
+  BS652 = OM252*OM352;
+  BS952 = -(OM152*OM152+OM252*OM252);
+  BeF252 = BS252-OpF351;
+  BeF352 = BS352+OpF252;
+  BeF452 = BS252+OpF351;
+  BeF652 = BS652-OpF152;
+  BeF752 = BS352-OpF252;
+  BeF852 = BS652+OpF152;
+  AlF152 = AlF151*C52+AlF250*S52;
+  AlF252 = -(AlF151*S52-AlF250*C52);
+  AlM152_1 = AlM151_1*C52+AlM250_1*S52;
+  AlM252_1 = -(AlM151_1*S52-AlM250_1*C52);
+  AlM152_2 = AlM151_2*C52+AlM250_2*S52;
+  AlM252_2 = -(AlM151_2*S52-AlM250_2*C52);
+  AlM152_3 = AlM151_3*C52+AlM250_3*S52;
+  AlM252_3 = -(AlM151_3*S52-AlM250_3*C52);
+  OpM152_4 = OpM151_4*C52+OpM250_4*S52;
+  OpM252_4 = -(OpM151_4*S52-OpM250_4*C52);
+  AlM152_4 = AlM151_4*C52+AlM250_4*S52;
+  AlM252_4 = -(AlM151_4*S52-AlM250_4*C52);
+  OpM152_5 = OpM151_5*C52+OpM250_5*S52;
+  OpM252_5 = -(OpM151_5*S52-OpM250_5*C52);
+  AlM152_5 = AlM151_5*C52+AlM250_5*S52;
+  AlM252_5 = -(AlM151_5*S52-AlM250_5*C52);
+  OpM152_6 = OpM151_6*C52+OpM250_6*S52;
+  OpM252_6 = -(OpM151_6*S52-OpM250_6*C52);
+  AlM152_6 = AlM151_6*C52+AlM250_6*S52;
+  AlM252_6 = -(AlM151_6*S52-AlM250_6*C52);
+  OpM152_47 = OpM151_47*C52+OpM250_47*S52;
+  OpM252_47 = -(OpM151_47*S52-OpM250_47*C52);
+  AlM152_47 = AlM151_47*C52+AlM250_47*S52;
+  AlM252_47 = -(AlM151_47*S52-AlM250_47*C52);
+  OpM152_48 = OpM151_48*C52+S52*C49p50;
+  OpM252_48 = -(OpM151_48*S52-C52*C49p50);
+  AlM152_48 = AlM151_48*C52;
+  AlM252_48 = -AlM151_48*S52;
+  OpM152_49 = C51*C52;
+  OpM252_49 = -C51*S52;
+  AlM152_49 = AlM151_49*C52+AlM250_49*S52;
+  AlM252_49 = -(AlM151_49*S52-AlM250_49*C52);
+  OpM152_50 = C51*C52;
+  OpM252_50 = -C51*S52;
+  OM253 = -(OM152*S53-OM252*C53);
+  OM353 = qd(53)+OM352;
+  OpF153 = C53*(OpF152+qd(53)*OM252)+S53*(OpF252-qd(53)*OM152);
+  OpF253 = C53*(OpF252-qd(53)*OM152)-S53*(OpF152+qd(53)*OM252);
+  AlF153 = C53*(AlF152+BS152*s.dpt(1,57)+BeF252*s.dpt(2,57)+BeF352*s.dpt(3,57))+S53*(AlF252+BS552*s.dpt(2,57)+BeF452*s.dpt(1,57)+BeF652*...
+ s.dpt(3,57));
+  AlF253 = C53*(AlF252+BS552*s.dpt(2,57)+BeF452*s.dpt(1,57)+BeF652*s.dpt(3,57))-S53*(AlF152+BS152*s.dpt(1,57)+BeF252*s.dpt(2,57)+BeF352*...
+ s.dpt(3,57));
+  AlF353 = AlF351+BS952*s.dpt(3,57)+BeF752*s.dpt(1,57)+BeF852*s.dpt(2,57);
+  AlM153_1 = AlM152_1*C53+AlM252_1*S53;
+  AlM253_1 = -(AlM152_1*S53-AlM252_1*C53);
+  AlM153_2 = AlM152_2*C53+AlM252_2*S53;
+  AlM253_2 = -(AlM152_2*S53-AlM252_2*C53);
+  AlM153_3 = AlM152_3*C53+AlM252_3*S53;
+  AlM253_3 = -(AlM152_3*S53-AlM252_3*C53);
+  OpM153_4 = OpM152_4*C53+OpM252_4*S53;
+  OpM253_4 = -(OpM152_4*S53-OpM252_4*C53);
+  AlM153_4 = C53*(AlM152_4+OpM252_4*s.dpt(3,57)-OpM351_4*s.dpt(2,57))+S53*(AlM252_4-OpM152_4*s.dpt(3,57)+OpM351_4*s.dpt(1,57));
+  AlM253_4 = C53*(AlM252_4-OpM152_4*s.dpt(3,57)+OpM351_4*s.dpt(1,57))-S53*(AlM152_4+OpM252_4*s.dpt(3,57)-OpM351_4*s.dpt(2,57));
+  AlM353_4 = AlM351_4+OpM152_4*s.dpt(2,57)-OpM252_4*s.dpt(1,57);
+  OpM153_5 = OpM152_5*C53+OpM252_5*S53;
+  OpM253_5 = -(OpM152_5*S53-OpM252_5*C53);
+  AlM153_5 = C53*(AlM152_5+OpM252_5*s.dpt(3,57)-OpM351_5*s.dpt(2,57))+S53*(AlM252_5-OpM152_5*s.dpt(3,57)+OpM351_5*s.dpt(1,57));
+  AlM253_5 = C53*(AlM252_5-OpM152_5*s.dpt(3,57)+OpM351_5*s.dpt(1,57))-S53*(AlM152_5+OpM252_5*s.dpt(3,57)-OpM351_5*s.dpt(2,57));
+  AlM353_5 = AlM351_5+OpM152_5*s.dpt(2,57)-OpM252_5*s.dpt(1,57);
+  OpM153_6 = OpM152_6*C53+OpM252_6*S53;
+  OpM253_6 = -(OpM152_6*S53-OpM252_6*C53);
+  AlM153_6 = C53*(AlM152_6+OpM252_6*s.dpt(3,57)-OpM351_6*s.dpt(2,57))+S53*(AlM252_6-OpM152_6*s.dpt(3,57)+OpM351_6*s.dpt(1,57));
+  AlM253_6 = C53*(AlM252_6-OpM152_6*s.dpt(3,57)+OpM351_6*s.dpt(1,57))-S53*(AlM152_6+OpM252_6*s.dpt(3,57)-OpM351_6*s.dpt(2,57));
+  AlM353_6 = AlM351_6+OpM152_6*s.dpt(2,57)-OpM252_6*s.dpt(1,57);
+  OpM153_47 = OpM152_47*C53+OpM252_47*S53;
+  OpM253_47 = -(OpM152_47*S53-OpM252_47*C53);
+  AlM153_47 = C53*(AlM152_47+OpM252_47*s.dpt(3,57)-OpM351_47*s.dpt(2,57))+S53*(AlM252_47-OpM152_47*s.dpt(3,57)+OpM351_47*s.dpt(1,57));
+  AlM253_47 = C53*(AlM252_47-OpM152_47*s.dpt(3,57)+OpM351_47*s.dpt(1,57))-S53*(AlM152_47+OpM252_47*s.dpt(3,57)-OpM351_47*s.dpt(2,57));
+  AlM353_47 = AlM351_47+OpM152_47*s.dpt(2,57)-OpM252_47*s.dpt(1,57);
+  OpM153_48 = OpM152_48*C53+OpM252_48*S53;
+  OpM253_48 = -(OpM152_48*S53-OpM252_48*C53);
+  AlM153_48 = C53*(AlM152_48+OpM252_48*s.dpt(3,57)-OpM351_48*s.dpt(2,57))+S53*(AlM252_48-OpM152_48*s.dpt(3,57)+OpM351_48*s.dpt(1,57));
+  AlM253_48 = C53*(AlM252_48-OpM152_48*s.dpt(3,57)+OpM351_48*s.dpt(1,57))-S53*(AlM152_48+OpM252_48*s.dpt(3,57)-OpM351_48*s.dpt(2,57));
+  AlM353_48 = AlM351_48+OpM152_48*s.dpt(2,57)-OpM252_48*s.dpt(1,57);
+  OpM153_49 = C51*C52p53;
+  OpM253_49 = -C51*S52p53;
+  AlM153_49 = C53*(AlM152_49+OpM252_49*s.dpt(3,57)-s.dpt(2,57)*S51)+S53*(AlM252_49-OpM152_49*s.dpt(3,57)+s.dpt(1,57)*S51);
+  AlM253_49 = C53*(AlM252_49-OpM152_49*s.dpt(3,57)+s.dpt(1,57)*S51)-S53*(AlM152_49+OpM252_49*s.dpt(3,57)-s.dpt(2,57)*S51);
+  AlM353_49 = AlM351_49+OpM152_49*s.dpt(2,57)-OpM252_49*s.dpt(1,57);
+  OpM153_50 = C51*C52p53;
+  OpM253_50 = -C51*S52p53;
+  AlM153_50 = C53*(OpM252_50*s.dpt(3,57)-s.dpt(2,57)*S51)-S53*(OpM152_50*s.dpt(3,57)-s.dpt(1,57)*S51);
+  AlM253_50 = -(C53*(OpM152_50*s.dpt(3,57)-s.dpt(1,57)*S51)+S53*(OpM252_50*s.dpt(3,57)-s.dpt(2,57)*S51));
+  AlM353_50 = OpM152_50*s.dpt(2,57)-OpM252_50*s.dpt(1,57);
+  AlM153_51 = s.dpt(3,57)*C52p53;
+  AlM253_51 = -s.dpt(3,57)*S52p53;
+  AlM353_51 = -(s.dpt(1,57)*C52-s.dpt(2,57)*S52);
+  AlM153_52 = s.dpt(1,57)*S53-s.dpt(2,57)*C53;
+  AlM253_52 = s.dpt(1,57)*C53+s.dpt(2,57)*S53;
+  OM154 = qd(54)+OM152*C53+OM252*S53;
+  OM354 = -(OM253*S54-OM353*C54);
+  OpF354 = C54*(OpF351-qd(54)*OM253)-S54*(OpF253+qd(54)*OM353);
+  AlF354 = -(AlF253*S54-AlF353*C54);
+  AlM354_1 = -(AlM253_1*S54-AlM351_1*C54);
+  AlM354_2 = -(AlM253_2*S54-AlM351_2*C54);
+  AlM354_3 = -(AlM253_3*S54-AlM351_3*C54);
+  OpM354_4 = -(OpM253_4*S54-OpM351_4*C54);
+  AlM354_4 = -(AlM253_4*S54-AlM353_4*C54);
+  OpM354_5 = -(OpM253_5*S54-OpM351_5*C54);
+  AlM354_5 = -(AlM253_5*S54-AlM353_5*C54);
+  OpM354_6 = -(OpM253_6*S54-OpM351_6*C54);
+  AlM354_6 = -(AlM253_6*S54-AlM353_6*C54);
+  OpM354_47 = -(OpM253_47*S54-OpM351_47*C54);
+  AlM354_47 = -(AlM253_47*S54-AlM353_47*C54);
+  OpM354_48 = -(OpM253_48*S54-OpM351_48*C54);
+  AlM354_48 = -(AlM253_48*S54-AlM353_48*C54);
+  OpM354_49 = -(OpM253_49*S54-S51*C54);
+  AlM354_49 = -(AlM253_49*S54-AlM353_49*C54);
+  OpM354_50 = -(OpM253_50*S54-S51*C54);
+  AlM354_50 = -(AlM253_50*S54-AlM353_50*C54);
+  OpM354_51 = -S54*C52p53;
+  AlM354_51 = -(AlM253_51*S54-AlM353_51*C54);
+  AlM354_52 = -AlM253_52*S54;
+  OM155 = OM154*C55-OM354*S55;
+  OM255 = qd(55)+OM253*C54+OM353*S54;
+  OM355 = OM154*S55+OM354*C55;
+
+% = = Block_0_1_0_1_0_13 = = 
+ 
+% Forward Kinematics 
+
+  OM256 = -(OM16*S56-OM26*C56);
+  OM356 = qd(56)+OM36;
+  OpF156 = C56*(OpF16+qd(56)*OM26)+S56*(OpF25-qd(56)*OM16);
+  OpF256 = C56*(OpF25-qd(56)*OM16)-S56*(OpF16+qd(56)*OM26);
+  AlF256 = C56*(AlF25+BS56*s.dpt(2,16)+BeF46*s.dpt(1,16)+BeF66*s.dpt(3,16))-S56*(AlF16+BS16*s.dpt(1,16)+BeF26*s.dpt(2,16)+BeF36*s.dpt(3,16));
+  AlF356 = AlF36+BS96*s.dpt(3,16)+BeF76*s.dpt(1,16)+BeF86*s.dpt(2,16);
+  AlM256_1 = -(AlM16_1*S56-AlM25_1*C56);
+  AlM256_2 = -(AlM16_2*S56-AlM25_2*C56);
+  AlM256_3 = -(AlM16_3*S56-S5*C56);
+  OpM156_4 = OpM16_4*C56+S5*S56;
+  OpM256_4 = -(OpM16_4*S56-S5*C56);
+  AlM256_4 = -(C56*(OpM16_4*s.dpt(3,16)-OpM36_4*s.dpt(1,16))-S56*(OpM36_4*s.dpt(2,16)-s.dpt(3,16)*S5));
+  AlM356_4 = OpM16_4*s.dpt(2,16)-s.dpt(1,16)*S5;
+  OpM156_5 = C56*C6;
+  OpM256_5 = -S56*C6;
+  AlM256_5 = s.dpt(2,16)*S56*S6+C56*(s.dpt(1,16)*S6-s.dpt(3,16)*C6);
+  AlM356_5 = s.dpt(2,16)*C6;
+  AlM256_6 = -s.dpt(3,16)*S56;
+  OM157 = qd(57)+OM16*C56+OM26*S56;
+  OM257 = OM256*C57+OM356*S57;
+  OM357 = -(OM256*S57-OM356*C57);
+  OpF257 = C57*(OpF256+qd(57)*OM356)+S57*(OpF36-qd(57)*OM256);
+  OpF357 = C57*(OpF36-qd(57)*OM256)-S57*(OpF256+qd(57)*OM356);
+  BS257 = OM157*OM257;
+  BS357 = OM157*OM357;
+  BS657 = OM257*OM357;
+  OpM257_4 = OpM256_4*C57+OpM36_4*S57;
+  OpM357_4 = -(OpM256_4*S57-OpM36_4*C57);
+  OpM257_5 = OpM256_5*C57+S57*S6;
+  OpM357_5 = -(OpM256_5*S57-C57*S6);
+  OpM257_6 = C56*C57;
+  OpM357_6 = -C56*S57;
+
+% = = Block_0_1_0_1_0_14 = = 
+ 
+% Forward Kinematics 
+
+  OM258 = -(OM16*S58-OM26*C58);
+  OM358 = qd(58)+OM36;
+  OpF158 = C58*(OpF16+qd(58)*OM26)+S58*(OpF25-qd(58)*OM16);
+  OpF258 = C58*(OpF25-qd(58)*OM16)-S58*(OpF16+qd(58)*OM26);
+  AlF258 = C58*(AlF25+BS56*s.dpt(2,17)+BeF46*s.dpt(1,17)+BeF66*s.dpt(3,17))-S58*(AlF16+BS16*s.dpt(1,17)+BeF26*s.dpt(2,17)+BeF36*s.dpt(3,17));
+  AlF358 = AlF36+BS96*s.dpt(3,17)+BeF76*s.dpt(1,17)+BeF86*s.dpt(2,17);
+  AlM258_1 = -(AlM16_1*S58-AlM25_1*C58);
+  AlM258_2 = -(AlM16_2*S58-AlM25_2*C58);
+  AlM258_3 = -(AlM16_3*S58-S5*C58);
+  OpM158_4 = OpM16_4*C58+S5*S58;
+  OpM258_4 = -(OpM16_4*S58-S5*C58);
+  AlM258_4 = -(C58*(OpM16_4*s.dpt(3,17)-OpM36_4*s.dpt(1,17))-S58*(OpM36_4*s.dpt(2,17)-s.dpt(3,17)*S5));
+  AlM358_4 = OpM16_4*s.dpt(2,17)-s.dpt(1,17)*S5;
+  OpM158_5 = C58*C6;
+  OpM258_5 = -S58*C6;
+  AlM258_5 = s.dpt(2,17)*S58*S6+C58*(s.dpt(1,17)*S6-s.dpt(3,17)*C6);
+  AlM358_5 = s.dpt(2,17)*C6;
+  AlM258_6 = -s.dpt(3,17)*S58;
+  OM159 = qd(59)+OM16*C58+OM26*S58;
+  OM259 = OM258*C59+OM358*S59;
+  OM359 = -(OM258*S59-OM358*C59);
+  OpF259 = C59*(OpF258+qd(59)*OM358)+S59*(OpF36-qd(59)*OM258);
+  OpF359 = C59*(OpF36-qd(59)*OM258)-S59*(OpF258+qd(59)*OM358);
+  BS259 = OM159*OM259;
+  BS359 = OM159*OM359;
+  BS659 = OM259*OM359;
+  OpM259_4 = OpM258_4*C59+OpM36_4*S59;
+  OpM359_4 = -(OpM258_4*S59-OpM36_4*C59);
+  OpM259_5 = OpM258_5*C59+S59*S6;
+  OpM359_5 = -(OpM258_5*S59-C59*S6);
+  OpM259_6 = C58*C59;
+  OpM359_6 = -C58*S59;
+
+% = = Block_0_2_0_1_0_2 = = 
+ 
+% Backward Dynamics 
+
+  FA115 = -(s.frc(1,15)-s.m(15)*(AlF113*C15-AlF314*S15));
+  FA215 = -(s.frc(2,15)-s.m(15)*(AlF213*C14+AlF313*S14));
+  FA315 = -(s.frc(3,15)-s.m(15)*(AlF113*S15+AlF314*C15));
+  CF115 = -(s.trq(1,15)-s.In(1,15)*(C15*(OpF113-qd(15)*OM314)-S15*(OpF314+qd(15)*OM114))+OM215*OM315*(s.In(5,15)-s.In(9,15)));
+  CF215 = -(s.trq(2,15)-s.In(5,15)*(C14*(OpF213+qd(14)*OM313)+S14*(OpF311-qd(14)*OM213))-OM115*OM315*(s.In(1,15)-s.In(9,15)));
+  CF315 = -(s.trq(3,15)-s.In(9,15)*(C15*(OpF314+qd(15)*OM114)+S15*(OpF113-qd(15)*OM314))+OM115*OM215*(s.In(1,15)-s.In(5,15)));
+  FB115_1 = s.m(15)*(AlM113_1*C15-AlM314_1*S15);
+  FB215_1 = s.m(15)*(AlM213_1*C14+AlM311_1*S14);
+  FB315_1 = s.m(15)*(AlM113_1*S15+AlM314_1*C15);
+  FB115_2 = s.m(15)*(AlM113_2*C15-AlM314_2*S15);
+  FB215_2 = s.m(15)*(AlM213_2*C14+AlM311_2*S14);
+  FB315_2 = s.m(15)*(AlM113_2*S15+AlM314_2*C15);
+  FB115_3 = s.m(15)*(AlM113_3*C15-AlM314_3*S15);
+  FB215_3 = s.m(15)*(AlM213_3*C14+AlM311_3*S14);
+  FB315_3 = s.m(15)*(AlM113_3*S15+AlM314_3*C15);
+  FB115_4 = s.m(15)*(AlM113_4*C15-AlM314_4*S15);
+  FB215_4 = s.m(15)*(AlM213_4*C14+AlM313_4*S14);
+  FB315_4 = s.m(15)*(AlM113_4*S15+AlM314_4*C15);
+  CM115_4 = s.In(1,15)*(OpM113_4*C15-OpM314_4*S15);
+  CM215_4 = s.In(5,15)*(OpM213_4*C14+OpM311_4*S14);
+  CM315_4 = s.In(9,15)*(OpM113_4*S15+OpM314_4*C15);
+  FB115_5 = s.m(15)*(AlM113_5*C15-AlM314_5*S15);
+  FB215_5 = s.m(15)*(AlM213_5*C14+AlM313_5*S14);
+  FB315_5 = s.m(15)*(AlM113_5*S15+AlM314_5*C15);
+  CM115_5 = s.In(1,15)*(OpM113_5*C15-OpM314_5*S15);
+  CM215_5 = s.In(5,15)*(OpM213_5*C14+OpM311_5*S14);
+  CM315_5 = s.In(9,15)*(OpM113_5*S15+OpM314_5*C15);
+  FB115_6 = s.m(15)*(AlM113_6*C15-AlM314_6*S15);
+  FB215_6 = s.m(15)*(AlM213_6*C14+AlM313_6*S14);
+  FB315_6 = s.m(15)*(AlM113_6*S15+AlM314_6*C15);
+  CM115_6 = s.In(1,15)*(OpM113_6*C15-OpM314_6*S15);
+  CM215_6 = s.In(5,15)*(OpM213_6*C14+OpM311_6*S14);
+  CM315_6 = s.In(9,15)*(OpM113_6*S15+OpM314_6*C15);
+  FB115_7 = s.m(15)*(AlM113_7*C15-AlM314_7*S15);
+  FB215_7 = s.m(15)*(AlM213_7*C14+AlM313_7*S14);
+  FB315_7 = s.m(15)*(AlM113_7*S15+AlM314_7*C15);
+  CM115_7 = s.In(1,15)*(OpM113_7*C15-OpM314_7*S15);
+  CM215_7 = s.In(5,15)*(OpM213_7*C14+OpM311_7*S14);
+  CM315_7 = s.In(9,15)*(OpM113_7*S15+OpM314_7*C15);
+  FB115_8 = s.m(15)*(AlM113_8*C15-AlM314_8*S15);
+  FB215_8 = s.m(15)*(AlM213_8*C14+AlM313_8*S14);
+  FB315_8 = s.m(15)*(AlM113_8*S15+AlM314_8*C15);
+  CM115_8 = s.In(1,15)*(OpM113_8*C15-OpM314_8*S15);
+  CM215_8 = s.In(5,15)*(OpM213_8*C14+OpM311_8*S14);
+  CM315_8 = s.In(9,15)*(OpM113_8*S15+OpM314_8*C15);
+  FB115_9 = s.m(15)*(AlM113_9*C15-AlM314_9*S15);
+  FB215_9 = s.m(15)*(AlM213_9*C14+AlM313_9*S14);
+  FB315_9 = s.m(15)*(AlM113_9*S15+AlM314_9*C15);
+  CM115_9 = s.In(1,15)*(OpM113_9*C15-OpM314_9*S15);
+  CM215_9 = s.In(5,15)*(OpM213_9*C14+S11*S14);
+  CM315_9 = s.In(9,15)*(OpM113_9*S15+OpM314_9*C15);
+  FB115_10 = s.m(15)*(AlM113_10*C15-AlM314_10*S15);
+  FB215_10 = s.m(15)*(AlM213_10*C14+AlM313_10*S14);
+  FB315_10 = s.m(15)*(AlM113_10*S15+AlM314_10*C15);
+  CM115_10 = s.In(1,15)*(OpM113_10*C15-OpM314_10*S15);
+  CM215_10 = s.In(5,15)*(OpM213_10*C14+S11*S14);
+  CM315_10 = s.In(9,15)*(OpM113_10*S15+OpM314_10*C15);
+  FB115_11 = s.m(15)*(AlM113_11*C15-AlM314_11*S15);
+  FB215_11 = s.m(15)*(AlM213_11*C14+AlM313_11*S14);
+  FB315_11 = s.m(15)*(AlM113_11*S15+AlM314_11*C15);
+  CM115_11 = -s.In(1,15)*(OpM314_11*S15-C15*S12p13);
+  CM215_11 = s.In(5,15)*C14*C12p13;
+  CM315_11 = s.In(9,15)*(OpM314_11*C15+S15*S12p13);
+  FB115_12 = s.m(15)*(AlM113_12*C15-AlM314_12*S15);
+  FB315_12 = s.m(15)*(AlM113_12*S15+AlM314_12*C15);
+  CM115_12 = -s.In(1,15)*C14*S15;
+  CM215_12 = s.In(5,15)*S14;
+  CM315_12 = s.In(9,15)*C14*C15;
+  CM115_13 = -s.In(1,15)*C14*S15;
+  CM215_13 = s.In(5,15)*S14;
+  CM315_13 = s.In(9,15)*C14*C15;
+  FF14_115 = FA115*C15+FA315*S15;
+  FF14_315 = -(FA115*S15-FA315*C15);
+  CF14_115 = CF115*C15+CF315*S15;
+  CF14_315 = -(CF115*S15-CF315*C15);
+  FM141_115 = FB115_1*C15+FB315_1*S15;
+  FM141_315 = -(FB115_1*S15-FB315_1*C15);
+  FM142_115 = FB115_2*C15+FB315_2*S15;
+  FM142_315 = -(FB115_2*S15-FB315_2*C15);
+  FM143_115 = FB115_3*C15+FB315_3*S15;
+  FM143_315 = -(FB115_3*S15-FB315_3*C15);
+  FM144_115 = FB115_4*C15+FB315_4*S15;
+  FM144_315 = -(FB115_4*S15-FB315_4*C15);
+  CM144_115 = CM115_4*C15+CM315_4*S15;
+  CM144_315 = -(CM115_4*S15-CM315_4*C15);
+  FM145_115 = FB115_5*C15+FB315_5*S15;
+  FM145_315 = -(FB115_5*S15-FB315_5*C15);
+  CM145_115 = CM115_5*C15+CM315_5*S15;
+  CM145_315 = -(CM115_5*S15-CM315_5*C15);
+  FM146_115 = FB115_6*C15+FB315_6*S15;
+  FM146_315 = -(FB115_6*S15-FB315_6*C15);
+  CM146_115 = CM115_6*C15+CM315_6*S15;
+  CM146_315 = -(CM115_6*S15-CM315_6*C15);
+  FM147_115 = FB115_7*C15+FB315_7*S15;
+  FM147_315 = -(FB115_7*S15-FB315_7*C15);
+  CM147_115 = CM115_7*C15+CM315_7*S15;
+  CM147_315 = -(CM115_7*S15-CM315_7*C15);
+  FM148_115 = FB115_8*C15+FB315_8*S15;
+  FM148_315 = -(FB115_8*S15-FB315_8*C15);
+  CM148_115 = CM115_8*C15+CM315_8*S15;
+  CM148_315 = -(CM115_8*S15-CM315_8*C15);
+  FM149_115 = FB115_9*C15+FB315_9*S15;
+  FM149_315 = -(FB115_9*S15-FB315_9*C15);
+  CM149_115 = CM115_9*C15+CM315_9*S15;
+  CM149_315 = -(CM115_9*S15-CM315_9*C15);
+  FM1410_115 = FB115_10*C15+FB315_10*S15;
+  FM1410_315 = -(FB115_10*S15-FB315_10*C15);
+  CM1410_115 = CM115_10*C15+CM315_10*S15;
+  CM1410_315 = -(CM115_10*S15-CM315_10*C15);
+  FM1411_115 = FB115_11*C15+FB315_11*S15;
+  FM1411_315 = -(FB115_11*S15-FB315_11*C15);
+  CM1411_115 = CM115_11*C15+CM315_11*S15;
+  CM1411_315 = -(CM115_11*S15-CM315_11*C15);
+  FM1412_115 = FB115_12*C15+FB315_12*S15;
+  CM1412_115 = CM115_12*C15+CM315_12*S15;
+  CM1413_115 = CM115_13*C15+CM315_13*S15;
+  CM1414_115 = s.In(1,15)*C15*C15+s.In(9,15)*S15*S15;
+  FF13_214 = FA215*C14-FF14_315*S14;
+  FF13_314 = FA215*S14+FF14_315*C14;
+  CF13_214 = -(CF14_315*S14-CF215*C14);
+  CF13_314 = CF14_315*C14+CF215*S14;
+  FM131_214 = FB215_1*C14-FM141_315*S14;
+  FM131_314 = FB215_1*S14+FM141_315*C14;
+  FM132_214 = FB215_2*C14-FM142_315*S14;
+  FM132_314 = FB215_2*S14+FM142_315*C14;
+  FM133_214 = FB215_3*C14-FM143_315*S14;
+  FM133_314 = FB215_3*S14+FM143_315*C14;
+  FM134_214 = FB215_4*C14-FM144_315*S14;
+  FM134_314 = FB215_4*S14+FM144_315*C14;
+  CM134_214 = -(CM144_315*S14-CM215_4*C14);
+  CM134_314 = CM144_315*C14+CM215_4*S14;
+  FM135_214 = FB215_5*C14-FM145_315*S14;
+  FM135_314 = FB215_5*S14+FM145_315*C14;
+  CM135_214 = -(CM145_315*S14-CM215_5*C14);
+  CM135_314 = CM145_315*C14+CM215_5*S14;
+  FM136_214 = FB215_6*C14-FM146_315*S14;
+  FM136_314 = FB215_6*S14+FM146_315*C14;
+  CM136_214 = -(CM146_315*S14-CM215_6*C14);
+  CM136_314 = CM146_315*C14+CM215_6*S14;
+  FM137_214 = FB215_7*C14-FM147_315*S14;
+  FM137_314 = FB215_7*S14+FM147_315*C14;
+  CM137_214 = -(CM147_315*S14-CM215_7*C14);
+  CM137_314 = CM147_315*C14+CM215_7*S14;
+  FM138_214 = FB215_8*C14-FM148_315*S14;
+  FM138_314 = FB215_8*S14+FM148_315*C14;
+  CM138_214 = -(CM148_315*S14-CM215_8*C14);
+  CM138_314 = CM148_315*C14+CM215_8*S14;
+  FM139_214 = FB215_9*C14-FM149_315*S14;
+  FM139_314 = FB215_9*S14+FM149_315*C14;
+  CM139_214 = -(CM149_315*S14-CM215_9*C14);
+  CM139_314 = CM149_315*C14+CM215_9*S14;
+  FM1310_214 = FB215_10*C14-FM1410_315*S14;
+  FM1310_314 = FB215_10*S14+FM1410_315*C14;
+  CM1310_214 = -(CM1410_315*S14-CM215_10*C14);
+  CM1310_314 = CM1410_315*C14+CM215_10*S14;
+  FM1311_214 = FB215_11*C14-FM1411_315*S14;
+  FM1311_314 = FB215_11*S14+FM1411_315*C14;
+  CM1311_214 = -(CM1411_315*S14-CM215_11*C14);
+  CM1311_314 = CM1411_315*C14+CM215_11*S14;
+  FM1312_214 = s.m(15)*AlM213_12*C14*C14+S14*(FB115_12*S15-FB315_12*C15);
+  CM1312_314 = CM215_12*S14-C14*(CM115_12*S15-CM315_12*C15);
+  CM1313_314 = CM215_13*S14-C14*(CM115_13*S15-CM315_13*C15);
+  FA112 = -(s.frc(1,12)-s.m(12)*(AlF112+BS112*s.l(1,12)+BeF212*s.l(2,12)+BeF312*s.l(3,12)));
+  FA212 = -(s.frc(2,12)-s.m(12)*(AlF212+BS512*s.l(2,12)+BeF412*s.l(1,12)+BeF612*s.l(3,12)));
+  FA312 = -(s.frc(3,12)-s.m(12)*(AlF311+BS912*s.l(3,12)+BeF712*s.l(1,12)+BeF812*s.l(2,12)));
+  FF112 = FA112-FF13_214*S13+FF14_115*C13;
+  FF212 = FA212+FF13_214*C13+FF14_115*S13;
+  FF312 = FA312+FF13_314;
+  CF112 = -(s.trq(1,12)-s.In(1,12)*OpF112+CF13_214*S13-CF14_115*C13+FA212*s.l(3,12)-FA312*s.l(2,12)-FF13_314*s.dpt(2,27)+OM212*OM312*(s.In(5,12)-...
+ s.In(9,12))+s.dpt(3,27)*(FF13_214*C13+FF14_115*S13));
+  CF212 = -(s.trq(2,12)-s.In(5,12)*OpF212-CF13_214*C13-CF14_115*S13-FA112*s.l(3,12)+FA312*s.l(1,12)+FF13_314*s.dpt(1,27)-OM112*OM312*(s.In(1,12)-...
+ s.In(9,12))+s.dpt(3,27)*(FF13_214*S13-FF14_115*C13));
+  CF312 = -(s.trq(3,12)-CF13_314-s.In(9,12)*OpF311+FA112*s.l(2,12)-FA212*s.l(1,12)+OM112*OM212*(s.In(1,12)-s.In(5,12))-s.dpt(1,27)*(FF13_214*C13+...
+ FF14_115*S13)-s.dpt(2,27)*(FF13_214*S13-FF14_115*C13));
+  FB112_1 = s.m(12)*AlM112_1;
+  FB212_1 = s.m(12)*AlM212_1;
+  FB312_1 = s.m(12)*AlM311_1;
+  FM112_1 = FB112_1-FM131_214*S13+FM141_115*C13;
+  FM212_1 = FB212_1+FM131_214*C13+FM141_115*S13;
+  FM312_1 = FB312_1+FM131_314;
+  CM112_1 = FM131_314*s.dpt(2,27)-s.dpt(3,27)*(FM131_214*C13+FM141_115*S13)-FB212_1*s.l(3,12)+FB312_1*s.l(2,12);
+  CM212_1 = FB112_1*s.l(3,12)-FB312_1*s.l(1,12)-FM131_314*s.dpt(1,27)-s.dpt(3,27)*(FM131_214*S13-FM141_115*C13);
+  CM312_1 = s.dpt(1,27)*(FM131_214*C13+FM141_115*S13)+s.dpt(2,27)*(FM131_214*S13-FM141_115*C13)-FB112_1*s.l(2,12)+FB212_1*s.l(1,12);
+  FB112_2 = s.m(12)*AlM112_2;
+  FB212_2 = s.m(12)*AlM212_2;
+  FB312_2 = s.m(12)*AlM311_2;
+  FM112_2 = FB112_2-FM132_214*S13+FM142_115*C13;
+  FM212_2 = FB212_2+FM132_214*C13+FM142_115*S13;
+  FM312_2 = FB312_2+FM132_314;
+  CM112_2 = FM132_314*s.dpt(2,27)-s.dpt(3,27)*(FM132_214*C13+FM142_115*S13)-FB212_2*s.l(3,12)+FB312_2*s.l(2,12);
+  CM212_2 = FB112_2*s.l(3,12)-FB312_2*s.l(1,12)-FM132_314*s.dpt(1,27)-s.dpt(3,27)*(FM132_214*S13-FM142_115*C13);
+  CM312_2 = s.dpt(1,27)*(FM132_214*C13+FM142_115*S13)+s.dpt(2,27)*(FM132_214*S13-FM142_115*C13)-FB112_2*s.l(2,12)+FB212_2*s.l(1,12);
+  FB112_3 = s.m(12)*AlM112_3;
+  FB212_3 = s.m(12)*AlM212_3;
+  FB312_3 = s.m(12)*AlM311_3;
+  FM112_3 = FB112_3-FM133_214*S13+FM143_115*C13;
+  FM212_3 = FB212_3+FM133_214*C13+FM143_115*S13;
+  FM312_3 = FB312_3+FM133_314;
+  CM112_3 = FM133_314*s.dpt(2,27)-s.dpt(3,27)*(FM133_214*C13+FM143_115*S13)-FB212_3*s.l(3,12)+FB312_3*s.l(2,12);
+  CM212_3 = FB112_3*s.l(3,12)-FB312_3*s.l(1,12)-FM133_314*s.dpt(1,27)-s.dpt(3,27)*(FM133_214*S13-FM143_115*C13);
+  CM312_3 = s.dpt(1,27)*(FM133_214*C13+FM143_115*S13)+s.dpt(2,27)*(FM133_214*S13-FM143_115*C13)-FB112_3*s.l(2,12)+FB212_3*s.l(1,12);
+  FB112_4 = s.m(12)*(AlM112_4+OpM212_4*s.l(3,12)-OpM311_4*s.l(2,12));
+  FB212_4 = s.m(12)*(AlM212_4-OpM112_4*s.l(3,12)+OpM311_4*s.l(1,12));
+  FB312_4 = s.m(12)*(AlM311_4+OpM112_4*s.l(2,12)-OpM212_4*s.l(1,12));
+  FM112_4 = FB112_4-FM134_214*S13+FM144_115*C13;
+  FM212_4 = FB212_4+FM134_214*C13+FM144_115*S13;
+  FM312_4 = FB312_4+FM134_314;
+  CM112_4 = s.In(1,12)*OpM112_4-CM134_214*S13+CM144_115*C13-FB212_4*s.l(3,12)+FB312_4*s.l(2,12)+FM134_314*s.dpt(2,27)-s.dpt(3,27)*(FM134_214*C13+...
+ FM144_115*S13);
+  CM212_4 = s.In(5,12)*OpM212_4+CM134_214*C13+CM144_115*S13+FB112_4*s.l(3,12)-FB312_4*s.l(1,12)-FM134_314*s.dpt(1,27)-s.dpt(3,27)*(FM134_214*S13-...
+ FM144_115*C13);
+  CM312_4 = CM134_314+s.In(9,12)*OpM311_4-FB112_4*s.l(2,12)+FB212_4*s.l(1,12)+s.dpt(1,27)*(FM134_214*C13+FM144_115*S13)+s.dpt(2,27)*(FM134_214*...
+ S13-FM144_115*C13);
+  FB112_5 = s.m(12)*(AlM112_5+OpM212_5*s.l(3,12)-OpM311_5*s.l(2,12));
+  FB212_5 = s.m(12)*(AlM212_5-OpM112_5*s.l(3,12)+OpM311_5*s.l(1,12));
+  FB312_5 = s.m(12)*(AlM311_5+OpM112_5*s.l(2,12)-OpM212_5*s.l(1,12));
+  FM112_5 = FB112_5-FM135_214*S13+FM145_115*C13;
+  FM212_5 = FB212_5+FM135_214*C13+FM145_115*S13;
+  FM312_5 = FB312_5+FM135_314;
+  CM112_5 = s.In(1,12)*OpM112_5-CM135_214*S13+CM145_115*C13-FB212_5*s.l(3,12)+FB312_5*s.l(2,12)+FM135_314*s.dpt(2,27)-s.dpt(3,27)*(FM135_214*C13+...
+ FM145_115*S13);
+  CM212_5 = s.In(5,12)*OpM212_5+CM135_214*C13+CM145_115*S13+FB112_5*s.l(3,12)-FB312_5*s.l(1,12)-FM135_314*s.dpt(1,27)-s.dpt(3,27)*(FM135_214*S13-...
+ FM145_115*C13);
+  CM312_5 = CM135_314+s.In(9,12)*OpM311_5-FB112_5*s.l(2,12)+FB212_5*s.l(1,12)+s.dpt(1,27)*(FM135_214*C13+FM145_115*S13)+s.dpt(2,27)*(FM135_214*...
+ S13-FM145_115*C13);
+  FB112_6 = s.m(12)*(AlM112_6+OpM212_6*s.l(3,12)-OpM311_6*s.l(2,12));
+  FB212_6 = s.m(12)*(AlM212_6-OpM112_6*s.l(3,12)+OpM311_6*s.l(1,12));
+  FB312_6 = s.m(12)*(AlM311_6+OpM112_6*s.l(2,12)-OpM212_6*s.l(1,12));
+  FM112_6 = FB112_6-FM136_214*S13+FM146_115*C13;
+  FM212_6 = FB212_6+FM136_214*C13+FM146_115*S13;
+  FM312_6 = FB312_6+FM136_314;
+  CM112_6 = s.In(1,12)*OpM112_6-CM136_214*S13+CM146_115*C13-FB212_6*s.l(3,12)+FB312_6*s.l(2,12)+FM136_314*s.dpt(2,27)-s.dpt(3,27)*(FM136_214*C13+...
+ FM146_115*S13);
+  CM212_6 = s.In(5,12)*OpM212_6+CM136_214*C13+CM146_115*S13+FB112_6*s.l(3,12)-FB312_6*s.l(1,12)-FM136_314*s.dpt(1,27)-s.dpt(3,27)*(FM136_214*S13-...
+ FM146_115*C13);
+  CM312_6 = CM136_314+s.In(9,12)*OpM311_6-FB112_6*s.l(2,12)+FB212_6*s.l(1,12)+s.dpt(1,27)*(FM136_214*C13+FM146_115*S13)+s.dpt(2,27)*(FM136_214*...
+ S13-FM146_115*C13);
+  FB112_7 = s.m(12)*(AlM112_7+OpM212_7*s.l(3,12)-OpM311_7*s.l(2,12));
+  FB212_7 = s.m(12)*(AlM212_7-OpM112_7*s.l(3,12)+OpM311_7*s.l(1,12));
+  FB312_7 = s.m(12)*(AlM311_7+OpM112_7*s.l(2,12)-OpM212_7*s.l(1,12));
+  FM112_7 = FB112_7-FM137_214*S13+FM147_115*C13;
+  FM212_7 = FB212_7+FM137_214*C13+FM147_115*S13;
+  FM312_7 = FB312_7+FM137_314;
+  CM112_7 = s.In(1,12)*OpM112_7-CM137_214*S13+CM147_115*C13-FB212_7*s.l(3,12)+FB312_7*s.l(2,12)+FM137_314*s.dpt(2,27)-s.dpt(3,27)*(FM137_214*C13+...
+ FM147_115*S13);
+  CM212_7 = s.In(5,12)*OpM212_7+CM137_214*C13+CM147_115*S13+FB112_7*s.l(3,12)-FB312_7*s.l(1,12)-FM137_314*s.dpt(1,27)-s.dpt(3,27)*(FM137_214*S13-...
+ FM147_115*C13);
+  CM312_7 = CM137_314+s.In(9,12)*OpM311_7-FB112_7*s.l(2,12)+FB212_7*s.l(1,12)+s.dpt(1,27)*(FM137_214*C13+FM147_115*S13)+s.dpt(2,27)*(FM137_214*...
+ S13-FM147_115*C13);
+  FB112_8 = s.m(12)*(AlM112_8+OpM212_8*s.l(3,12)-OpM311_8*s.l(2,12));
+  FB212_8 = s.m(12)*(AlM212_8-OpM112_8*s.l(3,12)+OpM311_8*s.l(1,12));
+  FB312_8 = s.m(12)*(AlM311_8+OpM112_8*s.l(2,12)-OpM212_8*s.l(1,12));
+  FM112_8 = FB112_8-FM138_214*S13+FM148_115*C13;
+  FM212_8 = FB212_8+FM138_214*C13+FM148_115*S13;
+  FM312_8 = FB312_8+FM138_314;
+  CM112_8 = s.In(1,12)*OpM112_8-CM138_214*S13+CM148_115*C13-FB212_8*s.l(3,12)+FB312_8*s.l(2,12)+FM138_314*s.dpt(2,27)-s.dpt(3,27)*(FM138_214*C13+...
+ FM148_115*S13);
+  CM212_8 = s.In(5,12)*OpM212_8+CM138_214*C13+CM148_115*S13+FB112_8*s.l(3,12)-FB312_8*s.l(1,12)-FM138_314*s.dpt(1,27)-s.dpt(3,27)*(FM138_214*S13-...
+ FM148_115*C13);
+  CM312_8 = CM138_314+s.In(9,12)*OpM311_8-FB112_8*s.l(2,12)+FB212_8*s.l(1,12)+s.dpt(1,27)*(FM138_214*C13+FM148_115*S13)+s.dpt(2,27)*(FM138_214*...
+ S13-FM148_115*C13);
+  FB112_9 = s.m(12)*(AlM112_9+OpM212_9*s.l(3,12)-s.l(2,12)*S11);
+  FB212_9 = s.m(12)*(AlM212_9-OpM112_9*s.l(3,12)+s.l(1,12)*S11);
+  FB312_9 = s.m(12)*(AlM311_9+OpM112_9*s.l(2,12)-OpM212_9*s.l(1,12));
+  FM112_9 = FB112_9-FM139_214*S13+FM149_115*C13;
+  FM212_9 = FB212_9+FM139_214*C13+FM149_115*S13;
+  CM112_9 = s.In(1,12)*OpM112_9-CM139_214*S13+CM149_115*C13-FB212_9*s.l(3,12)+FB312_9*s.l(2,12)+FM139_314*s.dpt(2,27)-s.dpt(3,27)*(FM139_214*C13+...
+ FM149_115*S13);
+  CM212_9 = s.In(5,12)*OpM212_9+CM139_214*C13+CM149_115*S13+FB112_9*s.l(3,12)-FB312_9*s.l(1,12)-FM139_314*s.dpt(1,27)-s.dpt(3,27)*(FM139_214*S13-...
+ FM149_115*C13);
+  CM312_9 = CM139_314+s.In(9,12)*S11-FB112_9*s.l(2,12)+FB212_9*s.l(1,12)+s.dpt(1,27)*(FM139_214*C13+FM149_115*S13)+s.dpt(2,27)*(FM139_214*S13-...
+ FM149_115*C13);
+  FB112_10 = s.m(12)*(OpM212_10*s.l(3,12)-s.l(2,12)*S11);
+  FB212_10 = -s.m(12)*(OpM112_10*s.l(3,12)-s.l(1,12)*S11);
+  FB312_10 = s.m(12)*(OpM112_10*s.l(2,12)-OpM212_10*s.l(1,12));
+  CM112_10 = s.In(1,12)*OpM112_10-CM1310_214*S13+CM1410_115*C13-FB212_10*s.l(3,12)+FB312_10*s.l(2,12)+FM1310_314*s.dpt(2,27)-s.dpt(3,27)*(...
+ FM1310_214*C13+FM1410_115*S13);
+  CM212_10 = s.In(5,12)*OpM212_10+CM1310_214*C13+CM1410_115*S13+FB112_10*s.l(3,12)-FB312_10*s.l(1,12)-FM1310_314*s.dpt(1,27)-s.dpt(3,27)*(...
+ FM1310_214*S13-FM1410_115*C13);
+  CM312_10 = CM1310_314+s.In(9,12)*S11-FB112_10*s.l(2,12)+FB212_10*s.l(1,12)+s.dpt(1,27)*(FM1310_214*C13+FM1410_115*S13)+s.dpt(2,27)*(FM1310_214*...
+ S13-FM1410_115*C13);
+  FB112_11 = s.m(12)*s.l(3,12)*C12;
+  FB212_11 = -s.m(12)*s.l(3,12)*S12;
+  FB312_11 = -s.m(12)*(s.l(1,12)*C12-s.l(2,12)*S12);
+  CM312_11 = CM1311_314-FB112_11*s.l(2,12)+FB212_11*s.l(1,12)+s.dpt(1,27)*(FM1311_214*C13+FM1411_115*S13)+s.dpt(2,27)*(FM1311_214*S13-FM1411_115*...
+ C13);
+  CM312_12 = s.In(9,12)+CM1312_314+s.m(12)*s.l(1,12)*s.l(1,12)+s.m(12)*s.l(2,12)*s.l(2,12)+s.dpt(1,27)*(FM1312_214*C13+FM1412_115*S13)+...
+ s.dpt(2,27)*(FM1312_214*S13-FM1412_115*C13);
+  FF11_112 = FF112*C12-FF212*S12;
+  FF11_212 = FF112*S12+FF212*C12;
+  CF11_112 = CF112*C12-CF212*S12;
+  CF11_212 = CF112*S12+CF212*C12;
+  FM111_112 = FM112_1*C12-FM212_1*S12;
+  FM111_212 = FM112_1*S12+FM212_1*C12;
+  CM111_112 = CM112_1*C12-CM212_1*S12;
+  CM111_212 = CM112_1*S12+CM212_1*C12;
+  FM112_112 = FM112_2*C12-FM212_2*S12;
+  FM112_212 = FM112_2*S12+FM212_2*C12;
+  CM112_112 = CM112_2*C12-CM212_2*S12;
+  CM112_212 = CM112_2*S12+CM212_2*C12;
+  FM113_112 = FM112_3*C12-FM212_3*S12;
+  FM113_212 = FM112_3*S12+FM212_3*C12;
+  CM113_112 = CM112_3*C12-CM212_3*S12;
+  CM113_212 = CM112_3*S12+CM212_3*C12;
+  FM114_112 = FM112_4*C12-FM212_4*S12;
+  FM114_212 = FM112_4*S12+FM212_4*C12;
+  CM114_112 = CM112_4*C12-CM212_4*S12;
+  CM114_212 = CM112_4*S12+CM212_4*C12;
+  FM115_112 = FM112_5*C12-FM212_5*S12;
+  FM115_212 = FM112_5*S12+FM212_5*C12;
+  CM115_112 = CM112_5*C12-CM212_5*S12;
+  CM115_212 = CM112_5*S12+CM212_5*C12;
+  FM116_112 = FM112_6*C12-FM212_6*S12;
+  FM116_212 = FM112_6*S12+FM212_6*C12;
+  CM116_112 = CM112_6*C12-CM212_6*S12;
+  CM116_212 = CM112_6*S12+CM212_6*C12;
+  FM117_112 = FM112_7*C12-FM212_7*S12;
+  CM117_112 = CM112_7*C12-CM212_7*S12;
+  CM117_212 = CM112_7*S12+CM212_7*C12;
+  FM118_112 = FM112_8*C12-FM212_8*S12;
+  CM118_112 = CM112_8*C12-CM212_8*S12;
+  CM118_212 = CM112_8*S12+CM212_8*C12;
+  CM119_212 = CM112_9*S12+CM212_9*C12;
+  CM1110_212 = CM112_10*S12+CM212_10*C12;
+  CM1111_212 = C12*(s.In(5,12)*C12+CM1311_214*C13+CM1411_115*S13+FB112_11*s.l(3,12)-FB312_11*s.l(1,12)-FM1311_314*s.dpt(1,27)-s.dpt(3,27)*(...
+ FM1311_214*S13-FM1411_115*C13))+S12*(s.In(1,12)*S12-CM1311_214*S13+CM1411_115*C13-FB212_11*s.l(3,12)+FB312_11*s.l(2,12)+FM1311_314*s.dpt(2,27)-...
+ s.dpt(3,27)*(FM1311_214*C13+FM1411_115*S13));
+  FF10_111 = FF11_112*C11+FF312*S11;
+  FF10_311 = -(FF11_112*S11-FF312*C11);
+  CF10_111 = CF11_112*C11+CF312*S11;
+  CF10_311 = -(CF11_112*S11-CF312*C11);
+  FM101_111 = FM111_112*C11+FM312_1*S11;
+  FM101_311 = -(FM111_112*S11-FM312_1*C11);
+  CM101_111 = CM111_112*C11+CM312_1*S11;
+  CM101_311 = -(CM111_112*S11-CM312_1*C11);
+  FM102_111 = FM112_112*C11+FM312_2*S11;
+  FM102_311 = -(FM112_112*S11-FM312_2*C11);
+  CM102_111 = CM112_112*C11+CM312_2*S11;
+  CM102_311 = -(CM112_112*S11-CM312_2*C11);
+  FM103_111 = FM113_112*C11+FM312_3*S11;
+  FM103_311 = -(FM113_112*S11-FM312_3*C11);
+  CM103_111 = CM113_112*C11+CM312_3*S11;
+  CM103_311 = -(CM113_112*S11-CM312_3*C11);
+  FM104_111 = FM114_112*C11+FM312_4*S11;
+  FM104_311 = -(FM114_112*S11-FM312_4*C11);
+  CM104_111 = CM114_112*C11+CM312_4*S11;
+  CM104_311 = -(CM114_112*S11-CM312_4*C11);
+  FM105_111 = FM115_112*C11+FM312_5*S11;
+  FM105_311 = -(FM115_112*S11-FM312_5*C11);
+  CM105_111 = CM115_112*C11+CM312_5*S11;
+  CM105_311 = -(CM115_112*S11-CM312_5*C11);
+  FM106_111 = FM116_112*C11+FM312_6*S11;
+  FM106_311 = -(FM116_112*S11-FM312_6*C11);
+  CM106_111 = CM116_112*C11+CM312_6*S11;
+  CM106_311 = -(CM116_112*S11-CM312_6*C11);
+  CM107_111 = CM117_112*C11+CM312_7*S11;
+  CM107_311 = -(CM117_112*S11-CM312_7*C11);
+  CM108_111 = CM118_112*C11+CM312_8*S11;
+  CM108_311 = -(CM118_112*S11-CM312_8*C11);
+  CM109_111 = CM312_9*S11+C11*(CM112_9*C12-CM212_9*S12);
+  CM1010_111 = CM312_10*S11+C11*(CM112_10*C12-CM212_10*S12);
+  FA19 = -(s.frc(1,9)-s.m(9)*(AlF18+BeF29*s.l(2,9)));
+  FA39 = -(s.frc(3,9)-s.m(9)*(AlF39+BeF89*s.l(2,9)));
+  FF19 = FA19+FF10_111;
+  FF29 = -(s.frc(2,9)-s.m(9)*(AlF29+BS59*s.l(2,9))+FF10_311*S10-FF11_212*C10);
+  FF39 = FA39+FF10_311*C10+FF11_212*S10;
+  CF19 = -(s.trq(1,9)-CF10_111-s.In(1,9)*OpF18-s.In(9,9)*OM29*OM39-FA39*s.l(2,9)-s.dpt(2,24)*(FF10_311*C10+FF11_212*S10));
+  CF29 = -(s.trq(2,9)+CF10_311*S10-CF11_212*C10-OM19*OM39*(s.In(1,9)-s.In(9,9)));
+  CF39 = -(s.trq(3,9)+s.In(1,9)*OM19*OM29-s.In(9,9)*OpF39-CF10_311*C10-CF11_212*S10+FA19*s.l(2,9)+FF10_111*s.dpt(2,24));
+  FB19_1 = s.m(9)*AlM18_1;
+  FB39_1 = s.m(9)*AlM39_1;
+  FM19_1 = FB19_1+FM101_111;
+  FM29_1 = s.m(9)*AlM29_1-FM101_311*S10+FM111_212*C10;
+  FM39_1 = FB39_1+FM101_311*C10+FM111_212*S10;
+  CM91_210 = -(CM101_311*S10-CM111_212*C10);
+  CM19_1 = CM101_111+FB39_1*s.l(2,9)+s.dpt(2,24)*(FM101_311*C10+FM111_212*S10);
+  CM39_1 = CM101_311*C10+CM111_212*S10-FB19_1*s.l(2,9)-FM101_111*s.dpt(2,24);
+  FB19_2 = s.m(9)*AlM18_2;
+  FB39_2 = s.m(9)*AlM39_2;
+  FM19_2 = FB19_2+FM102_111;
+  FM29_2 = s.m(9)*AlM29_2-FM102_311*S10+FM112_212*C10;
+  FM39_2 = FB39_2+FM102_311*C10+FM112_212*S10;
+  CM92_210 = -(CM102_311*S10-CM112_212*C10);
+  CM19_2 = CM102_111+FB39_2*s.l(2,9)+s.dpt(2,24)*(FM102_311*C10+FM112_212*S10);
+  CM39_2 = CM102_311*C10+CM112_212*S10-FB19_2*s.l(2,9)-FM102_111*s.dpt(2,24);
+  FB19_3 = s.m(9)*AlM18_3;
+  FB39_3 = s.m(9)*AlM39_3;
+  FM19_3 = FB19_3+FM103_111;
+  FM29_3 = s.m(9)*AlM29_3-FM103_311*S10+FM113_212*C10;
+  FM39_3 = FB39_3+FM103_311*C10+FM113_212*S10;
+  CM93_210 = -(CM103_311*S10-CM113_212*C10);
+  CM19_3 = CM103_111+FB39_3*s.l(2,9)+s.dpt(2,24)*(FM103_311*C10+FM113_212*S10);
+  CM39_3 = CM103_311*C10+CM113_212*S10-FB19_3*s.l(2,9)-FM103_111*s.dpt(2,24);
+  FB19_4 = s.m(9)*(AlM18_4-OpM39_4*s.l(2,9));
+  FB39_4 = s.m(9)*(AlM39_4+OpM18_4*s.l(2,9));
+  FM19_4 = FB19_4+FM104_111;
+  FM29_4 = s.m(9)*AlM29_4-FM104_311*S10+FM114_212*C10;
+  FM39_4 = FB39_4+FM104_311*C10+FM114_212*S10;
+  CM94_210 = -(CM104_311*S10-CM114_212*C10);
+  CM19_4 = CM104_111+s.In(1,9)*OpM18_4+FB39_4*s.l(2,9)+s.dpt(2,24)*(FM104_311*C10+FM114_212*S10);
+  CM39_4 = s.In(9,9)*OpM39_4+CM104_311*C10+CM114_212*S10-FB19_4*s.l(2,9)-FM104_111*s.dpt(2,24);
+  FB19_5 = s.m(9)*(AlM18_5-OpM39_5*s.l(2,9));
+  FB39_5 = s.m(9)*(AlM39_5+OpM18_5*s.l(2,9));
+  FM19_5 = FB19_5+FM105_111;
+  FM29_5 = s.m(9)*AlM29_5-FM105_311*S10+FM115_212*C10;
+  FM39_5 = FB39_5+FM105_311*C10+FM115_212*S10;
+  CM95_210 = -(CM105_311*S10-CM115_212*C10);
+  CM19_5 = CM105_111+s.In(1,9)*OpM18_5+FB39_5*s.l(2,9)+s.dpt(2,24)*(FM105_311*C10+FM115_212*S10);
+  CM39_5 = s.In(9,9)*OpM39_5+CM105_311*C10+CM115_212*S10-FB19_5*s.l(2,9)-FM105_111*s.dpt(2,24);
+  FB19_6 = s.m(9)*(AlM18_6-OpM39_6*s.l(2,9));
+  FB39_6 = s.m(9)*(AlM39_6+OpM18_6*s.l(2,9));
+  FM19_6 = FB19_6+FM106_111;
+  FM29_6 = s.m(9)*AlM29_6-FM106_311*S10+FM116_212*C10;
+  FM39_6 = FB39_6+FM106_311*C10+FM116_212*S10;
+  CM96_210 = -(CM106_311*S10-CM116_212*C10);
+  CM19_6 = CM106_111+s.In(1,9)*OpM18_6+FB39_6*s.l(2,9)+s.dpt(2,24)*(FM106_311*C10+FM116_212*S10);
+  CM39_6 = s.In(9,9)*OpM39_6+CM106_311*C10+CM116_212*S10-FB19_6*s.l(2,9)-FM106_111*s.dpt(2,24);
+  CM97_210 = -(CM107_311*S10-CM117_212*C10);
+  CM19_7 = CM107_111-s.In(1,9)*S8-s.m(9)*s.l(2,9)*s.l(2,9)*S8-s.dpt(2,24)*(C10*(FM117_112*S11-FM312_7*C11)-S10*(FM112_7*S12+FM212_7*C12));
+  CM39_7 = CM107_311*C10+CM117_212*S10+OpM39_7*(s.In(9,9)+s.m(9)*s.l(2,9)*s.l(2,9))-s.dpt(2,24)*(FM117_112*C11+FM312_7*S11);
+  CM98_110 = CM108_111-s.dpt(2,24)*(C10*(FM118_112*S11-FM312_8*C11)-S10*(FM112_8*S12+FM212_8*C12));
+  CM19_9 = s.In(1,9)+CM109_111+s.m(9)*s.l(2,9)*s.l(2,9)+s.dpt(2,24)*(C10*(C11*(FB312_9+FM139_314)-S11*(FM112_9*C12-FM212_9*S12))+S10*(FM112_9*S12...
+ +FM212_9*C12));
+  FF8_29 = FF29*C9-FF39*S9;
+  FF8_39 = FF29*S9+FF39*C9;
+  CF8_29 = CF29*C9-CF39*S9;
+  CF8_39 = CF29*S9+CF39*C9;
+  FM81_29 = FM29_1*C9-FM39_1*S9;
+  FM81_39 = FM29_1*S9+FM39_1*C9;
+  CM81_29 = -(CM39_1*S9-CM91_210*C9);
+  CM81_39 = CM39_1*C9+CM91_210*S9;
+  FM82_29 = FM29_2*C9-FM39_2*S9;
+  FM82_39 = FM29_2*S9+FM39_2*C9;
+  CM82_29 = -(CM39_2*S9-CM92_210*C9);
+  CM82_39 = CM39_2*C9+CM92_210*S9;
+  FM83_29 = FM29_3*C9-FM39_3*S9;
+  FM83_39 = FM29_3*S9+FM39_3*C9;
+  CM83_29 = -(CM39_3*S9-CM93_210*C9);
+  CM83_39 = CM39_3*C9+CM93_210*S9;
+  FM84_29 = FM29_4*C9-FM39_4*S9;
+  FM84_39 = FM29_4*S9+FM39_4*C9;
+  CM84_29 = -(CM39_4*S9-CM94_210*C9);
+  CM84_39 = CM39_4*C9+CM94_210*S9;
+  FM85_29 = FM29_5*C9-FM39_5*S9;
+  FM85_39 = FM29_5*S9+FM39_5*C9;
+  CM85_29 = -(CM39_5*S9-CM95_210*C9);
+  CM85_39 = CM39_5*C9+CM95_210*S9;
+  FM86_39 = FM29_6*S9+FM39_6*C9;
+  CM86_29 = -(CM39_6*S9-CM96_210*C9);
+  CM86_39 = CM39_6*C9+CM96_210*S9;
+  CM87_29 = -(CM39_7*S9-CM97_210*C9);
+  CM88_29 = -(C9*(CM108_311*S10-CM118_212*C10)+S9*(CM108_311*C10+CM118_212*S10-s.dpt(2,24)*(FM118_112*C11+FM312_8*S11)-S9*(s.In(9,9)+s.m(9)*...
+ s.l(2,9)*s.l(2,9))));
+  FF7_18 = FF19*C8+FF8_39*S8;
+  FF7_38 = -(FF19*S8-FF8_39*C8);
+  CF7_18 = CF19*C8+CF8_39*S8;
+  CF7_38 = -(CF19*S8-CF8_39*C8);
+  FM71_18 = FM19_1*C8+FM81_39*S8;
+  FM71_38 = -(FM19_1*S8-FM81_39*C8);
+  CM71_18 = CM19_1*C8+CM81_39*S8;
+  CM71_38 = -(CM19_1*S8-CM81_39*C8);
+  FM72_18 = FM19_2*C8+FM82_39*S8;
+  FM72_38 = -(FM19_2*S8-FM82_39*C8);
+  CM72_18 = CM19_2*C8+CM82_39*S8;
+  CM72_38 = -(CM19_2*S8-CM82_39*C8);
+  FM73_18 = FM19_3*C8+FM83_39*S8;
+  FM73_38 = -(FM19_3*S8-FM83_39*C8);
+  CM73_18 = CM19_3*C8+CM83_39*S8;
+  CM73_38 = -(CM19_3*S8-CM83_39*C8);
+  FM74_18 = FM19_4*C8+FM84_39*S8;
+  FM74_38 = -(FM19_4*S8-FM84_39*C8);
+  CM74_18 = CM19_4*C8+CM84_39*S8;
+  CM74_38 = -(CM19_4*S8-CM84_39*C8);
+  FM75_18 = FM19_5*C8+FM85_39*S8;
+  FM75_38 = -(FM19_5*S8-FM85_39*C8);
+  CM75_18 = CM19_5*C8+CM85_39*S8;
+  CM75_38 = -(CM19_5*S8-CM85_39*C8);
+  CM76_38 = -(CM19_6*S8-CM86_39*C8);
+  CM77_38 = -(CM19_7*S8-C8*(CM39_7*C9+CM97_210*S9));
+
+% = = Block_0_2_0_1_0_3 = = 
+ 
+% Backward Dynamics 
+
+  FA117 = -(s.frc(1,17)+s.m(17)*(s.l(1,17)*(OM217*OM217+OM317*OM317)-s.l(2,17)*(BS217-OpF317)-s.l(3,17)*(BS317+OpF217)-C16*(AlF16+BS16*s.dpt(1,2)...
+ +BeF26*s.dpt(2,2)+BeF36*s.dpt(3,2))-S16*(AlF25+BS56*s.dpt(2,2)+BeF46*s.dpt(1,2)+BeF66*s.dpt(3,2))));
+  FA217 = -(s.frc(2,17)-s.m(17)*(AlF216*C17+AlF316*S17+s.l(1,17)*(BS217+OpF317)-s.l(2,17)*(OM117*OM117+OM317*OM317)+s.l(3,17)*(BS617-OpF116)));
+  FA317 = -(s.frc(3,17)+s.m(17)*(AlF216*S17-AlF316*C17-s.l(1,17)*(BS317-OpF217)-s.l(2,17)*(BS617+OpF116)+s.l(3,17)*(OM117*OM117+OM217*OM217)));
+  CF117 = -(s.trq(1,17)-s.In(1,17)*OpF116-s.In(9,17)*OM217*OM317+FA217*s.l(3,17)-FA317*s.l(2,17));
+  CF217 = -(s.trq(2,17)-FA117*s.l(3,17)+FA317*s.l(1,17)-OM117*OM317*(s.In(1,17)-s.In(9,17)));
+  CF317 = -(s.trq(3,17)+s.In(1,17)*OM117*OM217-s.In(9,17)*OpF317+FA117*s.l(2,17)-FA217*s.l(1,17));
+  FB117_1 = s.m(17)*(AlM16_1*C16+AlM25_1*S16);
+  FB217_1 = s.m(17)*(AlM216_1*C17+AlM36_1*S17);
+  FB317_1 = -s.m(17)*(AlM216_1*S17-AlM36_1*C17);
+  CM117_1 = -(FB217_1*s.l(3,17)-FB317_1*s.l(2,17));
+  CM217_1 = FB117_1*s.l(3,17)-FB317_1*s.l(1,17);
+  CM317_1 = -(FB117_1*s.l(2,17)-FB217_1*s.l(1,17));
+  FB117_2 = s.m(17)*(AlM16_2*C16+AlM25_2*S16);
+  FB217_2 = s.m(17)*(AlM216_2*C17+AlM36_2*S17);
+  FB317_2 = -s.m(17)*(AlM216_2*S17-AlM36_2*C17);
+  CM117_2 = -(FB217_2*s.l(3,17)-FB317_2*s.l(2,17));
+  CM217_2 = FB117_2*s.l(3,17)-FB317_2*s.l(1,17);
+  CM317_2 = -(FB117_2*s.l(2,17)-FB217_2*s.l(1,17));
+  FB117_3 = s.m(17)*(AlM16_3*C16+S16*S5);
+  FB217_3 = s.m(17)*(AlM216_3*C17+AlM36_3*S17);
+  FB317_3 = -s.m(17)*(AlM216_3*S17-AlM36_3*C17);
+  CM117_3 = -(FB217_3*s.l(3,17)-FB317_3*s.l(2,17));
+  CM217_3 = FB117_3*s.l(3,17)-FB317_3*s.l(1,17);
+  CM317_3 = -(FB117_3*s.l(2,17)-FB217_3*s.l(1,17));
+  FB117_4 = s.m(17)*(OpM217_4*s.l(3,17)-OpM317_4*s.l(2,17)-C16*(OpM36_4*s.dpt(2,2)-s.dpt(3,2)*S5)-S16*(OpM16_4*s.dpt(3,2)-OpM36_4*s.dpt(1,2)));
+  FB217_4 = s.m(17)*(AlM216_4*C17+AlM316_4*S17-OpM116_4*s.l(3,17)+OpM317_4*s.l(1,17));
+  FB317_4 = -s.m(17)*(AlM216_4*S17-AlM316_4*C17-OpM116_4*s.l(2,17)+OpM217_4*s.l(1,17));
+  CM117_4 = s.In(1,17)*OpM116_4-FB217_4*s.l(3,17)+FB317_4*s.l(2,17);
+  CM217_4 = FB117_4*s.l(3,17)-FB317_4*s.l(1,17);
+  CM317_4 = s.In(9,17)*OpM317_4-FB117_4*s.l(2,17)+FB217_4*s.l(1,17);
+  FB117_5 = s.m(17)*(OpM217_5*s.l(3,17)-OpM317_5*s.l(2,17)-s.dpt(2,2)*C16*S6+S16*(s.dpt(1,2)*S6-s.dpt(3,2)*C6));
+  FB217_5 = s.m(17)*(AlM216_5*C17+AlM316_5*S17-OpM116_5*s.l(3,17)+OpM317_5*s.l(1,17));
+  FB317_5 = -s.m(17)*(AlM216_5*S17-AlM316_5*C17-OpM116_5*s.l(2,17)+OpM217_5*s.l(1,17));
+  CM117_5 = s.In(1,17)*OpM116_5-FB217_5*s.l(3,17)+FB317_5*s.l(2,17);
+  CM217_5 = FB117_5*s.l(3,17)-FB317_5*s.l(1,17);
+  CM317_5 = s.In(9,17)*OpM317_5-FB117_5*s.l(2,17)+FB217_5*s.l(1,17);
+  FB117_6 = s.m(17)*(OpM217_6*s.l(3,17)-OpM317_6*s.l(2,17)+s.dpt(3,2)*C16);
+  FB217_6 = s.m(17)*(AlM216_6*C17+OpM317_6*s.l(1,17)-s.dpt(1,2)*S17-s.l(3,17)*S16);
+  FB317_6 = -s.m(17)*(AlM216_6*S17+OpM217_6*s.l(1,17)+s.dpt(1,2)*C17-s.l(2,17)*S16);
+  CM117_6 = s.In(1,17)*S16-FB217_6*s.l(3,17)+FB317_6*s.l(2,17);
+  CM217_6 = FB117_6*s.l(3,17)-FB317_6*s.l(1,17);
+  CM317_6 = s.In(9,17)*OpM317_6-FB117_6*s.l(2,17)+FB217_6*s.l(1,17);
+  FB117_16 = -s.m(17)*(s.l(2,17)*C17-s.l(3,17)*S17);
+  FB217_16 = s.m(17)*s.l(1,17)*C17;
+  FB317_16 = -s.m(17)*s.l(1,17)*S17;
+  CM117_16 = -(FB217_16*s.l(3,17)-FB317_16*s.l(2,17));
+  CM117_17 = s.In(1,17)+s.m(17)*s.l(2,17)*s.l(2,17)+s.m(17)*s.l(3,17)*s.l(3,17);
+  FF16_217 = FA217*C17-FA317*S17;
+  FF16_317 = FA217*S17+FA317*C17;
+  CF16_217 = CF217*C17-CF317*S17;
+  CF16_317 = CF217*S17+CF317*C17;
+  FM161_217 = FB217_1*C17-FB317_1*S17;
+  FM161_317 = FB217_1*S17+FB317_1*C17;
+  CM161_217 = CM217_1*C17-CM317_1*S17;
+  CM161_317 = CM217_1*S17+CM317_1*C17;
+  FM162_217 = FB217_2*C17-FB317_2*S17;
+  FM162_317 = FB217_2*S17+FB317_2*C17;
+  CM162_217 = CM217_2*C17-CM317_2*S17;
+  CM162_317 = CM217_2*S17+CM317_2*C17;
+  FM163_217 = FB217_3*C17-FB317_3*S17;
+  FM163_317 = FB217_3*S17+FB317_3*C17;
+  CM163_217 = CM217_3*C17-CM317_3*S17;
+  CM163_317 = CM217_3*S17+CM317_3*C17;
+  FM164_217 = FB217_4*C17-FB317_4*S17;
+  FM164_317 = FB217_4*S17+FB317_4*C17;
+  CM164_217 = CM217_4*C17-CM317_4*S17;
+  CM164_317 = CM217_4*S17+CM317_4*C17;
+  FM165_217 = FB217_5*C17-FB317_5*S17;
+  FM165_317 = FB217_5*S17+FB317_5*C17;
+  CM165_217 = CM217_5*C17-CM317_5*S17;
+  CM165_317 = CM217_5*S17+CM317_5*C17;
+  CM166_317 = CM217_6*S17+CM317_6*C17;
+  CM1616_317 = C17*(s.In(9,17)*C17-FB117_16*s.l(2,17)+FB217_16*s.l(1,17))+S17*(FB117_16*s.l(3,17)-FB317_16*s.l(1,17));
+
+% = = Block_0_2_0_1_0_4 = = 
+ 
+% Backward Dynamics 
+
+  FA119 = -(s.frc(1,19)+s.m(19)*(s.l(1,19)*(OM219*OM219+OM319*OM319)-s.l(2,19)*(BS219-OpF319)-s.l(3,19)*(BS319+OpF219)-C18*(AlF16+BS16*s.dpt(1,3)...
+ +BeF26*s.dpt(2,3)+BeF36*s.dpt(3,3))-S18*(AlF25+BS56*s.dpt(2,3)+BeF46*s.dpt(1,3)+BeF66*s.dpt(3,3))));
+  FA219 = -(s.frc(2,19)-s.m(19)*(AlF218*C19+AlF318*S19+s.l(1,19)*(BS219+OpF319)-s.l(2,19)*(OM119*OM119+OM319*OM319)+s.l(3,19)*(BS619-OpF118)));
+  FA319 = -(s.frc(3,19)+s.m(19)*(AlF218*S19-AlF318*C19-s.l(1,19)*(BS319-OpF219)-s.l(2,19)*(BS619+OpF118)+s.l(3,19)*(OM119*OM119+OM219*OM219)));
+  CF119 = -(s.trq(1,19)-s.In(1,19)*OpF118-s.In(9,19)*OM219*OM319+FA219*s.l(3,19)-FA319*s.l(2,19));
+  CF219 = -(s.trq(2,19)-FA119*s.l(3,19)+FA319*s.l(1,19)-OM119*OM319*(s.In(1,19)-s.In(9,19)));
+  CF319 = -(s.trq(3,19)+s.In(1,19)*OM119*OM219-s.In(9,19)*OpF319+FA119*s.l(2,19)-FA219*s.l(1,19));
+  FB119_1 = s.m(19)*(AlM16_1*C18+AlM25_1*S18);
+  FB219_1 = s.m(19)*(AlM218_1*C19+AlM36_1*S19);
+  FB319_1 = -s.m(19)*(AlM218_1*S19-AlM36_1*C19);
+  CM119_1 = -(FB219_1*s.l(3,19)-FB319_1*s.l(2,19));
+  CM219_1 = FB119_1*s.l(3,19)-FB319_1*s.l(1,19);
+  CM319_1 = -(FB119_1*s.l(2,19)-FB219_1*s.l(1,19));
+  FB119_2 = s.m(19)*(AlM16_2*C18+AlM25_2*S18);
+  FB219_2 = s.m(19)*(AlM218_2*C19+AlM36_2*S19);
+  FB319_2 = -s.m(19)*(AlM218_2*S19-AlM36_2*C19);
+  CM119_2 = -(FB219_2*s.l(3,19)-FB319_2*s.l(2,19));
+  CM219_2 = FB119_2*s.l(3,19)-FB319_2*s.l(1,19);
+  CM319_2 = -(FB119_2*s.l(2,19)-FB219_2*s.l(1,19));
+  FB119_3 = s.m(19)*(AlM16_3*C18+S18*S5);
+  FB219_3 = s.m(19)*(AlM218_3*C19+AlM36_3*S19);
+  FB319_3 = -s.m(19)*(AlM218_3*S19-AlM36_3*C19);
+  CM119_3 = -(FB219_3*s.l(3,19)-FB319_3*s.l(2,19));
+  CM219_3 = FB119_3*s.l(3,19)-FB319_3*s.l(1,19);
+  CM319_3 = -(FB119_3*s.l(2,19)-FB219_3*s.l(1,19));
+  FB119_4 = s.m(19)*(OpM219_4*s.l(3,19)-OpM319_4*s.l(2,19)-C18*(OpM36_4*s.dpt(2,3)-s.dpt(3,3)*S5)-S18*(OpM16_4*s.dpt(3,3)-OpM36_4*s.dpt(1,3)));
+  FB219_4 = s.m(19)*(AlM218_4*C19+AlM318_4*S19-OpM118_4*s.l(3,19)+OpM319_4*s.l(1,19));
+  FB319_4 = -s.m(19)*(AlM218_4*S19-AlM318_4*C19-OpM118_4*s.l(2,19)+OpM219_4*s.l(1,19));
+  CM119_4 = s.In(1,19)*OpM118_4-FB219_4*s.l(3,19)+FB319_4*s.l(2,19);
+  CM219_4 = FB119_4*s.l(3,19)-FB319_4*s.l(1,19);
+  CM319_4 = s.In(9,19)*OpM319_4-FB119_4*s.l(2,19)+FB219_4*s.l(1,19);
+  FB119_5 = s.m(19)*(OpM219_5*s.l(3,19)-OpM319_5*s.l(2,19)-s.dpt(2,3)*C18*S6+S18*(s.dpt(1,3)*S6-s.dpt(3,3)*C6));
+  FB219_5 = s.m(19)*(AlM218_5*C19+AlM318_5*S19-OpM118_5*s.l(3,19)+OpM319_5*s.l(1,19));
+  FB319_5 = -s.m(19)*(AlM218_5*S19-AlM318_5*C19-OpM118_5*s.l(2,19)+OpM219_5*s.l(1,19));
+  CM119_5 = s.In(1,19)*OpM118_5-FB219_5*s.l(3,19)+FB319_5*s.l(2,19);
+  CM219_5 = FB119_5*s.l(3,19)-FB319_5*s.l(1,19);
+  CM319_5 = s.In(9,19)*OpM319_5-FB119_5*s.l(2,19)+FB219_5*s.l(1,19);
+  FB119_6 = s.m(19)*(OpM219_6*s.l(3,19)-OpM319_6*s.l(2,19)+s.dpt(3,3)*C18);
+  FB219_6 = s.m(19)*(AlM218_6*C19+OpM319_6*s.l(1,19)-s.dpt(1,3)*S19-s.l(3,19)*S18);
+  FB319_6 = -s.m(19)*(AlM218_6*S19+OpM219_6*s.l(1,19)+s.dpt(1,3)*C19-s.l(2,19)*S18);
+  CM119_6 = s.In(1,19)*S18-FB219_6*s.l(3,19)+FB319_6*s.l(2,19);
+  CM219_6 = FB119_6*s.l(3,19)-FB319_6*s.l(1,19);
+  CM319_6 = s.In(9,19)*OpM319_6-FB119_6*s.l(2,19)+FB219_6*s.l(1,19);
+  FB119_18 = -s.m(19)*(s.l(2,19)*C19-s.l(3,19)*S19);
+  FB219_18 = s.m(19)*s.l(1,19)*C19;
+  FB319_18 = -s.m(19)*s.l(1,19)*S19;
+  CM119_18 = -(FB219_18*s.l(3,19)-FB319_18*s.l(2,19));
+  CM119_19 = s.In(1,19)+s.m(19)*s.l(2,19)*s.l(2,19)+s.m(19)*s.l(3,19)*s.l(3,19);
+  FF18_219 = FA219*C19-FA319*S19;
+  FF18_319 = FA219*S19+FA319*C19;
+  CF18_219 = CF219*C19-CF319*S19;
+  CF18_319 = CF219*S19+CF319*C19;
+  FM181_219 = FB219_1*C19-FB319_1*S19;
+  FM181_319 = FB219_1*S19+FB319_1*C19;
+  CM181_219 = CM219_1*C19-CM319_1*S19;
+  CM181_319 = CM219_1*S19+CM319_1*C19;
+  FM182_219 = FB219_2*C19-FB319_2*S19;
+  FM182_319 = FB219_2*S19+FB319_2*C19;
+  CM182_219 = CM219_2*C19-CM319_2*S19;
+  CM182_319 = CM219_2*S19+CM319_2*C19;
+  FM183_219 = FB219_3*C19-FB319_3*S19;
+  FM183_319 = FB219_3*S19+FB319_3*C19;
+  CM183_219 = CM219_3*C19-CM319_3*S19;
+  CM183_319 = CM219_3*S19+CM319_3*C19;
+  FM184_219 = FB219_4*C19-FB319_4*S19;
+  FM184_319 = FB219_4*S19+FB319_4*C19;
+  CM184_219 = CM219_4*C19-CM319_4*S19;
+  CM184_319 = CM219_4*S19+CM319_4*C19;
+  FM185_219 = FB219_5*C19-FB319_5*S19;
+  FM185_319 = FB219_5*S19+FB319_5*C19;
+  CM185_219 = CM219_5*C19-CM319_5*S19;
+  CM185_319 = CM219_5*S19+CM319_5*C19;
+  CM186_319 = CM219_6*S19+CM319_6*C19;
+  CM1818_319 = C19*(s.In(9,19)*C19-FB119_18*s.l(2,19)+FB219_18*s.l(1,19))+S19*(FB119_18*s.l(3,19)-FB319_18*s.l(1,19));
+
+% = = Block_0_2_0_1_0_5 = = 
+ 
+% Backward Dynamics 
+
+  FA121 = -(s.frc(1,21)+s.m(21)*(s.l(1,21)*(OM221*OM221+OM321*OM321)-s.l(2,21)*(BS221-OpF321)-s.l(3,21)*(BS321+OpF221)-C20*(AlF16+BS16*s.dpt(1,4)...
+ +BeF26*s.dpt(2,4)+BeF36*s.dpt(3,4))-S20*(AlF25+BS56*s.dpt(2,4)+BeF46*s.dpt(1,4)+BeF66*s.dpt(3,4))));
+  FA221 = -(s.frc(2,21)-s.m(21)*(AlF220*C21+AlF320*S21+s.l(1,21)*(BS221+OpF321)-s.l(2,21)*(OM121*OM121+OM321*OM321)+s.l(3,21)*(BS621-OpF120)));
+  FA321 = -(s.frc(3,21)+s.m(21)*(AlF220*S21-AlF320*C21-s.l(1,21)*(BS321-OpF221)-s.l(2,21)*(BS621+OpF120)+s.l(3,21)*(OM121*OM121+OM221*OM221)));
+  CF121 = -(s.trq(1,21)-s.In(1,21)*OpF120-s.In(9,21)*OM221*OM321+FA221*s.l(3,21)-FA321*s.l(2,21));
+  CF221 = -(s.trq(2,21)-FA121*s.l(3,21)+FA321*s.l(1,21)-OM121*OM321*(s.In(1,21)-s.In(9,21)));
+  CF321 = -(s.trq(3,21)+s.In(1,21)*OM121*OM221-s.In(9,21)*OpF321+FA121*s.l(2,21)-FA221*s.l(1,21));
+  FB121_1 = s.m(21)*(AlM16_1*C20+AlM25_1*S20);
+  FB221_1 = s.m(21)*(AlM220_1*C21+AlM36_1*S21);
+  FB321_1 = -s.m(21)*(AlM220_1*S21-AlM36_1*C21);
+  CM121_1 = -(FB221_1*s.l(3,21)-FB321_1*s.l(2,21));
+  CM221_1 = FB121_1*s.l(3,21)-FB321_1*s.l(1,21);
+  CM321_1 = -(FB121_1*s.l(2,21)-FB221_1*s.l(1,21));
+  FB121_2 = s.m(21)*(AlM16_2*C20+AlM25_2*S20);
+  FB221_2 = s.m(21)*(AlM220_2*C21+AlM36_2*S21);
+  FB321_2 = -s.m(21)*(AlM220_2*S21-AlM36_2*C21);
+  CM121_2 = -(FB221_2*s.l(3,21)-FB321_2*s.l(2,21));
+  CM221_2 = FB121_2*s.l(3,21)-FB321_2*s.l(1,21);
+  CM321_2 = -(FB121_2*s.l(2,21)-FB221_2*s.l(1,21));
+  FB121_3 = s.m(21)*(AlM16_3*C20+S20*S5);
+  FB221_3 = s.m(21)*(AlM220_3*C21+AlM36_3*S21);
+  FB321_3 = -s.m(21)*(AlM220_3*S21-AlM36_3*C21);
+  CM121_3 = -(FB221_3*s.l(3,21)-FB321_3*s.l(2,21));
+  CM221_3 = FB121_3*s.l(3,21)-FB321_3*s.l(1,21);
+  CM321_3 = -(FB121_3*s.l(2,21)-FB221_3*s.l(1,21));
+  FB121_4 = s.m(21)*(OpM221_4*s.l(3,21)-OpM321_4*s.l(2,21)-C20*(OpM36_4*s.dpt(2,4)-s.dpt(3,4)*S5)-S20*(OpM16_4*s.dpt(3,4)-OpM36_4*s.dpt(1,4)));
+  FB221_4 = s.m(21)*(AlM220_4*C21+AlM320_4*S21-OpM120_4*s.l(3,21)+OpM321_4*s.l(1,21));
+  FB321_4 = -s.m(21)*(AlM220_4*S21-AlM320_4*C21-OpM120_4*s.l(2,21)+OpM221_4*s.l(1,21));
+  CM121_4 = s.In(1,21)*OpM120_4-FB221_4*s.l(3,21)+FB321_4*s.l(2,21);
+  CM221_4 = FB121_4*s.l(3,21)-FB321_4*s.l(1,21);
+  CM321_4 = s.In(9,21)*OpM321_4-FB121_4*s.l(2,21)+FB221_4*s.l(1,21);
+  FB121_5 = s.m(21)*(OpM221_5*s.l(3,21)-OpM321_5*s.l(2,21)-s.dpt(2,4)*C20*S6+S20*(s.dpt(1,4)*S6-s.dpt(3,4)*C6));
+  FB221_5 = s.m(21)*(AlM220_5*C21+AlM320_5*S21-OpM120_5*s.l(3,21)+OpM321_5*s.l(1,21));
+  FB321_5 = -s.m(21)*(AlM220_5*S21-AlM320_5*C21-OpM120_5*s.l(2,21)+OpM221_5*s.l(1,21));
+  CM121_5 = s.In(1,21)*OpM120_5-FB221_5*s.l(3,21)+FB321_5*s.l(2,21);
+  CM221_5 = FB121_5*s.l(3,21)-FB321_5*s.l(1,21);
+  CM321_5 = s.In(9,21)*OpM321_5-FB121_5*s.l(2,21)+FB221_5*s.l(1,21);
+  FB121_6 = s.m(21)*(OpM221_6*s.l(3,21)-OpM321_6*s.l(2,21)+s.dpt(3,4)*C20);
+  FB221_6 = s.m(21)*(AlM220_6*C21+OpM321_6*s.l(1,21)-s.dpt(1,4)*S21-s.l(3,21)*S20);
+  FB321_6 = -s.m(21)*(AlM220_6*S21+OpM221_6*s.l(1,21)+s.dpt(1,4)*C21-s.l(2,21)*S20);
+  CM121_6 = s.In(1,21)*S20-FB221_6*s.l(3,21)+FB321_6*s.l(2,21);
+  CM221_6 = FB121_6*s.l(3,21)-FB321_6*s.l(1,21);
+  CM321_6 = s.In(9,21)*OpM321_6-FB121_6*s.l(2,21)+FB221_6*s.l(1,21);
+  FB121_20 = -s.m(21)*(s.l(2,21)*C21-s.l(3,21)*S21);
+  FB221_20 = s.m(21)*s.l(1,21)*C21;
+  FB321_20 = -s.m(21)*s.l(1,21)*S21;
+  CM121_20 = -(FB221_20*s.l(3,21)-FB321_20*s.l(2,21));
+  CM121_21 = s.In(1,21)+s.m(21)*s.l(2,21)*s.l(2,21)+s.m(21)*s.l(3,21)*s.l(3,21);
+  FF20_221 = FA221*C21-FA321*S21;
+  FF20_321 = FA221*S21+FA321*C21;
+  CF20_221 = CF221*C21-CF321*S21;
+  CF20_321 = CF221*S21+CF321*C21;
+  FM201_221 = FB221_1*C21-FB321_1*S21;
+  FM201_321 = FB221_1*S21+FB321_1*C21;
+  CM201_221 = CM221_1*C21-CM321_1*S21;
+  CM201_321 = CM221_1*S21+CM321_1*C21;
+  FM202_221 = FB221_2*C21-FB321_2*S21;
+  FM202_321 = FB221_2*S21+FB321_2*C21;
+  CM202_221 = CM221_2*C21-CM321_2*S21;
+  CM202_321 = CM221_2*S21+CM321_2*C21;
+  FM203_221 = FB221_3*C21-FB321_3*S21;
+  FM203_321 = FB221_3*S21+FB321_3*C21;
+  CM203_221 = CM221_3*C21-CM321_3*S21;
+  CM203_321 = CM221_3*S21+CM321_3*C21;
+  FM204_221 = FB221_4*C21-FB321_4*S21;
+  FM204_321 = FB221_4*S21+FB321_4*C21;
+  CM204_221 = CM221_4*C21-CM321_4*S21;
+  CM204_321 = CM221_4*S21+CM321_4*C21;
+  FM205_221 = FB221_5*C21-FB321_5*S21;
+  FM205_321 = FB221_5*S21+FB321_5*C21;
+  CM205_221 = CM221_5*C21-CM321_5*S21;
+  CM205_321 = CM221_5*S21+CM321_5*C21;
+  CM206_321 = CM221_6*S21+CM321_6*C21;
+  CM2020_321 = C21*(s.In(9,21)*C21-FB121_20*s.l(2,21)+FB221_20*s.l(1,21))+S21*(FB121_20*s.l(3,21)-FB321_20*s.l(1,21));
+
+% = = Block_0_2_0_1_0_6 = = 
+ 
+% Backward Dynamics 
+
+  FA123 = -(s.frc(1,23)+s.m(23)*(s.l(1,23)*(OM223*OM223+OM323*OM323)-s.l(2,23)*(BS223-OpF323)-s.l(3,23)*(BS323+OpF223)-C22*(AlF16+BS16*s.dpt(1,5)...
+ +BeF26*s.dpt(2,5)+BeF36*s.dpt(3,5))-S22*(AlF25+BS56*s.dpt(2,5)+BeF46*s.dpt(1,5)+BeF66*s.dpt(3,5))));
+  FA223 = -(s.frc(2,23)-s.m(23)*(AlF222*C23+AlF322*S23+s.l(1,23)*(BS223+OpF323)-s.l(2,23)*(OM123*OM123+OM323*OM323)+s.l(3,23)*(BS623-OpF122)));
+  FA323 = -(s.frc(3,23)+s.m(23)*(AlF222*S23-AlF322*C23-s.l(1,23)*(BS323-OpF223)-s.l(2,23)*(BS623+OpF122)+s.l(3,23)*(OM123*OM123+OM223*OM223)));
+  CF123 = -(s.trq(1,23)-s.In(1,23)*OpF122-s.In(9,23)*OM223*OM323+FA223*s.l(3,23)-FA323*s.l(2,23));
+  CF223 = -(s.trq(2,23)-FA123*s.l(3,23)+FA323*s.l(1,23)-OM123*OM323*(s.In(1,23)-s.In(9,23)));
+  CF323 = -(s.trq(3,23)+s.In(1,23)*OM123*OM223-s.In(9,23)*OpF323+FA123*s.l(2,23)-FA223*s.l(1,23));
+  FB123_1 = s.m(23)*(AlM16_1*C22+AlM25_1*S22);
+  FB223_1 = s.m(23)*(AlM222_1*C23+AlM36_1*S23);
+  FB323_1 = -s.m(23)*(AlM222_1*S23-AlM36_1*C23);
+  CM123_1 = -(FB223_1*s.l(3,23)-FB323_1*s.l(2,23));
+  CM223_1 = FB123_1*s.l(3,23)-FB323_1*s.l(1,23);
+  CM323_1 = -(FB123_1*s.l(2,23)-FB223_1*s.l(1,23));
+  FB123_2 = s.m(23)*(AlM16_2*C22+AlM25_2*S22);
+  FB223_2 = s.m(23)*(AlM222_2*C23+AlM36_2*S23);
+  FB323_2 = -s.m(23)*(AlM222_2*S23-AlM36_2*C23);
+  CM123_2 = -(FB223_2*s.l(3,23)-FB323_2*s.l(2,23));
+  CM223_2 = FB123_2*s.l(3,23)-FB323_2*s.l(1,23);
+  CM323_2 = -(FB123_2*s.l(2,23)-FB223_2*s.l(1,23));
+  FB123_3 = s.m(23)*(AlM16_3*C22+S22*S5);
+  FB223_3 = s.m(23)*(AlM222_3*C23+AlM36_3*S23);
+  FB323_3 = -s.m(23)*(AlM222_3*S23-AlM36_3*C23);
+  CM123_3 = -(FB223_3*s.l(3,23)-FB323_3*s.l(2,23));
+  CM223_3 = FB123_3*s.l(3,23)-FB323_3*s.l(1,23);
+  CM323_3 = -(FB123_3*s.l(2,23)-FB223_3*s.l(1,23));
+  FB123_4 = s.m(23)*(OpM223_4*s.l(3,23)-OpM323_4*s.l(2,23)-C22*(OpM36_4*s.dpt(2,5)-s.dpt(3,5)*S5)-S22*(OpM16_4*s.dpt(3,5)-OpM36_4*s.dpt(1,5)));
+  FB223_4 = s.m(23)*(AlM222_4*C23+AlM322_4*S23-OpM122_4*s.l(3,23)+OpM323_4*s.l(1,23));
+  FB323_4 = -s.m(23)*(AlM222_4*S23-AlM322_4*C23-OpM122_4*s.l(2,23)+OpM223_4*s.l(1,23));
+  CM123_4 = s.In(1,23)*OpM122_4-FB223_4*s.l(3,23)+FB323_4*s.l(2,23);
+  CM223_4 = FB123_4*s.l(3,23)-FB323_4*s.l(1,23);
+  CM323_4 = s.In(9,23)*OpM323_4-FB123_4*s.l(2,23)+FB223_4*s.l(1,23);
+  FB123_5 = s.m(23)*(OpM223_5*s.l(3,23)-OpM323_5*s.l(2,23)-s.dpt(2,5)*C22*S6+S22*(s.dpt(1,5)*S6-s.dpt(3,5)*C6));
+  FB223_5 = s.m(23)*(AlM222_5*C23+AlM322_5*S23-OpM122_5*s.l(3,23)+OpM323_5*s.l(1,23));
+  FB323_5 = -s.m(23)*(AlM222_5*S23-AlM322_5*C23-OpM122_5*s.l(2,23)+OpM223_5*s.l(1,23));
+  CM123_5 = s.In(1,23)*OpM122_5-FB223_5*s.l(3,23)+FB323_5*s.l(2,23);
+  CM223_5 = FB123_5*s.l(3,23)-FB323_5*s.l(1,23);
+  CM323_5 = s.In(9,23)*OpM323_5-FB123_5*s.l(2,23)+FB223_5*s.l(1,23);
+  FB123_6 = s.m(23)*(OpM223_6*s.l(3,23)-OpM323_6*s.l(2,23)+s.dpt(3,5)*C22);
+  FB223_6 = s.m(23)*(AlM222_6*C23+OpM323_6*s.l(1,23)-s.dpt(1,5)*S23-s.l(3,23)*S22);
+  FB323_6 = -s.m(23)*(AlM222_6*S23+OpM223_6*s.l(1,23)+s.dpt(1,5)*C23-s.l(2,23)*S22);
+  CM123_6 = s.In(1,23)*S22-FB223_6*s.l(3,23)+FB323_6*s.l(2,23);
+  CM223_6 = FB123_6*s.l(3,23)-FB323_6*s.l(1,23);
+  CM323_6 = s.In(9,23)*OpM323_6-FB123_6*s.l(2,23)+FB223_6*s.l(1,23);
+  FB123_22 = -s.m(23)*(s.l(2,23)*C23-s.l(3,23)*S23);
+  FB223_22 = s.m(23)*s.l(1,23)*C23;
+  FB323_22 = -s.m(23)*s.l(1,23)*S23;
+  CM123_22 = -(FB223_22*s.l(3,23)-FB323_22*s.l(2,23));
+  CM123_23 = s.In(1,23)+s.m(23)*s.l(2,23)*s.l(2,23)+s.m(23)*s.l(3,23)*s.l(3,23);
+  FF22_223 = FA223*C23-FA323*S23;
+  FF22_323 = FA223*S23+FA323*C23;
+  CF22_223 = CF223*C23-CF323*S23;
+  CF22_323 = CF223*S23+CF323*C23;
+  FM221_223 = FB223_1*C23-FB323_1*S23;
+  FM221_323 = FB223_1*S23+FB323_1*C23;
+  CM221_223 = CM223_1*C23-CM323_1*S23;
+  CM221_323 = CM223_1*S23+CM323_1*C23;
+  FM222_223 = FB223_2*C23-FB323_2*S23;
+  FM222_323 = FB223_2*S23+FB323_2*C23;
+  CM222_223 = CM223_2*C23-CM323_2*S23;
+  CM222_323 = CM223_2*S23+CM323_2*C23;
+  FM223_223 = FB223_3*C23-FB323_3*S23;
+  FM223_323 = FB223_3*S23+FB323_3*C23;
+  CM223_223 = CM223_3*C23-CM323_3*S23;
+  CM223_323 = CM223_3*S23+CM323_3*C23;
+  FM224_223 = FB223_4*C23-FB323_4*S23;
+  FM224_323 = FB223_4*S23+FB323_4*C23;
+  CM224_223 = CM223_4*C23-CM323_4*S23;
+  CM224_323 = CM223_4*S23+CM323_4*C23;
+  FM225_223 = FB223_5*C23-FB323_5*S23;
+  FM225_323 = FB223_5*S23+FB323_5*C23;
+  CM225_223 = CM223_5*C23-CM323_5*S23;
+  CM225_323 = CM223_5*S23+CM323_5*C23;
+  CM226_323 = CM223_6*S23+CM323_6*C23;
+  CM2222_323 = C23*(s.In(9,23)*C23-FB123_22*s.l(2,23)+FB223_22*s.l(1,23))+S23*(FB123_22*s.l(3,23)-FB323_22*s.l(1,23));
+
+% = = Block_0_2_0_1_0_7 = = 
+ 
+% Backward Dynamics 
+
+  FA132 = -(s.frc(1,32)-s.m(32)*(AlF130*C32-AlF331*S32));
+  FA232 = -(s.frc(2,32)-s.m(32)*(AlF230*C31+AlF330*S31));
+  FA332 = -(s.frc(3,32)-s.m(32)*(AlF130*S32+AlF331*C32));
+  CF132 = -(s.trq(1,32)-s.In(1,32)*(C32*(OpF130-qd(32)*OM331)-S32*(OpF331+qd(32)*OM131))+OM232*OM332*(s.In(5,32)-s.In(9,32)));
+  CF232 = -(s.trq(2,32)-s.In(5,32)*(C31*(OpF230+qd(31)*OM330)+S31*(OpF328-qd(31)*OM230))-OM132*OM332*(s.In(1,32)-s.In(9,32)));
+  CF332 = -(s.trq(3,32)-s.In(9,32)*(C32*(OpF331+qd(32)*OM131)+S32*(OpF130-qd(32)*OM331))+OM132*OM232*(s.In(1,32)-s.In(5,32)));
+  FB132_1 = s.m(32)*(AlM130_1*C32-AlM331_1*S32);
+  FB232_1 = s.m(32)*(AlM230_1*C31+AlM328_1*S31);
+  FB332_1 = s.m(32)*(AlM130_1*S32+AlM331_1*C32);
+  FB132_2 = s.m(32)*(AlM130_2*C32-AlM331_2*S32);
+  FB232_2 = s.m(32)*(AlM230_2*C31+AlM328_2*S31);
+  FB332_2 = s.m(32)*(AlM130_2*S32+AlM331_2*C32);
+  FB132_3 = s.m(32)*(AlM130_3*C32-AlM331_3*S32);
+  FB232_3 = s.m(32)*(AlM230_3*C31+AlM328_3*S31);
+  FB332_3 = s.m(32)*(AlM130_3*S32+AlM331_3*C32);
+  FB132_4 = s.m(32)*(AlM130_4*C32-AlM331_4*S32);
+  FB232_4 = s.m(32)*(AlM230_4*C31+AlM330_4*S31);
+  FB332_4 = s.m(32)*(AlM130_4*S32+AlM331_4*C32);
+  CM132_4 = s.In(1,32)*(OpM130_4*C32-OpM331_4*S32);
+  CM232_4 = s.In(5,32)*(OpM230_4*C31+OpM328_4*S31);
+  CM332_4 = s.In(9,32)*(OpM130_4*S32+OpM331_4*C32);
+  FB132_5 = s.m(32)*(AlM130_5*C32-AlM331_5*S32);
+  FB232_5 = s.m(32)*(AlM230_5*C31+AlM330_5*S31);
+  FB332_5 = s.m(32)*(AlM130_5*S32+AlM331_5*C32);
+  CM132_5 = s.In(1,32)*(OpM130_5*C32-OpM331_5*S32);
+  CM232_5 = s.In(5,32)*(OpM230_5*C31+OpM328_5*S31);
+  CM332_5 = s.In(9,32)*(OpM130_5*S32+OpM331_5*C32);
+  FB132_6 = s.m(32)*(AlM130_6*C32-AlM331_6*S32);
+  FB232_6 = s.m(32)*(AlM230_6*C31+AlM330_6*S31);
+  FB332_6 = s.m(32)*(AlM130_6*S32+AlM331_6*C32);
+  CM132_6 = s.In(1,32)*(OpM130_6*C32-OpM331_6*S32);
+  CM232_6 = s.In(5,32)*(OpM230_6*C31+OpM328_6*S31);
+  CM332_6 = s.In(9,32)*(OpM130_6*S32+OpM331_6*C32);
+  FB132_24 = s.m(32)*(AlM130_24*C32-AlM331_24*S32);
+  FB232_24 = s.m(32)*(AlM230_24*C31+AlM330_24*S31);
+  FB332_24 = s.m(32)*(AlM130_24*S32+AlM331_24*C32);
+  CM132_24 = s.In(1,32)*(OpM130_24*C32-OpM331_24*S32);
+  CM232_24 = s.In(5,32)*(OpM230_24*C31+OpM328_24*S31);
+  CM332_24 = s.In(9,32)*(OpM130_24*S32+OpM331_24*C32);
+  FB132_25 = s.m(32)*(AlM130_25*C32-AlM331_25*S32);
+  FB232_25 = s.m(32)*(AlM230_25*C31+AlM330_25*S31);
+  FB332_25 = s.m(32)*(AlM130_25*S32+AlM331_25*C32);
+  CM132_25 = s.In(1,32)*(OpM130_25*C32-OpM331_25*S32);
+  CM232_25 = s.In(5,32)*(OpM230_25*C31+OpM328_25*S31);
+  CM332_25 = s.In(9,32)*(OpM130_25*S32+OpM331_25*C32);
+  FB132_26 = s.m(32)*(AlM130_26*C32-AlM331_26*S32);
+  FB232_26 = s.m(32)*(AlM230_26*C31+AlM330_26*S31);
+  FB332_26 = s.m(32)*(AlM130_26*S32+AlM331_26*C32);
+  CM132_26 = s.In(1,32)*(OpM130_26*C32-OpM331_26*S32);
+  CM232_26 = s.In(5,32)*(OpM230_26*C31+S28*S31);
+  CM332_26 = s.In(9,32)*(OpM130_26*S32+OpM331_26*C32);
+  FB132_27 = s.m(32)*(AlM130_27*C32-AlM331_27*S32);
+  FB232_27 = s.m(32)*(AlM230_27*C31+AlM330_27*S31);
+  FB332_27 = s.m(32)*(AlM130_27*S32+AlM331_27*C32);
+  CM132_27 = s.In(1,32)*(OpM130_27*C32-OpM331_27*S32);
+  CM232_27 = s.In(5,32)*(OpM230_27*C31+S28*S31);
+  CM332_27 = s.In(9,32)*(OpM130_27*S32+OpM331_27*C32);
+  FB132_28 = s.m(32)*(AlM130_28*C32-AlM331_28*S32);
+  FB232_28 = s.m(32)*(AlM230_28*C31+AlM330_28*S31);
+  FB332_28 = s.m(32)*(AlM130_28*S32+AlM331_28*C32);
+  CM132_28 = -s.In(1,32)*(OpM331_28*S32-C32*S29p30);
+  CM232_28 = s.In(5,32)*C31*C29p30;
+  CM332_28 = s.In(9,32)*(OpM331_28*C32+S32*S29p30);
+  FB132_29 = s.m(32)*(AlM130_29*C32-AlM331_29*S32);
+  FB332_29 = s.m(32)*(AlM130_29*S32+AlM331_29*C32);
+  CM132_29 = -s.In(1,32)*C31*S32;
+  CM232_29 = s.In(5,32)*S31;
+  CM332_29 = s.In(9,32)*C31*C32;
+  CM132_30 = -s.In(1,32)*C31*S32;
+  CM232_30 = s.In(5,32)*S31;
+  CM332_30 = s.In(9,32)*C31*C32;
+  FF31_132 = FA132*C32+FA332*S32;
+  FF31_332 = -(FA132*S32-FA332*C32);
+  CF31_132 = CF132*C32+CF332*S32;
+  CF31_332 = -(CF132*S32-CF332*C32);
+  FM311_132 = FB132_1*C32+FB332_1*S32;
+  FM311_332 = -(FB132_1*S32-FB332_1*C32);
+  FM312_132 = FB132_2*C32+FB332_2*S32;
+  FM312_332 = -(FB132_2*S32-FB332_2*C32);
+  FM313_132 = FB132_3*C32+FB332_3*S32;
+  FM313_332 = -(FB132_3*S32-FB332_3*C32);
+  FM314_132 = FB132_4*C32+FB332_4*S32;
+  FM314_332 = -(FB132_4*S32-FB332_4*C32);
+  CM314_132 = CM132_4*C32+CM332_4*S32;
+  CM314_332 = -(CM132_4*S32-CM332_4*C32);
+  FM315_132 = FB132_5*C32+FB332_5*S32;
+  FM315_332 = -(FB132_5*S32-FB332_5*C32);
+  CM315_132 = CM132_5*C32+CM332_5*S32;
+  CM315_332 = -(CM132_5*S32-CM332_5*C32);
+  FM316_132 = FB132_6*C32+FB332_6*S32;
+  FM316_332 = -(FB132_6*S32-FB332_6*C32);
+  CM316_132 = CM132_6*C32+CM332_6*S32;
+  CM316_332 = -(CM132_6*S32-CM332_6*C32);
+  FM3124_132 = FB132_24*C32+FB332_24*S32;
+  FM3124_332 = -(FB132_24*S32-FB332_24*C32);
+  CM3124_132 = CM132_24*C32+CM332_24*S32;
+  CM3124_332 = -(CM132_24*S32-CM332_24*C32);
+  FM3125_132 = FB132_25*C32+FB332_25*S32;
+  FM3125_332 = -(FB132_25*S32-FB332_25*C32);
+  CM3125_132 = CM132_25*C32+CM332_25*S32;
+  CM3125_332 = -(CM132_25*S32-CM332_25*C32);
+  FM3126_132 = FB132_26*C32+FB332_26*S32;
+  FM3126_332 = -(FB132_26*S32-FB332_26*C32);
+  CM3126_132 = CM132_26*C32+CM332_26*S32;
+  CM3126_332 = -(CM132_26*S32-CM332_26*C32);
+  FM3127_132 = FB132_27*C32+FB332_27*S32;
+  FM3127_332 = -(FB132_27*S32-FB332_27*C32);
+  CM3127_132 = CM132_27*C32+CM332_27*S32;
+  CM3127_332 = -(CM132_27*S32-CM332_27*C32);
+  FM3128_132 = FB132_28*C32+FB332_28*S32;
+  FM3128_332 = -(FB132_28*S32-FB332_28*C32);
+  CM3128_132 = CM132_28*C32+CM332_28*S32;
+  CM3128_332 = -(CM132_28*S32-CM332_28*C32);
+  FM3129_132 = FB132_29*C32+FB332_29*S32;
+  CM3129_132 = CM132_29*C32+CM332_29*S32;
+  CM3130_132 = CM132_30*C32+CM332_30*S32;
+  CM3131_132 = s.In(1,32)*C32*C32+s.In(9,32)*S32*S32;
+  FF30_231 = FA232*C31-FF31_332*S31;
+  FF30_331 = FA232*S31+FF31_332*C31;
+  CF30_231 = CF232*C31-CF31_332*S31;
+  CF30_331 = CF232*S31+CF31_332*C31;
+  FM301_231 = FB232_1*C31-FM311_332*S31;
+  FM301_331 = FB232_1*S31+FM311_332*C31;
+  FM302_231 = FB232_2*C31-FM312_332*S31;
+  FM302_331 = FB232_2*S31+FM312_332*C31;
+  FM303_231 = FB232_3*C31-FM313_332*S31;
+  FM303_331 = FB232_3*S31+FM313_332*C31;
+  FM304_231 = FB232_4*C31-FM314_332*S31;
+  FM304_331 = FB232_4*S31+FM314_332*C31;
+  CM304_231 = CM232_4*C31-CM314_332*S31;
+  CM304_331 = CM232_4*S31+CM314_332*C31;
+  FM305_231 = FB232_5*C31-FM315_332*S31;
+  FM305_331 = FB232_5*S31+FM315_332*C31;
+  CM305_231 = CM232_5*C31-CM315_332*S31;
+  CM305_331 = CM232_5*S31+CM315_332*C31;
+  FM306_231 = FB232_6*C31-FM316_332*S31;
+  FM306_331 = FB232_6*S31+FM316_332*C31;
+  CM306_231 = CM232_6*C31-CM316_332*S31;
+  CM306_331 = CM232_6*S31+CM316_332*C31;
+  FM3024_231 = FB232_24*C31-FM3124_332*S31;
+  FM3024_331 = FB232_24*S31+FM3124_332*C31;
+  CM3024_231 = CM232_24*C31-CM3124_332*S31;
+  CM3024_331 = CM232_24*S31+CM3124_332*C31;
+  FM3025_231 = FB232_25*C31-FM3125_332*S31;
+  FM3025_331 = FB232_25*S31+FM3125_332*C31;
+  CM3025_231 = CM232_25*C31-CM3125_332*S31;
+  CM3025_331 = CM232_25*S31+CM3125_332*C31;
+  FM3026_231 = FB232_26*C31-FM3126_332*S31;
+  FM3026_331 = FB232_26*S31+FM3126_332*C31;
+  CM3026_231 = CM232_26*C31-CM3126_332*S31;
+  CM3026_331 = CM232_26*S31+CM3126_332*C31;
+  FM3027_231 = FB232_27*C31-FM3127_332*S31;
+  FM3027_331 = FB232_27*S31+FM3127_332*C31;
+  CM3027_231 = CM232_27*C31-CM3127_332*S31;
+  CM3027_331 = CM232_27*S31+CM3127_332*C31;
+  FM3028_231 = FB232_28*C31-FM3128_332*S31;
+  FM3028_331 = FB232_28*S31+FM3128_332*C31;
+  CM3028_231 = CM232_28*C31-CM3128_332*S31;
+  CM3028_331 = CM232_28*S31+CM3128_332*C31;
+  FM3029_231 = s.m(32)*AlM230_29*C31*C31+S31*(FB132_29*S32-FB332_29*C32);
+  CM3029_331 = CM232_29*S31-C31*(CM132_29*S32-CM332_29*C32);
+  CM3030_331 = CM232_30*S31-C31*(CM132_30*S32-CM332_30*C32);
+  FA129 = -(s.frc(1,29)-s.m(29)*(AlF129+BS129*s.l(1,29)+BeF229*s.l(2,29)+BeF329*s.l(3,29)));
+  FA229 = -(s.frc(2,29)-s.m(29)*(AlF229+BS529*s.l(2,29)+BeF429*s.l(1,29)+BeF629*s.l(3,29)));
+  FA329 = -(s.frc(3,29)-s.m(29)*(AlF328+BS929*s.l(3,29)+BeF729*s.l(1,29)+BeF829*s.l(2,29)));
+  FF129 = FA129-FF30_231*S30+FF31_132*C30;
+  FF229 = FA229+FF30_231*C30+FF31_132*S30;
+  FF329 = FA329+FF30_331;
+  CF129 = -(s.trq(1,29)-s.In(1,29)*OpF129+CF30_231*S30-CF31_132*C30+FA229*s.l(3,29)-FA329*s.l(2,29)-FF30_331*s.dpt(2,40)+OM229*OM329*(s.In(5,29)-...
+ s.In(9,29))+s.dpt(3,40)*(FF30_231*C30+FF31_132*S30));
+  CF229 = -(s.trq(2,29)-s.In(5,29)*OpF229-CF30_231*C30-CF31_132*S30-FA129*s.l(3,29)+FA329*s.l(1,29)+FF30_331*s.dpt(1,40)-OM129*OM329*(s.In(1,29)-...
+ s.In(9,29))+s.dpt(3,40)*(FF30_231*S30-FF31_132*C30));
+  CF329 = -(s.trq(3,29)-CF30_331-s.In(9,29)*OpF328+FA129*s.l(2,29)-FA229*s.l(1,29)+OM129*OM229*(s.In(1,29)-s.In(5,29))-s.dpt(1,40)*(FF30_231*C30+...
+ FF31_132*S30)-s.dpt(2,40)*(FF30_231*S30-FF31_132*C30));
+  FB129_1 = s.m(29)*AlM129_1;
+  FB229_1 = s.m(29)*AlM229_1;
+  FB329_1 = s.m(29)*AlM328_1;
+  FM129_1 = FB129_1-FM301_231*S30+FM311_132*C30;
+  FM229_1 = FB229_1+FM301_231*C30+FM311_132*S30;
+  FM329_1 = FB329_1+FM301_331;
+  CM129_1 = FM301_331*s.dpt(2,40)-s.dpt(3,40)*(FM301_231*C30+FM311_132*S30)-FB229_1*s.l(3,29)+FB329_1*s.l(2,29);
+  CM229_1 = FB129_1*s.l(3,29)-FB329_1*s.l(1,29)-FM301_331*s.dpt(1,40)-s.dpt(3,40)*(FM301_231*S30-FM311_132*C30);
+  CM329_1 = s.dpt(1,40)*(FM301_231*C30+FM311_132*S30)+s.dpt(2,40)*(FM301_231*S30-FM311_132*C30)-FB129_1*s.l(2,29)+FB229_1*s.l(1,29);
+  FB129_2 = s.m(29)*AlM129_2;
+  FB229_2 = s.m(29)*AlM229_2;
+  FB329_2 = s.m(29)*AlM328_2;
+  FM129_2 = FB129_2-FM302_231*S30+FM312_132*C30;
+  FM229_2 = FB229_2+FM302_231*C30+FM312_132*S30;
+  FM329_2 = FB329_2+FM302_331;
+  CM129_2 = FM302_331*s.dpt(2,40)-s.dpt(3,40)*(FM302_231*C30+FM312_132*S30)-FB229_2*s.l(3,29)+FB329_2*s.l(2,29);
+  CM229_2 = FB129_2*s.l(3,29)-FB329_2*s.l(1,29)-FM302_331*s.dpt(1,40)-s.dpt(3,40)*(FM302_231*S30-FM312_132*C30);
+  CM329_2 = s.dpt(1,40)*(FM302_231*C30+FM312_132*S30)+s.dpt(2,40)*(FM302_231*S30-FM312_132*C30)-FB129_2*s.l(2,29)+FB229_2*s.l(1,29);
+  FB129_3 = s.m(29)*AlM129_3;
+  FB229_3 = s.m(29)*AlM229_3;
+  FB329_3 = s.m(29)*AlM328_3;
+  FM129_3 = FB129_3-FM303_231*S30+FM313_132*C30;
+  FM229_3 = FB229_3+FM303_231*C30+FM313_132*S30;
+  FM329_3 = FB329_3+FM303_331;
+  CM129_3 = FM303_331*s.dpt(2,40)-s.dpt(3,40)*(FM303_231*C30+FM313_132*S30)-FB229_3*s.l(3,29)+FB329_3*s.l(2,29);
+  CM229_3 = FB129_3*s.l(3,29)-FB329_3*s.l(1,29)-FM303_331*s.dpt(1,40)-s.dpt(3,40)*(FM303_231*S30-FM313_132*C30);
+  CM329_3 = s.dpt(1,40)*(FM303_231*C30+FM313_132*S30)+s.dpt(2,40)*(FM303_231*S30-FM313_132*C30)-FB129_3*s.l(2,29)+FB229_3*s.l(1,29);
+  FB129_4 = s.m(29)*(AlM129_4+OpM229_4*s.l(3,29)-OpM328_4*s.l(2,29));
+  FB229_4 = s.m(29)*(AlM229_4-OpM129_4*s.l(3,29)+OpM328_4*s.l(1,29));
+  FB329_4 = s.m(29)*(AlM328_4+OpM129_4*s.l(2,29)-OpM229_4*s.l(1,29));
+  FM129_4 = FB129_4-FM304_231*S30+FM314_132*C30;
+  FM229_4 = FB229_4+FM304_231*C30+FM314_132*S30;
+  FM329_4 = FB329_4+FM304_331;
+  CM129_4 = s.In(1,29)*OpM129_4-CM304_231*S30+CM314_132*C30-FB229_4*s.l(3,29)+FB329_4*s.l(2,29)+FM304_331*s.dpt(2,40)-s.dpt(3,40)*(FM304_231*C30+...
+ FM314_132*S30);
+  CM229_4 = s.In(5,29)*OpM229_4+CM304_231*C30+CM314_132*S30+FB129_4*s.l(3,29)-FB329_4*s.l(1,29)-FM304_331*s.dpt(1,40)-s.dpt(3,40)*(FM304_231*S30-...
+ FM314_132*C30);
+  CM329_4 = CM304_331+s.In(9,29)*OpM328_4-FB129_4*s.l(2,29)+FB229_4*s.l(1,29)+s.dpt(1,40)*(FM304_231*C30+FM314_132*S30)+s.dpt(2,40)*(FM304_231*...
+ S30-FM314_132*C30);
+  FB129_5 = s.m(29)*(AlM129_5+OpM229_5*s.l(3,29)-OpM328_5*s.l(2,29));
+  FB229_5 = s.m(29)*(AlM229_5-OpM129_5*s.l(3,29)+OpM328_5*s.l(1,29));
+  FB329_5 = s.m(29)*(AlM328_5+OpM129_5*s.l(2,29)-OpM229_5*s.l(1,29));
+  FM129_5 = FB129_5-FM305_231*S30+FM315_132*C30;
+  FM229_5 = FB229_5+FM305_231*C30+FM315_132*S30;
+  FM329_5 = FB329_5+FM305_331;
+  CM129_5 = s.In(1,29)*OpM129_5-CM305_231*S30+CM315_132*C30-FB229_5*s.l(3,29)+FB329_5*s.l(2,29)+FM305_331*s.dpt(2,40)-s.dpt(3,40)*(FM305_231*C30+...
+ FM315_132*S30);
+  CM229_5 = s.In(5,29)*OpM229_5+CM305_231*C30+CM315_132*S30+FB129_5*s.l(3,29)-FB329_5*s.l(1,29)-FM305_331*s.dpt(1,40)-s.dpt(3,40)*(FM305_231*S30-...
+ FM315_132*C30);
+  CM329_5 = CM305_331+s.In(9,29)*OpM328_5-FB129_5*s.l(2,29)+FB229_5*s.l(1,29)+s.dpt(1,40)*(FM305_231*C30+FM315_132*S30)+s.dpt(2,40)*(FM305_231*...
+ S30-FM315_132*C30);
+  FB129_6 = s.m(29)*(AlM129_6+OpM229_6*s.l(3,29)-OpM328_6*s.l(2,29));
+  FB229_6 = s.m(29)*(AlM229_6-OpM129_6*s.l(3,29)+OpM328_6*s.l(1,29));
+  FB329_6 = s.m(29)*(AlM328_6+OpM129_6*s.l(2,29)-OpM229_6*s.l(1,29));
+  FM129_6 = FB129_6-FM306_231*S30+FM316_132*C30;
+  FM229_6 = FB229_6+FM306_231*C30+FM316_132*S30;
+  FM329_6 = FB329_6+FM306_331;
+  CM129_6 = s.In(1,29)*OpM129_6-CM306_231*S30+CM316_132*C30-FB229_6*s.l(3,29)+FB329_6*s.l(2,29)+FM306_331*s.dpt(2,40)-s.dpt(3,40)*(FM306_231*C30+...
+ FM316_132*S30);
+  CM229_6 = s.In(5,29)*OpM229_6+CM306_231*C30+CM316_132*S30+FB129_6*s.l(3,29)-FB329_6*s.l(1,29)-FM306_331*s.dpt(1,40)-s.dpt(3,40)*(FM306_231*S30-...
+ FM316_132*C30);
+  CM329_6 = CM306_331+s.In(9,29)*OpM328_6-FB129_6*s.l(2,29)+FB229_6*s.l(1,29)+s.dpt(1,40)*(FM306_231*C30+FM316_132*S30)+s.dpt(2,40)*(FM306_231*...
+ S30-FM316_132*C30);
+  FB129_24 = s.m(29)*(AlM129_24+OpM229_24*s.l(3,29)-OpM328_24*s.l(2,29));
+  FB229_24 = s.m(29)*(AlM229_24-OpM129_24*s.l(3,29)+OpM328_24*s.l(1,29));
+  FB329_24 = s.m(29)*(AlM328_24+OpM129_24*s.l(2,29)-OpM229_24*s.l(1,29));
+  FM129_24 = FB129_24-FM3024_231*S30+FM3124_132*C30;
+  FM229_24 = FB229_24+FM3024_231*C30+FM3124_132*S30;
+  FM329_24 = FB329_24+FM3024_331;
+  CM129_24 = s.In(1,29)*OpM129_24-CM3024_231*S30+CM3124_132*C30-FB229_24*s.l(3,29)+FB329_24*s.l(2,29)+FM3024_331*s.dpt(2,40)-s.dpt(3,40)*(...
+ FM3024_231*C30+FM3124_132*S30);
+  CM229_24 = s.In(5,29)*OpM229_24+CM3024_231*C30+CM3124_132*S30+FB129_24*s.l(3,29)-FB329_24*s.l(1,29)-FM3024_331*s.dpt(1,40)-s.dpt(3,40)*(...
+ FM3024_231*S30-FM3124_132*C30);
+  CM329_24 = CM3024_331+s.In(9,29)*OpM328_24-FB129_24*s.l(2,29)+FB229_24*s.l(1,29)+s.dpt(1,40)*(FM3024_231*C30+FM3124_132*S30)+s.dpt(2,40)*(...
+ FM3024_231*S30-FM3124_132*C30);
+  FB129_25 = s.m(29)*(AlM129_25+OpM229_25*s.l(3,29)-OpM328_25*s.l(2,29));
+  FB229_25 = s.m(29)*(AlM229_25-OpM129_25*s.l(3,29)+OpM328_25*s.l(1,29));
+  FB329_25 = s.m(29)*(AlM328_25+OpM129_25*s.l(2,29)-OpM229_25*s.l(1,29));
+  FM129_25 = FB129_25-FM3025_231*S30+FM3125_132*C30;
+  FM229_25 = FB229_25+FM3025_231*C30+FM3125_132*S30;
+  FM329_25 = FB329_25+FM3025_331;
+  CM129_25 = s.In(1,29)*OpM129_25-CM3025_231*S30+CM3125_132*C30-FB229_25*s.l(3,29)+FB329_25*s.l(2,29)+FM3025_331*s.dpt(2,40)-s.dpt(3,40)*(...
+ FM3025_231*C30+FM3125_132*S30);
+  CM229_25 = s.In(5,29)*OpM229_25+CM3025_231*C30+CM3125_132*S30+FB129_25*s.l(3,29)-FB329_25*s.l(1,29)-FM3025_331*s.dpt(1,40)-s.dpt(3,40)*(...
+ FM3025_231*S30-FM3125_132*C30);
+  CM329_25 = CM3025_331+s.In(9,29)*OpM328_25-FB129_25*s.l(2,29)+FB229_25*s.l(1,29)+s.dpt(1,40)*(FM3025_231*C30+FM3125_132*S30)+s.dpt(2,40)*(...
+ FM3025_231*S30-FM3125_132*C30);
+  FB129_26 = s.m(29)*(AlM129_26+OpM229_26*s.l(3,29)-s.l(2,29)*S28);
+  FB229_26 = s.m(29)*(AlM229_26-OpM129_26*s.l(3,29)+s.l(1,29)*S28);
+  FB329_26 = s.m(29)*(AlM328_26+OpM129_26*s.l(2,29)-OpM229_26*s.l(1,29));
+  FM129_26 = FB129_26-FM3026_231*S30+FM3126_132*C30;
+  FM229_26 = FB229_26+FM3026_231*C30+FM3126_132*S30;
+  CM129_26 = s.In(1,29)*OpM129_26-CM3026_231*S30+CM3126_132*C30-FB229_26*s.l(3,29)+FB329_26*s.l(2,29)+FM3026_331*s.dpt(2,40)-s.dpt(3,40)*(...
+ FM3026_231*C30+FM3126_132*S30);
+  CM229_26 = s.In(5,29)*OpM229_26+CM3026_231*C30+CM3126_132*S30+FB129_26*s.l(3,29)-FB329_26*s.l(1,29)-FM3026_331*s.dpt(1,40)-s.dpt(3,40)*(...
+ FM3026_231*S30-FM3126_132*C30);
+  CM329_26 = CM3026_331+s.In(9,29)*S28-FB129_26*s.l(2,29)+FB229_26*s.l(1,29)+s.dpt(1,40)*(FM3026_231*C30+FM3126_132*S30)+s.dpt(2,40)*(FM3026_231*...
+ S30-FM3126_132*C30);
+  FB129_27 = s.m(29)*(OpM229_27*s.l(3,29)-s.l(2,29)*S28);
+  FB229_27 = -s.m(29)*(OpM129_27*s.l(3,29)-s.l(1,29)*S28);
+  FB329_27 = s.m(29)*(OpM129_27*s.l(2,29)-OpM229_27*s.l(1,29));
+  CM129_27 = s.In(1,29)*OpM129_27-CM3027_231*S30+CM3127_132*C30-FB229_27*s.l(3,29)+FB329_27*s.l(2,29)+FM3027_331*s.dpt(2,40)-s.dpt(3,40)*(...
+ FM3027_231*C30+FM3127_132*S30);
+  CM229_27 = s.In(5,29)*OpM229_27+CM3027_231*C30+CM3127_132*S30+FB129_27*s.l(3,29)-FB329_27*s.l(1,29)-FM3027_331*s.dpt(1,40)-s.dpt(3,40)*(...
+ FM3027_231*S30-FM3127_132*C30);
+  CM329_27 = CM3027_331+s.In(9,29)*S28-FB129_27*s.l(2,29)+FB229_27*s.l(1,29)+s.dpt(1,40)*(FM3027_231*C30+FM3127_132*S30)+s.dpt(2,40)*(FM3027_231*...
+ S30-FM3127_132*C30);
+  FB129_28 = s.m(29)*s.l(3,29)*C29;
+  FB229_28 = -s.m(29)*s.l(3,29)*S29;
+  FB329_28 = -s.m(29)*(s.l(1,29)*C29-s.l(2,29)*S29);
+  CM329_28 = CM3028_331-FB129_28*s.l(2,29)+FB229_28*s.l(1,29)+s.dpt(1,40)*(FM3028_231*C30+FM3128_132*S30)+s.dpt(2,40)*(FM3028_231*S30-FM3128_132*...
+ C30);
+  CM329_29 = s.In(9,29)+CM3029_331+s.m(29)*s.l(1,29)*s.l(1,29)+s.m(29)*s.l(2,29)*s.l(2,29)+s.dpt(1,40)*(FM3029_231*C30+FM3129_132*S30)+...
+ s.dpt(2,40)*(FM3029_231*S30-FM3129_132*C30);
+  FF28_129 = FF129*C29-FF229*S29;
+  FF28_229 = FF129*S29+FF229*C29;
+  CF28_129 = CF129*C29-CF229*S29;
+  CF28_229 = CF129*S29+CF229*C29;
+  FM281_129 = FM129_1*C29-FM229_1*S29;
+  FM281_229 = FM129_1*S29+FM229_1*C29;
+  CM281_129 = CM129_1*C29-CM229_1*S29;
+  CM281_229 = CM129_1*S29+CM229_1*C29;
+  FM282_129 = FM129_2*C29-FM229_2*S29;
+  FM282_229 = FM129_2*S29+FM229_2*C29;
+  CM282_129 = CM129_2*C29-CM229_2*S29;
+  CM282_229 = CM129_2*S29+CM229_2*C29;
+  FM283_129 = FM129_3*C29-FM229_3*S29;
+  FM283_229 = FM129_3*S29+FM229_3*C29;
+  CM283_129 = CM129_3*C29-CM229_3*S29;
+  CM283_229 = CM129_3*S29+CM229_3*C29;
+  FM284_129 = FM129_4*C29-FM229_4*S29;
+  FM284_229 = FM129_4*S29+FM229_4*C29;
+  CM284_129 = CM129_4*C29-CM229_4*S29;
+  CM284_229 = CM129_4*S29+CM229_4*C29;
+  FM285_129 = FM129_5*C29-FM229_5*S29;
+  FM285_229 = FM129_5*S29+FM229_5*C29;
+  CM285_129 = CM129_5*C29-CM229_5*S29;
+  CM285_229 = CM129_5*S29+CM229_5*C29;
+  FM286_129 = FM129_6*C29-FM229_6*S29;
+  FM286_229 = FM129_6*S29+FM229_6*C29;
+  CM286_129 = CM129_6*C29-CM229_6*S29;
+  CM286_229 = CM129_6*S29+CM229_6*C29;
+  FM2824_129 = FM129_24*C29-FM229_24*S29;
+  CM2824_129 = CM129_24*C29-CM229_24*S29;
+  CM2824_229 = CM129_24*S29+CM229_24*C29;
+  FM2825_129 = FM129_25*C29-FM229_25*S29;
+  CM2825_129 = CM129_25*C29-CM229_25*S29;
+  CM2825_229 = CM129_25*S29+CM229_25*C29;
+  CM2826_229 = CM129_26*S29+CM229_26*C29;
+  CM2827_229 = CM129_27*S29+CM229_27*C29;
+  CM2828_229 = C29*(s.In(5,29)*C29+CM3028_231*C30+CM3128_132*S30+FB129_28*s.l(3,29)-FB329_28*s.l(1,29)-FM3028_331*s.dpt(1,40)-s.dpt(3,40)*(...
+ FM3028_231*S30-FM3128_132*C30))+S29*(s.In(1,29)*S29-CM3028_231*S30+CM3128_132*C30-FB229_28*s.l(3,29)+FB329_28*s.l(2,29)+FM3028_331*s.dpt(2,40)-...
+ s.dpt(3,40)*(FM3028_231*C30+FM3128_132*S30));
+  FF27_128 = FF28_129*C28+FF329*S28;
+  FF27_328 = -(FF28_129*S28-FF329*C28);
+  CF27_128 = CF28_129*C28+CF329*S28;
+  CF27_328 = -(CF28_129*S28-CF329*C28);
+  FM271_128 = FM281_129*C28+FM329_1*S28;
+  FM271_328 = -(FM281_129*S28-FM329_1*C28);
+  CM271_128 = CM281_129*C28+CM329_1*S28;
+  CM271_328 = -(CM281_129*S28-CM329_1*C28);
+  FM272_128 = FM282_129*C28+FM329_2*S28;
+  FM272_328 = -(FM282_129*S28-FM329_2*C28);
+  CM272_128 = CM282_129*C28+CM329_2*S28;
+  CM272_328 = -(CM282_129*S28-CM329_2*C28);
+  FM273_128 = FM283_129*C28+FM329_3*S28;
+  FM273_328 = -(FM283_129*S28-FM329_3*C28);
+  CM273_128 = CM283_129*C28+CM329_3*S28;
+  CM273_328 = -(CM283_129*S28-CM329_3*C28);
+  FM274_128 = FM284_129*C28+FM329_4*S28;
+  FM274_328 = -(FM284_129*S28-FM329_4*C28);
+  CM274_128 = CM284_129*C28+CM329_4*S28;
+  CM274_328 = -(CM284_129*S28-CM329_4*C28);
+  FM275_128 = FM285_129*C28+FM329_5*S28;
+  FM275_328 = -(FM285_129*S28-FM329_5*C28);
+  CM275_128 = CM285_129*C28+CM329_5*S28;
+  CM275_328 = -(CM285_129*S28-CM329_5*C28);
+  FM276_128 = FM286_129*C28+FM329_6*S28;
+  FM276_328 = -(FM286_129*S28-FM329_6*C28);
+  CM276_128 = CM286_129*C28+CM329_6*S28;
+  CM276_328 = -(CM286_129*S28-CM329_6*C28);
+  CM2724_128 = CM2824_129*C28+CM329_24*S28;
+  CM2724_328 = -(CM2824_129*S28-CM329_24*C28);
+  CM2725_128 = CM2825_129*C28+CM329_25*S28;
+  CM2725_328 = -(CM2825_129*S28-CM329_25*C28);
+  CM2726_128 = CM329_26*S28+C28*(CM129_26*C29-CM229_26*S29);
+  CM2727_128 = CM329_27*S28+C28*(CM129_27*C29-CM229_27*S29);
+  FA126 = -(s.frc(1,26)-s.m(26)*(AlF125+BeF226*s.l(2,26)));
+  FA326 = -(s.frc(3,26)-s.m(26)*(AlF326+BeF826*s.l(2,26)));
+  FF126 = FA126+FF27_128;
+  FF226 = -(s.frc(2,26)-s.m(26)*(AlF226+BS526*s.l(2,26))+FF27_328*S27-FF28_229*C27);
+  FF326 = FA326+FF27_328*C27+FF28_229*S27;
+  CF126 = -(s.trq(1,26)-CF27_128-s.In(1,26)*OpF125-s.In(9,26)*OM226*OM326-FA326*s.l(2,26)-s.dpt(2,37)*(FF27_328*C27+FF28_229*S27));
+  CF226 = -(s.trq(2,26)+CF27_328*S27-CF28_229*C27-OM126*OM326*(s.In(1,26)-s.In(9,26)));
+  CF326 = -(s.trq(3,26)+s.In(1,26)*OM126*OM226-s.In(9,26)*OpF326-CF27_328*C27-CF28_229*S27+FA126*s.l(2,26)+FF27_128*s.dpt(2,37));
+  FB126_1 = s.m(26)*AlM125_1;
+  FB326_1 = s.m(26)*AlM326_1;
+  FM126_1 = FB126_1+FM271_128;
+  FM226_1 = s.m(26)*AlM226_1-FM271_328*S27+FM281_229*C27;
+  FM326_1 = FB326_1+FM271_328*C27+FM281_229*S27;
+  CM261_227 = -(CM271_328*S27-CM281_229*C27);
+  CM126_1 = CM271_128+FB326_1*s.l(2,26)+s.dpt(2,37)*(FM271_328*C27+FM281_229*S27);
+  CM326_1 = CM271_328*C27+CM281_229*S27-FB126_1*s.l(2,26)-FM271_128*s.dpt(2,37);
+  FB126_2 = s.m(26)*AlM125_2;
+  FB326_2 = s.m(26)*AlM326_2;
+  FM126_2 = FB126_2+FM272_128;
+  FM226_2 = s.m(26)*AlM226_2-FM272_328*S27+FM282_229*C27;
+  FM326_2 = FB326_2+FM272_328*C27+FM282_229*S27;
+  CM262_227 = -(CM272_328*S27-CM282_229*C27);
+  CM126_2 = CM272_128+FB326_2*s.l(2,26)+s.dpt(2,37)*(FM272_328*C27+FM282_229*S27);
+  CM326_2 = CM272_328*C27+CM282_229*S27-FB126_2*s.l(2,26)-FM272_128*s.dpt(2,37);
+  FB126_3 = s.m(26)*AlM125_3;
+  FB326_3 = s.m(26)*AlM326_3;
+  FM126_3 = FB126_3+FM273_128;
+  FM226_3 = s.m(26)*AlM226_3-FM273_328*S27+FM283_229*C27;
+  FM326_3 = FB326_3+FM273_328*C27+FM283_229*S27;
+  CM263_227 = -(CM273_328*S27-CM283_229*C27);
+  CM126_3 = CM273_128+FB326_3*s.l(2,26)+s.dpt(2,37)*(FM273_328*C27+FM283_229*S27);
+  CM326_3 = CM273_328*C27+CM283_229*S27-FB126_3*s.l(2,26)-FM273_128*s.dpt(2,37);
+  FB126_4 = s.m(26)*(AlM125_4-OpM326_4*s.l(2,26));
+  FB326_4 = s.m(26)*(AlM326_4+OpM125_4*s.l(2,26));
+  FM126_4 = FB126_4+FM274_128;
+  FM226_4 = s.m(26)*AlM226_4-FM274_328*S27+FM284_229*C27;
+  FM326_4 = FB326_4+FM274_328*C27+FM284_229*S27;
+  CM264_227 = -(CM274_328*S27-CM284_229*C27);
+  CM126_4 = CM274_128+s.In(1,26)*OpM125_4+FB326_4*s.l(2,26)+s.dpt(2,37)*(FM274_328*C27+FM284_229*S27);
+  CM326_4 = s.In(9,26)*OpM326_4+CM274_328*C27+CM284_229*S27-FB126_4*s.l(2,26)-FM274_128*s.dpt(2,37);
+  FB126_5 = s.m(26)*(AlM125_5-OpM326_5*s.l(2,26));
+  FB326_5 = s.m(26)*(AlM326_5+OpM125_5*s.l(2,26));
+  FM126_5 = FB126_5+FM275_128;
+  FM226_5 = s.m(26)*AlM226_5-FM275_328*S27+FM285_229*C27;
+  FM326_5 = FB326_5+FM275_328*C27+FM285_229*S27;
+  CM265_227 = -(CM275_328*S27-CM285_229*C27);
+  CM126_5 = CM275_128+s.In(1,26)*OpM125_5+FB326_5*s.l(2,26)+s.dpt(2,37)*(FM275_328*C27+FM285_229*S27);
+  CM326_5 = s.In(9,26)*OpM326_5+CM275_328*C27+CM285_229*S27-FB126_5*s.l(2,26)-FM275_128*s.dpt(2,37);
+  FB126_6 = s.m(26)*(AlM125_6-OpM326_6*s.l(2,26));
+  FB326_6 = s.m(26)*(AlM326_6+OpM125_6*s.l(2,26));
+  FM126_6 = FB126_6+FM276_128;
+  FM226_6 = s.m(26)*AlM226_6-FM276_328*S27+FM286_229*C27;
+  FM326_6 = FB326_6+FM276_328*C27+FM286_229*S27;
+  CM266_227 = -(CM276_328*S27-CM286_229*C27);
+  CM126_6 = CM276_128+s.In(1,26)*OpM125_6+FB326_6*s.l(2,26)+s.dpt(2,37)*(FM276_328*C27+FM286_229*S27);
+  CM326_6 = s.In(9,26)*OpM326_6+CM276_328*C27+CM286_229*S27-FB126_6*s.l(2,26)-FM276_128*s.dpt(2,37);
+  CM2624_227 = -(CM2724_328*S27-CM2824_229*C27);
+  CM126_24 = CM2724_128-s.In(1,26)*S25-s.m(26)*s.l(2,26)*s.l(2,26)*S25-s.dpt(2,37)*(C27*(FM2824_129*S28-FM329_24*C28)-S27*(FM129_24*S29+FM229_24*...
+ C29));
+  CM326_24 = CM2724_328*C27+CM2824_229*S27+OpM326_24*(s.In(9,26)+s.m(26)*s.l(2,26)*s.l(2,26))-s.dpt(2,37)*(FM2824_129*C28+FM329_24*S28);
+  CM2625_127 = CM2725_128-s.dpt(2,37)*(C27*(FM2825_129*S28-FM329_25*C28)-S27*(FM129_25*S29+FM229_25*C29));
+  CM126_26 = s.In(1,26)+CM2726_128+s.m(26)*s.l(2,26)*s.l(2,26)+s.dpt(2,37)*(C27*(C28*(FB329_26+FM3026_331)-S28*(FM129_26*C29-FM229_26*S29))+S27*(...
+ FM129_26*S29+FM229_26*C29));
+  FF25_226 = FF226*C26-FF326*S26;
+  FF25_326 = FF226*S26+FF326*C26;
+  CF25_226 = CF226*C26-CF326*S26;
+  CF25_326 = CF226*S26+CF326*C26;
+  FM251_226 = FM226_1*C26-FM326_1*S26;
+  FM251_326 = FM226_1*S26+FM326_1*C26;
+  CM251_226 = CM261_227*C26-CM326_1*S26;
+  CM251_326 = CM261_227*S26+CM326_1*C26;
+  FM252_226 = FM226_2*C26-FM326_2*S26;
+  FM252_326 = FM226_2*S26+FM326_2*C26;
+  CM252_226 = CM262_227*C26-CM326_2*S26;
+  CM252_326 = CM262_227*S26+CM326_2*C26;
+  FM253_226 = FM226_3*C26-FM326_3*S26;
+  FM253_326 = FM226_3*S26+FM326_3*C26;
+  CM253_226 = CM263_227*C26-CM326_3*S26;
+  CM253_326 = CM263_227*S26+CM326_3*C26;
+  FM254_226 = FM226_4*C26-FM326_4*S26;
+  FM254_326 = FM226_4*S26+FM326_4*C26;
+  CM254_226 = CM264_227*C26-CM326_4*S26;
+  CM254_326 = CM264_227*S26+CM326_4*C26;
+  FM255_226 = FM226_5*C26-FM326_5*S26;
+  FM255_326 = FM226_5*S26+FM326_5*C26;
+  CM255_226 = CM265_227*C26-CM326_5*S26;
+  CM255_326 = CM265_227*S26+CM326_5*C26;
+  FM256_326 = FM226_6*S26+FM326_6*C26;
+  CM256_226 = CM266_227*C26-CM326_6*S26;
+  CM256_326 = CM266_227*S26+CM326_6*C26;
+  CM2524_226 = CM2624_227*C26-CM326_24*S26;
+  CM2525_226 = -(C26*(CM2725_328*S27-CM2825_229*C27)+S26*(CM2725_328*C27+CM2825_229*S27-s.dpt(2,37)*(FM2825_129*C28+FM329_25*S28)-S26*(s.In(9,26)...
+ +s.m(26)*s.l(2,26)*s.l(2,26))));
+  FF24_125 = FF126*C25+FF25_326*S25;
+  FF24_325 = -(FF126*S25-FF25_326*C25);
+  CF24_125 = CF126*C25+CF25_326*S25;
+  CF24_325 = -(CF126*S25-CF25_326*C25);
+  FM241_125 = FM126_1*C25+FM251_326*S25;
+  FM241_325 = -(FM126_1*S25-FM251_326*C25);
+  CM241_125 = CM126_1*C25+CM251_326*S25;
+  CM241_325 = -(CM126_1*S25-CM251_326*C25);
+  FM242_125 = FM126_2*C25+FM252_326*S25;
+  FM242_325 = -(FM126_2*S25-FM252_326*C25);
+  CM242_125 = CM126_2*C25+CM252_326*S25;
+  CM242_325 = -(CM126_2*S25-CM252_326*C25);
+  FM243_125 = FM126_3*C25+FM253_326*S25;
+  FM243_325 = -(FM126_3*S25-FM253_326*C25);
+  CM243_125 = CM126_3*C25+CM253_326*S25;
+  CM243_325 = -(CM126_3*S25-CM253_326*C25);
+  FM244_125 = FM126_4*C25+FM254_326*S25;
+  FM244_325 = -(FM126_4*S25-FM254_326*C25);
+  CM244_125 = CM126_4*C25+CM254_326*S25;
+  CM244_325 = -(CM126_4*S25-CM254_326*C25);
+  FM245_125 = FM126_5*C25+FM255_326*S25;
+  FM245_325 = -(FM126_5*S25-FM255_326*C25);
+  CM245_125 = CM126_5*C25+CM255_326*S25;
+  CM245_325 = -(CM126_5*S25-CM255_326*C25);
+  CM246_325 = -(CM126_6*S25-CM256_326*C25);
+  CM2424_325 = -(CM126_24*S25-C25*(CM2624_227*S26+CM326_24*C26));
+
+% = = Block_0_2_0_1_0_8 = = 
+ 
+% Backward Dynamics 
+
+  FA133 = -(s.frc(1,33)-s.m(33)*(AlF16+q(33)*BeF26-(2.0)*qd(33)*OM36+BS16*s.dpt(1,9)+BeF36*s.dpt(3,9)));
+  FA233 = -(s.frc(2,33)-s.m(33)*(AlF25+q(33)*BS56+BeF46*s.dpt(1,9)+BeF66*s.dpt(3,9)));
+  FA333 = -(s.frc(3,33)-s.m(33)*(AlF36+q(33)*BeF86+(2.0)*qd(33)*OM16+BS96*s.dpt(3,9)+BeF76*s.dpt(1,9)));
+  FB133_1 = s.m(33)*AlM16_1;
+  FB233_1 = s.m(33)*AlM25_1;
+  FB333_1 = s.m(33)*AlM36_1;
+  FB133_2 = s.m(33)*AlM16_2;
+  FB233_2 = s.m(33)*AlM25_2;
+  FB333_2 = s.m(33)*AlM36_2;
+  FB133_3 = s.m(33)*AlM16_3;
+  FB233_3 = s.m(33)*S5;
+  FB333_3 = s.m(33)*AlM36_3;
+  FB133_4 = -s.m(33)*(q(33)*OpM36_4-s.dpt(3,9)*S5);
+  FB233_4 = -s.m(33)*(OpM16_4*s.dpt(3,9)-OpM36_4*s.dpt(1,9));
+  FB333_4 = s.m(33)*(q(33)*OpM16_4-s.dpt(1,9)*S5);
+  FB133_5 = -q(33)*s.m(33)*S6;
+  FB233_5 = s.m(33)*(s.dpt(1,9)*S6-s.dpt(3,9)*C6);
+  FB333_5 = q(33)*s.m(33)*C6;
+
+% = = Block_0_2_0_1_0_9 = = 
+ 
+% Backward Dynamics 
+
+  FA142 = -(s.frc(1,42)-s.m(42)*(AlF140*C42-AlF341*S42));
+  FA242 = -(s.frc(2,42)-s.m(42)*(AlF240*C41+AlF340*S41));
+  FA342 = -(s.frc(3,42)-s.m(42)*(AlF140*S42+AlF341*C42));
+  CF142 = -(s.trq(1,42)-s.In(1,42)*(C42*(OpF140-qd(42)*OM341)-S42*(OpF341+qd(42)*OM141))+OM242*OM342*(s.In(5,42)-s.In(9,42)));
+  CF242 = -(s.trq(2,42)-s.In(5,42)*(C41*(OpF240+qd(41)*OM340)+S41*(OpF338-qd(41)*OM240))-OM142*OM342*(s.In(1,42)-s.In(9,42)));
+  CF342 = -(s.trq(3,42)-s.In(9,42)*(C42*(OpF341+qd(42)*OM141)+S42*(OpF140-qd(42)*OM341))+OM142*OM242*(s.In(1,42)-s.In(5,42)));
+  FB142_1 = s.m(42)*(AlM140_1*C42-AlM341_1*S42);
+  FB242_1 = s.m(42)*(AlM240_1*C41+AlM338_1*S41);
+  FB342_1 = s.m(42)*(AlM140_1*S42+AlM341_1*C42);
+  FB142_2 = s.m(42)*(AlM140_2*C42-AlM341_2*S42);
+  FB242_2 = s.m(42)*(AlM240_2*C41+AlM338_2*S41);
+  FB342_2 = s.m(42)*(AlM140_2*S42+AlM341_2*C42);
+  FB142_3 = s.m(42)*(AlM140_3*C42-AlM341_3*S42);
+  FB242_3 = s.m(42)*(AlM240_3*C41+AlM338_3*S41);
+  FB342_3 = s.m(42)*(AlM140_3*S42+AlM341_3*C42);
+  FB142_4 = s.m(42)*(AlM140_4*C42-AlM341_4*S42);
+  FB242_4 = s.m(42)*(AlM240_4*C41+AlM340_4*S41);
+  FB342_4 = s.m(42)*(AlM140_4*S42+AlM341_4*C42);
+  CM142_4 = s.In(1,42)*(OpM140_4*C42-OpM341_4*S42);
+  CM242_4 = s.In(5,42)*(OpM240_4*C41+OpM338_4*S41);
+  CM342_4 = s.In(9,42)*(OpM140_4*S42+OpM341_4*C42);
+  FB142_5 = s.m(42)*(AlM140_5*C42-AlM341_5*S42);
+  FB242_5 = s.m(42)*(AlM240_5*C41+AlM340_5*S41);
+  FB342_5 = s.m(42)*(AlM140_5*S42+AlM341_5*C42);
+  CM142_5 = s.In(1,42)*(OpM140_5*C42-OpM341_5*S42);
+  CM242_5 = s.In(5,42)*(OpM240_5*C41+OpM338_5*S41);
+  CM342_5 = s.In(9,42)*(OpM140_5*S42+OpM341_5*C42);
+  FB142_6 = s.m(42)*(AlM140_6*C42-AlM341_6*S42);
+  FB242_6 = s.m(42)*(AlM240_6*C41+AlM340_6*S41);
+  FB342_6 = s.m(42)*(AlM140_6*S42+AlM341_6*C42);
+  CM142_6 = s.In(1,42)*(OpM140_6*C42-OpM341_6*S42);
+  CM242_6 = s.In(5,42)*(OpM240_6*C41+OpM338_6*S41);
+  CM342_6 = s.In(9,42)*(OpM140_6*S42+OpM341_6*C42);
+  FB142_34 = s.m(42)*(AlM140_34*C42-AlM341_34*S42);
+  FB242_34 = s.m(42)*(AlM240_34*C41+AlM340_34*S41);
+  FB342_34 = s.m(42)*(AlM140_34*S42+AlM341_34*C42);
+  CM142_34 = s.In(1,42)*(OpM140_34*C42-OpM341_34*S42);
+  CM242_34 = s.In(5,42)*(OpM240_34*C41+OpM338_34*S41);
+  CM342_34 = s.In(9,42)*(OpM140_34*S42+OpM341_34*C42);
+  FB142_35 = s.m(42)*(AlM140_35*C42-AlM341_35*S42);
+  FB242_35 = s.m(42)*(AlM240_35*C41+AlM340_35*S41);
+  FB342_35 = s.m(42)*(AlM140_35*S42+AlM341_35*C42);
+  CM142_35 = s.In(1,42)*(OpM140_35*C42-OpM341_35*S42);
+  CM242_35 = s.In(5,42)*(OpM240_35*C41+OpM338_35*S41);
+  CM342_35 = s.In(9,42)*(OpM140_35*S42+OpM341_35*C42);
+  FB142_36 = s.m(42)*(AlM140_36*C42-AlM341_36*S42);
+  FB242_36 = s.m(42)*(AlM240_36*C41+AlM340_36*S41);
+  FB342_36 = s.m(42)*(AlM140_36*S42+AlM341_36*C42);
+  CM142_36 = s.In(1,42)*(OpM140_36*C42-OpM341_36*S42);
+  CM242_36 = s.In(5,42)*(OpM240_36*C41+S38*S41);
+  CM342_36 = s.In(9,42)*(OpM140_36*S42+OpM341_36*C42);
+  FB142_37 = s.m(42)*(AlM140_37*C42-AlM341_37*S42);
+  FB242_37 = s.m(42)*(AlM240_37*C41+AlM340_37*S41);
+  FB342_37 = s.m(42)*(AlM140_37*S42+AlM341_37*C42);
+  CM142_37 = s.In(1,42)*(OpM140_37*C42-OpM341_37*S42);
+  CM242_37 = s.In(5,42)*(OpM240_37*C41+S38*S41);
+  CM342_37 = s.In(9,42)*(OpM140_37*S42+OpM341_37*C42);
+  FB142_38 = s.m(42)*(AlM140_38*C42-AlM341_38*S42);
+  FB242_38 = s.m(42)*(AlM240_38*C41+AlM340_38*S41);
+  FB342_38 = s.m(42)*(AlM140_38*S42+AlM341_38*C42);
+  CM142_38 = -s.In(1,42)*(OpM341_38*S42-C42*S39p40);
+  CM242_38 = s.In(5,42)*C41*C39p40;
+  CM342_38 = s.In(9,42)*(OpM341_38*C42+S42*S39p40);
+  FB142_39 = s.m(42)*(AlM140_39*C42-AlM341_39*S42);
+  FB342_39 = s.m(42)*(AlM140_39*S42+AlM341_39*C42);
+  CM142_39 = -s.In(1,42)*C41*S42;
+  CM242_39 = s.In(5,42)*S41;
+  CM342_39 = s.In(9,42)*C41*C42;
+  CM142_40 = -s.In(1,42)*C41*S42;
+  CM242_40 = s.In(5,42)*S41;
+  CM342_40 = s.In(9,42)*C41*C42;
+  FF41_142 = FA142*C42+FA342*S42;
+  FF41_342 = -(FA142*S42-FA342*C42);
+  CF41_142 = CF142*C42+CF342*S42;
+  CF41_342 = -(CF142*S42-CF342*C42);
+  FM411_142 = FB142_1*C42+FB342_1*S42;
+  FM411_342 = -(FB142_1*S42-FB342_1*C42);
+  FM412_142 = FB142_2*C42+FB342_2*S42;
+  FM412_342 = -(FB142_2*S42-FB342_2*C42);
+  FM413_142 = FB142_3*C42+FB342_3*S42;
+  FM413_342 = -(FB142_3*S42-FB342_3*C42);
+  FM414_142 = FB142_4*C42+FB342_4*S42;
+  FM414_342 = -(FB142_4*S42-FB342_4*C42);
+  CM414_142 = CM142_4*C42+CM342_4*S42;
+  CM414_342 = -(CM142_4*S42-CM342_4*C42);
+  FM415_142 = FB142_5*C42+FB342_5*S42;
+  FM415_342 = -(FB142_5*S42-FB342_5*C42);
+  CM415_142 = CM142_5*C42+CM342_5*S42;
+  CM415_342 = -(CM142_5*S42-CM342_5*C42);
+  FM416_142 = FB142_6*C42+FB342_6*S42;
+  FM416_342 = -(FB142_6*S42-FB342_6*C42);
+  CM416_142 = CM142_6*C42+CM342_6*S42;
+  CM416_342 = -(CM142_6*S42-CM342_6*C42);
+  FM4134_142 = FB142_34*C42+FB342_34*S42;
+  FM4134_342 = -(FB142_34*S42-FB342_34*C42);
+  CM4134_142 = CM142_34*C42+CM342_34*S42;
+  CM4134_342 = -(CM142_34*S42-CM342_34*C42);
+  FM4135_142 = FB142_35*C42+FB342_35*S42;
+  FM4135_342 = -(FB142_35*S42-FB342_35*C42);
+  CM4135_142 = CM142_35*C42+CM342_35*S42;
+  CM4135_342 = -(CM142_35*S42-CM342_35*C42);
+  FM4136_142 = FB142_36*C42+FB342_36*S42;
+  FM4136_342 = -(FB142_36*S42-FB342_36*C42);
+  CM4136_142 = CM142_36*C42+CM342_36*S42;
+  CM4136_342 = -(CM142_36*S42-CM342_36*C42);
+  FM4137_142 = FB142_37*C42+FB342_37*S42;
+  FM4137_342 = -(FB142_37*S42-FB342_37*C42);
+  CM4137_142 = CM142_37*C42+CM342_37*S42;
+  CM4137_342 = -(CM142_37*S42-CM342_37*C42);
+  FM4138_142 = FB142_38*C42+FB342_38*S42;
+  FM4138_342 = -(FB142_38*S42-FB342_38*C42);
+  CM4138_142 = CM142_38*C42+CM342_38*S42;
+  CM4138_342 = -(CM142_38*S42-CM342_38*C42);
+  FM4139_142 = FB142_39*C42+FB342_39*S42;
+  CM4139_142 = CM142_39*C42+CM342_39*S42;
+  CM4140_142 = CM142_40*C42+CM342_40*S42;
+  CM4141_142 = s.In(1,42)*C42*C42+s.In(9,42)*S42*S42;
+  FF40_241 = FA242*C41-FF41_342*S41;
+  FF40_341 = FA242*S41+FF41_342*C41;
+  CF40_241 = CF242*C41-CF41_342*S41;
+  CF40_341 = CF242*S41+CF41_342*C41;
+  FM401_241 = FB242_1*C41-FM411_342*S41;
+  FM401_341 = FB242_1*S41+FM411_342*C41;
+  FM402_241 = FB242_2*C41-FM412_342*S41;
+  FM402_341 = FB242_2*S41+FM412_342*C41;
+  FM403_241 = FB242_3*C41-FM413_342*S41;
+  FM403_341 = FB242_3*S41+FM413_342*C41;
+  FM404_241 = FB242_4*C41-FM414_342*S41;
+  FM404_341 = FB242_4*S41+FM414_342*C41;
+  CM404_241 = CM242_4*C41-CM414_342*S41;
+  CM404_341 = CM242_4*S41+CM414_342*C41;
+  FM405_241 = FB242_5*C41-FM415_342*S41;
+  FM405_341 = FB242_5*S41+FM415_342*C41;
+  CM405_241 = CM242_5*C41-CM415_342*S41;
+  CM405_341 = CM242_5*S41+CM415_342*C41;
+  FM406_241 = FB242_6*C41-FM416_342*S41;
+  FM406_341 = FB242_6*S41+FM416_342*C41;
+  CM406_241 = CM242_6*C41-CM416_342*S41;
+  CM406_341 = CM242_6*S41+CM416_342*C41;
+  FM4034_241 = FB242_34*C41-FM4134_342*S41;
+  FM4034_341 = FB242_34*S41+FM4134_342*C41;
+  CM4034_241 = CM242_34*C41-CM4134_342*S41;
+  CM4034_341 = CM242_34*S41+CM4134_342*C41;
+  FM4035_241 = FB242_35*C41-FM4135_342*S41;
+  FM4035_341 = FB242_35*S41+FM4135_342*C41;
+  CM4035_241 = CM242_35*C41-CM4135_342*S41;
+  CM4035_341 = CM242_35*S41+CM4135_342*C41;
+  FM4036_241 = FB242_36*C41-FM4136_342*S41;
+  FM4036_341 = FB242_36*S41+FM4136_342*C41;
+  CM4036_241 = CM242_36*C41-CM4136_342*S41;
+  CM4036_341 = CM242_36*S41+CM4136_342*C41;
+  FM4037_241 = FB242_37*C41-FM4137_342*S41;
+  FM4037_341 = FB242_37*S41+FM4137_342*C41;
+  CM4037_241 = CM242_37*C41-CM4137_342*S41;
+  CM4037_341 = CM242_37*S41+CM4137_342*C41;
+  FM4038_241 = FB242_38*C41-FM4138_342*S41;
+  FM4038_341 = FB242_38*S41+FM4138_342*C41;
+  CM4038_241 = CM242_38*C41-CM4138_342*S41;
+  CM4038_341 = CM242_38*S41+CM4138_342*C41;
+  FM4039_241 = s.m(42)*AlM240_39*C41*C41+S41*(FB142_39*S42-FB342_39*C42);
+  CM4039_341 = CM242_39*S41-C41*(CM142_39*S42-CM342_39*C42);
+  CM4040_341 = CM242_40*S41-C41*(CM142_40*S42-CM342_40*C42);
+  FA139 = -(s.frc(1,39)-s.m(39)*(AlF139+BS139*s.l(1,39)+BeF239*s.l(2,39)+BeF339*s.l(3,39)));
+  FA239 = -(s.frc(2,39)-s.m(39)*(AlF239+BS539*s.l(2,39)+BeF439*s.l(1,39)+BeF639*s.l(3,39)));
+  FA339 = -(s.frc(3,39)-s.m(39)*(AlF338+BS939*s.l(3,39)+BeF739*s.l(1,39)+BeF839*s.l(2,39)));
+  FF139 = FA139-FF40_241*S40+FF41_142*C40;
+  FF239 = FA239+FF40_241*C40+FF41_142*S40;
+  FF339 = FA339+FF40_341;
+  CF139 = -(s.trq(1,39)-s.In(1,39)*OpF139+CF40_241*S40-CF41_142*C40+FA239*s.l(3,39)-FA339*s.l(2,39)-FF40_341*s.dpt(2,47)+OM239*OM339*(s.In(5,39)-...
+ s.In(9,39))+s.dpt(3,47)*(FF40_241*C40+FF41_142*S40));
+  CF239 = -(s.trq(2,39)-s.In(5,39)*OpF239-CF40_241*C40-CF41_142*S40-FA139*s.l(3,39)+FA339*s.l(1,39)+FF40_341*s.dpt(1,47)-OM139*OM339*(s.In(1,39)-...
+ s.In(9,39))+s.dpt(3,47)*(FF40_241*S40-FF41_142*C40));
+  CF339 = -(s.trq(3,39)-CF40_341-s.In(9,39)*OpF338+FA139*s.l(2,39)-FA239*s.l(1,39)+OM139*OM239*(s.In(1,39)-s.In(5,39))-s.dpt(1,47)*(FF40_241*C40+...
+ FF41_142*S40)-s.dpt(2,47)*(FF40_241*S40-FF41_142*C40));
+  FB139_1 = s.m(39)*AlM139_1;
+  FB239_1 = s.m(39)*AlM239_1;
+  FB339_1 = s.m(39)*AlM338_1;
+  FM139_1 = FB139_1-FM401_241*S40+FM411_142*C40;
+  FM239_1 = FB239_1+FM401_241*C40+FM411_142*S40;
+  FM339_1 = FB339_1+FM401_341;
+  CM139_1 = FM401_341*s.dpt(2,47)-s.dpt(3,47)*(FM401_241*C40+FM411_142*S40)-FB239_1*s.l(3,39)+FB339_1*s.l(2,39);
+  CM239_1 = FB139_1*s.l(3,39)-FB339_1*s.l(1,39)-FM401_341*s.dpt(1,47)-s.dpt(3,47)*(FM401_241*S40-FM411_142*C40);
+  CM339_1 = s.dpt(1,47)*(FM401_241*C40+FM411_142*S40)+s.dpt(2,47)*(FM401_241*S40-FM411_142*C40)-FB139_1*s.l(2,39)+FB239_1*s.l(1,39);
+  FB139_2 = s.m(39)*AlM139_2;
+  FB239_2 = s.m(39)*AlM239_2;
+  FB339_2 = s.m(39)*AlM338_2;
+  FM139_2 = FB139_2-FM402_241*S40+FM412_142*C40;
+  FM239_2 = FB239_2+FM402_241*C40+FM412_142*S40;
+  FM339_2 = FB339_2+FM402_341;
+  CM139_2 = FM402_341*s.dpt(2,47)-s.dpt(3,47)*(FM402_241*C40+FM412_142*S40)-FB239_2*s.l(3,39)+FB339_2*s.l(2,39);
+  CM239_2 = FB139_2*s.l(3,39)-FB339_2*s.l(1,39)-FM402_341*s.dpt(1,47)-s.dpt(3,47)*(FM402_241*S40-FM412_142*C40);
+  CM339_2 = s.dpt(1,47)*(FM402_241*C40+FM412_142*S40)+s.dpt(2,47)*(FM402_241*S40-FM412_142*C40)-FB139_2*s.l(2,39)+FB239_2*s.l(1,39);
+  FB139_3 = s.m(39)*AlM139_3;
+  FB239_3 = s.m(39)*AlM239_3;
+  FB339_3 = s.m(39)*AlM338_3;
+  FM139_3 = FB139_3-FM403_241*S40+FM413_142*C40;
+  FM239_3 = FB239_3+FM403_241*C40+FM413_142*S40;
+  FM339_3 = FB339_3+FM403_341;
+  CM139_3 = FM403_341*s.dpt(2,47)-s.dpt(3,47)*(FM403_241*C40+FM413_142*S40)-FB239_3*s.l(3,39)+FB339_3*s.l(2,39);
+  CM239_3 = FB139_3*s.l(3,39)-FB339_3*s.l(1,39)-FM403_341*s.dpt(1,47)-s.dpt(3,47)*(FM403_241*S40-FM413_142*C40);
+  CM339_3 = s.dpt(1,47)*(FM403_241*C40+FM413_142*S40)+s.dpt(2,47)*(FM403_241*S40-FM413_142*C40)-FB139_3*s.l(2,39)+FB239_3*s.l(1,39);
+  FB139_4 = s.m(39)*(AlM139_4+OpM239_4*s.l(3,39)-OpM338_4*s.l(2,39));
+  FB239_4 = s.m(39)*(AlM239_4-OpM139_4*s.l(3,39)+OpM338_4*s.l(1,39));
+  FB339_4 = s.m(39)*(AlM338_4+OpM139_4*s.l(2,39)-OpM239_4*s.l(1,39));
+  FM139_4 = FB139_4-FM404_241*S40+FM414_142*C40;
+  FM239_4 = FB239_4+FM404_241*C40+FM414_142*S40;
+  FM339_4 = FB339_4+FM404_341;
+  CM139_4 = s.In(1,39)*OpM139_4-CM404_241*S40+CM414_142*C40-FB239_4*s.l(3,39)+FB339_4*s.l(2,39)+FM404_341*s.dpt(2,47)-s.dpt(3,47)*(FM404_241*C40+...
+ FM414_142*S40);
+  CM239_4 = s.In(5,39)*OpM239_4+CM404_241*C40+CM414_142*S40+FB139_4*s.l(3,39)-FB339_4*s.l(1,39)-FM404_341*s.dpt(1,47)-s.dpt(3,47)*(FM404_241*S40-...
+ FM414_142*C40);
+  CM339_4 = CM404_341+s.In(9,39)*OpM338_4-FB139_4*s.l(2,39)+FB239_4*s.l(1,39)+s.dpt(1,47)*(FM404_241*C40+FM414_142*S40)+s.dpt(2,47)*(FM404_241*...
+ S40-FM414_142*C40);
+  FB139_5 = s.m(39)*(AlM139_5+OpM239_5*s.l(3,39)-OpM338_5*s.l(2,39));
+  FB239_5 = s.m(39)*(AlM239_5-OpM139_5*s.l(3,39)+OpM338_5*s.l(1,39));
+  FB339_5 = s.m(39)*(AlM338_5+OpM139_5*s.l(2,39)-OpM239_5*s.l(1,39));
+  FM139_5 = FB139_5-FM405_241*S40+FM415_142*C40;
+  FM239_5 = FB239_5+FM405_241*C40+FM415_142*S40;
+  FM339_5 = FB339_5+FM405_341;
+  CM139_5 = s.In(1,39)*OpM139_5-CM405_241*S40+CM415_142*C40-FB239_5*s.l(3,39)+FB339_5*s.l(2,39)+FM405_341*s.dpt(2,47)-s.dpt(3,47)*(FM405_241*C40+...
+ FM415_142*S40);
+  CM239_5 = s.In(5,39)*OpM239_5+CM405_241*C40+CM415_142*S40+FB139_5*s.l(3,39)-FB339_5*s.l(1,39)-FM405_341*s.dpt(1,47)-s.dpt(3,47)*(FM405_241*S40-...
+ FM415_142*C40);
+  CM339_5 = CM405_341+s.In(9,39)*OpM338_5-FB139_5*s.l(2,39)+FB239_5*s.l(1,39)+s.dpt(1,47)*(FM405_241*C40+FM415_142*S40)+s.dpt(2,47)*(FM405_241*...
+ S40-FM415_142*C40);
+  FB139_6 = s.m(39)*(AlM139_6+OpM239_6*s.l(3,39)-OpM338_6*s.l(2,39));
+  FB239_6 = s.m(39)*(AlM239_6-OpM139_6*s.l(3,39)+OpM338_6*s.l(1,39));
+  FB339_6 = s.m(39)*(AlM338_6+OpM139_6*s.l(2,39)-OpM239_6*s.l(1,39));
+  FM139_6 = FB139_6-FM406_241*S40+FM416_142*C40;
+  FM239_6 = FB239_6+FM406_241*C40+FM416_142*S40;
+  FM339_6 = FB339_6+FM406_341;
+  CM139_6 = s.In(1,39)*OpM139_6-CM406_241*S40+CM416_142*C40-FB239_6*s.l(3,39)+FB339_6*s.l(2,39)+FM406_341*s.dpt(2,47)-s.dpt(3,47)*(FM406_241*C40+...
+ FM416_142*S40);
+  CM239_6 = s.In(5,39)*OpM239_6+CM406_241*C40+CM416_142*S40+FB139_6*s.l(3,39)-FB339_6*s.l(1,39)-FM406_341*s.dpt(1,47)-s.dpt(3,47)*(FM406_241*S40-...
+ FM416_142*C40);
+  CM339_6 = CM406_341+s.In(9,39)*OpM338_6-FB139_6*s.l(2,39)+FB239_6*s.l(1,39)+s.dpt(1,47)*(FM406_241*C40+FM416_142*S40)+s.dpt(2,47)*(FM406_241*...
+ S40-FM416_142*C40);
+  FB139_34 = s.m(39)*(AlM139_34+OpM239_34*s.l(3,39)-OpM338_34*s.l(2,39));
+  FB239_34 = s.m(39)*(AlM239_34-OpM139_34*s.l(3,39)+OpM338_34*s.l(1,39));
+  FB339_34 = s.m(39)*(AlM338_34+OpM139_34*s.l(2,39)-OpM239_34*s.l(1,39));
+  FM139_34 = FB139_34-FM4034_241*S40+FM4134_142*C40;
+  FM239_34 = FB239_34+FM4034_241*C40+FM4134_142*S40;
+  FM339_34 = FB339_34+FM4034_341;
+  CM139_34 = s.In(1,39)*OpM139_34-CM4034_241*S40+CM4134_142*C40-FB239_34*s.l(3,39)+FB339_34*s.l(2,39)+FM4034_341*s.dpt(2,47)-s.dpt(3,47)*(...
+ FM4034_241*C40+FM4134_142*S40);
+  CM239_34 = s.In(5,39)*OpM239_34+CM4034_241*C40+CM4134_142*S40+FB139_34*s.l(3,39)-FB339_34*s.l(1,39)-FM4034_341*s.dpt(1,47)-s.dpt(3,47)*(...
+ FM4034_241*S40-FM4134_142*C40);
+  CM339_34 = CM4034_341+s.In(9,39)*OpM338_34-FB139_34*s.l(2,39)+FB239_34*s.l(1,39)+s.dpt(1,47)*(FM4034_241*C40+FM4134_142*S40)+s.dpt(2,47)*(...
+ FM4034_241*S40-FM4134_142*C40);
+  FB139_35 = s.m(39)*(AlM139_35+OpM239_35*s.l(3,39)-OpM338_35*s.l(2,39));
+  FB239_35 = s.m(39)*(AlM239_35-OpM139_35*s.l(3,39)+OpM338_35*s.l(1,39));
+  FB339_35 = s.m(39)*(AlM338_35+OpM139_35*s.l(2,39)-OpM239_35*s.l(1,39));
+  FM139_35 = FB139_35-FM4035_241*S40+FM4135_142*C40;
+  FM239_35 = FB239_35+FM4035_241*C40+FM4135_142*S40;
+  FM339_35 = FB339_35+FM4035_341;
+  CM139_35 = s.In(1,39)*OpM139_35-CM4035_241*S40+CM4135_142*C40-FB239_35*s.l(3,39)+FB339_35*s.l(2,39)+FM4035_341*s.dpt(2,47)-s.dpt(3,47)*(...
+ FM4035_241*C40+FM4135_142*S40);
+  CM239_35 = s.In(5,39)*OpM239_35+CM4035_241*C40+CM4135_142*S40+FB139_35*s.l(3,39)-FB339_35*s.l(1,39)-FM4035_341*s.dpt(1,47)-s.dpt(3,47)*(...
+ FM4035_241*S40-FM4135_142*C40);
+  CM339_35 = CM4035_341+s.In(9,39)*OpM338_35-FB139_35*s.l(2,39)+FB239_35*s.l(1,39)+s.dpt(1,47)*(FM4035_241*C40+FM4135_142*S40)+s.dpt(2,47)*(...
+ FM4035_241*S40-FM4135_142*C40);
+  FB139_36 = s.m(39)*(AlM139_36+OpM239_36*s.l(3,39)-s.l(2,39)*S38);
+  FB239_36 = s.m(39)*(AlM239_36-OpM139_36*s.l(3,39)+s.l(1,39)*S38);
+  FB339_36 = s.m(39)*(AlM338_36+OpM139_36*s.l(2,39)-OpM239_36*s.l(1,39));
+  FM139_36 = FB139_36-FM4036_241*S40+FM4136_142*C40;
+  FM239_36 = FB239_36+FM4036_241*C40+FM4136_142*S40;
+  CM139_36 = s.In(1,39)*OpM139_36-CM4036_241*S40+CM4136_142*C40-FB239_36*s.l(3,39)+FB339_36*s.l(2,39)+FM4036_341*s.dpt(2,47)-s.dpt(3,47)*(...
+ FM4036_241*C40+FM4136_142*S40);
+  CM239_36 = s.In(5,39)*OpM239_36+CM4036_241*C40+CM4136_142*S40+FB139_36*s.l(3,39)-FB339_36*s.l(1,39)-FM4036_341*s.dpt(1,47)-s.dpt(3,47)*(...
+ FM4036_241*S40-FM4136_142*C40);
+  CM339_36 = CM4036_341+s.In(9,39)*S38-FB139_36*s.l(2,39)+FB239_36*s.l(1,39)+s.dpt(1,47)*(FM4036_241*C40+FM4136_142*S40)+s.dpt(2,47)*(FM4036_241*...
+ S40-FM4136_142*C40);
+  FB139_37 = s.m(39)*(OpM239_37*s.l(3,39)-s.l(2,39)*S38);
+  FB239_37 = -s.m(39)*(OpM139_37*s.l(3,39)-s.l(1,39)*S38);
+  FB339_37 = s.m(39)*(OpM139_37*s.l(2,39)-OpM239_37*s.l(1,39));
+  CM139_37 = s.In(1,39)*OpM139_37-CM4037_241*S40+CM4137_142*C40-FB239_37*s.l(3,39)+FB339_37*s.l(2,39)+FM4037_341*s.dpt(2,47)-s.dpt(3,47)*(...
+ FM4037_241*C40+FM4137_142*S40);
+  CM239_37 = s.In(5,39)*OpM239_37+CM4037_241*C40+CM4137_142*S40+FB139_37*s.l(3,39)-FB339_37*s.l(1,39)-FM4037_341*s.dpt(1,47)-s.dpt(3,47)*(...
+ FM4037_241*S40-FM4137_142*C40);
+  CM339_37 = CM4037_341+s.In(9,39)*S38-FB139_37*s.l(2,39)+FB239_37*s.l(1,39)+s.dpt(1,47)*(FM4037_241*C40+FM4137_142*S40)+s.dpt(2,47)*(FM4037_241*...
+ S40-FM4137_142*C40);
+  FB139_38 = s.m(39)*s.l(3,39)*C39;
+  FB239_38 = -s.m(39)*s.l(3,39)*S39;
+  FB339_38 = -s.m(39)*(s.l(1,39)*C39-s.l(2,39)*S39);
+  CM339_38 = CM4038_341-FB139_38*s.l(2,39)+FB239_38*s.l(1,39)+s.dpt(1,47)*(FM4038_241*C40+FM4138_142*S40)+s.dpt(2,47)*(FM4038_241*S40-FM4138_142*...
+ C40);
+  CM339_39 = s.In(9,39)+CM4039_341+s.m(39)*s.l(1,39)*s.l(1,39)+s.m(39)*s.l(2,39)*s.l(2,39)+s.dpt(1,47)*(FM4039_241*C40+FM4139_142*S40)+...
+ s.dpt(2,47)*(FM4039_241*S40-FM4139_142*C40);
+  FF38_139 = FF139*C39-FF239*S39;
+  FF38_239 = FF139*S39+FF239*C39;
+  CF38_139 = CF139*C39-CF239*S39;
+  CF38_239 = CF139*S39+CF239*C39;
+  FM381_139 = FM139_1*C39-FM239_1*S39;
+  FM381_239 = FM139_1*S39+FM239_1*C39;
+  CM381_139 = CM139_1*C39-CM239_1*S39;
+  CM381_239 = CM139_1*S39+CM239_1*C39;
+  FM382_139 = FM139_2*C39-FM239_2*S39;
+  FM382_239 = FM139_2*S39+FM239_2*C39;
+  CM382_139 = CM139_2*C39-CM239_2*S39;
+  CM382_239 = CM139_2*S39+CM239_2*C39;
+  FM383_139 = FM139_3*C39-FM239_3*S39;
+  FM383_239 = FM139_3*S39+FM239_3*C39;
+  CM383_139 = CM139_3*C39-CM239_3*S39;
+  CM383_239 = CM139_3*S39+CM239_3*C39;
+  FM384_139 = FM139_4*C39-FM239_4*S39;
+  FM384_239 = FM139_4*S39+FM239_4*C39;
+  CM384_139 = CM139_4*C39-CM239_4*S39;
+  CM384_239 = CM139_4*S39+CM239_4*C39;
+  FM385_139 = FM139_5*C39-FM239_5*S39;
+  FM385_239 = FM139_5*S39+FM239_5*C39;
+  CM385_139 = CM139_5*C39-CM239_5*S39;
+  CM385_239 = CM139_5*S39+CM239_5*C39;
+  FM386_139 = FM139_6*C39-FM239_6*S39;
+  FM386_239 = FM139_6*S39+FM239_6*C39;
+  CM386_139 = CM139_6*C39-CM239_6*S39;
+  CM386_239 = CM139_6*S39+CM239_6*C39;
+  FM3834_139 = FM139_34*C39-FM239_34*S39;
+  CM3834_139 = CM139_34*C39-CM239_34*S39;
+  CM3834_239 = CM139_34*S39+CM239_34*C39;
+  FM3835_139 = FM139_35*C39-FM239_35*S39;
+  CM3835_139 = CM139_35*C39-CM239_35*S39;
+  CM3835_239 = CM139_35*S39+CM239_35*C39;
+  CM3836_239 = CM139_36*S39+CM239_36*C39;
+  CM3837_239 = CM139_37*S39+CM239_37*C39;
+  CM3838_239 = C39*(s.In(5,39)*C39+CM4038_241*C40+CM4138_142*S40+FB139_38*s.l(3,39)-FB339_38*s.l(1,39)-FM4038_341*s.dpt(1,47)-s.dpt(3,47)*(...
+ FM4038_241*S40-FM4138_142*C40))+S39*(s.In(1,39)*S39-CM4038_241*S40+CM4138_142*C40-FB239_38*s.l(3,39)+FB339_38*s.l(2,39)+FM4038_341*s.dpt(2,47)-...
+ s.dpt(3,47)*(FM4038_241*C40+FM4138_142*S40));
+  FF37_138 = FF339*S38+FF38_139*C38;
+  FF37_338 = FF339*C38-FF38_139*S38;
+  CF37_138 = CF339*S38+CF38_139*C38;
+  CF37_338 = CF339*C38-CF38_139*S38;
+  FM371_138 = FM339_1*S38+FM381_139*C38;
+  FM371_338 = FM339_1*C38-FM381_139*S38;
+  CM371_138 = CM339_1*S38+CM381_139*C38;
+  CM371_338 = CM339_1*C38-CM381_139*S38;
+  FM372_138 = FM339_2*S38+FM382_139*C38;
+  FM372_338 = FM339_2*C38-FM382_139*S38;
+  CM372_138 = CM339_2*S38+CM382_139*C38;
+  CM372_338 = CM339_2*C38-CM382_139*S38;
+  FM373_138 = FM339_3*S38+FM383_139*C38;
+  FM373_338 = FM339_3*C38-FM383_139*S38;
+  CM373_138 = CM339_3*S38+CM383_139*C38;
+  CM373_338 = CM339_3*C38-CM383_139*S38;
+  FM374_138 = FM339_4*S38+FM384_139*C38;
+  FM374_338 = FM339_4*C38-FM384_139*S38;
+  CM374_138 = CM339_4*S38+CM384_139*C38;
+  CM374_338 = CM339_4*C38-CM384_139*S38;
+  FM375_138 = FM339_5*S38+FM385_139*C38;
+  FM375_338 = FM339_5*C38-FM385_139*S38;
+  CM375_138 = CM339_5*S38+CM385_139*C38;
+  CM375_338 = CM339_5*C38-CM385_139*S38;
+  FM376_138 = FM339_6*S38+FM386_139*C38;
+  FM376_338 = FM339_6*C38-FM386_139*S38;
+  CM376_138 = CM339_6*S38+CM386_139*C38;
+  CM376_338 = CM339_6*C38-CM386_139*S38;
+  CM3734_138 = CM339_34*S38+CM3834_139*C38;
+  CM3734_338 = CM339_34*C38-CM3834_139*S38;
+  CM3735_138 = CM339_35*S38+CM3835_139*C38;
+  CM3735_338 = CM339_35*C38-CM3835_139*S38;
+  CM3736_138 = CM339_36*S38+C38*(CM139_36*C39-CM239_36*S39);
+  CM3737_138 = CM339_37*S38+C38*(CM139_37*C39-CM239_37*S39);
+  FA136 = -(s.frc(1,36)-s.m(36)*(AlF135+BeF236*s.l(2,36)));
+  FA336 = -(s.frc(3,36)-s.m(36)*(AlF336+BeF836*s.l(2,36)));
+  FF136 = FA136+FF37_138;
+  FF236 = -(s.frc(2,36)-s.m(36)*(AlF236+BS536*s.l(2,36))+FF37_338*S37-FF38_239*C37);
+  FF336 = FA336+FF37_338*C37+FF38_239*S37;
+  CF136 = -(s.trq(1,36)-CF37_138-s.In(1,36)*OpF135-s.In(9,36)*OM236*OM336-FA336*s.l(2,36)-s.dpt(2,46)*(FF37_338*C37+FF38_239*S37));
+  CF236 = -(s.trq(2,36)+CF37_338*S37-CF38_239*C37-OM136*OM336*(s.In(1,36)-s.In(9,36)));
+  CF336 = -(s.trq(3,36)+s.In(1,36)*OM136*OM236-s.In(9,36)*OpF336-CF37_338*C37-CF38_239*S37+FA136*s.l(2,36)+FF37_138*s.dpt(2,46));
+  FB136_1 = s.m(36)*AlM135_1;
+  FB336_1 = s.m(36)*AlM336_1;
+  FM136_1 = FB136_1+FM371_138;
+  FM236_1 = s.m(36)*AlM236_1-FM371_338*S37+FM381_239*C37;
+  FM336_1 = FB336_1+FM371_338*C37+FM381_239*S37;
+  CM361_237 = -(CM371_338*S37-CM381_239*C37);
+  CM136_1 = CM371_138+FB336_1*s.l(2,36)+s.dpt(2,46)*(FM371_338*C37+FM381_239*S37);
+  CM336_1 = CM371_338*C37+CM381_239*S37-FB136_1*s.l(2,36)-FM371_138*s.dpt(2,46);
+  FB136_2 = s.m(36)*AlM135_2;
+  FB336_2 = s.m(36)*AlM336_2;
+  FM136_2 = FB136_2+FM372_138;
+  FM236_2 = s.m(36)*AlM236_2-FM372_338*S37+FM382_239*C37;
+  FM336_2 = FB336_2+FM372_338*C37+FM382_239*S37;
+  CM362_237 = -(CM372_338*S37-CM382_239*C37);
+  CM136_2 = CM372_138+FB336_2*s.l(2,36)+s.dpt(2,46)*(FM372_338*C37+FM382_239*S37);
+  CM336_2 = CM372_338*C37+CM382_239*S37-FB136_2*s.l(2,36)-FM372_138*s.dpt(2,46);
+  FB136_3 = s.m(36)*AlM135_3;
+  FB336_3 = s.m(36)*AlM336_3;
+  FM136_3 = FB136_3+FM373_138;
+  FM236_3 = s.m(36)*AlM236_3-FM373_338*S37+FM383_239*C37;
+  FM336_3 = FB336_3+FM373_338*C37+FM383_239*S37;
+  CM363_237 = -(CM373_338*S37-CM383_239*C37);
+  CM136_3 = CM373_138+FB336_3*s.l(2,36)+s.dpt(2,46)*(FM373_338*C37+FM383_239*S37);
+  CM336_3 = CM373_338*C37+CM383_239*S37-FB136_3*s.l(2,36)-FM373_138*s.dpt(2,46);
+  FB136_4 = s.m(36)*(AlM135_4-OpM336_4*s.l(2,36));
+  FB336_4 = s.m(36)*(AlM336_4+OpM135_4*s.l(2,36));
+  FM136_4 = FB136_4+FM374_138;
+  FM236_4 = s.m(36)*AlM236_4-FM374_338*S37+FM384_239*C37;
+  FM336_4 = FB336_4+FM374_338*C37+FM384_239*S37;
+  CM364_237 = -(CM374_338*S37-CM384_239*C37);
+  CM136_4 = CM374_138+s.In(1,36)*OpM135_4+FB336_4*s.l(2,36)+s.dpt(2,46)*(FM374_338*C37+FM384_239*S37);
+  CM336_4 = s.In(9,36)*OpM336_4+CM374_338*C37+CM384_239*S37-FB136_4*s.l(2,36)-FM374_138*s.dpt(2,46);
+  FB136_5 = s.m(36)*(AlM135_5-OpM336_5*s.l(2,36));
+  FB336_5 = s.m(36)*(AlM336_5+OpM135_5*s.l(2,36));
+  FM136_5 = FB136_5+FM375_138;
+  FM236_5 = s.m(36)*AlM236_5-FM375_338*S37+FM385_239*C37;
+  FM336_5 = FB336_5+FM375_338*C37+FM385_239*S37;
+  CM365_237 = -(CM375_338*S37-CM385_239*C37);
+  CM136_5 = CM375_138+s.In(1,36)*OpM135_5+FB336_5*s.l(2,36)+s.dpt(2,46)*(FM375_338*C37+FM385_239*S37);
+  CM336_5 = s.In(9,36)*OpM336_5+CM375_338*C37+CM385_239*S37-FB136_5*s.l(2,36)-FM375_138*s.dpt(2,46);
+  FB136_6 = s.m(36)*(AlM135_6-OpM336_6*s.l(2,36));
+  FB336_6 = s.m(36)*(AlM336_6+OpM135_6*s.l(2,36));
+  FM136_6 = FB136_6+FM376_138;
+  FM236_6 = s.m(36)*AlM236_6-FM376_338*S37+FM386_239*C37;
+  FM336_6 = FB336_6+FM376_338*C37+FM386_239*S37;
+  CM366_237 = -(CM376_338*S37-CM386_239*C37);
+  CM136_6 = CM376_138+s.In(1,36)*OpM135_6+FB336_6*s.l(2,36)+s.dpt(2,46)*(FM376_338*C37+FM386_239*S37);
+  CM336_6 = s.In(9,36)*OpM336_6+CM376_338*C37+CM386_239*S37-FB136_6*s.l(2,36)-FM376_138*s.dpt(2,46);
+  CM3634_237 = -(CM3734_338*S37-CM3834_239*C37);
+  CM136_34 = CM3734_138-s.In(1,36)*S35-s.m(36)*s.l(2,36)*s.l(2,36)*S35+s.dpt(2,46)*(C37*(FM339_34*C38-FM3834_139*S38)+S37*(FM139_34*S39+FM239_34*...
+ C39));
+  CM336_34 = CM3734_338*C37+CM3834_239*S37+OpM336_34*(s.In(9,36)+s.m(36)*s.l(2,36)*s.l(2,36))-s.dpt(2,46)*(FM339_34*S38+FM3834_139*C38);
+  CM3635_137 = CM3735_138+s.dpt(2,46)*(C37*(FM339_35*C38-FM3835_139*S38)+S37*(FM139_35*S39+FM239_35*C39));
+  CM136_36 = s.In(1,36)+CM3736_138+s.m(36)*s.l(2,36)*s.l(2,36)+s.dpt(2,46)*(C37*(C38*(FB339_36+FM4036_341)-S38*(FM139_36*C39-FM239_36*S39))+S37*(...
+ FM139_36*S39+FM239_36*C39));
+  FF35_236 = FF236*C36-FF336*S36;
+  FF35_336 = FF236*S36+FF336*C36;
+  CF35_236 = CF236*C36-CF336*S36;
+  CF35_336 = CF236*S36+CF336*C36;
+  FM351_236 = FM236_1*C36-FM336_1*S36;
+  FM351_336 = FM236_1*S36+FM336_1*C36;
+  CM351_236 = -(CM336_1*S36-CM361_237*C36);
+  CM351_336 = CM336_1*C36+CM361_237*S36;
+  FM352_236 = FM236_2*C36-FM336_2*S36;
+  FM352_336 = FM236_2*S36+FM336_2*C36;
+  CM352_236 = -(CM336_2*S36-CM362_237*C36);
+  CM352_336 = CM336_2*C36+CM362_237*S36;
+  FM353_236 = FM236_3*C36-FM336_3*S36;
+  FM353_336 = FM236_3*S36+FM336_3*C36;
+  CM353_236 = -(CM336_3*S36-CM363_237*C36);
+  CM353_336 = CM336_3*C36+CM363_237*S36;
+  FM354_236 = FM236_4*C36-FM336_4*S36;
+  FM354_336 = FM236_4*S36+FM336_4*C36;
+  CM354_236 = -(CM336_4*S36-CM364_237*C36);
+  CM354_336 = CM336_4*C36+CM364_237*S36;
+  FM355_236 = FM236_5*C36-FM336_5*S36;
+  FM355_336 = FM236_5*S36+FM336_5*C36;
+  CM355_236 = -(CM336_5*S36-CM365_237*C36);
+  CM355_336 = CM336_5*C36+CM365_237*S36;
+  FM356_336 = FM236_6*S36+FM336_6*C36;
+  CM356_236 = -(CM336_6*S36-CM366_237*C36);
+  CM356_336 = CM336_6*C36+CM366_237*S36;
+  CM3534_236 = -(CM336_34*S36-CM3634_237*C36);
+  CM3535_236 = -(C36*(CM3735_338*S37-CM3835_239*C37)+S36*(CM3735_338*C37+CM3835_239*S37-s.dpt(2,46)*(FM339_35*S38+FM3835_139*C38)-S36*(s.In(9,36)...
+ +s.m(36)*s.l(2,36)*s.l(2,36))));
+  FF34_135 = FF136*C35+FF35_336*S35;
+  FF34_335 = -(FF136*S35-FF35_336*C35);
+  CF34_135 = CF136*C35+CF35_336*S35;
+  CF34_335 = -(CF136*S35-CF35_336*C35);
+  FM341_135 = FM136_1*C35+FM351_336*S35;
+  FM341_335 = -(FM136_1*S35-FM351_336*C35);
+  CM341_135 = CM136_1*C35+CM351_336*S35;
+  CM341_335 = -(CM136_1*S35-CM351_336*C35);
+  FM342_135 = FM136_2*C35+FM352_336*S35;
+  FM342_335 = -(FM136_2*S35-FM352_336*C35);
+  CM342_135 = CM136_2*C35+CM352_336*S35;
+  CM342_335 = -(CM136_2*S35-CM352_336*C35);
+  FM343_135 = FM136_3*C35+FM353_336*S35;
+  FM343_335 = -(FM136_3*S35-FM353_336*C35);
+  CM343_135 = CM136_3*C35+CM353_336*S35;
+  CM343_335 = -(CM136_3*S35-CM353_336*C35);
+  FM344_135 = FM136_4*C35+FM354_336*S35;
+  FM344_335 = -(FM136_4*S35-FM354_336*C35);
+  CM344_135 = CM136_4*C35+CM354_336*S35;
+  CM344_335 = -(CM136_4*S35-CM354_336*C35);
+  FM345_135 = FM136_5*C35+FM355_336*S35;
+  FM345_335 = -(FM136_5*S35-FM355_336*C35);
+  CM345_135 = CM136_5*C35+CM355_336*S35;
+  CM345_335 = -(CM136_5*S35-CM355_336*C35);
+  CM346_335 = -(CM136_6*S35-CM356_336*C35);
+  CM3434_335 = -(CM136_34*S35-C35*(CM336_34*C36+CM3634_237*S36));
+
+% = = Block_0_2_0_1_0_10 = = 
+ 
+% Backward Dynamics 
+
+  FA144 = -(s.frc(1,44)+s.m(44)*(s.l(1,44)*(OM244*OM244+OM344*OM344)-s.l(2,44)*(BS244-OpF344)-s.l(3,44)*(BS344+OpF244)-C43*(AlF16+BS16*...
+ s.dpt(1,11)+BeF26*s.dpt(2,11)+BeF36*s.dpt(3,11))-S43*(AlF25+BS56*s.dpt(2,11)+BeF46*s.dpt(1,11)+BeF66*s.dpt(3,11))));
+  FA244 = -(s.frc(2,44)-s.m(44)*(AlF243*C44+AlF343*S44+s.l(1,44)*(BS244+OpF344)-s.l(2,44)*(OM144*OM144+OM344*OM344)+s.l(3,44)*(BS644-OpF143)));
+  FA344 = -(s.frc(3,44)+s.m(44)*(AlF243*S44-AlF343*C44-s.l(1,44)*(BS344-OpF244)-s.l(2,44)*(BS644+OpF143)+s.l(3,44)*(OM144*OM144+OM244*OM244)));
+  CF144 = -(s.trq(1,44)-s.In(1,44)*OpF143-s.In(9,44)*OM244*OM344+FA244*s.l(3,44)-FA344*s.l(2,44));
+  CF244 = -(s.trq(2,44)-FA144*s.l(3,44)+FA344*s.l(1,44)-OM144*OM344*(s.In(1,44)-s.In(9,44)));
+  CF344 = -(s.trq(3,44)+s.In(1,44)*OM144*OM244-s.In(9,44)*OpF344+FA144*s.l(2,44)-FA244*s.l(1,44));
+  FB144_1 = s.m(44)*(AlM16_1*C43+AlM25_1*S43);
+  FB244_1 = s.m(44)*(AlM243_1*C44+AlM36_1*S44);
+  FB344_1 = -s.m(44)*(AlM243_1*S44-AlM36_1*C44);
+  CM144_1 = -(FB244_1*s.l(3,44)-FB344_1*s.l(2,44));
+  CM244_1 = FB144_1*s.l(3,44)-FB344_1*s.l(1,44);
+  CM344_1 = -(FB144_1*s.l(2,44)-FB244_1*s.l(1,44));
+  FB144_2 = s.m(44)*(AlM16_2*C43+AlM25_2*S43);
+  FB244_2 = s.m(44)*(AlM243_2*C44+AlM36_2*S44);
+  FB344_2 = -s.m(44)*(AlM243_2*S44-AlM36_2*C44);
+  CM144_2 = -(FB244_2*s.l(3,44)-FB344_2*s.l(2,44));
+  CM244_2 = FB144_2*s.l(3,44)-FB344_2*s.l(1,44);
+  CM344_2 = -(FB144_2*s.l(2,44)-FB244_2*s.l(1,44));
+  FB144_3 = s.m(44)*(AlM16_3*C43+S43*S5);
+  FB244_3 = s.m(44)*(AlM243_3*C44+AlM36_3*S44);
+  FB344_3 = -s.m(44)*(AlM243_3*S44-AlM36_3*C44);
+  CM144_3 = -(FB244_3*s.l(3,44)-FB344_3*s.l(2,44));
+  CM244_3 = FB144_3*s.l(3,44)-FB344_3*s.l(1,44);
+  CM344_3 = -(FB144_3*s.l(2,44)-FB244_3*s.l(1,44));
+  FB144_4 = s.m(44)*(OpM244_4*s.l(3,44)-OpM344_4*s.l(2,44)-C43*(OpM36_4*s.dpt(2,11)-s.dpt(3,11)*S5)-S43*(OpM16_4*s.dpt(3,11)-OpM36_4*s.dpt(1,11))...
+ );
+  FB244_4 = s.m(44)*(AlM243_4*C44+AlM343_4*S44-OpM143_4*s.l(3,44)+OpM344_4*s.l(1,44));
+  FB344_4 = -s.m(44)*(AlM243_4*S44-AlM343_4*C44-OpM143_4*s.l(2,44)+OpM244_4*s.l(1,44));
+  CM144_4 = s.In(1,44)*OpM143_4-FB244_4*s.l(3,44)+FB344_4*s.l(2,44);
+  CM244_4 = FB144_4*s.l(3,44)-FB344_4*s.l(1,44);
+  CM344_4 = s.In(9,44)*OpM344_4-FB144_4*s.l(2,44)+FB244_4*s.l(1,44);
+  FB144_5 = s.m(44)*(OpM244_5*s.l(3,44)-OpM344_5*s.l(2,44)-s.dpt(2,11)*C43*S6+S43*(s.dpt(1,11)*S6-s.dpt(3,11)*C6));
+  FB244_5 = s.m(44)*(AlM243_5*C44+AlM343_5*S44-OpM143_5*s.l(3,44)+OpM344_5*s.l(1,44));
+  FB344_5 = -s.m(44)*(AlM243_5*S44-AlM343_5*C44-OpM143_5*s.l(2,44)+OpM244_5*s.l(1,44));
+  CM144_5 = s.In(1,44)*OpM143_5-FB244_5*s.l(3,44)+FB344_5*s.l(2,44);
+  CM244_5 = FB144_5*s.l(3,44)-FB344_5*s.l(1,44);
+  CM344_5 = s.In(9,44)*OpM344_5-FB144_5*s.l(2,44)+FB244_5*s.l(1,44);
+  FB144_6 = s.m(44)*(OpM244_6*s.l(3,44)-OpM344_6*s.l(2,44)+s.dpt(3,11)*C43);
+  FB244_6 = s.m(44)*(AlM243_6*C44+OpM344_6*s.l(1,44)-s.dpt(1,11)*S44-s.l(3,44)*S43);
+  FB344_6 = -s.m(44)*(AlM243_6*S44+OpM244_6*s.l(1,44)+s.dpt(1,11)*C44-s.l(2,44)*S43);
+  CM144_6 = s.In(1,44)*S43-FB244_6*s.l(3,44)+FB344_6*s.l(2,44);
+  CM244_6 = FB144_6*s.l(3,44)-FB344_6*s.l(1,44);
+  CM344_6 = s.In(9,44)*OpM344_6-FB144_6*s.l(2,44)+FB244_6*s.l(1,44);
+  FB144_43 = -s.m(44)*(s.l(2,44)*C44-s.l(3,44)*S44);
+  FB244_43 = s.m(44)*s.l(1,44)*C44;
+  FB344_43 = -s.m(44)*s.l(1,44)*S44;
+  CM144_43 = -(FB244_43*s.l(3,44)-FB344_43*s.l(2,44));
+  CM144_44 = s.In(1,44)+s.m(44)*s.l(2,44)*s.l(2,44)+s.m(44)*s.l(3,44)*s.l(3,44);
+  FF43_244 = FA244*C44-FA344*S44;
+  FF43_344 = FA244*S44+FA344*C44;
+  CF43_244 = CF244*C44-CF344*S44;
+  CF43_344 = CF244*S44+CF344*C44;
+  FM431_244 = FB244_1*C44-FB344_1*S44;
+  FM431_344 = FB244_1*S44+FB344_1*C44;
+  CM431_244 = CM244_1*C44-CM344_1*S44;
+  CM431_344 = CM244_1*S44+CM344_1*C44;
+  FM432_244 = FB244_2*C44-FB344_2*S44;
+  FM432_344 = FB244_2*S44+FB344_2*C44;
+  CM432_244 = CM244_2*C44-CM344_2*S44;
+  CM432_344 = CM244_2*S44+CM344_2*C44;
+  FM433_244 = FB244_3*C44-FB344_3*S44;
+  FM433_344 = FB244_3*S44+FB344_3*C44;
+  CM433_244 = CM244_3*C44-CM344_3*S44;
+  CM433_344 = CM244_3*S44+CM344_3*C44;
+  FM434_244 = FB244_4*C44-FB344_4*S44;
+  FM434_344 = FB244_4*S44+FB344_4*C44;
+  CM434_244 = CM244_4*C44-CM344_4*S44;
+  CM434_344 = CM244_4*S44+CM344_4*C44;
+  FM435_244 = FB244_5*C44-FB344_5*S44;
+  FM435_344 = FB244_5*S44+FB344_5*C44;
+  CM435_244 = CM244_5*C44-CM344_5*S44;
+  CM435_344 = CM244_5*S44+CM344_5*C44;
+  CM436_344 = CM244_6*S44+CM344_6*C44;
+  CM4343_344 = C44*(s.In(9,44)*C44-FB144_43*s.l(2,44)+FB244_43*s.l(1,44))+S44*(FB144_43*s.l(3,44)-FB344_43*s.l(1,44));
+
+% = = Block_0_2_0_1_0_11 = = 
+ 
+% Backward Dynamics 
+
+  FA146 = -(s.frc(1,46)+s.m(46)*(s.l(1,46)*(OM246*OM246+OM346*OM346)-s.l(2,46)*(BS246-OpF346)-s.l(3,46)*(BS346+OpF246)-C45*(AlF16+BS16*...
+ s.dpt(1,12)+BeF26*s.dpt(2,12)+BeF36*s.dpt(3,12))-S45*(AlF25+BS56*s.dpt(2,12)+BeF46*s.dpt(1,12)+BeF66*s.dpt(3,12))));
+  FA246 = -(s.frc(2,46)-s.m(46)*(AlF245*C46+AlF345*S46+s.l(1,46)*(BS246+OpF346)-s.l(2,46)*(OM146*OM146+OM346*OM346)+s.l(3,46)*(BS646-OpF145)));
+  FA346 = -(s.frc(3,46)+s.m(46)*(AlF245*S46-AlF345*C46-s.l(1,46)*(BS346-OpF246)-s.l(2,46)*(BS646+OpF145)+s.l(3,46)*(OM146*OM146+OM246*OM246)));
+  CF146 = -(s.trq(1,46)-s.In(1,46)*OpF145-s.In(9,46)*OM246*OM346+FA246*s.l(3,46)-FA346*s.l(2,46));
+  CF246 = -(s.trq(2,46)-FA146*s.l(3,46)+FA346*s.l(1,46)-OM146*OM346*(s.In(1,46)-s.In(9,46)));
+  CF346 = -(s.trq(3,46)+s.In(1,46)*OM146*OM246-s.In(9,46)*OpF346+FA146*s.l(2,46)-FA246*s.l(1,46));
+  FB146_1 = s.m(46)*(AlM16_1*C45+AlM25_1*S45);
+  FB246_1 = s.m(46)*(AlM245_1*C46+AlM36_1*S46);
+  FB346_1 = -s.m(46)*(AlM245_1*S46-AlM36_1*C46);
+  CM146_1 = -(FB246_1*s.l(3,46)-FB346_1*s.l(2,46));
+  CM246_1 = FB146_1*s.l(3,46)-FB346_1*s.l(1,46);
+  CM346_1 = -(FB146_1*s.l(2,46)-FB246_1*s.l(1,46));
+  FB146_2 = s.m(46)*(AlM16_2*C45+AlM25_2*S45);
+  FB246_2 = s.m(46)*(AlM245_2*C46+AlM36_2*S46);
+  FB346_2 = -s.m(46)*(AlM245_2*S46-AlM36_2*C46);
+  CM146_2 = -(FB246_2*s.l(3,46)-FB346_2*s.l(2,46));
+  CM246_2 = FB146_2*s.l(3,46)-FB346_2*s.l(1,46);
+  CM346_2 = -(FB146_2*s.l(2,46)-FB246_2*s.l(1,46));
+  FB146_3 = s.m(46)*(AlM16_3*C45+S45*S5);
+  FB246_3 = s.m(46)*(AlM245_3*C46+AlM36_3*S46);
+  FB346_3 = -s.m(46)*(AlM245_3*S46-AlM36_3*C46);
+  CM146_3 = -(FB246_3*s.l(3,46)-FB346_3*s.l(2,46));
+  CM246_3 = FB146_3*s.l(3,46)-FB346_3*s.l(1,46);
+  CM346_3 = -(FB146_3*s.l(2,46)-FB246_3*s.l(1,46));
+  FB146_4 = s.m(46)*(OpM246_4*s.l(3,46)-OpM346_4*s.l(2,46)-C45*(OpM36_4*s.dpt(2,12)-s.dpt(3,12)*S5)-S45*(OpM16_4*s.dpt(3,12)-OpM36_4*s.dpt(1,12))...
+ );
+  FB246_4 = s.m(46)*(AlM245_4*C46+AlM345_4*S46-OpM145_4*s.l(3,46)+OpM346_4*s.l(1,46));
+  FB346_4 = -s.m(46)*(AlM245_4*S46-AlM345_4*C46-OpM145_4*s.l(2,46)+OpM246_4*s.l(1,46));
+  CM146_4 = s.In(1,46)*OpM145_4-FB246_4*s.l(3,46)+FB346_4*s.l(2,46);
+  CM246_4 = FB146_4*s.l(3,46)-FB346_4*s.l(1,46);
+  CM346_4 = s.In(9,46)*OpM346_4-FB146_4*s.l(2,46)+FB246_4*s.l(1,46);
+  FB146_5 = s.m(46)*(OpM246_5*s.l(3,46)-OpM346_5*s.l(2,46)-s.dpt(2,12)*C45*S6+S45*(s.dpt(1,12)*S6-s.dpt(3,12)*C6));
+  FB246_5 = s.m(46)*(AlM245_5*C46+AlM345_5*S46-OpM145_5*s.l(3,46)+OpM346_5*s.l(1,46));
+  FB346_5 = -s.m(46)*(AlM245_5*S46-AlM345_5*C46-OpM145_5*s.l(2,46)+OpM246_5*s.l(1,46));
+  CM146_5 = s.In(1,46)*OpM145_5-FB246_5*s.l(3,46)+FB346_5*s.l(2,46);
+  CM246_5 = FB146_5*s.l(3,46)-FB346_5*s.l(1,46);
+  CM346_5 = s.In(9,46)*OpM346_5-FB146_5*s.l(2,46)+FB246_5*s.l(1,46);
+  FB146_6 = s.m(46)*(OpM246_6*s.l(3,46)-OpM346_6*s.l(2,46)+s.dpt(3,12)*C45);
+  FB246_6 = s.m(46)*(AlM245_6*C46+OpM346_6*s.l(1,46)-s.dpt(1,12)*S46-s.l(3,46)*S45);
+  FB346_6 = -s.m(46)*(AlM245_6*S46+OpM246_6*s.l(1,46)+s.dpt(1,12)*C46-s.l(2,46)*S45);
+  CM146_6 = s.In(1,46)*S45-FB246_6*s.l(3,46)+FB346_6*s.l(2,46);
+  CM246_6 = FB146_6*s.l(3,46)-FB346_6*s.l(1,46);
+  CM346_6 = s.In(9,46)*OpM346_6-FB146_6*s.l(2,46)+FB246_6*s.l(1,46);
+  FB146_45 = -s.m(46)*(s.l(2,46)*C46-s.l(3,46)*S46);
+  FB246_45 = s.m(46)*s.l(1,46)*C46;
+  FB346_45 = -s.m(46)*s.l(1,46)*S46;
+  CM146_45 = -(FB246_45*s.l(3,46)-FB346_45*s.l(2,46));
+  CM146_46 = s.In(1,46)+s.m(46)*s.l(2,46)*s.l(2,46)+s.m(46)*s.l(3,46)*s.l(3,46);
+  FF45_246 = FA246*C46-FA346*S46;
+  FF45_346 = FA246*S46+FA346*C46;
+  CF45_246 = CF246*C46-CF346*S46;
+  CF45_346 = CF246*S46+CF346*C46;
+  FM451_246 = FB246_1*C46-FB346_1*S46;
+  FM451_346 = FB246_1*S46+FB346_1*C46;
+  CM451_246 = CM246_1*C46-CM346_1*S46;
+  CM451_346 = CM246_1*S46+CM346_1*C46;
+  FM452_246 = FB246_2*C46-FB346_2*S46;
+  FM452_346 = FB246_2*S46+FB346_2*C46;
+  CM452_246 = CM246_2*C46-CM346_2*S46;
+  CM452_346 = CM246_2*S46+CM346_2*C46;
+  FM453_246 = FB246_3*C46-FB346_3*S46;
+  FM453_346 = FB246_3*S46+FB346_3*C46;
+  CM453_246 = CM246_3*C46-CM346_3*S46;
+  CM453_346 = CM246_3*S46+CM346_3*C46;
+  FM454_246 = FB246_4*C46-FB346_4*S46;
+  FM454_346 = FB246_4*S46+FB346_4*C46;
+  CM454_246 = CM246_4*C46-CM346_4*S46;
+  CM454_346 = CM246_4*S46+CM346_4*C46;
+  FM455_246 = FB246_5*C46-FB346_5*S46;
+  FM455_346 = FB246_5*S46+FB346_5*C46;
+  CM455_246 = CM246_5*C46-CM346_5*S46;
+  CM455_346 = CM246_5*S46+CM346_5*C46;
+  CM456_346 = CM246_6*S46+CM346_6*C46;
+  CM4545_346 = C46*(s.In(9,46)*C46-FB146_45*s.l(2,46)+FB246_45*s.l(1,46))+S46*(FB146_45*s.l(3,46)-FB346_45*s.l(1,46));
+
+% = = Block_0_2_0_1_0_12 = = 
+ 
+% Backward Dynamics 
+
+  FA155 = -(s.frc(1,55)-s.m(55)*(AlF153*C55-AlF354*S55));
+  FA255 = -(s.frc(2,55)-s.m(55)*(AlF253*C54+AlF353*S54));
+  FA355 = -(s.frc(3,55)-s.m(55)*(AlF153*S55+AlF354*C55));
+  CF155 = -(s.trq(1,55)-s.In(1,55)*(C55*(OpF153-qd(55)*OM354)-S55*(OpF354+qd(55)*OM154))+OM255*OM355*(s.In(5,55)-s.In(9,55)));
+  CF255 = -(s.trq(2,55)-s.In(5,55)*(C54*(OpF253+qd(54)*OM353)+S54*(OpF351-qd(54)*OM253))-OM155*OM355*(s.In(1,55)-s.In(9,55)));
+  CF355 = -(s.trq(3,55)-s.In(9,55)*(C55*(OpF354+qd(55)*OM154)+S55*(OpF153-qd(55)*OM354))+OM155*OM255*(s.In(1,55)-s.In(5,55)));
+  FB155_1 = s.m(55)*(AlM153_1*C55-AlM354_1*S55);
+  FB255_1 = s.m(55)*(AlM253_1*C54+AlM351_1*S54);
+  FB355_1 = s.m(55)*(AlM153_1*S55+AlM354_1*C55);
+  FB155_2 = s.m(55)*(AlM153_2*C55-AlM354_2*S55);
+  FB255_2 = s.m(55)*(AlM253_2*C54+AlM351_2*S54);
+  FB355_2 = s.m(55)*(AlM153_2*S55+AlM354_2*C55);
+  FB155_3 = s.m(55)*(AlM153_3*C55-AlM354_3*S55);
+  FB255_3 = s.m(55)*(AlM253_3*C54+AlM351_3*S54);
+  FB355_3 = s.m(55)*(AlM153_3*S55+AlM354_3*C55);
+  FB155_4 = s.m(55)*(AlM153_4*C55-AlM354_4*S55);
+  FB255_4 = s.m(55)*(AlM253_4*C54+AlM353_4*S54);
+  FB355_4 = s.m(55)*(AlM153_4*S55+AlM354_4*C55);
+  CM155_4 = s.In(1,55)*(OpM153_4*C55-OpM354_4*S55);
+  CM255_4 = s.In(5,55)*(OpM253_4*C54+OpM351_4*S54);
+  CM355_4 = s.In(9,55)*(OpM153_4*S55+OpM354_4*C55);
+  FB155_5 = s.m(55)*(AlM153_5*C55-AlM354_5*S55);
+  FB255_5 = s.m(55)*(AlM253_5*C54+AlM353_5*S54);
+  FB355_5 = s.m(55)*(AlM153_5*S55+AlM354_5*C55);
+  CM155_5 = s.In(1,55)*(OpM153_5*C55-OpM354_5*S55);
+  CM255_5 = s.In(5,55)*(OpM253_5*C54+OpM351_5*S54);
+  CM355_5 = s.In(9,55)*(OpM153_5*S55+OpM354_5*C55);
+  FB155_6 = s.m(55)*(AlM153_6*C55-AlM354_6*S55);
+  FB255_6 = s.m(55)*(AlM253_6*C54+AlM353_6*S54);
+  FB355_6 = s.m(55)*(AlM153_6*S55+AlM354_6*C55);
+  CM155_6 = s.In(1,55)*(OpM153_6*C55-OpM354_6*S55);
+  CM255_6 = s.In(5,55)*(OpM253_6*C54+OpM351_6*S54);
+  CM355_6 = s.In(9,55)*(OpM153_6*S55+OpM354_6*C55);
+  FB155_47 = s.m(55)*(AlM153_47*C55-AlM354_47*S55);
+  FB255_47 = s.m(55)*(AlM253_47*C54+AlM353_47*S54);
+  FB355_47 = s.m(55)*(AlM153_47*S55+AlM354_47*C55);
+  CM155_47 = s.In(1,55)*(OpM153_47*C55-OpM354_47*S55);
+  CM255_47 = s.In(5,55)*(OpM253_47*C54+OpM351_47*S54);
+  CM355_47 = s.In(9,55)*(OpM153_47*S55+OpM354_47*C55);
+  FB155_48 = s.m(55)*(AlM153_48*C55-AlM354_48*S55);
+  FB255_48 = s.m(55)*(AlM253_48*C54+AlM353_48*S54);
+  FB355_48 = s.m(55)*(AlM153_48*S55+AlM354_48*C55);
+  CM155_48 = s.In(1,55)*(OpM153_48*C55-OpM354_48*S55);
+  CM255_48 = s.In(5,55)*(OpM253_48*C54+OpM351_48*S54);
+  CM355_48 = s.In(9,55)*(OpM153_48*S55+OpM354_48*C55);
+  FB155_49 = s.m(55)*(AlM153_49*C55-AlM354_49*S55);
+  FB255_49 = s.m(55)*(AlM253_49*C54+AlM353_49*S54);
+  FB355_49 = s.m(55)*(AlM153_49*S55+AlM354_49*C55);
+  CM155_49 = s.In(1,55)*(OpM153_49*C55-OpM354_49*S55);
+  CM255_49 = s.In(5,55)*(OpM253_49*C54+S51*S54);
+  CM355_49 = s.In(9,55)*(OpM153_49*S55+OpM354_49*C55);
+  FB155_50 = s.m(55)*(AlM153_50*C55-AlM354_50*S55);
+  FB255_50 = s.m(55)*(AlM253_50*C54+AlM353_50*S54);
+  FB355_50 = s.m(55)*(AlM153_50*S55+AlM354_50*C55);
+  CM155_50 = s.In(1,55)*(OpM153_50*C55-OpM354_50*S55);
+  CM255_50 = s.In(5,55)*(OpM253_50*C54+S51*S54);
+  CM355_50 = s.In(9,55)*(OpM153_50*S55+OpM354_50*C55);
+  FB155_51 = s.m(55)*(AlM153_51*C55-AlM354_51*S55);
+  FB255_51 = s.m(55)*(AlM253_51*C54+AlM353_51*S54);
+  FB355_51 = s.m(55)*(AlM153_51*S55+AlM354_51*C55);
+  CM155_51 = -s.In(1,55)*(OpM354_51*S55-C55*S52p53);
+  CM255_51 = s.In(5,55)*C54*C52p53;
+  CM355_51 = s.In(9,55)*(OpM354_51*C55+S55*S52p53);
+  FB155_52 = s.m(55)*(AlM153_52*C55-AlM354_52*S55);
+  FB355_52 = s.m(55)*(AlM153_52*S55+AlM354_52*C55);
+  CM155_52 = -s.In(1,55)*C54*S55;
+  CM255_52 = s.In(5,55)*S54;
+  CM355_52 = s.In(9,55)*C54*C55;
+  CM155_53 = -s.In(1,55)*C54*S55;
+  CM255_53 = s.In(5,55)*S54;
+  CM355_53 = s.In(9,55)*C54*C55;
+  FF54_155 = FA155*C55+FA355*S55;
+  FF54_355 = -(FA155*S55-FA355*C55);
+  CF54_155 = CF155*C55+CF355*S55;
+  CF54_355 = -(CF155*S55-CF355*C55);
+  FM541_155 = FB155_1*C55+FB355_1*S55;
+  FM541_355 = -(FB155_1*S55-FB355_1*C55);
+  FM542_155 = FB155_2*C55+FB355_2*S55;
+  FM542_355 = -(FB155_2*S55-FB355_2*C55);
+  FM543_155 = FB155_3*C55+FB355_3*S55;
+  FM543_355 = -(FB155_3*S55-FB355_3*C55);
+  FM544_155 = FB155_4*C55+FB355_4*S55;
+  FM544_355 = -(FB155_4*S55-FB355_4*C55);
+  CM544_155 = CM155_4*C55+CM355_4*S55;
+  CM544_355 = -(CM155_4*S55-CM355_4*C55);
+  FM545_155 = FB155_5*C55+FB355_5*S55;
+  FM545_355 = -(FB155_5*S55-FB355_5*C55);
+  CM545_155 = CM155_5*C55+CM355_5*S55;
+  CM545_355 = -(CM155_5*S55-CM355_5*C55);
+  FM546_155 = FB155_6*C55+FB355_6*S55;
+  FM546_355 = -(FB155_6*S55-FB355_6*C55);
+  CM546_155 = CM155_6*C55+CM355_6*S55;
+  CM546_355 = -(CM155_6*S55-CM355_6*C55);
+  FM5447_155 = FB155_47*C55+FB355_47*S55;
+  FM5447_355 = -(FB155_47*S55-FB355_47*C55);
+  CM5447_155 = CM155_47*C55+CM355_47*S55;
+  CM5447_355 = -(CM155_47*S55-CM355_47*C55);
+  FM5448_155 = FB155_48*C55+FB355_48*S55;
+  FM5448_355 = -(FB155_48*S55-FB355_48*C55);
+  CM5448_155 = CM155_48*C55+CM355_48*S55;
+  CM5448_355 = -(CM155_48*S55-CM355_48*C55);
+  FM5449_155 = FB155_49*C55+FB355_49*S55;
+  FM5449_355 = -(FB155_49*S55-FB355_49*C55);
+  CM5449_155 = CM155_49*C55+CM355_49*S55;
+  CM5449_355 = -(CM155_49*S55-CM355_49*C55);
+  FM5450_155 = FB155_50*C55+FB355_50*S55;
+  FM5450_355 = -(FB155_50*S55-FB355_50*C55);
+  CM5450_155 = CM155_50*C55+CM355_50*S55;
+  CM5450_355 = -(CM155_50*S55-CM355_50*C55);
+  FM5451_155 = FB155_51*C55+FB355_51*S55;
+  FM5451_355 = -(FB155_51*S55-FB355_51*C55);
+  CM5451_155 = CM155_51*C55+CM355_51*S55;
+  CM5451_355 = -(CM155_51*S55-CM355_51*C55);
+  FM5452_155 = FB155_52*C55+FB355_52*S55;
+  CM5452_155 = CM155_52*C55+CM355_52*S55;
+  CM5453_155 = CM155_53*C55+CM355_53*S55;
+  CM5454_155 = s.In(1,55)*C55*C55+s.In(9,55)*S55*S55;
+  FF53_254 = FA255*C54-FF54_355*S54;
+  FF53_354 = FA255*S54+FF54_355*C54;
+  CF53_254 = CF255*C54-CF54_355*S54;
+  CF53_354 = CF255*S54+CF54_355*C54;
+  FM531_254 = FB255_1*C54-FM541_355*S54;
+  FM531_354 = FB255_1*S54+FM541_355*C54;
+  FM532_254 = FB255_2*C54-FM542_355*S54;
+  FM532_354 = FB255_2*S54+FM542_355*C54;
+  FM533_254 = FB255_3*C54-FM543_355*S54;
+  FM533_354 = FB255_3*S54+FM543_355*C54;
+  FM534_254 = FB255_4*C54-FM544_355*S54;
+  FM534_354 = FB255_4*S54+FM544_355*C54;
+  CM534_254 = CM255_4*C54-CM544_355*S54;
+  CM534_354 = CM255_4*S54+CM544_355*C54;
+  FM535_254 = FB255_5*C54-FM545_355*S54;
+  FM535_354 = FB255_5*S54+FM545_355*C54;
+  CM535_254 = CM255_5*C54-CM545_355*S54;
+  CM535_354 = CM255_5*S54+CM545_355*C54;
+  FM536_254 = FB255_6*C54-FM546_355*S54;
+  FM536_354 = FB255_6*S54+FM546_355*C54;
+  CM536_254 = CM255_6*C54-CM546_355*S54;
+  CM536_354 = CM255_6*S54+CM546_355*C54;
+  FM5347_254 = FB255_47*C54-FM5447_355*S54;
+  FM5347_354 = FB255_47*S54+FM5447_355*C54;
+  CM5347_254 = CM255_47*C54-CM5447_355*S54;
+  CM5347_354 = CM255_47*S54+CM5447_355*C54;
+  FM5348_254 = FB255_48*C54-FM5448_355*S54;
+  FM5348_354 = FB255_48*S54+FM5448_355*C54;
+  CM5348_254 = CM255_48*C54-CM5448_355*S54;
+  CM5348_354 = CM255_48*S54+CM5448_355*C54;
+  FM5349_254 = FB255_49*C54-FM5449_355*S54;
+  FM5349_354 = FB255_49*S54+FM5449_355*C54;
+  CM5349_254 = CM255_49*C54-CM5449_355*S54;
+  CM5349_354 = CM255_49*S54+CM5449_355*C54;
+  FM5350_254 = FB255_50*C54-FM5450_355*S54;
+  FM5350_354 = FB255_50*S54+FM5450_355*C54;
+  CM5350_254 = CM255_50*C54-CM5450_355*S54;
+  CM5350_354 = CM255_50*S54+CM5450_355*C54;
+  FM5351_254 = FB255_51*C54-FM5451_355*S54;
+  FM5351_354 = FB255_51*S54+FM5451_355*C54;
+  CM5351_254 = CM255_51*C54-CM5451_355*S54;
+  CM5351_354 = CM255_51*S54+CM5451_355*C54;
+  FM5352_254 = s.m(55)*AlM253_52*C54*C54+S54*(FB155_52*S55-FB355_52*C55);
+  CM5352_354 = CM255_52*S54-C54*(CM155_52*S55-CM355_52*C55);
+  CM5353_354 = CM255_53*S54-C54*(CM155_53*S55-CM355_53*C55);
+  FA152 = -(s.frc(1,52)-s.m(52)*(AlF152+BS152*s.l(1,52)+BeF252*s.l(2,52)+BeF352*s.l(3,52)));
+  FA252 = -(s.frc(2,52)-s.m(52)*(AlF252+BS552*s.l(2,52)+BeF452*s.l(1,52)+BeF652*s.l(3,52)));
+  FA352 = -(s.frc(3,52)-s.m(52)*(AlF351+BS952*s.l(3,52)+BeF752*s.l(1,52)+BeF852*s.l(2,52)));
+  FF152 = FA152-FF53_254*S53+FF54_155*C53;
+  FF252 = FA252+FF53_254*C53+FF54_155*S53;
+  FF352 = FA352+FF53_354;
+  CF152 = -(s.trq(1,52)-s.In(1,52)*OpF152+CF53_254*S53-CF54_155*C53+FA252*s.l(3,52)-FA352*s.l(2,52)-FF53_354*s.dpt(2,57)+OM252*OM352*(s.In(5,52)-...
+ s.In(9,52))+s.dpt(3,57)*(FF53_254*C53+FF54_155*S53));
+  CF252 = -(s.trq(2,52)-s.In(5,52)*OpF252-CF53_254*C53-CF54_155*S53-FA152*s.l(3,52)+FA352*s.l(1,52)+FF53_354*s.dpt(1,57)-OM152*OM352*(s.In(1,52)-...
+ s.In(9,52))+s.dpt(3,57)*(FF53_254*S53-FF54_155*C53));
+  CF352 = -(s.trq(3,52)-CF53_354-s.In(9,52)*OpF351+FA152*s.l(2,52)-FA252*s.l(1,52)+OM152*OM252*(s.In(1,52)-s.In(5,52))-s.dpt(1,57)*(FF53_254*C53+...
+ FF54_155*S53)-s.dpt(2,57)*(FF53_254*S53-FF54_155*C53));
+  FB152_1 = s.m(52)*AlM152_1;
+  FB252_1 = s.m(52)*AlM252_1;
+  FB352_1 = s.m(52)*AlM351_1;
+  FM152_1 = FB152_1-FM531_254*S53+FM541_155*C53;
+  FM252_1 = FB252_1+FM531_254*C53+FM541_155*S53;
+  FM352_1 = FB352_1+FM531_354;
+  CM152_1 = FM531_354*s.dpt(2,57)-s.dpt(3,57)*(FM531_254*C53+FM541_155*S53)-FB252_1*s.l(3,52)+FB352_1*s.l(2,52);
+  CM252_1 = FB152_1*s.l(3,52)-FB352_1*s.l(1,52)-FM531_354*s.dpt(1,57)-s.dpt(3,57)*(FM531_254*S53-FM541_155*C53);
+  CM352_1 = s.dpt(1,57)*(FM531_254*C53+FM541_155*S53)+s.dpt(2,57)*(FM531_254*S53-FM541_155*C53)-FB152_1*s.l(2,52)+FB252_1*s.l(1,52);
+  FB152_2 = s.m(52)*AlM152_2;
+  FB252_2 = s.m(52)*AlM252_2;
+  FB352_2 = s.m(52)*AlM351_2;
+  FM152_2 = FB152_2-FM532_254*S53+FM542_155*C53;
+  FM252_2 = FB252_2+FM532_254*C53+FM542_155*S53;
+  FM352_2 = FB352_2+FM532_354;
+  CM152_2 = FM532_354*s.dpt(2,57)-s.dpt(3,57)*(FM532_254*C53+FM542_155*S53)-FB252_2*s.l(3,52)+FB352_2*s.l(2,52);
+  CM252_2 = FB152_2*s.l(3,52)-FB352_2*s.l(1,52)-FM532_354*s.dpt(1,57)-s.dpt(3,57)*(FM532_254*S53-FM542_155*C53);
+  CM352_2 = s.dpt(1,57)*(FM532_254*C53+FM542_155*S53)+s.dpt(2,57)*(FM532_254*S53-FM542_155*C53)-FB152_2*s.l(2,52)+FB252_2*s.l(1,52);
+  FB152_3 = s.m(52)*AlM152_3;
+  FB252_3 = s.m(52)*AlM252_3;
+  FB352_3 = s.m(52)*AlM351_3;
+  FM152_3 = FB152_3-FM533_254*S53+FM543_155*C53;
+  FM252_3 = FB252_3+FM533_254*C53+FM543_155*S53;
+  FM352_3 = FB352_3+FM533_354;
+  CM152_3 = FM533_354*s.dpt(2,57)-s.dpt(3,57)*(FM533_254*C53+FM543_155*S53)-FB252_3*s.l(3,52)+FB352_3*s.l(2,52);
+  CM252_3 = FB152_3*s.l(3,52)-FB352_3*s.l(1,52)-FM533_354*s.dpt(1,57)-s.dpt(3,57)*(FM533_254*S53-FM543_155*C53);
+  CM352_3 = s.dpt(1,57)*(FM533_254*C53+FM543_155*S53)+s.dpt(2,57)*(FM533_254*S53-FM543_155*C53)-FB152_3*s.l(2,52)+FB252_3*s.l(1,52);
+  FB152_4 = s.m(52)*(AlM152_4+OpM252_4*s.l(3,52)-OpM351_4*s.l(2,52));
+  FB252_4 = s.m(52)*(AlM252_4-OpM152_4*s.l(3,52)+OpM351_4*s.l(1,52));
+  FB352_4 = s.m(52)*(AlM351_4+OpM152_4*s.l(2,52)-OpM252_4*s.l(1,52));
+  FM152_4 = FB152_4-FM534_254*S53+FM544_155*C53;
+  FM252_4 = FB252_4+FM534_254*C53+FM544_155*S53;
+  FM352_4 = FB352_4+FM534_354;
+  CM152_4 = s.In(1,52)*OpM152_4-CM534_254*S53+CM544_155*C53-FB252_4*s.l(3,52)+FB352_4*s.l(2,52)+FM534_354*s.dpt(2,57)-s.dpt(3,57)*(FM534_254*C53+...
+ FM544_155*S53);
+  CM252_4 = s.In(5,52)*OpM252_4+CM534_254*C53+CM544_155*S53+FB152_4*s.l(3,52)-FB352_4*s.l(1,52)-FM534_354*s.dpt(1,57)-s.dpt(3,57)*(FM534_254*S53-...
+ FM544_155*C53);
+  CM352_4 = CM534_354+s.In(9,52)*OpM351_4-FB152_4*s.l(2,52)+FB252_4*s.l(1,52)+s.dpt(1,57)*(FM534_254*C53+FM544_155*S53)+s.dpt(2,57)*(FM534_254*...
+ S53-FM544_155*C53);
+  FB152_5 = s.m(52)*(AlM152_5+OpM252_5*s.l(3,52)-OpM351_5*s.l(2,52));
+  FB252_5 = s.m(52)*(AlM252_5-OpM152_5*s.l(3,52)+OpM351_5*s.l(1,52));
+  FB352_5 = s.m(52)*(AlM351_5+OpM152_5*s.l(2,52)-OpM252_5*s.l(1,52));
+  FM152_5 = FB152_5-FM535_254*S53+FM545_155*C53;
+  FM252_5 = FB252_5+FM535_254*C53+FM545_155*S53;
+  FM352_5 = FB352_5+FM535_354;
+  CM152_5 = s.In(1,52)*OpM152_5-CM535_254*S53+CM545_155*C53-FB252_5*s.l(3,52)+FB352_5*s.l(2,52)+FM535_354*s.dpt(2,57)-s.dpt(3,57)*(FM535_254*C53+...
+ FM545_155*S53);
+  CM252_5 = s.In(5,52)*OpM252_5+CM535_254*C53+CM545_155*S53+FB152_5*s.l(3,52)-FB352_5*s.l(1,52)-FM535_354*s.dpt(1,57)-s.dpt(3,57)*(FM535_254*S53-...
+ FM545_155*C53);
+  CM352_5 = CM535_354+s.In(9,52)*OpM351_5-FB152_5*s.l(2,52)+FB252_5*s.l(1,52)+s.dpt(1,57)*(FM535_254*C53+FM545_155*S53)+s.dpt(2,57)*(FM535_254*...
+ S53-FM545_155*C53);
+  FB152_6 = s.m(52)*(AlM152_6+OpM252_6*s.l(3,52)-OpM351_6*s.l(2,52));
+  FB252_6 = s.m(52)*(AlM252_6-OpM152_6*s.l(3,52)+OpM351_6*s.l(1,52));
+  FB352_6 = s.m(52)*(AlM351_6+OpM152_6*s.l(2,52)-OpM252_6*s.l(1,52));
+  FM152_6 = FB152_6-FM536_254*S53+FM546_155*C53;
+  FM252_6 = FB252_6+FM536_254*C53+FM546_155*S53;
+  FM352_6 = FB352_6+FM536_354;
+  CM152_6 = s.In(1,52)*OpM152_6-CM536_254*S53+CM546_155*C53-FB252_6*s.l(3,52)+FB352_6*s.l(2,52)+FM536_354*s.dpt(2,57)-s.dpt(3,57)*(FM536_254*C53+...
+ FM546_155*S53);
+  CM252_6 = s.In(5,52)*OpM252_6+CM536_254*C53+CM546_155*S53+FB152_6*s.l(3,52)-FB352_6*s.l(1,52)-FM536_354*s.dpt(1,57)-s.dpt(3,57)*(FM536_254*S53-...
+ FM546_155*C53);
+  CM352_6 = CM536_354+s.In(9,52)*OpM351_6-FB152_6*s.l(2,52)+FB252_6*s.l(1,52)+s.dpt(1,57)*(FM536_254*C53+FM546_155*S53)+s.dpt(2,57)*(FM536_254*...
+ S53-FM546_155*C53);
+  FB152_47 = s.m(52)*(AlM152_47+OpM252_47*s.l(3,52)-OpM351_47*s.l(2,52));
+  FB252_47 = s.m(52)*(AlM252_47-OpM152_47*s.l(3,52)+OpM351_47*s.l(1,52));
+  FB352_47 = s.m(52)*(AlM351_47+OpM152_47*s.l(2,52)-OpM252_47*s.l(1,52));
+  FM152_47 = FB152_47-FM5347_254*S53+FM5447_155*C53;
+  FM252_47 = FB252_47+FM5347_254*C53+FM5447_155*S53;
+  FM352_47 = FB352_47+FM5347_354;
+  CM152_47 = s.In(1,52)*OpM152_47-CM5347_254*S53+CM5447_155*C53-FB252_47*s.l(3,52)+FB352_47*s.l(2,52)+FM5347_354*s.dpt(2,57)-s.dpt(3,57)*(...
+ FM5347_254*C53+FM5447_155*S53);
+  CM252_47 = s.In(5,52)*OpM252_47+CM5347_254*C53+CM5447_155*S53+FB152_47*s.l(3,52)-FB352_47*s.l(1,52)-FM5347_354*s.dpt(1,57)-s.dpt(3,57)*(...
+ FM5347_254*S53-FM5447_155*C53);
+  CM352_47 = CM5347_354+s.In(9,52)*OpM351_47-FB152_47*s.l(2,52)+FB252_47*s.l(1,52)+s.dpt(1,57)*(FM5347_254*C53+FM5447_155*S53)+s.dpt(2,57)*(...
+ FM5347_254*S53-FM5447_155*C53);
+  FB152_48 = s.m(52)*(AlM152_48+OpM252_48*s.l(3,52)-OpM351_48*s.l(2,52));
+  FB252_48 = s.m(52)*(AlM252_48-OpM152_48*s.l(3,52)+OpM351_48*s.l(1,52));
+  FB352_48 = s.m(52)*(AlM351_48+OpM152_48*s.l(2,52)-OpM252_48*s.l(1,52));
+  FM152_48 = FB152_48-FM5348_254*S53+FM5448_155*C53;
+  FM252_48 = FB252_48+FM5348_254*C53+FM5448_155*S53;
+  FM352_48 = FB352_48+FM5348_354;
+  CM152_48 = s.In(1,52)*OpM152_48-CM5348_254*S53+CM5448_155*C53-FB252_48*s.l(3,52)+FB352_48*s.l(2,52)+FM5348_354*s.dpt(2,57)-s.dpt(3,57)*(...
+ FM5348_254*C53+FM5448_155*S53);
+  CM252_48 = s.In(5,52)*OpM252_48+CM5348_254*C53+CM5448_155*S53+FB152_48*s.l(3,52)-FB352_48*s.l(1,52)-FM5348_354*s.dpt(1,57)-s.dpt(3,57)*(...
+ FM5348_254*S53-FM5448_155*C53);
+  CM352_48 = CM5348_354+s.In(9,52)*OpM351_48-FB152_48*s.l(2,52)+FB252_48*s.l(1,52)+s.dpt(1,57)*(FM5348_254*C53+FM5448_155*S53)+s.dpt(2,57)*(...
+ FM5348_254*S53-FM5448_155*C53);
+  FB152_49 = s.m(52)*(AlM152_49+OpM252_49*s.l(3,52)-s.l(2,52)*S51);
+  FB252_49 = s.m(52)*(AlM252_49-OpM152_49*s.l(3,52)+s.l(1,52)*S51);
+  FB352_49 = s.m(52)*(AlM351_49+OpM152_49*s.l(2,52)-OpM252_49*s.l(1,52));
+  FM152_49 = FB152_49-FM5349_254*S53+FM5449_155*C53;
+  FM252_49 = FB252_49+FM5349_254*C53+FM5449_155*S53;
+  CM152_49 = s.In(1,52)*OpM152_49-CM5349_254*S53+CM5449_155*C53-FB252_49*s.l(3,52)+FB352_49*s.l(2,52)+FM5349_354*s.dpt(2,57)-s.dpt(3,57)*(...
+ FM5349_254*C53+FM5449_155*S53);
+  CM252_49 = s.In(5,52)*OpM252_49+CM5349_254*C53+CM5449_155*S53+FB152_49*s.l(3,52)-FB352_49*s.l(1,52)-FM5349_354*s.dpt(1,57)-s.dpt(3,57)*(...
+ FM5349_254*S53-FM5449_155*C53);
+  CM352_49 = CM5349_354+s.In(9,52)*S51-FB152_49*s.l(2,52)+FB252_49*s.l(1,52)+s.dpt(1,57)*(FM5349_254*C53+FM5449_155*S53)+s.dpt(2,57)*(FM5349_254*...
+ S53-FM5449_155*C53);
+  FB152_50 = s.m(52)*(OpM252_50*s.l(3,52)-s.l(2,52)*S51);
+  FB252_50 = -s.m(52)*(OpM152_50*s.l(3,52)-s.l(1,52)*S51);
+  FB352_50 = s.m(52)*(OpM152_50*s.l(2,52)-OpM252_50*s.l(1,52));
+  CM152_50 = s.In(1,52)*OpM152_50-CM5350_254*S53+CM5450_155*C53-FB252_50*s.l(3,52)+FB352_50*s.l(2,52)+FM5350_354*s.dpt(2,57)-s.dpt(3,57)*(...
+ FM5350_254*C53+FM5450_155*S53);
+  CM252_50 = s.In(5,52)*OpM252_50+CM5350_254*C53+CM5450_155*S53+FB152_50*s.l(3,52)-FB352_50*s.l(1,52)-FM5350_354*s.dpt(1,57)-s.dpt(3,57)*(...
+ FM5350_254*S53-FM5450_155*C53);
+  CM352_50 = CM5350_354+s.In(9,52)*S51-FB152_50*s.l(2,52)+FB252_50*s.l(1,52)+s.dpt(1,57)*(FM5350_254*C53+FM5450_155*S53)+s.dpt(2,57)*(FM5350_254*...
+ S53-FM5450_155*C53);
+  FB152_51 = s.m(52)*s.l(3,52)*C52;
+  FB252_51 = -s.m(52)*s.l(3,52)*S52;
+  FB352_51 = -s.m(52)*(s.l(1,52)*C52-s.l(2,52)*S52);
+  CM352_51 = CM5351_354-FB152_51*s.l(2,52)+FB252_51*s.l(1,52)+s.dpt(1,57)*(FM5351_254*C53+FM5451_155*S53)+s.dpt(2,57)*(FM5351_254*S53-FM5451_155*...
+ C53);
+  CM352_52 = s.In(9,52)+CM5352_354+s.m(52)*s.l(1,52)*s.l(1,52)+s.m(52)*s.l(2,52)*s.l(2,52)+s.dpt(1,57)*(FM5352_254*C53+FM5452_155*S53)+...
+ s.dpt(2,57)*(FM5352_254*S53-FM5452_155*C53);
+  FF51_152 = FF152*C52-FF252*S52;
+  FF51_252 = FF152*S52+FF252*C52;
+  CF51_152 = CF152*C52-CF252*S52;
+  CF51_252 = CF152*S52+CF252*C52;
+  FM511_152 = FM152_1*C52-FM252_1*S52;
+  FM511_252 = FM152_1*S52+FM252_1*C52;
+  CM511_152 = CM152_1*C52-CM252_1*S52;
+  CM511_252 = CM152_1*S52+CM252_1*C52;
+  FM512_152 = FM152_2*C52-FM252_2*S52;
+  FM512_252 = FM152_2*S52+FM252_2*C52;
+  CM512_152 = CM152_2*C52-CM252_2*S52;
+  CM512_252 = CM152_2*S52+CM252_2*C52;
+  FM513_152 = FM152_3*C52-FM252_3*S52;
+  FM513_252 = FM152_3*S52+FM252_3*C52;
+  CM513_152 = CM152_3*C52-CM252_3*S52;
+  CM513_252 = CM152_3*S52+CM252_3*C52;
+  FM514_152 = FM152_4*C52-FM252_4*S52;
+  FM514_252 = FM152_4*S52+FM252_4*C52;
+  CM514_152 = CM152_4*C52-CM252_4*S52;
+  CM514_252 = CM152_4*S52+CM252_4*C52;
+  FM515_152 = FM152_5*C52-FM252_5*S52;
+  FM515_252 = FM152_5*S52+FM252_5*C52;
+  CM515_152 = CM152_5*C52-CM252_5*S52;
+  CM515_252 = CM152_5*S52+CM252_5*C52;
+  FM516_152 = FM152_6*C52-FM252_6*S52;
+  FM516_252 = FM152_6*S52+FM252_6*C52;
+  CM516_152 = CM152_6*C52-CM252_6*S52;
+  CM516_252 = CM152_6*S52+CM252_6*C52;
+  FM5147_152 = FM152_47*C52-FM252_47*S52;
+  CM5147_152 = CM152_47*C52-CM252_47*S52;
+  CM5147_252 = CM152_47*S52+CM252_47*C52;
+  FM5148_152 = FM152_48*C52-FM252_48*S52;
+  CM5148_152 = CM152_48*C52-CM252_48*S52;
+  CM5148_252 = CM152_48*S52+CM252_48*C52;
+  CM5149_252 = CM152_49*S52+CM252_49*C52;
+  CM5150_252 = CM152_50*S52+CM252_50*C52;
+  CM5151_252 = C52*(s.In(5,52)*C52+CM5351_254*C53+CM5451_155*S53+FB152_51*s.l(3,52)-FB352_51*s.l(1,52)-FM5351_354*s.dpt(1,57)-s.dpt(3,57)*(...
+ FM5351_254*S53-FM5451_155*C53))+S52*(s.In(1,52)*S52-CM5351_254*S53+CM5451_155*C53-FB252_51*s.l(3,52)+FB352_51*s.l(2,52)+FM5351_354*s.dpt(2,57)-...
+ s.dpt(3,57)*(FM5351_254*C53+FM5451_155*S53));
+  FF50_151 = FF352*S51+FF51_152*C51;
+  FF50_351 = FF352*C51-FF51_152*S51;
+  CF50_151 = CF352*S51+CF51_152*C51;
+  CF50_351 = CF352*C51-CF51_152*S51;
+  FM501_151 = FM352_1*S51+FM511_152*C51;
+  FM501_351 = FM352_1*C51-FM511_152*S51;
+  CM501_151 = CM352_1*S51+CM511_152*C51;
+  CM501_351 = CM352_1*C51-CM511_152*S51;
+  FM502_151 = FM352_2*S51+FM512_152*C51;
+  FM502_351 = FM352_2*C51-FM512_152*S51;
+  CM502_151 = CM352_2*S51+CM512_152*C51;
+  CM502_351 = CM352_2*C51-CM512_152*S51;
+  FM503_151 = FM352_3*S51+FM513_152*C51;
+  FM503_351 = FM352_3*C51-FM513_152*S51;
+  CM503_151 = CM352_3*S51+CM513_152*C51;
+  CM503_351 = CM352_3*C51-CM513_152*S51;
+  FM504_151 = FM352_4*S51+FM514_152*C51;
+  FM504_351 = FM352_4*C51-FM514_152*S51;
+  CM504_151 = CM352_4*S51+CM514_152*C51;
+  CM504_351 = CM352_4*C51-CM514_152*S51;
+  FM505_151 = FM352_5*S51+FM515_152*C51;
+  FM505_351 = FM352_5*C51-FM515_152*S51;
+  CM505_151 = CM352_5*S51+CM515_152*C51;
+  CM505_351 = CM352_5*C51-CM515_152*S51;
+  FM506_151 = FM352_6*S51+FM516_152*C51;
+  FM506_351 = FM352_6*C51-FM516_152*S51;
+  CM506_151 = CM352_6*S51+CM516_152*C51;
+  CM506_351 = CM352_6*C51-CM516_152*S51;
+  CM5047_151 = CM352_47*S51+CM5147_152*C51;
+  CM5047_351 = CM352_47*C51-CM5147_152*S51;
+  CM5048_151 = CM352_48*S51+CM5148_152*C51;
+  CM5048_351 = CM352_48*C51-CM5148_152*S51;
+  CM5049_151 = CM352_49*S51+C51*(CM152_49*C52-CM252_49*S52);
+  CM5050_151 = CM352_50*S51+C51*(CM152_50*C52-CM252_50*S52);
+  FA149 = -(s.frc(1,49)-s.m(49)*(AlF148+BeF249*s.l(2,49)));
+  FA349 = -(s.frc(3,49)-s.m(49)*(AlF349+BeF849*s.l(2,49)));
+  FF149 = FA149+FF50_151;
+  FF249 = -(s.frc(2,49)-s.m(49)*(AlF249+BS549*s.l(2,49))+FF50_351*S50-FF51_252*C50);
+  FF349 = FA349+FF50_351*C50+FF51_252*S50;
+  CF149 = -(s.trq(1,49)-CF50_151-s.In(1,49)*OpF148-s.In(9,49)*OM249*OM349-FA349*s.l(2,49)-s.dpt(2,56)*(FF50_351*C50+FF51_252*S50));
+  CF249 = -(s.trq(2,49)+CF50_351*S50-CF51_252*C50-OM149*OM349*(s.In(1,49)-s.In(9,49)));
+  CF349 = -(s.trq(3,49)+s.In(1,49)*OM149*OM249-s.In(9,49)*OpF349-CF50_351*C50-CF51_252*S50+FA149*s.l(2,49)+FF50_151*s.dpt(2,56));
+  FB149_1 = s.m(49)*AlM148_1;
+  FB349_1 = s.m(49)*AlM349_1;
+  FM149_1 = FB149_1+FM501_151;
+  FM249_1 = s.m(49)*AlM249_1-FM501_351*S50+FM511_252*C50;
+  FM349_1 = FB349_1+FM501_351*C50+FM511_252*S50;
+  CM491_250 = -(CM501_351*S50-CM511_252*C50);
+  CM149_1 = CM501_151+FB349_1*s.l(2,49)+s.dpt(2,56)*(FM501_351*C50+FM511_252*S50);
+  CM349_1 = CM501_351*C50+CM511_252*S50-FB149_1*s.l(2,49)-FM501_151*s.dpt(2,56);
+  FB149_2 = s.m(49)*AlM148_2;
+  FB349_2 = s.m(49)*AlM349_2;
+  FM149_2 = FB149_2+FM502_151;
+  FM249_2 = s.m(49)*AlM249_2-FM502_351*S50+FM512_252*C50;
+  FM349_2 = FB349_2+FM502_351*C50+FM512_252*S50;
+  CM492_250 = -(CM502_351*S50-CM512_252*C50);
+  CM149_2 = CM502_151+FB349_2*s.l(2,49)+s.dpt(2,56)*(FM502_351*C50+FM512_252*S50);
+  CM349_2 = CM502_351*C50+CM512_252*S50-FB149_2*s.l(2,49)-FM502_151*s.dpt(2,56);
+  FB149_3 = s.m(49)*AlM148_3;
+  FB349_3 = s.m(49)*AlM349_3;
+  FM149_3 = FB149_3+FM503_151;
+  FM249_3 = s.m(49)*AlM249_3-FM503_351*S50+FM513_252*C50;
+  FM349_3 = FB349_3+FM503_351*C50+FM513_252*S50;
+  CM493_250 = -(CM503_351*S50-CM513_252*C50);
+  CM149_3 = CM503_151+FB349_3*s.l(2,49)+s.dpt(2,56)*(FM503_351*C50+FM513_252*S50);
+  CM349_3 = CM503_351*C50+CM513_252*S50-FB149_3*s.l(2,49)-FM503_151*s.dpt(2,56);
+  FB149_4 = s.m(49)*(AlM148_4-OpM349_4*s.l(2,49));
+  FB349_4 = s.m(49)*(AlM349_4+OpM148_4*s.l(2,49));
+  FM149_4 = FB149_4+FM504_151;
+  FM249_4 = s.m(49)*AlM249_4-FM504_351*S50+FM514_252*C50;
+  FM349_4 = FB349_4+FM504_351*C50+FM514_252*S50;
+  CM494_250 = -(CM504_351*S50-CM514_252*C50);
+  CM149_4 = CM504_151+s.In(1,49)*OpM148_4+FB349_4*s.l(2,49)+s.dpt(2,56)*(FM504_351*C50+FM514_252*S50);
+  CM349_4 = s.In(9,49)*OpM349_4+CM504_351*C50+CM514_252*S50-FB149_4*s.l(2,49)-FM504_151*s.dpt(2,56);
+  FB149_5 = s.m(49)*(AlM148_5-OpM349_5*s.l(2,49));
+  FB349_5 = s.m(49)*(AlM349_5+OpM148_5*s.l(2,49));
+  FM149_5 = FB149_5+FM505_151;
+  FM249_5 = s.m(49)*AlM249_5-FM505_351*S50+FM515_252*C50;
+  FM349_5 = FB349_5+FM505_351*C50+FM515_252*S50;
+  CM495_250 = -(CM505_351*S50-CM515_252*C50);
+  CM149_5 = CM505_151+s.In(1,49)*OpM148_5+FB349_5*s.l(2,49)+s.dpt(2,56)*(FM505_351*C50+FM515_252*S50);
+  CM349_5 = s.In(9,49)*OpM349_5+CM505_351*C50+CM515_252*S50-FB149_5*s.l(2,49)-FM505_151*s.dpt(2,56);
+  FB149_6 = s.m(49)*(AlM148_6-OpM349_6*s.l(2,49));
+  FB349_6 = s.m(49)*(AlM349_6+OpM148_6*s.l(2,49));
+  FM149_6 = FB149_6+FM506_151;
+  FM249_6 = s.m(49)*AlM249_6-FM506_351*S50+FM516_252*C50;
+  FM349_6 = FB349_6+FM506_351*C50+FM516_252*S50;
+  CM496_250 = -(CM506_351*S50-CM516_252*C50);
+  CM149_6 = CM506_151+s.In(1,49)*OpM148_6+FB349_6*s.l(2,49)+s.dpt(2,56)*(FM506_351*C50+FM516_252*S50);
+  CM349_6 = s.In(9,49)*OpM349_6+CM506_351*C50+CM516_252*S50-FB149_6*s.l(2,49)-FM506_151*s.dpt(2,56);
+  CM4947_250 = -(CM5047_351*S50-CM5147_252*C50);
+  CM149_47 = CM5047_151-s.In(1,49)*S48-s.m(49)*s.l(2,49)*s.l(2,49)*S48+s.dpt(2,56)*(C50*(FM352_47*C51-FM5147_152*S51)+S50*(FM152_47*S52+FM252_47*...
+ C52));
+  CM349_47 = CM5047_351*C50+CM5147_252*S50+OpM349_47*(s.In(9,49)+s.m(49)*s.l(2,49)*s.l(2,49))-s.dpt(2,56)*(FM352_47*S51+FM5147_152*C51);
+  CM4948_150 = CM5048_151+s.dpt(2,56)*(C50*(FM352_48*C51-FM5148_152*S51)+S50*(FM152_48*S52+FM252_48*C52));
+  CM149_49 = s.In(1,49)+CM5049_151+s.m(49)*s.l(2,49)*s.l(2,49)+s.dpt(2,56)*(C50*(C51*(FB352_49+FM5349_354)-S51*(FM152_49*C52-FM252_49*S52))+S50*(...
+ FM152_49*S52+FM252_49*C52));
+  FF48_249 = FF249*C49-FF349*S49;
+  FF48_349 = FF249*S49+FF349*C49;
+  CF48_249 = CF249*C49-CF349*S49;
+  CF48_349 = CF249*S49+CF349*C49;
+  FM481_249 = FM249_1*C49-FM349_1*S49;
+  FM481_349 = FM249_1*S49+FM349_1*C49;
+  CM481_249 = -(CM349_1*S49-CM491_250*C49);
+  CM481_349 = CM349_1*C49+CM491_250*S49;
+  FM482_249 = FM249_2*C49-FM349_2*S49;
+  FM482_349 = FM249_2*S49+FM349_2*C49;
+  CM482_249 = -(CM349_2*S49-CM492_250*C49);
+  CM482_349 = CM349_2*C49+CM492_250*S49;
+  FM483_249 = FM249_3*C49-FM349_3*S49;
+  FM483_349 = FM249_3*S49+FM349_3*C49;
+  CM483_249 = -(CM349_3*S49-CM493_250*C49);
+  CM483_349 = CM349_3*C49+CM493_250*S49;
+  FM484_249 = FM249_4*C49-FM349_4*S49;
+  FM484_349 = FM249_4*S49+FM349_4*C49;
+  CM484_249 = -(CM349_4*S49-CM494_250*C49);
+  CM484_349 = CM349_4*C49+CM494_250*S49;
+  FM485_249 = FM249_5*C49-FM349_5*S49;
+  FM485_349 = FM249_5*S49+FM349_5*C49;
+  CM485_249 = -(CM349_5*S49-CM495_250*C49);
+  CM485_349 = CM349_5*C49+CM495_250*S49;
+  FM486_349 = FM249_6*S49+FM349_6*C49;
+  CM486_249 = -(CM349_6*S49-CM496_250*C49);
+  CM486_349 = CM349_6*C49+CM496_250*S49;
+  CM4847_249 = -(CM349_47*S49-CM4947_250*C49);
+  CM4848_249 = -(C49*(CM5048_351*S50-CM5148_252*C50)+S49*(CM5048_351*C50+CM5148_252*S50-s.dpt(2,56)*(FM352_48*S51+FM5148_152*C51)-S49*(s.In(9,49)...
+ +s.m(49)*s.l(2,49)*s.l(2,49))));
+  FF47_148 = FF149*C48+FF48_349*S48;
+  FF47_348 = -(FF149*S48-FF48_349*C48);
+  CF47_148 = CF149*C48+CF48_349*S48;
+  CF47_348 = -(CF149*S48-CF48_349*C48);
+  FM471_148 = FM149_1*C48+FM481_349*S48;
+  FM471_348 = -(FM149_1*S48-FM481_349*C48);
+  CM471_148 = CM149_1*C48+CM481_349*S48;
+  CM471_348 = -(CM149_1*S48-CM481_349*C48);
+  FM472_148 = FM149_2*C48+FM482_349*S48;
+  FM472_348 = -(FM149_2*S48-FM482_349*C48);
+  CM472_148 = CM149_2*C48+CM482_349*S48;
+  CM472_348 = -(CM149_2*S48-CM482_349*C48);
+  FM473_148 = FM149_3*C48+FM483_349*S48;
+  FM473_348 = -(FM149_3*S48-FM483_349*C48);
+  CM473_148 = CM149_3*C48+CM483_349*S48;
+  CM473_348 = -(CM149_3*S48-CM483_349*C48);
+  FM474_148 = FM149_4*C48+FM484_349*S48;
+  FM474_348 = -(FM149_4*S48-FM484_349*C48);
+  CM474_148 = CM149_4*C48+CM484_349*S48;
+  CM474_348 = -(CM149_4*S48-CM484_349*C48);
+  FM475_148 = FM149_5*C48+FM485_349*S48;
+  FM475_348 = -(FM149_5*S48-FM485_349*C48);
+  CM475_148 = CM149_5*C48+CM485_349*S48;
+  CM475_348 = -(CM149_5*S48-CM485_349*C48);
+  CM476_348 = -(CM149_6*S48-CM486_349*C48);
+  CM4747_348 = -(CM149_47*S48-C48*(CM349_47*C49+CM4947_250*S49));
+
+% = = Block_0_2_0_1_0_13 = = 
+ 
+% Backward Dynamics 
+
+  FA157 = -(s.frc(1,57)+s.m(57)*(s.l(1,57)*(OM257*OM257+OM357*OM357)-s.l(2,57)*(BS257-OpF357)-s.l(3,57)*(BS357+OpF257)-C56*(AlF16+BS16*...
+ s.dpt(1,16)+BeF26*s.dpt(2,16)+BeF36*s.dpt(3,16))-S56*(AlF25+BS56*s.dpt(2,16)+BeF46*s.dpt(1,16)+BeF66*s.dpt(3,16))));
+  FA257 = -(s.frc(2,57)-s.m(57)*(AlF256*C57+AlF356*S57+s.l(1,57)*(BS257+OpF357)-s.l(2,57)*(OM157*OM157+OM357*OM357)+s.l(3,57)*(BS657-OpF156)));
+  FA357 = -(s.frc(3,57)+s.m(57)*(AlF256*S57-AlF356*C57-s.l(1,57)*(BS357-OpF257)-s.l(2,57)*(BS657+OpF156)+s.l(3,57)*(OM157*OM157+OM257*OM257)));
+  CF157 = -(s.trq(1,57)-s.In(1,57)*OpF156-s.In(9,57)*OM257*OM357+FA257*s.l(3,57)-FA357*s.l(2,57));
+  CF257 = -(s.trq(2,57)-FA157*s.l(3,57)+FA357*s.l(1,57)-OM157*OM357*(s.In(1,57)-s.In(9,57)));
+  CF357 = -(s.trq(3,57)+s.In(1,57)*OM157*OM257-s.In(9,57)*OpF357+FA157*s.l(2,57)-FA257*s.l(1,57));
+  FB157_1 = s.m(57)*(AlM16_1*C56+AlM25_1*S56);
+  FB257_1 = s.m(57)*(AlM256_1*C57+AlM36_1*S57);
+  FB357_1 = -s.m(57)*(AlM256_1*S57-AlM36_1*C57);
+  CM157_1 = -(FB257_1*s.l(3,57)-FB357_1*s.l(2,57));
+  CM257_1 = FB157_1*s.l(3,57)-FB357_1*s.l(1,57);
+  CM357_1 = -(FB157_1*s.l(2,57)-FB257_1*s.l(1,57));
+  FB157_2 = s.m(57)*(AlM16_2*C56+AlM25_2*S56);
+  FB257_2 = s.m(57)*(AlM256_2*C57+AlM36_2*S57);
+  FB357_2 = -s.m(57)*(AlM256_2*S57-AlM36_2*C57);
+  CM157_2 = -(FB257_2*s.l(3,57)-FB357_2*s.l(2,57));
+  CM257_2 = FB157_2*s.l(3,57)-FB357_2*s.l(1,57);
+  CM357_2 = -(FB157_2*s.l(2,57)-FB257_2*s.l(1,57));
+  FB157_3 = s.m(57)*(AlM16_3*C56+S5*S56);
+  FB257_3 = s.m(57)*(AlM256_3*C57+AlM36_3*S57);
+  FB357_3 = -s.m(57)*(AlM256_3*S57-AlM36_3*C57);
+  CM157_3 = -(FB257_3*s.l(3,57)-FB357_3*s.l(2,57));
+  CM257_3 = FB157_3*s.l(3,57)-FB357_3*s.l(1,57);
+  CM357_3 = -(FB157_3*s.l(2,57)-FB257_3*s.l(1,57));
+  FB157_4 = s.m(57)*(OpM257_4*s.l(3,57)-OpM357_4*s.l(2,57)-C56*(OpM36_4*s.dpt(2,16)-s.dpt(3,16)*S5)-S56*(OpM16_4*s.dpt(3,16)-OpM36_4*s.dpt(1,16))...
+ );
+  FB257_4 = s.m(57)*(AlM256_4*C57+AlM356_4*S57-OpM156_4*s.l(3,57)+OpM357_4*s.l(1,57));
+  FB357_4 = -s.m(57)*(AlM256_4*S57-AlM356_4*C57-OpM156_4*s.l(2,57)+OpM257_4*s.l(1,57));
+  CM157_4 = s.In(1,57)*OpM156_4-FB257_4*s.l(3,57)+FB357_4*s.l(2,57);
+  CM257_4 = FB157_4*s.l(3,57)-FB357_4*s.l(1,57);
+  CM357_4 = s.In(9,57)*OpM357_4-FB157_4*s.l(2,57)+FB257_4*s.l(1,57);
+  FB157_5 = s.m(57)*(OpM257_5*s.l(3,57)-OpM357_5*s.l(2,57)-s.dpt(2,16)*C56*S6+S56*(s.dpt(1,16)*S6-s.dpt(3,16)*C6));
+  FB257_5 = s.m(57)*(AlM256_5*C57+AlM356_5*S57-OpM156_5*s.l(3,57)+OpM357_5*s.l(1,57));
+  FB357_5 = -s.m(57)*(AlM256_5*S57-AlM356_5*C57-OpM156_5*s.l(2,57)+OpM257_5*s.l(1,57));
+  CM157_5 = s.In(1,57)*OpM156_5-FB257_5*s.l(3,57)+FB357_5*s.l(2,57);
+  CM257_5 = FB157_5*s.l(3,57)-FB357_5*s.l(1,57);
+  CM357_5 = s.In(9,57)*OpM357_5-FB157_5*s.l(2,57)+FB257_5*s.l(1,57);
+  FB157_6 = s.m(57)*(OpM257_6*s.l(3,57)-OpM357_6*s.l(2,57)+s.dpt(3,16)*C56);
+  FB257_6 = s.m(57)*(AlM256_6*C57+OpM357_6*s.l(1,57)-s.dpt(1,16)*S57-s.l(3,57)*S56);
+  FB357_6 = -s.m(57)*(AlM256_6*S57+OpM257_6*s.l(1,57)+s.dpt(1,16)*C57-s.l(2,57)*S56);
+  CM157_6 = s.In(1,57)*S56-FB257_6*s.l(3,57)+FB357_6*s.l(2,57);
+  CM257_6 = FB157_6*s.l(3,57)-FB357_6*s.l(1,57);
+  CM357_6 = s.In(9,57)*OpM357_6-FB157_6*s.l(2,57)+FB257_6*s.l(1,57);
+  FB157_56 = -s.m(57)*(s.l(2,57)*C57-s.l(3,57)*S57);
+  FB257_56 = s.m(57)*s.l(1,57)*C57;
+  FB357_56 = -s.m(57)*s.l(1,57)*S57;
+  CM157_56 = -(FB257_56*s.l(3,57)-FB357_56*s.l(2,57));
+  CM157_57 = s.In(1,57)+s.m(57)*s.l(2,57)*s.l(2,57)+s.m(57)*s.l(3,57)*s.l(3,57);
+  FF56_257 = FA257*C57-FA357*S57;
+  FF56_357 = FA257*S57+FA357*C57;
+  CF56_257 = CF257*C57-CF357*S57;
+  CF56_357 = CF257*S57+CF357*C57;
+  FM561_257 = FB257_1*C57-FB357_1*S57;
+  FM561_357 = FB257_1*S57+FB357_1*C57;
+  CM561_257 = CM257_1*C57-CM357_1*S57;
+  CM561_357 = CM257_1*S57+CM357_1*C57;
+  FM562_257 = FB257_2*C57-FB357_2*S57;
+  FM562_357 = FB257_2*S57+FB357_2*C57;
+  CM562_257 = CM257_2*C57-CM357_2*S57;
+  CM562_357 = CM257_2*S57+CM357_2*C57;
+  FM563_257 = FB257_3*C57-FB357_3*S57;
+  FM563_357 = FB257_3*S57+FB357_3*C57;
+  CM563_257 = CM257_3*C57-CM357_3*S57;
+  CM563_357 = CM257_3*S57+CM357_3*C57;
+  FM564_257 = FB257_4*C57-FB357_4*S57;
+  FM564_357 = FB257_4*S57+FB357_4*C57;
+  CM564_257 = CM257_4*C57-CM357_4*S57;
+  CM564_357 = CM257_4*S57+CM357_4*C57;
+  FM565_257 = FB257_5*C57-FB357_5*S57;
+  FM565_357 = FB257_5*S57+FB357_5*C57;
+  CM565_257 = CM257_5*C57-CM357_5*S57;
+  CM565_357 = CM257_5*S57+CM357_5*C57;
+  CM566_357 = CM257_6*S57+CM357_6*C57;
+  CM5656_357 = C57*(s.In(9,57)*C57-FB157_56*s.l(2,57)+FB257_56*s.l(1,57))+S57*(FB157_56*s.l(3,57)-FB357_56*s.l(1,57));
+
+% = = Block_0_2_0_1_0_14 = = 
+ 
+% Backward Dynamics 
+
+  FA159 = -(s.frc(1,59)+s.m(59)*(s.l(1,59)*(OM259*OM259+OM359*OM359)-s.l(2,59)*(BS259-OpF359)-s.l(3,59)*(BS359+OpF259)-C58*(AlF16+BS16*...
+ s.dpt(1,17)+BeF26*s.dpt(2,17)+BeF36*s.dpt(3,17))-S58*(AlF25+BS56*s.dpt(2,17)+BeF46*s.dpt(1,17)+BeF66*s.dpt(3,17))));
+  FA259 = -(s.frc(2,59)-s.m(59)*(AlF258*C59+AlF358*S59+s.l(1,59)*(BS259+OpF359)-s.l(2,59)*(OM159*OM159+OM359*OM359)+s.l(3,59)*(BS659-OpF158)));
+  FA359 = -(s.frc(3,59)+s.m(59)*(AlF258*S59-AlF358*C59-s.l(1,59)*(BS359-OpF259)-s.l(2,59)*(BS659+OpF158)+s.l(3,59)*(OM159*OM159+OM259*OM259)));
+  CF159 = -(s.trq(1,59)-s.In(1,59)*OpF158-s.In(9,59)*OM259*OM359+FA259*s.l(3,59)-FA359*s.l(2,59));
+  CF259 = -(s.trq(2,59)-FA159*s.l(3,59)+FA359*s.l(1,59)-OM159*OM359*(s.In(1,59)-s.In(9,59)));
+  CF359 = -(s.trq(3,59)+s.In(1,59)*OM159*OM259-s.In(9,59)*OpF359+FA159*s.l(2,59)-FA259*s.l(1,59));
+  FB159_1 = s.m(59)*(AlM16_1*C58+AlM25_1*S58);
+  FB259_1 = s.m(59)*(AlM258_1*C59+AlM36_1*S59);
+  FB359_1 = -s.m(59)*(AlM258_1*S59-AlM36_1*C59);
+  CM159_1 = -(FB259_1*s.l(3,59)-FB359_1*s.l(2,59));
+  CM259_1 = FB159_1*s.l(3,59)-FB359_1*s.l(1,59);
+  CM359_1 = -(FB159_1*s.l(2,59)-FB259_1*s.l(1,59));
+  FB159_2 = s.m(59)*(AlM16_2*C58+AlM25_2*S58);
+  FB259_2 = s.m(59)*(AlM258_2*C59+AlM36_2*S59);
+  FB359_2 = -s.m(59)*(AlM258_2*S59-AlM36_2*C59);
+  CM159_2 = -(FB259_2*s.l(3,59)-FB359_2*s.l(2,59));
+  CM259_2 = FB159_2*s.l(3,59)-FB359_2*s.l(1,59);
+  CM359_2 = -(FB159_2*s.l(2,59)-FB259_2*s.l(1,59));
+  FB159_3 = s.m(59)*(AlM16_3*C58+S5*S58);
+  FB259_3 = s.m(59)*(AlM258_3*C59+AlM36_3*S59);
+  FB359_3 = -s.m(59)*(AlM258_3*S59-AlM36_3*C59);
+  CM159_3 = -(FB259_3*s.l(3,59)-FB359_3*s.l(2,59));
+  CM259_3 = FB159_3*s.l(3,59)-FB359_3*s.l(1,59);
+  CM359_3 = -(FB159_3*s.l(2,59)-FB259_3*s.l(1,59));
+  FB159_4 = s.m(59)*(OpM259_4*s.l(3,59)-OpM359_4*s.l(2,59)-C58*(OpM36_4*s.dpt(2,17)-s.dpt(3,17)*S5)-S58*(OpM16_4*s.dpt(3,17)-OpM36_4*s.dpt(1,17))...
+ );
+  FB259_4 = s.m(59)*(AlM258_4*C59+AlM358_4*S59-OpM158_4*s.l(3,59)+OpM359_4*s.l(1,59));
+  FB359_4 = -s.m(59)*(AlM258_4*S59-AlM358_4*C59-OpM158_4*s.l(2,59)+OpM259_4*s.l(1,59));
+  CM159_4 = s.In(1,59)*OpM158_4-FB259_4*s.l(3,59)+FB359_4*s.l(2,59);
+  CM259_4 = FB159_4*s.l(3,59)-FB359_4*s.l(1,59);
+  CM359_4 = s.In(9,59)*OpM359_4-FB159_4*s.l(2,59)+FB259_4*s.l(1,59);
+  FB159_5 = s.m(59)*(OpM259_5*s.l(3,59)-OpM359_5*s.l(2,59)-s.dpt(2,17)*C58*S6+S58*(s.dpt(1,17)*S6-s.dpt(3,17)*C6));
+  FB259_5 = s.m(59)*(AlM258_5*C59+AlM358_5*S59-OpM158_5*s.l(3,59)+OpM359_5*s.l(1,59));
+  FB359_5 = -s.m(59)*(AlM258_5*S59-AlM358_5*C59-OpM158_5*s.l(2,59)+OpM259_5*s.l(1,59));
+  CM159_5 = s.In(1,59)*OpM158_5-FB259_5*s.l(3,59)+FB359_5*s.l(2,59);
+  CM259_5 = FB159_5*s.l(3,59)-FB359_5*s.l(1,59);
+  CM359_5 = s.In(9,59)*OpM359_5-FB159_5*s.l(2,59)+FB259_5*s.l(1,59);
+  FB159_6 = s.m(59)*(OpM259_6*s.l(3,59)-OpM359_6*s.l(2,59)+s.dpt(3,17)*C58);
+  FB259_6 = s.m(59)*(AlM258_6*C59+OpM359_6*s.l(1,59)-s.dpt(1,17)*S59-s.l(3,59)*S58);
+  FB359_6 = -s.m(59)*(AlM258_6*S59+OpM259_6*s.l(1,59)+s.dpt(1,17)*C59-s.l(2,59)*S58);
+  CM159_6 = s.In(1,59)*S58-FB259_6*s.l(3,59)+FB359_6*s.l(2,59);
+  CM259_6 = FB159_6*s.l(3,59)-FB359_6*s.l(1,59);
+  CM359_6 = s.In(9,59)*OpM359_6-FB159_6*s.l(2,59)+FB259_6*s.l(1,59);
+  FB159_58 = -s.m(59)*(s.l(2,59)*C59-s.l(3,59)*S59);
+  FB259_58 = s.m(59)*s.l(1,59)*C59;
+  FB359_58 = -s.m(59)*s.l(1,59)*S59;
+  CM159_58 = -(FB259_58*s.l(3,59)-FB359_58*s.l(2,59));
+  CM159_59 = s.In(1,59)+s.m(59)*s.l(2,59)*s.l(2,59)+s.m(59)*s.l(3,59)*s.l(3,59);
+  FF58_259 = FA259*C59-FA359*S59;
+  FF58_359 = FA259*S59+FA359*C59;
+  CF58_259 = CF259*C59-CF359*S59;
+  CF58_359 = CF259*S59+CF359*C59;
+  FM581_259 = FB259_1*C59-FB359_1*S59;
+  FM581_359 = FB259_1*S59+FB359_1*C59;
+  CM581_259 = CM259_1*C59-CM359_1*S59;
+  CM581_359 = CM259_1*S59+CM359_1*C59;
+  FM582_259 = FB259_2*C59-FB359_2*S59;
+  FM582_359 = FB259_2*S59+FB359_2*C59;
+  CM582_259 = CM259_2*C59-CM359_2*S59;
+  CM582_359 = CM259_2*S59+CM359_2*C59;
+  FM583_259 = FB259_3*C59-FB359_3*S59;
+  FM583_359 = FB259_3*S59+FB359_3*C59;
+  CM583_259 = CM259_3*C59-CM359_3*S59;
+  CM583_359 = CM259_3*S59+CM359_3*C59;
+  FM584_259 = FB259_4*C59-FB359_4*S59;
+  FM584_359 = FB259_4*S59+FB359_4*C59;
+  CM584_259 = CM259_4*C59-CM359_4*S59;
+  CM584_359 = CM259_4*S59+CM359_4*C59;
+  FM585_259 = FB259_5*C59-FB359_5*S59;
+  FM585_359 = FB259_5*S59+FB359_5*C59;
+  CM585_259 = CM259_5*C59-CM359_5*S59;
+  CM585_359 = CM259_5*S59+CM359_5*C59;
+  CM586_359 = CM259_6*S59+CM359_6*C59;
+  CM5858_359 = C59*(s.In(9,59)*C59-FB159_58*s.l(2,59)+FB259_58*s.l(1,59))+S59*(FB159_58*s.l(3,59)-FB359_58*s.l(1,59));
+
+% = = Block_0_2_0_1_0_15 = = 
+ 
+% Backward Dynamics 
+
+  FF160 = -(s.frc(1,60)+s.frc(1,61)*C61+s.frc(3,61)*S61);
+  FF260 = -(s.frc(2,60)+s.frc(2,61));
+  FF360 = -(s.frc(3,60)-s.frc(1,61)*S61+s.frc(3,61)*C61);
+  CF160 = -(s.trq(1,60)+s.trq(1,61)*C61+s.trq(3,61)*S61-s.dpt(2,66)*(s.frc(1,61)*S61-s.frc(3,61)*C61));
+  CF260 = -(s.trq(2,60)+s.trq(2,61));
+  CF360 = -(s.trq(3,60)-s.trq(1,61)*S61+s.trq(3,61)*C61-s.dpt(2,66)*(s.frc(1,61)*C61+s.frc(3,61)*S61));
+
+% = = Block_0_2_0_1_0_16 = = 
+ 
+% Backward Dynamics 
+
+  FF162 = -(s.frc(1,62)+s.frc(1,63)*C63+s.frc(3,63)*S63);
+  FF262 = -(s.frc(2,62)+s.frc(2,63));
+  FF362 = -(s.frc(3,62)-s.frc(1,63)*S63+s.frc(3,63)*C63);
+  CF162 = -(s.trq(1,62)+s.trq(1,63)*C63+s.trq(3,63)*S63-s.dpt(2,70)*(s.frc(1,63)*S63-s.frc(3,63)*C63));
+  CF262 = -(s.trq(2,62)+s.trq(2,63));
+  CF362 = -(s.trq(3,62)-s.trq(1,63)*S63+s.trq(3,63)*C63-s.dpt(2,70)*(s.frc(1,63)*C63+s.frc(3,63)*S63));
+
+% = = Block_0_2_0_2_0_1 = = 
+ 
+% Backward Dynamics 
+
+  FA16 = -(s.frc(1,6)-s.m(6)*(AlF16+BS16*s.l(1,6)+BeF36*s.l(3,6)));
+  FA26 = -(s.frc(2,6)-s.m(6)*(AlF25+BeF46*s.l(1,6)+BeF66*s.l(3,6)));
+  FA36 = -(s.frc(3,6)-s.m(6)*(AlF36+BS96*s.l(3,6)+BeF76*s.l(1,6)));
+  FF16 = FA133+FA16+FA117*C16+FA119*C18+FA121*C20+FA123*C22+FA144*C43+FA146*C45+FA157*C56+FA159*C58+FF160*C60+FF162*C62-FF16_217*S16-FF18_219*S18...
+ -FF20_221*S20-FF22_223*S22+FF24_125*C24-FF25_226*S24+FF34_135*C34-FF35_236*S34+FF360*S60+FF362*S62-FF43_244*S43-FF45_246*S45+FF47_148*C47-FF48_249*...
+ S47-FF56_257*S56-FF58_259*S58+FF7_18*C7-FF8_29*S7;
+  FF26 = FA233+FA26+FF260+FF262+FA117*S16+FA119*S18+FA121*S20+FA123*S22+FA144*S43+FA146*S45+FA157*S56+FA159*S58+FF16_217*C16+FF18_219*C18+...
+ FF20_221*C20+FF22_223*C22+FF24_125*S24+FF25_226*C24+FF34_135*S34+FF35_236*C34+FF43_244*C43+FF45_246*C45+FF47_148*S47+FF48_249*C47+FF56_257*C56+...
+ FF58_259*C58+FF7_18*S7+FF8_29*C7;
+  FF36 = FA333+FA36+FF16_317+FF18_319+FF20_321+FF22_323+FF24_325+FF34_335+FF43_344+FF45_346+FF47_348+FF56_357+FF58_359+FF7_38-FF160*S60-FF162*S62...
+ +FF360*C60+FF362*C62;
+  CF16 = -(s.trq(1,33)+s.trq(1,6)-q(33)*FA333-s.In(1,33)*OpF16-s.In(1,6)*OpF16-s.In(3,6)*OpF36-CF117*C16-CF119*C18-CF121*C20-CF123*C22-CF144*C43-...
+ CF146*C45-CF157*C56-CF159*C58-CF160*C60-CF162*C62+CF16_217*S16+CF18_219*S18+CF20_221*S20+CF22_223*S22-CF24_125*C24+CF25_226*S24-CF34_135*C34+CF35_236...
+ *S34-CF360*S60-CF362*S62+CF43_244*S43+CF45_246*S45-CF47_148*C47+CF48_249*S47+CF56_257*S56+CF58_259*S58-CF7_18*C7+CF8_29*S7+FA233*s.dpt(3,9)+FA26*...
+ s.l(3,6)-FF16_317*s.dpt(2,2)-FF18_319*s.dpt(2,3)-FF20_321*s.dpt(2,4)-FF22_323*s.dpt(2,5)-FF24_325*s.dpt(2,6)+FF260*s.dpt(3,21)+FF262*s.dpt(3,22)-...
+ FF34_335*s.dpt(2,10)-FF43_344*s.dpt(2,11)-FF45_346*s.dpt(2,12)-FF47_348*s.dpt(2,15)-FF56_357*s.dpt(2,16)-FF58_359*s.dpt(2,17)-FF7_38*s.dpt(2,1)+OM26*...
+ OM36*(s.In(5,33)-s.In(9,33))-OM26*(s.In(3,6)*OM16-s.In(5,6)*OM36+s.In(9,6)*OM36)+s.dpt(2,21)*(FF160*S60-FF360*C60)+s.dpt(2,22)*(FF162*S62-FF362*C62)+...
+ s.dpt(3,1)*(FF7_18*S7+FF8_29*C7)+s.dpt(3,10)*(FF34_135*S34+FF35_236*C34)+s.dpt(3,11)*(FA144*S43+FF43_244*C43)+s.dpt(3,12)*(FA146*S45+FF45_246*C45)+...
+ s.dpt(3,15)*(FF47_148*S47+FF48_249*C47)+s.dpt(3,16)*(FA157*S56+FF56_257*C56)+s.dpt(3,17)*(FA159*S58+FF58_259*C58)+s.dpt(3,2)*(FA117*S16+FF16_217*C16)...
+ +s.dpt(3,3)*(FA119*S18+FF18_219*C18)+s.dpt(3,4)*(FA121*S20+FF20_221*C20)+s.dpt(3,5)*(FA123*S22+FF22_223*C22)+s.dpt(3,6)*(FF24_125*S24+FF25_226*C24));
+  CF26 = -(s.trq(2,33)+s.trq(2,6)-CF260-CF262-s.In(5,33)*OpF25-s.In(5,6)*OpF25-CF117*S16-CF119*S18-CF121*S20-CF123*S22-CF144*S43-CF146*S45-CF157*...
+ S56-CF159*S58-CF16_217*C16-CF18_219*C18-CF20_221*C20-CF22_223*C22-CF24_125*S24-CF25_226*C24-CF34_135*S34-CF35_236*C34-CF43_244*C43-CF45_246*C45-...
+ CF47_148*S47-CF48_249*C47-CF56_257*C56-CF58_259*C58-CF7_18*S7-CF8_29*C7-FA133*s.dpt(3,9)-FA16*s.l(3,6)+FA333*s.dpt(1,9)+FA36*s.l(1,6)+FF16_317*...
+ s.dpt(1,2)+FF18_319*s.dpt(1,3)+FF20_321*s.dpt(1,4)+FF22_323*s.dpt(1,5)+FF24_325*s.dpt(1,6)+FF34_335*s.dpt(1,10)+FF43_344*s.dpt(1,11)+FF45_346*...
+ s.dpt(1,12)+FF47_348*s.dpt(1,15)+FF56_357*s.dpt(1,16)+FF58_359*s.dpt(1,17)+FF7_38*s.dpt(1,1)-OM16*OM36*(s.In(1,33)-s.In(9,33))+OM16*(s.In(3,6)*OM16+...
+ s.In(9,6)*OM36)-OM36*(s.In(1,6)*OM16+s.In(3,6)*OM36)-s.dpt(1,21)*(FF160*S60-FF360*C60)-s.dpt(1,22)*(FF162*S62-FF362*C62)-s.dpt(3,1)*(FF7_18*C7-FF8_29...
+ *S7)-s.dpt(3,10)*(FF34_135*C34-FF35_236*S34)-s.dpt(3,11)*(FA144*C43-FF43_244*S43)-s.dpt(3,12)*(FA146*C45-FF45_246*S45)-s.dpt(3,15)*(FF47_148*C47-...
+ FF48_249*S47)-s.dpt(3,16)*(FA157*C56-FF56_257*S56)-s.dpt(3,17)*(FA159*C58-FF58_259*S58)-s.dpt(3,2)*(FA117*C16-FF16_217*S16)-s.dpt(3,21)*(FF160*C60+...
+ FF360*S60)-s.dpt(3,22)*(FF162*C62+FF362*S62)-s.dpt(3,3)*(FA119*C18-FF18_219*S18)-s.dpt(3,4)*(FA121*C20-FF20_221*S20)-s.dpt(3,5)*(FA123*C22-FF22_223*...
+ S22)-s.dpt(3,6)*(FF24_125*C24-FF25_226*S24));
+  CF36 = -(s.trq(3,33)+s.trq(3,6)-CF16_317-CF18_319-CF20_321-CF22_323-CF24_325-CF34_335-CF43_344-CF45_346-CF47_348-CF56_357-CF58_359-CF7_38+q(33)...
+ *FA133-s.In(3,6)*OpF16-s.In(9,33)*OpF36-s.In(9,6)*OpF36+CF160*S60+CF162*S62-CF360*C60-CF362*C62-FA233*s.dpt(1,9)-FA26*s.l(1,6)-FF260*s.dpt(1,21)-...
+ FF262*s.dpt(1,22)+OM16*OM26*(s.In(1,33)-s.In(5,33))+OM26*(s.In(1,6)*OM16+s.In(3,6)*OM36-s.In(5,6)*OM16)-s.dpt(1,1)*(FF7_18*S7+FF8_29*C7)-s.dpt(1,10)*...
+ (FF34_135*S34+FF35_236*C34)-s.dpt(1,11)*(FA144*S43+FF43_244*C43)-s.dpt(1,12)*(FA146*S45+FF45_246*C45)-s.dpt(1,15)*(FF47_148*S47+FF48_249*C47)-...
+ s.dpt(1,16)*(FA157*S56+FF56_257*C56)-s.dpt(1,17)*(FA159*S58+FF58_259*C58)-s.dpt(1,2)*(FA117*S16+FF16_217*C16)-s.dpt(1,3)*(FA119*S18+FF18_219*C18)-...
+ s.dpt(1,4)*(FA121*S20+FF20_221*C20)-s.dpt(1,5)*(FA123*S22+FF22_223*C22)-s.dpt(1,6)*(FF24_125*S24+FF25_226*C24)+s.dpt(2,1)*(FF7_18*C7-FF8_29*S7)+...
+ s.dpt(2,10)*(FF34_135*C34-FF35_236*S34)+s.dpt(2,11)*(FA144*C43-FF43_244*S43)+s.dpt(2,12)*(FA146*C45-FF45_246*S45)+s.dpt(2,15)*(FF47_148*C47-FF48_249*...
+ S47)+s.dpt(2,16)*(FA157*C56-FF56_257*S56)+s.dpt(2,17)*(FA159*C58-FF58_259*S58)+s.dpt(2,2)*(FA117*C16-FF16_217*S16)+s.dpt(2,21)*(FF160*C60+FF360*S60)+...
+ s.dpt(2,22)*(FF162*C62+FF362*S62)+s.dpt(2,3)*(FA119*C18-FF18_219*S18)+s.dpt(2,4)*(FA121*C20-FF20_221*S20)+s.dpt(2,5)*(FA123*C22-FF22_223*S22)+...
+ s.dpt(2,6)*(FF24_125*C24-FF25_226*S24));
+  FB16_1 = s.m(6)*AlM16_1;
+  FB26_1 = s.m(6)*AlM25_1;
+  FB36_1 = s.m(6)*AlM36_1;
+  FM16_1 = FB133_1+FB16_1+FB117_1*C16+FB119_1*C18+FB121_1*C20+FB123_1*C22+FB144_1*C43+FB146_1*C45+FB157_1*C56+FB159_1*C58-FM161_217*S16-FM181_219...
+ *S18-FM201_221*S20-FM221_223*S22+FM241_125*C24-FM251_226*S24+FM341_135*C34-FM351_236*S34-FM431_244*S43-FM451_246*S45+FM471_148*C47-FM481_249*S47-...
+ FM561_257*S56-FM581_259*S58+FM71_18*C7-FM81_29*S7;
+  FM26_1 = FB233_1+FB26_1+FB117_1*S16+FB119_1*S18+FB121_1*S20+FB123_1*S22+FB144_1*S43+FB146_1*S45+FB157_1*S56+FB159_1*S58+FM161_217*C16+FM181_219...
+ *C18+FM201_221*C20+FM221_223*C22+FM241_125*S24+FM251_226*C24+FM341_135*S34+FM351_236*C34+FM431_244*C43+FM451_246*C45+FM471_148*S47+FM481_249*C47+...
+ FM561_257*C56+FM581_259*C58+FM71_18*S7+FM81_29*C7;
+  FM36_1 = FB333_1+FB36_1+FM161_317+FM181_319+FM201_321+FM221_323+FM241_325+FM341_335+FM431_344+FM451_346+FM471_348+FM561_357+FM581_359+FM71_38;
+  CM16_1 = q(33)*FB333_1+CM117_1*C16+CM119_1*C18+CM121_1*C20+CM123_1*C22+CM144_1*C43+CM146_1*C45+CM157_1*C56+CM159_1*C58-CM161_217*S16-CM181_219*...
+ S18-CM201_221*S20-CM221_223*S22+CM241_125*C24-CM251_226*S24+CM341_135*C34-CM351_236*S34-CM431_244*S43-CM451_246*S45+CM471_148*C47-CM481_249*S47-...
+ CM561_257*S56-CM581_259*S58+CM71_18*C7-CM81_29*S7-FB233_1*s.dpt(3,9)-FB26_1*s.l(3,6)+FM161_317*s.dpt(2,2)+FM181_319*s.dpt(2,3)+FM201_321*s.dpt(2,4)+...
+ FM221_323*s.dpt(2,5)+FM241_325*s.dpt(2,6)+FM341_335*s.dpt(2,10)+FM431_344*s.dpt(2,11)+FM451_346*s.dpt(2,12)+FM471_348*s.dpt(2,15)+FM561_357*...
+ s.dpt(2,16)+FM581_359*s.dpt(2,17)+FM71_38*s.dpt(2,1)-s.dpt(3,1)*(FM71_18*S7+FM81_29*C7)-s.dpt(3,10)*(FM341_135*S34+FM351_236*C34)-s.dpt(3,11)*(...
+ FB144_1*S43+FM431_244*C43)-s.dpt(3,12)*(FB146_1*S45+FM451_246*C45)-s.dpt(3,15)*(FM471_148*S47+FM481_249*C47)-s.dpt(3,16)*(FB157_1*S56+FM561_257*C56)-...
+ s.dpt(3,17)*(FB159_1*S58+FM581_259*C58)-s.dpt(3,2)*(FB117_1*S16+FM161_217*C16)-s.dpt(3,3)*(FB119_1*S18+FM181_219*C18)-s.dpt(3,4)*(FB121_1*S20+...
+ FM201_221*C20)-s.dpt(3,5)*(FB123_1*S22+FM221_223*C22)-s.dpt(3,6)*(FM241_125*S24+FM251_226*C24);
+  CM26_1 = CM117_1*S16+CM119_1*S18+CM121_1*S20+CM123_1*S22+CM144_1*S43+CM146_1*S45+CM157_1*S56+CM159_1*S58+CM161_217*C16+CM181_219*C18+CM201_221*...
+ C20+CM221_223*C22+CM241_125*S24+CM251_226*C24+CM341_135*S34+CM351_236*C34+CM431_244*C43+CM451_246*C45+CM471_148*S47+CM481_249*C47+CM561_257*C56+...
+ CM581_259*C58+CM71_18*S7+CM81_29*C7+FB133_1*s.dpt(3,9)+FB16_1*s.l(3,6)-FB333_1*s.dpt(1,9)-FB36_1*s.l(1,6)-FM161_317*s.dpt(1,2)-FM181_319*s.dpt(1,3)-...
+ FM201_321*s.dpt(1,4)-FM221_323*s.dpt(1,5)-FM241_325*s.dpt(1,6)-FM341_335*s.dpt(1,10)-FM431_344*s.dpt(1,11)-FM451_346*s.dpt(1,12)-FM471_348*...
+ s.dpt(1,15)-FM561_357*s.dpt(1,16)-FM581_359*s.dpt(1,17)-FM71_38*s.dpt(1,1)+s.dpt(3,1)*(FM71_18*C7-FM81_29*S7)+s.dpt(3,10)*(FM341_135*C34-FM351_236*...
+ S34)+s.dpt(3,11)*(FB144_1*C43-FM431_244*S43)+s.dpt(3,12)*(FB146_1*C45-FM451_246*S45)+s.dpt(3,15)*(FM471_148*C47-FM481_249*S47)+s.dpt(3,16)*(FB157_1*...
+ C56-FM561_257*S56)+s.dpt(3,17)*(FB159_1*C58-FM581_259*S58)+s.dpt(3,2)*(FB117_1*C16-FM161_217*S16)+s.dpt(3,3)*(FB119_1*C18-FM181_219*S18)+s.dpt(3,4)*(...
+ FB121_1*C20-FM201_221*S20)+s.dpt(3,5)*(FB123_1*C22-FM221_223*S22)+s.dpt(3,6)*(FM241_125*C24-FM251_226*S24);
+  CM36_1 = CM161_317+CM181_319+CM201_321+CM221_323+CM241_325+CM341_335+CM431_344+CM451_346+CM471_348+CM561_357+CM581_359+CM71_38-q(33)*FB133_1+...
+ FB233_1*s.dpt(1,9)+FB26_1*s.l(1,6)+s.dpt(1,1)*(FM71_18*S7+FM81_29*C7)+s.dpt(1,10)*(FM341_135*S34+FM351_236*C34)+s.dpt(1,11)*(FB144_1*S43+FM431_244*...
+ C43)+s.dpt(1,12)*(FB146_1*S45+FM451_246*C45)+s.dpt(1,15)*(FM471_148*S47+FM481_249*C47)+s.dpt(1,16)*(FB157_1*S56+FM561_257*C56)+s.dpt(1,17)*(FB159_1*...
+ S58+FM581_259*C58)+s.dpt(1,2)*(FB117_1*S16+FM161_217*C16)+s.dpt(1,3)*(FB119_1*S18+FM181_219*C18)+s.dpt(1,4)*(FB121_1*S20+FM201_221*C20)+s.dpt(1,5)*(...
+ FB123_1*S22+FM221_223*C22)+s.dpt(1,6)*(FM241_125*S24+FM251_226*C24)-s.dpt(2,1)*(FM71_18*C7-FM81_29*S7)-s.dpt(2,10)*(FM341_135*C34-FM351_236*S34)-...
+ s.dpt(2,11)*(FB144_1*C43-FM431_244*S43)-s.dpt(2,12)*(FB146_1*C45-FM451_246*S45)-s.dpt(2,15)*(FM471_148*C47-FM481_249*S47)-s.dpt(2,16)*(FB157_1*C56-...
+ FM561_257*S56)-s.dpt(2,17)*(FB159_1*C58-FM581_259*S58)-s.dpt(2,2)*(FB117_1*C16-FM161_217*S16)-s.dpt(2,3)*(FB119_1*C18-FM181_219*S18)-s.dpt(2,4)*(...
+ FB121_1*C20-FM201_221*S20)-s.dpt(2,5)*(FB123_1*C22-FM221_223*S22)-s.dpt(2,6)*(FM241_125*C24-FM251_226*S24);
+  FB16_2 = s.m(6)*AlM16_2;
+  FB26_2 = s.m(6)*AlM25_2;
+  FB36_2 = s.m(6)*AlM36_2;
+  FM16_2 = FB133_2+FB16_2+FB117_2*C16+FB119_2*C18+FB121_2*C20+FB123_2*C22+FB144_2*C43+FB146_2*C45+FB157_2*C56+FB159_2*C58-FM162_217*S16-FM182_219...
+ *S18-FM202_221*S20-FM222_223*S22+FM242_125*C24-FM252_226*S24+FM342_135*C34-FM352_236*S34-FM432_244*S43-FM452_246*S45+FM472_148*C47-FM482_249*S47-...
+ FM562_257*S56-FM582_259*S58+FM72_18*C7-FM82_29*S7;
+  FM26_2 = FB233_2+FB26_2+FB117_2*S16+FB119_2*S18+FB121_2*S20+FB123_2*S22+FB144_2*S43+FB146_2*S45+FB157_2*S56+FB159_2*S58+FM162_217*C16+FM182_219...
+ *C18+FM202_221*C20+FM222_223*C22+FM242_125*S24+FM252_226*C24+FM342_135*S34+FM352_236*C34+FM432_244*C43+FM452_246*C45+FM472_148*S47+FM482_249*C47+...
+ FM562_257*C56+FM582_259*C58+FM72_18*S7+FM82_29*C7;
+  FM36_2 = FB333_2+FB36_2+FM162_317+FM182_319+FM202_321+FM222_323+FM242_325+FM342_335+FM432_344+FM452_346+FM472_348+FM562_357+FM582_359+FM72_38;
+  CM16_2 = q(33)*FB333_2+CM117_2*C16+CM119_2*C18+CM121_2*C20+CM123_2*C22+CM144_2*C43+CM146_2*C45+CM157_2*C56+CM159_2*C58-CM162_217*S16-CM182_219*...
+ S18-CM202_221*S20-CM222_223*S22+CM242_125*C24-CM252_226*S24+CM342_135*C34-CM352_236*S34-CM432_244*S43-CM452_246*S45+CM472_148*C47-CM482_249*S47-...
+ CM562_257*S56-CM582_259*S58+CM72_18*C7-CM82_29*S7-FB233_2*s.dpt(3,9)-FB26_2*s.l(3,6)+FM162_317*s.dpt(2,2)+FM182_319*s.dpt(2,3)+FM202_321*s.dpt(2,4)+...
+ FM222_323*s.dpt(2,5)+FM242_325*s.dpt(2,6)+FM342_335*s.dpt(2,10)+FM432_344*s.dpt(2,11)+FM452_346*s.dpt(2,12)+FM472_348*s.dpt(2,15)+FM562_357*...
+ s.dpt(2,16)+FM582_359*s.dpt(2,17)+FM72_38*s.dpt(2,1)-s.dpt(3,1)*(FM72_18*S7+FM82_29*C7)-s.dpt(3,10)*(FM342_135*S34+FM352_236*C34)-s.dpt(3,11)*(...
+ FB144_2*S43+FM432_244*C43)-s.dpt(3,12)*(FB146_2*S45+FM452_246*C45)-s.dpt(3,15)*(FM472_148*S47+FM482_249*C47)-s.dpt(3,16)*(FB157_2*S56+FM562_257*C56)-...
+ s.dpt(3,17)*(FB159_2*S58+FM582_259*C58)-s.dpt(3,2)*(FB117_2*S16+FM162_217*C16)-s.dpt(3,3)*(FB119_2*S18+FM182_219*C18)-s.dpt(3,4)*(FB121_2*S20+...
+ FM202_221*C20)-s.dpt(3,5)*(FB123_2*S22+FM222_223*C22)-s.dpt(3,6)*(FM242_125*S24+FM252_226*C24);
+  CM26_2 = CM117_2*S16+CM119_2*S18+CM121_2*S20+CM123_2*S22+CM144_2*S43+CM146_2*S45+CM157_2*S56+CM159_2*S58+CM162_217*C16+CM182_219*C18+CM202_221*...
+ C20+CM222_223*C22+CM242_125*S24+CM252_226*C24+CM342_135*S34+CM352_236*C34+CM432_244*C43+CM452_246*C45+CM472_148*S47+CM482_249*C47+CM562_257*C56+...
+ CM582_259*C58+CM72_18*S7+CM82_29*C7+FB133_2*s.dpt(3,9)+FB16_2*s.l(3,6)-FB333_2*s.dpt(1,9)-FB36_2*s.l(1,6)-FM162_317*s.dpt(1,2)-FM182_319*s.dpt(1,3)-...
+ FM202_321*s.dpt(1,4)-FM222_323*s.dpt(1,5)-FM242_325*s.dpt(1,6)-FM342_335*s.dpt(1,10)-FM432_344*s.dpt(1,11)-FM452_346*s.dpt(1,12)-FM472_348*...
+ s.dpt(1,15)-FM562_357*s.dpt(1,16)-FM582_359*s.dpt(1,17)-FM72_38*s.dpt(1,1)+s.dpt(3,1)*(FM72_18*C7-FM82_29*S7)+s.dpt(3,10)*(FM342_135*C34-FM352_236*...
+ S34)+s.dpt(3,11)*(FB144_2*C43-FM432_244*S43)+s.dpt(3,12)*(FB146_2*C45-FM452_246*S45)+s.dpt(3,15)*(FM472_148*C47-FM482_249*S47)+s.dpt(3,16)*(FB157_2*...
+ C56-FM562_257*S56)+s.dpt(3,17)*(FB159_2*C58-FM582_259*S58)+s.dpt(3,2)*(FB117_2*C16-FM162_217*S16)+s.dpt(3,3)*(FB119_2*C18-FM182_219*S18)+s.dpt(3,4)*(...
+ FB121_2*C20-FM202_221*S20)+s.dpt(3,5)*(FB123_2*C22-FM222_223*S22)+s.dpt(3,6)*(FM242_125*C24-FM252_226*S24);
+  CM36_2 = CM162_317+CM182_319+CM202_321+CM222_323+CM242_325+CM342_335+CM432_344+CM452_346+CM472_348+CM562_357+CM582_359+CM72_38-q(33)*FB133_2+...
+ FB233_2*s.dpt(1,9)+FB26_2*s.l(1,6)+s.dpt(1,1)*(FM72_18*S7+FM82_29*C7)+s.dpt(1,10)*(FM342_135*S34+FM352_236*C34)+s.dpt(1,11)*(FB144_2*S43+FM432_244*...
+ C43)+s.dpt(1,12)*(FB146_2*S45+FM452_246*C45)+s.dpt(1,15)*(FM472_148*S47+FM482_249*C47)+s.dpt(1,16)*(FB157_2*S56+FM562_257*C56)+s.dpt(1,17)*(FB159_2*...
+ S58+FM582_259*C58)+s.dpt(1,2)*(FB117_2*S16+FM162_217*C16)+s.dpt(1,3)*(FB119_2*S18+FM182_219*C18)+s.dpt(1,4)*(FB121_2*S20+FM202_221*C20)+s.dpt(1,5)*(...
+ FB123_2*S22+FM222_223*C22)+s.dpt(1,6)*(FM242_125*S24+FM252_226*C24)-s.dpt(2,1)*(FM72_18*C7-FM82_29*S7)-s.dpt(2,10)*(FM342_135*C34-FM352_236*S34)-...
+ s.dpt(2,11)*(FB144_2*C43-FM432_244*S43)-s.dpt(2,12)*(FB146_2*C45-FM452_246*S45)-s.dpt(2,15)*(FM472_148*C47-FM482_249*S47)-s.dpt(2,16)*(FB157_2*C56-...
+ FM562_257*S56)-s.dpt(2,17)*(FB159_2*C58-FM582_259*S58)-s.dpt(2,2)*(FB117_2*C16-FM162_217*S16)-s.dpt(2,3)*(FB119_2*C18-FM182_219*S18)-s.dpt(2,4)*(...
+ FB121_2*C20-FM202_221*S20)-s.dpt(2,5)*(FB123_2*C22-FM222_223*S22)-s.dpt(2,6)*(FM242_125*C24-FM252_226*S24);
+  FB16_3 = s.m(6)*AlM16_3;
+  FB26_3 = s.m(6)*S5;
+  FB36_3 = s.m(6)*AlM36_3;
+  CM16_3 = q(33)*FB333_3+CM117_3*C16+CM119_3*C18+CM121_3*C20+CM123_3*C22+CM144_3*C43+CM146_3*C45+CM157_3*C56+CM159_3*C58-CM163_217*S16-CM183_219*...
+ S18-CM203_221*S20-CM223_223*S22+CM243_125*C24-CM253_226*S24+CM343_135*C34-CM353_236*S34-CM433_244*S43-CM453_246*S45+CM473_148*C47-CM483_249*S47-...
+ CM563_257*S56-CM583_259*S58+CM73_18*C7-CM83_29*S7-FB233_3*s.dpt(3,9)-FB26_3*s.l(3,6)+FM163_317*s.dpt(2,2)+FM183_319*s.dpt(2,3)+FM203_321*s.dpt(2,4)+...
+ FM223_323*s.dpt(2,5)+FM243_325*s.dpt(2,6)+FM343_335*s.dpt(2,10)+FM433_344*s.dpt(2,11)+FM453_346*s.dpt(2,12)+FM473_348*s.dpt(2,15)+FM563_357*...
+ s.dpt(2,16)+FM583_359*s.dpt(2,17)+FM73_38*s.dpt(2,1)-s.dpt(3,1)*(FM73_18*S7+FM83_29*C7)-s.dpt(3,10)*(FM343_135*S34+FM353_236*C34)-s.dpt(3,11)*(...
+ FB144_3*S43+FM433_244*C43)-s.dpt(3,12)*(FB146_3*S45+FM453_246*C45)-s.dpt(3,15)*(FM473_148*S47+FM483_249*C47)-s.dpt(3,16)*(FB157_3*S56+FM563_257*C56)-...
+ s.dpt(3,17)*(FB159_3*S58+FM583_259*C58)-s.dpt(3,2)*(FB117_3*S16+FM163_217*C16)-s.dpt(3,3)*(FB119_3*S18+FM183_219*C18)-s.dpt(3,4)*(FB121_3*S20+...
+ FM203_221*C20)-s.dpt(3,5)*(FB123_3*S22+FM223_223*C22)-s.dpt(3,6)*(FM243_125*S24+FM253_226*C24);
+  CM26_3 = CM117_3*S16+CM119_3*S18+CM121_3*S20+CM123_3*S22+CM144_3*S43+CM146_3*S45+CM157_3*S56+CM159_3*S58+CM163_217*C16+CM183_219*C18+CM203_221*...
+ C20+CM223_223*C22+CM243_125*S24+CM253_226*C24+CM343_135*S34+CM353_236*C34+CM433_244*C43+CM453_246*C45+CM473_148*S47+CM483_249*C47+CM563_257*C56+...
+ CM583_259*C58+CM73_18*S7+CM83_29*C7+FB133_3*s.dpt(3,9)+FB16_3*s.l(3,6)-FB333_3*s.dpt(1,9)-FB36_3*s.l(1,6)-FM163_317*s.dpt(1,2)-FM183_319*s.dpt(1,3)-...
+ FM203_321*s.dpt(1,4)-FM223_323*s.dpt(1,5)-FM243_325*s.dpt(1,6)-FM343_335*s.dpt(1,10)-FM433_344*s.dpt(1,11)-FM453_346*s.dpt(1,12)-FM473_348*...
+ s.dpt(1,15)-FM563_357*s.dpt(1,16)-FM583_359*s.dpt(1,17)-FM73_38*s.dpt(1,1)+s.dpt(3,1)*(FM73_18*C7-FM83_29*S7)+s.dpt(3,10)*(FM343_135*C34-FM353_236*...
+ S34)+s.dpt(3,11)*(FB144_3*C43-FM433_244*S43)+s.dpt(3,12)*(FB146_3*C45-FM453_246*S45)+s.dpt(3,15)*(FM473_148*C47-FM483_249*S47)+s.dpt(3,16)*(FB157_3*...
+ C56-FM563_257*S56)+s.dpt(3,17)*(FB159_3*C58-FM583_259*S58)+s.dpt(3,2)*(FB117_3*C16-FM163_217*S16)+s.dpt(3,3)*(FB119_3*C18-FM183_219*S18)+s.dpt(3,4)*(...
+ FB121_3*C20-FM203_221*S20)+s.dpt(3,5)*(FB123_3*C22-FM223_223*S22)+s.dpt(3,6)*(FM243_125*C24-FM253_226*S24);
+  CM36_3 = CM163_317+CM183_319+CM203_321+CM223_323+CM243_325+CM343_335+CM433_344+CM453_346+CM473_348+CM563_357+CM583_359+CM73_38-q(33)*FB133_3+...
+ FB233_3*s.dpt(1,9)+FB26_3*s.l(1,6)+s.dpt(1,1)*(FM73_18*S7+FM83_29*C7)+s.dpt(1,10)*(FM343_135*S34+FM353_236*C34)+s.dpt(1,11)*(FB144_3*S43+FM433_244*...
+ C43)+s.dpt(1,12)*(FB146_3*S45+FM453_246*C45)+s.dpt(1,15)*(FM473_148*S47+FM483_249*C47)+s.dpt(1,16)*(FB157_3*S56+FM563_257*C56)+s.dpt(1,17)*(FB159_3*...
+ S58+FM583_259*C58)+s.dpt(1,2)*(FB117_3*S16+FM163_217*C16)+s.dpt(1,3)*(FB119_3*S18+FM183_219*C18)+s.dpt(1,4)*(FB121_3*S20+FM203_221*C20)+s.dpt(1,5)*(...
+ FB123_3*S22+FM223_223*C22)+s.dpt(1,6)*(FM243_125*S24+FM253_226*C24)-s.dpt(2,1)*(FM73_18*C7-FM83_29*S7)-s.dpt(2,10)*(FM343_135*C34-FM353_236*S34)-...
+ s.dpt(2,11)*(FB144_3*C43-FM433_244*S43)-s.dpt(2,12)*(FB146_3*C45-FM453_246*S45)-s.dpt(2,15)*(FM473_148*C47-FM483_249*S47)-s.dpt(2,16)*(FB157_3*C56-...
+ FM563_257*S56)-s.dpt(2,17)*(FB159_3*C58-FM583_259*S58)-s.dpt(2,2)*(FB117_3*C16-FM163_217*S16)-s.dpt(2,3)*(FB119_3*C18-FM183_219*S18)-s.dpt(2,4)*(...
+ FB121_3*C20-FM203_221*S20)-s.dpt(2,5)*(FB123_3*C22-FM223_223*S22)-s.dpt(2,6)*(FM243_125*C24-FM253_226*S24);
+  FB26_4 = -s.m(6)*(OpM16_4*s.l(3,6)-OpM36_4*s.l(1,6));
+  CM16_4 = q(33)*FB333_4+s.In(1,33)*OpM16_4+s.In(1,6)*OpM16_4+s.In(3,6)*OpM36_4+CM117_4*C16+CM119_4*C18+CM121_4*C20+CM123_4*C22+CM144_4*C43+...
+ CM146_4*C45+CM157_4*C56+CM159_4*C58-CM164_217*S16-CM184_219*S18-CM204_221*S20-CM224_223*S22+CM244_125*C24-CM254_226*S24+CM344_135*C34-CM354_236*S34-...
+ CM434_244*S43-CM454_246*S45+CM474_148*C47-CM484_249*S47-CM564_257*S56-CM584_259*S58+CM74_18*C7-CM84_29*S7-FB233_4*s.dpt(3,9)-FB26_4*s.l(3,6)+...
+ FM164_317*s.dpt(2,2)+FM184_319*s.dpt(2,3)+FM204_321*s.dpt(2,4)+FM224_323*s.dpt(2,5)+FM244_325*s.dpt(2,6)+FM344_335*s.dpt(2,10)+FM434_344*s.dpt(2,11)+...
+ FM454_346*s.dpt(2,12)+FM474_348*s.dpt(2,15)+FM564_357*s.dpt(2,16)+FM584_359*s.dpt(2,17)+FM74_38*s.dpt(2,1)-s.dpt(3,1)*(FM74_18*S7+FM84_29*C7)-...
+ s.dpt(3,10)*(FM344_135*S34+FM354_236*C34)-s.dpt(3,11)*(FB144_4*S43+FM434_244*C43)-s.dpt(3,12)*(FB146_4*S45+FM454_246*C45)-s.dpt(3,15)*(FM474_148*S47+...
+ FM484_249*C47)-s.dpt(3,16)*(FB157_4*S56+FM564_257*C56)-s.dpt(3,17)*(FB159_4*S58+FM584_259*C58)-s.dpt(3,2)*(FB117_4*S16+FM164_217*C16)-s.dpt(3,3)*(...
+ FB119_4*S18+FM184_219*C18)-s.dpt(3,4)*(FB121_4*S20+FM204_221*C20)-s.dpt(3,5)*(FB123_4*S22+FM224_223*C22)-s.dpt(3,6)*(FM244_125*S24+FM254_226*C24);
+  CM26_4 = s.m(6)*S5*(s.l(1,6)*s.l(1,6)+s.l(3,6)*s.l(3,6))+CM117_4*S16+CM119_4*S18+CM121_4*S20+CM123_4*S22+CM144_4*S43+CM146_4*S45+CM157_4*S56+...
+ CM159_4*S58+CM164_217*C16+CM184_219*C18+CM204_221*C20+CM224_223*C22+CM244_125*S24+CM254_226*C24+CM344_135*S34+CM354_236*C34+CM434_244*C43+CM454_246*...
+ C45+CM474_148*S47+CM484_249*C47+CM564_257*C56+CM584_259*C58+CM74_18*S7+CM84_29*C7+FB133_4*s.dpt(3,9)-FB333_4*s.dpt(1,9)-FM164_317*s.dpt(1,2)-...
+ FM184_319*s.dpt(1,3)-FM204_321*s.dpt(1,4)-FM224_323*s.dpt(1,5)-FM244_325*s.dpt(1,6)-FM344_335*s.dpt(1,10)-FM434_344*s.dpt(1,11)-FM454_346*s.dpt(1,12)...
+ -FM474_348*s.dpt(1,15)-FM564_357*s.dpt(1,16)-FM584_359*s.dpt(1,17)-FM74_38*s.dpt(1,1)+s.dpt(3,1)*(FM74_18*C7-FM84_29*S7)+s.dpt(3,10)*(FM344_135*C34-...
+ FM354_236*S34)+s.dpt(3,11)*(FB144_4*C43-FM434_244*S43)+s.dpt(3,12)*(FB146_4*C45-FM454_246*S45)+s.dpt(3,15)*(FM474_148*C47-FM484_249*S47)+s.dpt(3,16)*...
+ (FB157_4*C56-FM564_257*S56)+s.dpt(3,17)*(FB159_4*C58-FM584_259*S58)+s.dpt(3,2)*(FB117_4*C16-FM164_217*S16)+s.dpt(3,3)*(FB119_4*C18-FM184_219*S18)+...
+ s.dpt(3,4)*(FB121_4*C20-FM204_221*S20)+s.dpt(3,5)*(FB123_4*C22-FM224_223*S22)+s.dpt(3,6)*(FM244_125*C24-FM254_226*S24)+S5*(s.In(5,33)+s.In(5,6));
+  CM36_4 = CM164_317+CM184_319+CM204_321+CM224_323+CM244_325+CM344_335+CM434_344+CM454_346+CM474_348+CM564_357+CM584_359+CM74_38-q(33)*FB133_4+...
+ s.In(3,6)*OpM16_4+s.In(9,33)*OpM36_4+s.In(9,6)*OpM36_4+FB233_4*s.dpt(1,9)+FB26_4*s.l(1,6)+s.dpt(1,1)*(FM74_18*S7+FM84_29*C7)+s.dpt(1,10)*(FM344_135*...
+ S34+FM354_236*C34)+s.dpt(1,11)*(FB144_4*S43+FM434_244*C43)+s.dpt(1,12)*(FB146_4*S45+FM454_246*C45)+s.dpt(1,15)*(FM474_148*S47+FM484_249*C47)+...
+ s.dpt(1,16)*(FB157_4*S56+FM564_257*C56)+s.dpt(1,17)*(FB159_4*S58+FM584_259*C58)+s.dpt(1,2)*(FB117_4*S16+FM164_217*C16)+s.dpt(1,3)*(FB119_4*S18+...
+ FM184_219*C18)+s.dpt(1,4)*(FB121_4*S20+FM204_221*C20)+s.dpt(1,5)*(FB123_4*S22+FM224_223*C22)+s.dpt(1,6)*(FM244_125*S24+FM254_226*C24)-s.dpt(2,1)*(...
+ FM74_18*C7-FM84_29*S7)-s.dpt(2,10)*(FM344_135*C34-FM354_236*S34)-s.dpt(2,11)*(FB144_4*C43-FM434_244*S43)-s.dpt(2,12)*(FB146_4*C45-FM454_246*S45)-...
+ s.dpt(2,15)*(FM474_148*C47-FM484_249*S47)-s.dpt(2,16)*(FB157_4*C56-FM564_257*S56)-s.dpt(2,17)*(FB159_4*C58-FM584_259*S58)-s.dpt(2,2)*(FB117_4*C16-...
+ FM164_217*S16)-s.dpt(2,3)*(FB119_4*C18-FM184_219*S18)-s.dpt(2,4)*(FB121_4*C20-FM204_221*S20)-s.dpt(2,5)*(FB123_4*C22-FM224_223*S22)-s.dpt(2,6)*(...
+ FM244_125*C24-FM254_226*S24);
+  FB26_5 = s.m(6)*(s.l(1,6)*S6-s.l(3,6)*C6);
+  CM26_5 = CM117_5*S16+CM119_5*S18+CM121_5*S20+CM123_5*S22+CM144_5*S43+CM146_5*S45+CM157_5*S56+CM159_5*S58+CM165_217*C16+CM185_219*C18+CM205_221*...
+ C20+CM225_223*C22+CM245_125*S24+CM255_226*C24+CM345_135*S34+CM355_236*C34+CM435_244*C43+CM455_246*C45+CM475_148*S47+CM485_249*C47+CM565_257*C56+...
+ CM585_259*C58+CM75_18*S7+CM85_29*C7+FB133_5*s.dpt(3,9)-FB333_5*s.dpt(1,9)-FM165_317*s.dpt(1,2)-FM185_319*s.dpt(1,3)-FM205_321*s.dpt(1,4)-FM225_323*...
+ s.dpt(1,5)-FM245_325*s.dpt(1,6)-FM345_335*s.dpt(1,10)-FM435_344*s.dpt(1,11)-FM455_346*s.dpt(1,12)-FM475_348*s.dpt(1,15)-FM565_357*s.dpt(1,16)-...
+ FM585_359*s.dpt(1,17)-FM75_38*s.dpt(1,1)+s.dpt(3,1)*(FM75_18*C7-FM85_29*S7)+s.dpt(3,10)*(FM345_135*C34-FM355_236*S34)+s.dpt(3,11)*(FB144_5*C43-...
+ FM435_244*S43)+s.dpt(3,12)*(FB146_5*C45-FM455_246*S45)+s.dpt(3,15)*(FM475_148*C47-FM485_249*S47)+s.dpt(3,16)*(FB157_5*C56-FM565_257*S56)+s.dpt(3,17)*...
+ (FB159_5*C58-FM585_259*S58)+s.dpt(3,2)*(FB117_5*C16-FM165_217*S16)+s.dpt(3,3)*(FB119_5*C18-FM185_219*S18)+s.dpt(3,4)*(FB121_5*C20-FM205_221*S20)+...
+ s.dpt(3,5)*(FB123_5*C22-FM225_223*S22)+s.dpt(3,6)*(FM245_125*C24-FM255_226*S24);
+  CM26_6 = s.In(5,33)+s.In(5,6)+s.m(33)*s.dpt(1,9)*s.dpt(1,9)+s.m(33)*s.dpt(3,9)*s.dpt(3,9)+s.m(6)*s.l(1,6)*s.l(1,6)+s.m(6)*s.l(3,6)*s.l(3,6)+...
+ CM117_6*S16+CM119_6*S18+CM121_6*S20+CM123_6*S22+CM144_6*S43+CM146_6*S45+CM157_6*S56+CM159_6*S58+CM256_226*C24+CM356_236*C34+CM486_249*C47+CM86_29*C7+...
+ s.dpt(1,1)*(FM19_6*S8-FM86_39*C8)+s.dpt(1,10)*(FM136_6*S35-FM356_336*C35)-s.dpt(1,11)*(FB244_6*S44+FB344_6*C44)-s.dpt(1,12)*(FB246_6*S46+FB346_6*C46)...
+ +s.dpt(1,15)*(FM149_6*S48-FM486_349*C48)-s.dpt(1,16)*(FB257_6*S57+FB357_6*C57)-s.dpt(1,17)*(FB259_6*S59+FB359_6*C59)-s.dpt(1,2)*(FB217_6*S17+FB317_6*...
+ C17)-s.dpt(1,3)*(FB219_6*S19+FB319_6*C19)-s.dpt(1,4)*(FB221_6*S21+FB321_6*C21)-s.dpt(1,5)*(FB223_6*S23+FB323_6*C23)+s.dpt(1,6)*(FM126_6*S25-FM256_326...
+ *C25)+s.dpt(3,1)*(C7*(FM19_6*C8+FM86_39*S8)-S7*(FM29_6*C9-FM39_6*S9))+s.dpt(3,10)*(C34*(FM136_6*C35+FM356_336*S35)-S34*(FM236_6*C36-FM336_6*S36))+...
+ s.dpt(3,11)*(FB144_6*C43-S43*(FB244_6*C44-FB344_6*S44))+s.dpt(3,12)*(FB146_6*C45-S45*(FB246_6*C46-FB346_6*S46))+s.dpt(3,15)*(C47*(FM149_6*C48+...
+ FM486_349*S48)-S47*(FM249_6*C49-FM349_6*S49))+s.dpt(3,16)*(FB157_6*C56-S56*(FB257_6*C57-FB357_6*S57))+s.dpt(3,17)*(FB159_6*C58-S58*(FB259_6*C59-...
+ FB359_6*S59))+s.dpt(3,2)*(FB117_6*C16-S16*(FB217_6*C17-FB317_6*S17))+s.dpt(3,3)*(FB119_6*C18-S18*(FB219_6*C19-FB319_6*S19))+s.dpt(3,4)*(FB121_6*C20-...
+ S20*(FB221_6*C21-FB321_6*S21))+s.dpt(3,5)*(FB123_6*C22-S22*(FB223_6*C23-FB323_6*S23))+s.dpt(3,6)*(C24*(FM126_6*C25+FM256_326*S25)-S24*(FM226_6*C26-...
+ FM326_6*S26))+C16*(CM217_6*C17-CM317_6*S17)+C18*(CM219_6*C19-CM319_6*S19)+C20*(CM221_6*C21-CM321_6*S21)+C22*(CM223_6*C23-CM323_6*S23)+S24*(CM126_6*...
+ C25+CM256_326*S25)+S34*(CM136_6*C35+CM356_336*S35)+C43*(CM244_6*C44-CM344_6*S44)+C45*(CM246_6*C46-CM346_6*S46)+S47*(CM149_6*C48+CM486_349*S48)+C56*(...
+ CM257_6*C57-CM357_6*S57)+C58*(CM259_6*C59-CM359_6*S59)+S7*(CM19_6*C8+CM86_39*S8);
+  FF5_16 = FF16*C6+FF36*S6;
+  FF5_36 = -(FF16*S6-FF36*C6);
+  CF5_16 = CF16*C6+CF36*S6;
+  FM51_16 = FM16_1*C6+FM36_1*S6;
+  FM51_36 = -(FM16_1*S6-FM36_1*C6);
+  CM51_16 = CM16_1*C6+CM36_1*S6;
+  FM52_36 = -(FM16_2*S6-FM36_2*C6);
+  CM52_16 = CM16_2*C6+CM36_2*S6;
+  CM53_16 = CM16_3*C6+CM36_3*S6;
+  CM54_16 = CM16_4*C6+CM36_4*S6;
+  CM55_16 = C6*(q(33)*FB333_5+s.In(1,33)*C6+s.In(1,6)*C6+s.In(3,6)*S6+CM117_5*C16+CM119_5*C18+CM121_5*C20+CM123_5*C22+CM144_5*C43+CM146_5*C45+...
+ CM157_5*C56+CM159_5*C58-CM165_217*S16-CM185_219*S18-CM205_221*S20-CM225_223*S22+CM245_125*C24-CM255_226*S24+CM345_135*C34-CM355_236*S34-CM435_244*S43...
+ -CM455_246*S45+CM475_148*C47-CM485_249*S47-CM565_257*S56-CM585_259*S58+CM75_18*C7-CM85_29*S7-FB233_5*s.dpt(3,9)-FB26_5*s.l(3,6)+FM165_317*s.dpt(2,2)+...
+ FM185_319*s.dpt(2,3)+FM205_321*s.dpt(2,4)+FM225_323*s.dpt(2,5)+FM245_325*s.dpt(2,6)+FM345_335*s.dpt(2,10)+FM435_344*s.dpt(2,11)+FM455_346*s.dpt(2,12)...
+ +FM475_348*s.dpt(2,15)+FM565_357*s.dpt(2,16)+FM585_359*s.dpt(2,17)+FM75_38*s.dpt(2,1)-s.dpt(3,1)*(FM75_18*S7+FM85_29*C7)-s.dpt(3,10)*(FM345_135*S34+...
+ FM355_236*C34)-s.dpt(3,11)*(FB144_5*S43+FM435_244*C43)-s.dpt(3,12)*(FB146_5*S45+FM455_246*C45)-s.dpt(3,15)*(FM475_148*S47+FM485_249*C47)-s.dpt(3,16)*...
+ (FB157_5*S56+FM565_257*C56)-s.dpt(3,17)*(FB159_5*S58+FM585_259*C58)-s.dpt(3,2)*(FB117_5*S16+FM165_217*C16)-s.dpt(3,3)*(FB119_5*S18+FM185_219*C18)-...
+ s.dpt(3,4)*(FB121_5*S20+FM205_221*C20)-s.dpt(3,5)*(FB123_5*S22+FM225_223*C22)-s.dpt(3,6)*(FM245_125*S24+FM255_226*C24))+S6*(CM165_317+CM185_319+...
+ CM205_321+CM225_323+CM245_325+CM345_335+CM435_344+CM455_346+CM475_348+CM565_357+CM585_359+CM75_38-q(33)*FB133_5+s.In(3,6)*C6+s.In(9,33)*S6+s.In(9,6)*...
+ S6+FB233_5*s.dpt(1,9)+FB26_5*s.l(1,6)+s.dpt(1,1)*(FM75_18*S7+FM85_29*C7)+s.dpt(1,10)*(FM345_135*S34+FM355_236*C34)+s.dpt(1,11)*(FB144_5*S43+FM435_244...
+ *C43)+s.dpt(1,12)*(FB146_5*S45+FM455_246*C45)+s.dpt(1,15)*(FM475_148*S47+FM485_249*C47)+s.dpt(1,16)*(FB157_5*S56+FM565_257*C56)+s.dpt(1,17)*(FB159_5*...
+ S58+FM585_259*C58)+s.dpt(1,2)*(FB117_5*S16+FM165_217*C16)+s.dpt(1,3)*(FB119_5*S18+FM185_219*C18)+s.dpt(1,4)*(FB121_5*S20+FM205_221*C20)+s.dpt(1,5)*(...
+ FB123_5*S22+FM225_223*C22)+s.dpt(1,6)*(FM245_125*S24+FM255_226*C24)-s.dpt(2,1)*(FM75_18*C7-FM85_29*S7)-s.dpt(2,10)*(FM345_135*C34-FM355_236*S34)-...
+ s.dpt(2,11)*(FB144_5*C43-FM435_244*S43)-s.dpt(2,12)*(FB146_5*C45-FM455_246*S45)-s.dpt(2,15)*(FM475_148*C47-FM485_249*S47)-s.dpt(2,16)*(FB157_5*C56-...
+ FM565_257*S56)-s.dpt(2,17)*(FB159_5*C58-FM585_259*S58)-s.dpt(2,2)*(FB117_5*C16-FM165_217*S16)-s.dpt(2,3)*(FB119_5*C18-FM185_219*S18)-s.dpt(2,4)*(...
+ FB121_5*C20-FM205_221*S20)-s.dpt(2,5)*(FB123_5*C22-FM225_223*S22)-s.dpt(2,6)*(FM245_125*C24-FM255_226*S24));
+  FF4_25 = FF26*C5-FF5_36*S5;
+  FF4_35 = FF26*S5+FF5_36*C5;
+  CF4_35 = CF26*S5-C5*(CF16*S6-CF36*C6);
+  FM41_25 = FM26_1*C5-FM51_36*S5;
+  FM41_35 = FM26_1*S5+FM51_36*C5;
+  CM41_35 = CM26_1*S5-C5*(CM16_1*S6-CM36_1*C6);
+  FM42_35 = FM26_2*S5+FM52_36*C5;
+  CM42_35 = CM26_2*S5-C5*(CM16_2*S6-CM36_2*C6);
+  FM43_35 = C5*(C6*(FB333_3+FB36_3+FM163_317+FM183_319+FM203_321+FM223_323+FM243_325+FM343_335+FM433_344+FM453_346+FM473_348+FM563_357+FM583_359+...
+ FM73_38)-S6*(FB133_3+FB16_3+FB117_3*C16+FB119_3*C18+FB121_3*C20+FB123_3*C22+FB144_3*C43+FB146_3*C45+FB157_3*C56+FB159_3*C58-FM163_217*S16-FM183_219*...
+ S18-FM203_221*S20-FM223_223*S22+FM243_125*C24-FM253_226*S24+FM343_135*C34-FM353_236*S34-FM433_244*S43-FM453_246*S45+FM473_148*C47-FM483_249*S47-...
+ FM563_257*S56-FM583_259*S58+FM73_18*C7-FM83_29*S7))+S5*(FB233_3+FB26_3+FB117_3*S16+FB119_3*S18+FB121_3*S20+FB123_3*S22+FB144_3*S43+FB146_3*S45+...
+ FB157_3*S56+FB159_3*S58+FM163_217*C16+FM183_219*C18+FM203_221*C20+FM223_223*C22+FM243_125*S24+FM253_226*C24+FM343_135*S34+FM353_236*C34+FM433_244*C43...
+ +FM453_246*C45+FM473_148*S47+FM483_249*C47+FM563_257*C56+FM583_259*C58+FM73_18*S7+FM83_29*C7);
+  CM43_35 = CM26_3*S5-C5*(CM16_3*S6-CM36_3*C6);
+  CM44_35 = CM26_4*S5-C5*(CM16_4*S6-CM36_4*C6);
+  FF3_14 = -(FF4_25*S4-FF5_16*C4);
+  FF3_24 = FF4_25*C4+FF5_16*S4;
+  FM31_14 = -(FM41_25*S4-FM51_16*C4);
+  FM31_24 = FM41_25*C4+FM51_16*S4;
+  FM32_24 = C4*(FM26_2*C5-FM52_36*S5)+S4*(FM16_2*C6+FM36_2*S6);
+
+% = = Block_0_3_0_0_0_0 = = 
+ 
+% Symbolic Outputs  
+
+  M(1,1) = FM31_14;
+  M(1,2) = FM31_24;
+  M(1,3) = FM41_35;
+  M(1,4) = CM41_35;
+  M(1,5) = CM51_16;
+  M(1,6) = CM26_1;
+  M(1,7) = CM71_38;
+  M(1,8) = CM81_29;
+  M(1,9) = CM19_1;
+  M(1,10) = CM101_111;
+  M(1,11) = CM111_212;
+  M(1,12) = CM312_1;
+  M(1,16) = CM161_317;
+  M(1,17) = CM117_1;
+  M(1,18) = CM181_319;
+  M(1,19) = CM119_1;
+  M(1,20) = CM201_321;
+  M(1,21) = CM121_1;
+  M(1,22) = CM221_323;
+  M(1,23) = CM123_1;
+  M(1,24) = CM241_325;
+  M(1,25) = CM251_226;
+  M(1,26) = CM126_1;
+  M(1,27) = CM271_128;
+  M(1,28) = CM281_229;
+  M(1,29) = CM329_1;
+  M(1,33) = FB233_1;
+  M(1,34) = CM341_335;
+  M(1,35) = CM351_236;
+  M(1,36) = CM136_1;
+  M(1,37) = CM371_138;
+  M(1,38) = CM381_239;
+  M(1,39) = CM339_1;
+  M(1,43) = CM431_344;
+  M(1,44) = CM144_1;
+  M(1,45) = CM451_346;
+  M(1,46) = CM146_1;
+  M(1,47) = CM471_348;
+  M(1,48) = CM481_249;
+  M(1,49) = CM149_1;
+  M(1,50) = CM501_151;
+  M(1,51) = CM511_252;
+  M(1,52) = CM352_1;
+  M(1,56) = CM561_357;
+  M(1,57) = CM157_1;
+  M(1,58) = CM581_359;
+  M(1,59) = CM159_1;
+  M(2,1) = FM31_24;
+  M(2,2) = FM32_24;
+  M(2,3) = FM42_35;
+  M(2,4) = CM42_35;
+  M(2,5) = CM52_16;
+  M(2,6) = CM26_2;
+  M(2,7) = CM72_38;
+  M(2,8) = CM82_29;
+  M(2,9) = CM19_2;
+  M(2,10) = CM102_111;
+  M(2,11) = CM112_212;
+  M(2,12) = CM312_2;
+  M(2,16) = CM162_317;
+  M(2,17) = CM117_2;
+  M(2,18) = CM182_319;
+  M(2,19) = CM119_2;
+  M(2,20) = CM202_321;
+  M(2,21) = CM121_2;
+  M(2,22) = CM222_323;
+  M(2,23) = CM123_2;
+  M(2,24) = CM242_325;
+  M(2,25) = CM252_226;
+  M(2,26) = CM126_2;
+  M(2,27) = CM272_128;
+  M(2,28) = CM282_229;
+  M(2,29) = CM329_2;
+  M(2,33) = FB233_2;
+  M(2,34) = CM342_335;
+  M(2,35) = CM352_236;
+  M(2,36) = CM136_2;
+  M(2,37) = CM372_138;
+  M(2,38) = CM382_239;
+  M(2,39) = CM339_2;
+  M(2,43) = CM432_344;
+  M(2,44) = CM144_2;
+  M(2,45) = CM452_346;
+  M(2,46) = CM146_2;
+  M(2,47) = CM472_348;
+  M(2,48) = CM482_249;
+  M(2,49) = CM149_2;
+  M(2,50) = CM502_151;
+  M(2,51) = CM512_252;
+  M(2,52) = CM352_2;
+  M(2,56) = CM562_357;
+  M(2,57) = CM157_2;
+  M(2,58) = CM582_359;
+  M(2,59) = CM159_2;
+  M(3,1) = FM41_35;
+  M(3,2) = FM42_35;
+  M(3,3) = FM43_35;
+  M(3,4) = CM43_35;
+  M(3,5) = CM53_16;
+  M(3,6) = CM26_3;
+  M(3,7) = CM73_38;
+  M(3,8) = CM83_29;
+  M(3,9) = CM19_3;
+  M(3,10) = CM103_111;
+  M(3,11) = CM113_212;
+  M(3,12) = CM312_3;
+  M(3,16) = CM163_317;
+  M(3,17) = CM117_3;
+  M(3,18) = CM183_319;
+  M(3,19) = CM119_3;
+  M(3,20) = CM203_321;
+  M(3,21) = CM121_3;
+  M(3,22) = CM223_323;
+  M(3,23) = CM123_3;
+  M(3,24) = CM243_325;
+  M(3,25) = CM253_226;
+  M(3,26) = CM126_3;
+  M(3,27) = CM273_128;
+  M(3,28) = CM283_229;
+  M(3,29) = CM329_3;
+  M(3,33) = FB233_3;
+  M(3,34) = CM343_335;
+  M(3,35) = CM353_236;
+  M(3,36) = CM136_3;
+  M(3,37) = CM373_138;
+  M(3,38) = CM383_239;
+  M(3,39) = CM339_3;
+  M(3,43) = CM433_344;
+  M(3,44) = CM144_3;
+  M(3,45) = CM453_346;
+  M(3,46) = CM146_3;
+  M(3,47) = CM473_348;
+  M(3,48) = CM483_249;
+  M(3,49) = CM149_3;
+  M(3,50) = CM503_151;
+  M(3,51) = CM513_252;
+  M(3,52) = CM352_3;
+  M(3,56) = CM563_357;
+  M(3,57) = CM157_3;
+  M(3,58) = CM583_359;
+  M(3,59) = CM159_3;
+  M(4,1) = CM41_35;
+  M(4,2) = CM42_35;
+  M(4,3) = CM43_35;
+  M(4,4) = CM44_35;
+  M(4,5) = CM54_16;
+  M(4,6) = CM26_4;
+  M(4,7) = CM74_38;
+  M(4,8) = CM84_29;
+  M(4,9) = CM19_4;
+  M(4,10) = CM104_111;
+  M(4,11) = CM114_212;
+  M(4,12) = CM312_4;
+  M(4,13) = CM134_314;
+  M(4,14) = CM144_115;
+  M(4,15) = CM215_4;
+  M(4,16) = CM164_317;
+  M(4,17) = CM117_4;
+  M(4,18) = CM184_319;
+  M(4,19) = CM119_4;
+  M(4,20) = CM204_321;
+  M(4,21) = CM121_4;
+  M(4,22) = CM224_323;
+  M(4,23) = CM123_4;
+  M(4,24) = CM244_325;
+  M(4,25) = CM254_226;
+  M(4,26) = CM126_4;
+  M(4,27) = CM274_128;
+  M(4,28) = CM284_229;
+  M(4,29) = CM329_4;
+  M(4,30) = CM304_331;
+  M(4,31) = CM314_132;
+  M(4,32) = CM232_4;
+  M(4,33) = FB233_4;
+  M(4,34) = CM344_335;
+  M(4,35) = CM354_236;
+  M(4,36) = CM136_4;
+  M(4,37) = CM374_138;
+  M(4,38) = CM384_239;
+  M(4,39) = CM339_4;
+  M(4,40) = CM404_341;
+  M(4,41) = CM414_142;
+  M(4,42) = CM242_4;
+  M(4,43) = CM434_344;
+  M(4,44) = CM144_4;
+  M(4,45) = CM454_346;
+  M(4,46) = CM146_4;
+  M(4,47) = CM474_348;
+  M(4,48) = CM484_249;
+  M(4,49) = CM149_4;
+  M(4,50) = CM504_151;
+  M(4,51) = CM514_252;
+  M(4,52) = CM352_4;
+  M(4,53) = CM534_354;
+  M(4,54) = CM544_155;
+  M(4,55) = CM255_4;
+  M(4,56) = CM564_357;
+  M(4,57) = CM157_4;
+  M(4,58) = CM584_359;
+  M(4,59) = CM159_4;
+  M(5,1) = CM51_16;
+  M(5,2) = CM52_16;
+  M(5,3) = CM53_16;
+  M(5,4) = CM54_16;
+  M(5,5) = CM55_16;
+  M(5,6) = CM26_5;
+  M(5,7) = CM75_38;
+  M(5,8) = CM85_29;
+  M(5,9) = CM19_5;
+  M(5,10) = CM105_111;
+  M(5,11) = CM115_212;
+  M(5,12) = CM312_5;
+  M(5,13) = CM135_314;
+  M(5,14) = CM145_115;
+  M(5,15) = CM215_5;
+  M(5,16) = CM165_317;
+  M(5,17) = CM117_5;
+  M(5,18) = CM185_319;
+  M(5,19) = CM119_5;
+  M(5,20) = CM205_321;
+  M(5,21) = CM121_5;
+  M(5,22) = CM225_323;
+  M(5,23) = CM123_5;
+  M(5,24) = CM245_325;
+  M(5,25) = CM255_226;
+  M(5,26) = CM126_5;
+  M(5,27) = CM275_128;
+  M(5,28) = CM285_229;
+  M(5,29) = CM329_5;
+  M(5,30) = CM305_331;
+  M(5,31) = CM315_132;
+  M(5,32) = CM232_5;
+  M(5,33) = FB233_5;
+  M(5,34) = CM345_335;
+  M(5,35) = CM355_236;
+  M(5,36) = CM136_5;
+  M(5,37) = CM375_138;
+  M(5,38) = CM385_239;
+  M(5,39) = CM339_5;
+  M(5,40) = CM405_341;
+  M(5,41) = CM415_142;
+  M(5,42) = CM242_5;
+  M(5,43) = CM435_344;
+  M(5,44) = CM144_5;
+  M(5,45) = CM455_346;
+  M(5,46) = CM146_5;
+  M(5,47) = CM475_348;
+  M(5,48) = CM485_249;
+  M(5,49) = CM149_5;
+  M(5,50) = CM505_151;
+  M(5,51) = CM515_252;
+  M(5,52) = CM352_5;
+  M(5,53) = CM535_354;
+  M(5,54) = CM545_155;
+  M(5,55) = CM255_5;
+  M(5,56) = CM565_357;
+  M(5,57) = CM157_5;
+  M(5,58) = CM585_359;
+  M(5,59) = CM159_5;
+  M(6,1) = CM26_1;
+  M(6,2) = CM26_2;
+  M(6,3) = CM26_3;
+  M(6,4) = CM26_4;
+  M(6,5) = CM26_5;
+  M(6,6) = CM26_6;
+  M(6,7) = CM76_38;
+  M(6,8) = CM86_29;
+  M(6,9) = CM19_6;
+  M(6,10) = CM106_111;
+  M(6,11) = CM116_212;
+  M(6,12) = CM312_6;
+  M(6,13) = CM136_314;
+  M(6,14) = CM146_115;
+  M(6,15) = CM215_6;
+  M(6,16) = CM166_317;
+  M(6,17) = CM117_6;
+  M(6,18) = CM186_319;
+  M(6,19) = CM119_6;
+  M(6,20) = CM206_321;
+  M(6,21) = CM121_6;
+  M(6,22) = CM226_323;
+  M(6,23) = CM123_6;
+  M(6,24) = CM246_325;
+  M(6,25) = CM256_226;
+  M(6,26) = CM126_6;
+  M(6,27) = CM276_128;
+  M(6,28) = CM286_229;
+  M(6,29) = CM329_6;
+  M(6,30) = CM306_331;
+  M(6,31) = CM316_132;
+  M(6,32) = CM232_6;
+  M(6,34) = CM346_335;
+  M(6,35) = CM356_236;
+  M(6,36) = CM136_6;
+  M(6,37) = CM376_138;
+  M(6,38) = CM386_239;
+  M(6,39) = CM339_6;
+  M(6,40) = CM406_341;
+  M(6,41) = CM416_142;
+  M(6,42) = CM242_6;
+  M(6,43) = CM436_344;
+  M(6,44) = CM144_6;
+  M(6,45) = CM456_346;
+  M(6,46) = CM146_6;
+  M(6,47) = CM476_348;
+  M(6,48) = CM486_249;
+  M(6,49) = CM149_6;
+  M(6,50) = CM506_151;
+  M(6,51) = CM516_252;
+  M(6,52) = CM352_6;
+  M(6,53) = CM536_354;
+  M(6,54) = CM546_155;
+  M(6,55) = CM255_6;
+  M(6,56) = CM566_357;
+  M(6,57) = CM157_6;
+  M(6,58) = CM586_359;
+  M(6,59) = CM159_6;
+  M(7,1) = CM71_38;
+  M(7,2) = CM72_38;
+  M(7,3) = CM73_38;
+  M(7,4) = CM74_38;
+  M(7,5) = CM75_38;
+  M(7,6) = CM76_38;
+  M(7,7) = CM77_38;
+  M(7,8) = CM87_29;
+  M(7,9) = CM19_7;
+  M(7,10) = CM107_111;
+  M(7,11) = CM117_212;
+  M(7,12) = CM312_7;
+  M(7,13) = CM137_314;
+  M(7,14) = CM147_115;
+  M(7,15) = CM215_7;
+  M(8,1) = CM81_29;
+  M(8,2) = CM82_29;
+  M(8,3) = CM83_29;
+  M(8,4) = CM84_29;
+  M(8,5) = CM85_29;
+  M(8,6) = CM86_29;
+  M(8,7) = CM87_29;
+  M(8,8) = CM88_29;
+  M(8,9) = CM98_110;
+  M(8,10) = CM108_111;
+  M(8,11) = CM118_212;
+  M(8,12) = CM312_8;
+  M(8,13) = CM138_314;
+  M(8,14) = CM148_115;
+  M(8,15) = CM215_8;
+  M(9,1) = CM19_1;
+  M(9,2) = CM19_2;
+  M(9,3) = CM19_3;
+  M(9,4) = CM19_4;
+  M(9,5) = CM19_5;
+  M(9,6) = CM19_6;
+  M(9,7) = CM19_7;
+  M(9,8) = CM98_110;
+  M(9,9) = CM19_9;
+  M(9,10) = CM109_111;
+  M(9,11) = CM119_212;
+  M(9,12) = CM312_9;
+  M(9,13) = CM139_314;
+  M(9,14) = CM149_115;
+  M(9,15) = CM215_9;
+  M(10,1) = CM101_111;
+  M(10,2) = CM102_111;
+  M(10,3) = CM103_111;
+  M(10,4) = CM104_111;
+  M(10,5) = CM105_111;
+  M(10,6) = CM106_111;
+  M(10,7) = CM107_111;
+  M(10,8) = CM108_111;
+  M(10,9) = CM109_111;
+  M(10,10) = CM1010_111;
+  M(10,11) = CM1110_212;
+  M(10,12) = CM312_10;
+  M(10,13) = CM1310_314;
+  M(10,14) = CM1410_115;
+  M(10,15) = CM215_10;
+  M(11,1) = CM111_212;
+  M(11,2) = CM112_212;
+  M(11,3) = CM113_212;
+  M(11,4) = CM114_212;
+  M(11,5) = CM115_212;
+  M(11,6) = CM116_212;
+  M(11,7) = CM117_212;
+  M(11,8) = CM118_212;
+  M(11,9) = CM119_212;
+  M(11,10) = CM1110_212;
+  M(11,11) = CM1111_212;
+  M(11,12) = CM312_11;
+  M(11,13) = CM1311_314;
+  M(11,14) = CM1411_115;
+  M(11,15) = CM215_11;
+  M(12,1) = CM312_1;
+  M(12,2) = CM312_2;
+  M(12,3) = CM312_3;
+  M(12,4) = CM312_4;
+  M(12,5) = CM312_5;
+  M(12,6) = CM312_6;
+  M(12,7) = CM312_7;
+  M(12,8) = CM312_8;
+  M(12,9) = CM312_9;
+  M(12,10) = CM312_10;
+  M(12,11) = CM312_11;
+  M(12,12) = CM312_12;
+  M(12,13) = CM1312_314;
+  M(12,14) = CM1412_115;
+  M(12,15) = CM215_12;
+  M(13,4) = CM134_314;
+  M(13,5) = CM135_314;
+  M(13,6) = CM136_314;
+  M(13,7) = CM137_314;
+  M(13,8) = CM138_314;
+  M(13,9) = CM139_314;
+  M(13,10) = CM1310_314;
+  M(13,11) = CM1311_314;
+  M(13,12) = CM1312_314;
+  M(13,13) = CM1313_314;
+  M(13,14) = CM1413_115;
+  M(13,15) = CM215_13;
+  M(14,4) = CM144_115;
+  M(14,5) = CM145_115;
+  M(14,6) = CM146_115;
+  M(14,7) = CM147_115;
+  M(14,8) = CM148_115;
+  M(14,9) = CM149_115;
+  M(14,10) = CM1410_115;
+  M(14,11) = CM1411_115;
+  M(14,12) = CM1412_115;
+  M(14,13) = CM1413_115;
+  M(14,14) = CM1414_115;
+  M(15,4) = CM215_4;
+  M(15,5) = CM215_5;
+  M(15,6) = CM215_6;
+  M(15,7) = CM215_7;
+  M(15,8) = CM215_8;
+  M(15,9) = CM215_9;
+  M(15,10) = CM215_10;
+  M(15,11) = CM215_11;
+  M(15,12) = CM215_12;
+  M(15,13) = CM215_13;
+  M(15,15) = s.In(5,15);
+  M(16,1) = CM161_317;
+  M(16,2) = CM162_317;
+  M(16,3) = CM163_317;
+  M(16,4) = CM164_317;
+  M(16,5) = CM165_317;
+  M(16,6) = CM166_317;
+  M(16,16) = CM1616_317;
+  M(16,17) = CM117_16;
+  M(17,1) = CM117_1;
+  M(17,2) = CM117_2;
+  M(17,3) = CM117_3;
+  M(17,4) = CM117_4;
+  M(17,5) = CM117_5;
+  M(17,6) = CM117_6;
+  M(17,16) = CM117_16;
+  M(17,17) = CM117_17;
+  M(18,1) = CM181_319;
+  M(18,2) = CM182_319;
+  M(18,3) = CM183_319;
+  M(18,4) = CM184_319;
+  M(18,5) = CM185_319;
+  M(18,6) = CM186_319;
+  M(18,18) = CM1818_319;
+  M(18,19) = CM119_18;
+  M(19,1) = CM119_1;
+  M(19,2) = CM119_2;
+  M(19,3) = CM119_3;
+  M(19,4) = CM119_4;
+  M(19,5) = CM119_5;
+  M(19,6) = CM119_6;
+  M(19,18) = CM119_18;
+  M(19,19) = CM119_19;
+  M(20,1) = CM201_321;
+  M(20,2) = CM202_321;
+  M(20,3) = CM203_321;
+  M(20,4) = CM204_321;
+  M(20,5) = CM205_321;
+  M(20,6) = CM206_321;
+  M(20,20) = CM2020_321;
+  M(20,21) = CM121_20;
+  M(21,1) = CM121_1;
+  M(21,2) = CM121_2;
+  M(21,3) = CM121_3;
+  M(21,4) = CM121_4;
+  M(21,5) = CM121_5;
+  M(21,6) = CM121_6;
+  M(21,20) = CM121_20;
+  M(21,21) = CM121_21;
+  M(22,1) = CM221_323;
+  M(22,2) = CM222_323;
+  M(22,3) = CM223_323;
+  M(22,4) = CM224_323;
+  M(22,5) = CM225_323;
+  M(22,6) = CM226_323;
+  M(22,22) = CM2222_323;
+  M(22,23) = CM123_22;
+  M(23,1) = CM123_1;
+  M(23,2) = CM123_2;
+  M(23,3) = CM123_3;
+  M(23,4) = CM123_4;
+  M(23,5) = CM123_5;
+  M(23,6) = CM123_6;
+  M(23,22) = CM123_22;
+  M(23,23) = CM123_23;
+  M(24,1) = CM241_325;
+  M(24,2) = CM242_325;
+  M(24,3) = CM243_325;
+  M(24,4) = CM244_325;
+  M(24,5) = CM245_325;
+  M(24,6) = CM246_325;
+  M(24,24) = CM2424_325;
+  M(24,25) = CM2524_226;
+  M(24,26) = CM126_24;
+  M(24,27) = CM2724_128;
+  M(24,28) = CM2824_229;
+  M(24,29) = CM329_24;
+  M(24,30) = CM3024_331;
+  M(24,31) = CM3124_132;
+  M(24,32) = CM232_24;
+  M(25,1) = CM251_226;
+  M(25,2) = CM252_226;
+  M(25,3) = CM253_226;
+  M(25,4) = CM254_226;
+  M(25,5) = CM255_226;
+  M(25,6) = CM256_226;
+  M(25,24) = CM2524_226;
+  M(25,25) = CM2525_226;
+  M(25,26) = CM2625_127;
+  M(25,27) = CM2725_128;
+  M(25,28) = CM2825_229;
+  M(25,29) = CM329_25;
+  M(25,30) = CM3025_331;
+  M(25,31) = CM3125_132;
+  M(25,32) = CM232_25;
+  M(26,1) = CM126_1;
+  M(26,2) = CM126_2;
+  M(26,3) = CM126_3;
+  M(26,4) = CM126_4;
+  M(26,5) = CM126_5;
+  M(26,6) = CM126_6;
+  M(26,24) = CM126_24;
+  M(26,25) = CM2625_127;
+  M(26,26) = CM126_26;
+  M(26,27) = CM2726_128;
+  M(26,28) = CM2826_229;
+  M(26,29) = CM329_26;
+  M(26,30) = CM3026_331;
+  M(26,31) = CM3126_132;
+  M(26,32) = CM232_26;
+  M(27,1) = CM271_128;
+  M(27,2) = CM272_128;
+  M(27,3) = CM273_128;
+  M(27,4) = CM274_128;
+  M(27,5) = CM275_128;
+  M(27,6) = CM276_128;
+  M(27,24) = CM2724_128;
+  M(27,25) = CM2725_128;
+  M(27,26) = CM2726_128;
+  M(27,27) = CM2727_128;
+  M(27,28) = CM2827_229;
+  M(27,29) = CM329_27;
+  M(27,30) = CM3027_331;
+  M(27,31) = CM3127_132;
+  M(27,32) = CM232_27;
+  M(28,1) = CM281_229;
+  M(28,2) = CM282_229;
+  M(28,3) = CM283_229;
+  M(28,4) = CM284_229;
+  M(28,5) = CM285_229;
+  M(28,6) = CM286_229;
+  M(28,24) = CM2824_229;
+  M(28,25) = CM2825_229;
+  M(28,26) = CM2826_229;
+  M(28,27) = CM2827_229;
+  M(28,28) = CM2828_229;
+  M(28,29) = CM329_28;
+  M(28,30) = CM3028_331;
+  M(28,31) = CM3128_132;
+  M(28,32) = CM232_28;
+  M(29,1) = CM329_1;
+  M(29,2) = CM329_2;
+  M(29,3) = CM329_3;
+  M(29,4) = CM329_4;
+  M(29,5) = CM329_5;
+  M(29,6) = CM329_6;
+  M(29,24) = CM329_24;
+  M(29,25) = CM329_25;
+  M(29,26) = CM329_26;
+  M(29,27) = CM329_27;
+  M(29,28) = CM329_28;
+  M(29,29) = CM329_29;
+  M(29,30) = CM3029_331;
+  M(29,31) = CM3129_132;
+  M(29,32) = CM232_29;
+  M(30,4) = CM304_331;
+  M(30,5) = CM305_331;
+  M(30,6) = CM306_331;
+  M(30,24) = CM3024_331;
+  M(30,25) = CM3025_331;
+  M(30,26) = CM3026_331;
+  M(30,27) = CM3027_331;
+  M(30,28) = CM3028_331;
+  M(30,29) = CM3029_331;
+  M(30,30) = CM3030_331;
+  M(30,31) = CM3130_132;
+  M(30,32) = CM232_30;
+  M(31,4) = CM314_132;
+  M(31,5) = CM315_132;
+  M(31,6) = CM316_132;
+  M(31,24) = CM3124_132;
+  M(31,25) = CM3125_132;
+  M(31,26) = CM3126_132;
+  M(31,27) = CM3127_132;
+  M(31,28) = CM3128_132;
+  M(31,29) = CM3129_132;
+  M(31,30) = CM3130_132;
+  M(31,31) = CM3131_132;
+  M(32,4) = CM232_4;
+  M(32,5) = CM232_5;
+  M(32,6) = CM232_6;
+  M(32,24) = CM232_24;
+  M(32,25) = CM232_25;
+  M(32,26) = CM232_26;
+  M(32,27) = CM232_27;
+  M(32,28) = CM232_28;
+  M(32,29) = CM232_29;
+  M(32,30) = CM232_30;
+  M(32,32) = s.In(5,32);
+  M(33,1) = FB233_1;
+  M(33,2) = FB233_2;
+  M(33,3) = FB233_3;
+  M(33,4) = FB233_4;
+  M(33,5) = FB233_5;
+  M(33,33) = s.m(33);
+  M(34,1) = CM341_335;
+  M(34,2) = CM342_335;
+  M(34,3) = CM343_335;
+  M(34,4) = CM344_335;
+  M(34,5) = CM345_335;
+  M(34,6) = CM346_335;
+  M(34,34) = CM3434_335;
+  M(34,35) = CM3534_236;
+  M(34,36) = CM136_34;
+  M(34,37) = CM3734_138;
+  M(34,38) = CM3834_239;
+  M(34,39) = CM339_34;
+  M(34,40) = CM4034_341;
+  M(34,41) = CM4134_142;
+  M(34,42) = CM242_34;
+  M(35,1) = CM351_236;
+  M(35,2) = CM352_236;
+  M(35,3) = CM353_236;
+  M(35,4) = CM354_236;
+  M(35,5) = CM355_236;
+  M(35,6) = CM356_236;
+  M(35,34) = CM3534_236;
+  M(35,35) = CM3535_236;
+  M(35,36) = CM3635_137;
+  M(35,37) = CM3735_138;
+  M(35,38) = CM3835_239;
+  M(35,39) = CM339_35;
+  M(35,40) = CM4035_341;
+  M(35,41) = CM4135_142;
+  M(35,42) = CM242_35;
+  M(36,1) = CM136_1;
+  M(36,2) = CM136_2;
+  M(36,3) = CM136_3;
+  M(36,4) = CM136_4;
+  M(36,5) = CM136_5;
+  M(36,6) = CM136_6;
+  M(36,34) = CM136_34;
+  M(36,35) = CM3635_137;
+  M(36,36) = CM136_36;
+  M(36,37) = CM3736_138;
+  M(36,38) = CM3836_239;
+  M(36,39) = CM339_36;
+  M(36,40) = CM4036_341;
+  M(36,41) = CM4136_142;
+  M(36,42) = CM242_36;
+  M(37,1) = CM371_138;
+  M(37,2) = CM372_138;
+  M(37,3) = CM373_138;
+  M(37,4) = CM374_138;
+  M(37,5) = CM375_138;
+  M(37,6) = CM376_138;
+  M(37,34) = CM3734_138;
+  M(37,35) = CM3735_138;
+  M(37,36) = CM3736_138;
+  M(37,37) = CM3737_138;
+  M(37,38) = CM3837_239;
+  M(37,39) = CM339_37;
+  M(37,40) = CM4037_341;
+  M(37,41) = CM4137_142;
+  M(37,42) = CM242_37;
+  M(38,1) = CM381_239;
+  M(38,2) = CM382_239;
+  M(38,3) = CM383_239;
+  M(38,4) = CM384_239;
+  M(38,5) = CM385_239;
+  M(38,6) = CM386_239;
+  M(38,34) = CM3834_239;
+  M(38,35) = CM3835_239;
+  M(38,36) = CM3836_239;
+  M(38,37) = CM3837_239;
+  M(38,38) = CM3838_239;
+  M(38,39) = CM339_38;
+  M(38,40) = CM4038_341;
+  M(38,41) = CM4138_142;
+  M(38,42) = CM242_38;
+  M(39,1) = CM339_1;
+  M(39,2) = CM339_2;
+  M(39,3) = CM339_3;
+  M(39,4) = CM339_4;
+  M(39,5) = CM339_5;
+  M(39,6) = CM339_6;
+  M(39,34) = CM339_34;
+  M(39,35) = CM339_35;
+  M(39,36) = CM339_36;
+  M(39,37) = CM339_37;
+  M(39,38) = CM339_38;
+  M(39,39) = CM339_39;
+  M(39,40) = CM4039_341;
+  M(39,41) = CM4139_142;
+  M(39,42) = CM242_39;
+  M(40,4) = CM404_341;
+  M(40,5) = CM405_341;
+  M(40,6) = CM406_341;
+  M(40,34) = CM4034_341;
+  M(40,35) = CM4035_341;
+  M(40,36) = CM4036_341;
+  M(40,37) = CM4037_341;
+  M(40,38) = CM4038_341;
+  M(40,39) = CM4039_341;
+  M(40,40) = CM4040_341;
+  M(40,41) = CM4140_142;
+  M(40,42) = CM242_40;
+  M(41,4) = CM414_142;
+  M(41,5) = CM415_142;
+  M(41,6) = CM416_142;
+  M(41,34) = CM4134_142;
+  M(41,35) = CM4135_142;
+  M(41,36) = CM4136_142;
+  M(41,37) = CM4137_142;
+  M(41,38) = CM4138_142;
+  M(41,39) = CM4139_142;
+  M(41,40) = CM4140_142;
+  M(41,41) = CM4141_142;
+  M(42,4) = CM242_4;
+  M(42,5) = CM242_5;
+  M(42,6) = CM242_6;
+  M(42,34) = CM242_34;
+  M(42,35) = CM242_35;
+  M(42,36) = CM242_36;
+  M(42,37) = CM242_37;
+  M(42,38) = CM242_38;
+  M(42,39) = CM242_39;
+  M(42,40) = CM242_40;
+  M(42,42) = s.In(5,42);
+  M(43,1) = CM431_344;
+  M(43,2) = CM432_344;
+  M(43,3) = CM433_344;
+  M(43,4) = CM434_344;
+  M(43,5) = CM435_344;
+  M(43,6) = CM436_344;
+  M(43,43) = CM4343_344;
+  M(43,44) = CM144_43;
+  M(44,1) = CM144_1;
+  M(44,2) = CM144_2;
+  M(44,3) = CM144_3;
+  M(44,4) = CM144_4;
+  M(44,5) = CM144_5;
+  M(44,6) = CM144_6;
+  M(44,43) = CM144_43;
+  M(44,44) = CM144_44;
+  M(45,1) = CM451_346;
+  M(45,2) = CM452_346;
+  M(45,3) = CM453_346;
+  M(45,4) = CM454_346;
+  M(45,5) = CM455_346;
+  M(45,6) = CM456_346;
+  M(45,45) = CM4545_346;
+  M(45,46) = CM146_45;
+  M(46,1) = CM146_1;
+  M(46,2) = CM146_2;
+  M(46,3) = CM146_3;
+  M(46,4) = CM146_4;
+  M(46,5) = CM146_5;
+  M(46,6) = CM146_6;
+  M(46,45) = CM146_45;
+  M(46,46) = CM146_46;
+  M(47,1) = CM471_348;
+  M(47,2) = CM472_348;
+  M(47,3) = CM473_348;
+  M(47,4) = CM474_348;
+  M(47,5) = CM475_348;
+  M(47,6) = CM476_348;
+  M(47,47) = CM4747_348;
+  M(47,48) = CM4847_249;
+  M(47,49) = CM149_47;
+  M(47,50) = CM5047_151;
+  M(47,51) = CM5147_252;
+  M(47,52) = CM352_47;
+  M(47,53) = CM5347_354;
+  M(47,54) = CM5447_155;
+  M(47,55) = CM255_47;
+  M(48,1) = CM481_249;
+  M(48,2) = CM482_249;
+  M(48,3) = CM483_249;
+  M(48,4) = CM484_249;
+  M(48,5) = CM485_249;
+  M(48,6) = CM486_249;
+  M(48,47) = CM4847_249;
+  M(48,48) = CM4848_249;
+  M(48,49) = CM4948_150;
+  M(48,50) = CM5048_151;
+  M(48,51) = CM5148_252;
+  M(48,52) = CM352_48;
+  M(48,53) = CM5348_354;
+  M(48,54) = CM5448_155;
+  M(48,55) = CM255_48;
+  M(49,1) = CM149_1;
+  M(49,2) = CM149_2;
+  M(49,3) = CM149_3;
+  M(49,4) = CM149_4;
+  M(49,5) = CM149_5;
+  M(49,6) = CM149_6;
+  M(49,47) = CM149_47;
+  M(49,48) = CM4948_150;
+  M(49,49) = CM149_49;
+  M(49,50) = CM5049_151;
+  M(49,51) = CM5149_252;
+  M(49,52) = CM352_49;
+  M(49,53) = CM5349_354;
+  M(49,54) = CM5449_155;
+  M(49,55) = CM255_49;
+  M(50,1) = CM501_151;
+  M(50,2) = CM502_151;
+  M(50,3) = CM503_151;
+  M(50,4) = CM504_151;
+  M(50,5) = CM505_151;
+  M(50,6) = CM506_151;
+  M(50,47) = CM5047_151;
+  M(50,48) = CM5048_151;
+  M(50,49) = CM5049_151;
+  M(50,50) = CM5050_151;
+  M(50,51) = CM5150_252;
+  M(50,52) = CM352_50;
+  M(50,53) = CM5350_354;
+  M(50,54) = CM5450_155;
+  M(50,55) = CM255_50;
+  M(51,1) = CM511_252;
+  M(51,2) = CM512_252;
+  M(51,3) = CM513_252;
+  M(51,4) = CM514_252;
+  M(51,5) = CM515_252;
+  M(51,6) = CM516_252;
+  M(51,47) = CM5147_252;
+  M(51,48) = CM5148_252;
+  M(51,49) = CM5149_252;
+  M(51,50) = CM5150_252;
+  M(51,51) = CM5151_252;
+  M(51,52) = CM352_51;
+  M(51,53) = CM5351_354;
+  M(51,54) = CM5451_155;
+  M(51,55) = CM255_51;
+  M(52,1) = CM352_1;
+  M(52,2) = CM352_2;
+  M(52,3) = CM352_3;
+  M(52,4) = CM352_4;
+  M(52,5) = CM352_5;
+  M(52,6) = CM352_6;
+  M(52,47) = CM352_47;
+  M(52,48) = CM352_48;
+  M(52,49) = CM352_49;
+  M(52,50) = CM352_50;
+  M(52,51) = CM352_51;
+  M(52,52) = CM352_52;
+  M(52,53) = CM5352_354;
+  M(52,54) = CM5452_155;
+  M(52,55) = CM255_52;
+  M(53,4) = CM534_354;
+  M(53,5) = CM535_354;
+  M(53,6) = CM536_354;
+  M(53,47) = CM5347_354;
+  M(53,48) = CM5348_354;
+  M(53,49) = CM5349_354;
+  M(53,50) = CM5350_354;
+  M(53,51) = CM5351_354;
+  M(53,52) = CM5352_354;
+  M(53,53) = CM5353_354;
+  M(53,54) = CM5453_155;
+  M(53,55) = CM255_53;
+  M(54,4) = CM544_155;
+  M(54,5) = CM545_155;
+  M(54,6) = CM546_155;
+  M(54,47) = CM5447_155;
+  M(54,48) = CM5448_155;
+  M(54,49) = CM5449_155;
+  M(54,50) = CM5450_155;
+  M(54,51) = CM5451_155;
+  M(54,52) = CM5452_155;
+  M(54,53) = CM5453_155;
+  M(54,54) = CM5454_155;
+  M(55,4) = CM255_4;
+  M(55,5) = CM255_5;
+  M(55,6) = CM255_6;
+  M(55,47) = CM255_47;
+  M(55,48) = CM255_48;
+  M(55,49) = CM255_49;
+  M(55,50) = CM255_50;
+  M(55,51) = CM255_51;
+  M(55,52) = CM255_52;
+  M(55,53) = CM255_53;
+  M(55,55) = s.In(5,55);
+  M(56,1) = CM561_357;
+  M(56,2) = CM562_357;
+  M(56,3) = CM563_357;
+  M(56,4) = CM564_357;
+  M(56,5) = CM565_357;
+  M(56,6) = CM566_357;
+  M(56,56) = CM5656_357;
+  M(56,57) = CM157_56;
+  M(57,1) = CM157_1;
+  M(57,2) = CM157_2;
+  M(57,3) = CM157_3;
+  M(57,4) = CM157_4;
+  M(57,5) = CM157_5;
+  M(57,6) = CM157_6;
+  M(57,56) = CM157_56;
+  M(57,57) = CM157_57;
+  M(58,1) = CM581_359;
+  M(58,2) = CM582_359;
+  M(58,3) = CM583_359;
+  M(58,4) = CM584_359;
+  M(58,5) = CM585_359;
+  M(58,6) = CM586_359;
+  M(58,58) = CM5858_359;
+  M(58,59) = CM159_58;
+  M(59,1) = CM159_1;
+  M(59,2) = CM159_2;
+  M(59,3) = CM159_3;
+  M(59,4) = CM159_4;
+  M(59,5) = CM159_5;
+  M(59,6) = CM159_6;
+  M(59,58) = CM159_58;
+  M(59,59) = CM159_59;
+  c(1) = FF3_14;
+  c(2) = FF3_24;
+  c(3) = FF4_35;
+  c(4) = CF4_35;
+  c(5) = CF5_16;
+  c(6) = CF26;
+  c(7) = CF7_38;
+  c(8) = CF8_29;
+  c(9) = CF19;
+  c(10) = CF10_111;
+  c(11) = CF11_212;
+  c(12) = CF312;
+  c(13) = CF13_314;
+  c(14) = CF14_115;
+  c(15) = CF215;
+  c(16) = CF16_317;
+  c(17) = CF117;
+  c(18) = CF18_319;
+  c(19) = CF119;
+  c(20) = CF20_321;
+  c(21) = CF121;
+  c(22) = CF22_323;
+  c(23) = CF123;
+  c(24) = CF24_325;
+  c(25) = CF25_226;
+  c(26) = CF126;
+  c(27) = CF27_128;
+  c(28) = CF28_229;
+  c(29) = CF329;
+  c(30) = CF30_331;
+  c(31) = CF31_132;
+  c(32) = CF232;
+  c(33) = FA233;
+  c(34) = CF34_335;
+  c(35) = CF35_236;
+  c(36) = CF136;
+  c(37) = CF37_138;
+  c(38) = CF38_239;
+  c(39) = CF339;
+  c(40) = CF40_341;
+  c(41) = CF41_142;
+  c(42) = CF242;
+  c(43) = CF43_344;
+  c(44) = CF144;
+  c(45) = CF45_346;
+  c(46) = CF146;
+  c(47) = CF47_348;
+  c(48) = CF48_249;
+  c(49) = CF149;
+  c(50) = CF50_151;
+  c(51) = CF51_252;
+  c(52) = CF352;
+  c(53) = CF53_354;
+  c(54) = CF54_155;
+  c(55) = CF255;
+  c(56) = CF56_357;
+  c(57) = CF157;
+  c(58) = CF58_359;
+  c(59) = CF159;
+  c(60) = CF260;
+  c(61) = -s.trq(2,61);
+  c(62) = CF262;
+  c(63) = -s.trq(2,63);
+
+% ====== END Task 0 ====== 
+
+  
+
