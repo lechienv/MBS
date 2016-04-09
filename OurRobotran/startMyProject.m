@@ -3,9 +3,8 @@
 % Groupe 4
 % de Walque Cyril, Timmermans Sebastien, Lechien Vianney
 
-
 %% un peu de nettoyage:
-close all; clear variables; clc;
+close all; clear variables; %clc;
 
 % declaration de variables globales utiles
 % mbs_data: structure principal utilise par les modules
@@ -13,13 +12,15 @@ close all; clear variables; clc;
 %           qui lui sont utiles
 global MBS_user mbs_data mbs_userfct
 
+
+
 %% * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 % Chargement des donnees
 % mbs_data
 % prjname = 'Suspension_LMECA2802'  % correspond au nom du dossier
 % [mbs_data, mbs_info] = mbs_oad(prjname,'default');
 
-
+LoadData(mbs_data);
 %% * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 % recuperation d'indices utiles
 
@@ -39,7 +40,7 @@ mbs_userfct.fext=@user_ExtForces;
 % Integration
 tic;
 % sauvegarde des valeurs initiales dans un champs specifique
-mbs_data.q0 = mbs_data.q
+mbs_data.q0 = mbs_data.q;
 mbs_data.qd0 = mbs_data.qd;
 MBS_user.q = zeros(mbs_data.Njoint,1);
 MBS_user.qd = zeros(mbs_data.Njoint,1);

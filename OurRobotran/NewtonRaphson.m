@@ -9,7 +9,7 @@ n=0;
 while max(abs(theNextV - theNewV)) > 10^(-9) && n<10
     theNewV=theNextV;
     data.q(data.ind_v) = theNextV;
-    [ theNewH,Jac ] = mbs_cons_hJ(data);
+    [ theNewH,Jac ] = hJ(data);
     
     theNewJv = Jac(:,data.ind_v);
     theNextV = theNewV - (theNewJv\theNewH);
