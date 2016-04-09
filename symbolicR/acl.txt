@@ -1,0 +1,7 @@
+nJointMax = 80
+nCstrMax = 25
+nLinkMax = 15
+nSensorMax = 25
+language = 2 (matlab), 6 (null)
+function = 2, 1, 10, 7, 6, 19, 18, 8, 27
+expirationDate = 15/10/2016
