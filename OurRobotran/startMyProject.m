@@ -7,11 +7,15 @@
 close all; clear variables; %clc;
 
 % declaration de variables globales utiles
-% mbs_data: structure principal utilise par les modules
-% MBS_user: une structure ou l'utilisateur stocke des variables
+% mbs_data: structure principale utilisee par les modules
+% MBS_user: une structure dans laquelle l'utilisateur stocke des variables
 %           qui lui sont utiles
-global MBS_user mbs_data mbs_userfct
+global MBS_user
+global mbs_data
+global mbs_userfct
 
+
+%mbs_data = struct('q',{zeros(1,6)},'qd',{zeros(1,6)},'g',{1},'Njoint',{1});
 
 
 %% * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -21,6 +25,7 @@ global MBS_user mbs_data mbs_userfct
 % [mbs_data, mbs_info] = mbs_oad(prjname,'default');
 
 LoadData(mbs_data);
+
 %% * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 % recuperation d'indices utiles
 
